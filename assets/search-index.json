@@ -1,0 +1,323 @@
+[
+  {
+    "title": "南北日本戦記 設定Wiki",
+    "url": "index.html",
+    "summary": "設定Wikiのトップページ。カテゴリと運用方針を案内。",
+    "tags": [
+      "top",
+      "home"
+    ]
+  },
+  {
+    "title": "世界観",
+    "url": "world.html",
+    "summary": "南北日本戦記の世界設定、価値観、制度、技術基盤を整理する入口ページです。",
+    "tags": [
+      "section"
+    ]
+  },
+  {
+    "title": "年表",
+    "url": "timeline.html",
+    "summary": "古代から現代までの主要事件を時系列で追うための入口ページです。",
+    "tags": [
+      "section"
+    ]
+  },
+  {
+    "title": "勢力",
+    "url": "factions.html",
+    "summary": "国家・同盟・商会・地方勢力など主要組織を一覧化します。",
+    "tags": [
+      "section"
+    ]
+  },
+  {
+    "title": "人物",
+    "url": "characters.html",
+    "summary": "主要人物の立場、背景、関係性を確認するための入口ページです。",
+    "tags": [
+      "section"
+    ]
+  },
+  {
+    "title": "地理",
+    "url": "geography.html",
+    "summary": "地形、交通路、戦略拠点、資源地帯などの地理情報を管理します。",
+    "tags": [
+      "section"
+    ]
+  },
+  {
+    "title": "用語集",
+    "url": "glossary.html",
+    "summary": "固有名詞・制度・軍事語彙を五十音的に参照するための入口ページです。",
+    "tags": [
+      "section"
+    ]
+  },
+  {
+    "title": "資料室",
+    "url": "archive.html",
+    "summary": "一次資料、改訂履歴、地図メモを保存する保管庫です。",
+    "tags": [
+      "section"
+    ]
+  },
+  {
+    "title": "世界創成神話",
+    "url": "world-creation-myth.html",
+    "summary": "世界創成神話の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "信仰体系",
+    "url": "world-faith-systems.html",
+    "summary": "信仰体系の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "社会階層制度",
+    "url": "world-social-order.html",
+    "summary": "社会階層制度の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "技術水準",
+    "url": "world-technology.html",
+    "summary": "技術水準の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "経済構造",
+    "url": "world-economy.html",
+    "summary": "経済構造の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "古代期",
+    "url": "timeline-ancient-age.html",
+    "summary": "古代期の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "統一期戦役",
+    "url": "timeline-unification-war.html",
+    "summary": "統一期戦役の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "南北分裂",
+    "url": "timeline-north-south-schism.html",
+    "summary": "南北分裂の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "国境紛争期",
+    "url": "timeline-border-conflicts.html",
+    "summary": "国境紛争期の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "現代局面",
+    "url": "timeline-present-day.html",
+    "summary": "現代局面の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "帝都朝廷",
+    "url": "faction-imperial-court.html",
+    "summary": "帝都朝廷の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "北方同盟",
+    "url": "faction-northern-alliance.html",
+    "summary": "北方同盟の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "南方連合",
+    "url": "faction-southern-league.html",
+    "summary": "南方連合の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "海運商会",
+    "url": "faction-maritime-guild.html",
+    "summary": "海運商会の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "辺境諸氏族",
+    "url": "faction-frontier-clans.html",
+    "summary": "辺境諸氏族の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "霧島アオイ",
+    "url": "character-aoi-kirishima.html",
+    "summary": "霧島アオイの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "早乙女レン",
+    "url": "character-ren-saotome.html",
+    "summary": "早乙女レンの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "橘ユイ",
+    "url": "character-yui-tachibana.html",
+    "summary": "橘ユイの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "鏡シュン",
+    "url": "character-shun-kagami.html",
+    "summary": "鏡シュンの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "星名ミオ",
+    "url": "character-mio-hoshina.html",
+    "summary": "星名ミオの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "帝都盆地",
+    "url": "geography-capital-basin.html",
+    "summary": "帝都盆地の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "鉄嶺回廊",
+    "url": "geography-iron-pass.html",
+    "summary": "鉄嶺回廊の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "凍原北縁",
+    "url": "geography-frozen-frontier.html",
+    "summary": "凍原北縁の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "内海交易圏",
+    "url": "geography-inland-sea.html",
+    "summary": "内海交易圏の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "南群島",
+    "url": "geography-southern-archipelago.html",
+    "summary": "南群島の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "用語 A-F",
+    "url": "glossary-terms-a-f.html",
+    "summary": "用語 A-Fの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "用語 G-L",
+    "url": "glossary-terms-g-l.html",
+    "summary": "用語 G-Lの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "用語 M-R",
+    "url": "glossary-terms-m-r.html",
+    "summary": "用語 M-Rの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "用語 S-Z",
+    "url": "glossary-terms-s-z.html",
+    "summary": "用語 S-Zの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "軍制階級一覧",
+    "url": "glossary-military-ranks.html",
+    "summary": "軍制階級一覧の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "地図注釈ノート",
+    "url": "archive-map-notes.html",
+    "summary": "地図注釈ノートの詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  },
+  {
+    "title": "外交記録簿",
+    "url": "archive-diplomatic-ledger.html",
+    "summary": "外交記録簿の詳細設定ページ。",
+    "tags": [
+      "detail"
+    ]
+  }
+]
