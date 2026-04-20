@@ -1,67 +1,75 @@
 [
   {
-    "title": "南北日本戦記 設定Wiki",
+    "title": "天通辞典",
     "url": "index.html",
-    "summary": "設定Wikiのトップページ。カテゴリと運用方針を案内。",
+    "summary": "天通が運営する南北日本戦記のWikipedia風資料サイト。継続改稿型で運用。",
     "tags": [
       "top",
-      "home"
+      "home",
+      "tenzu"
     ]
   },
   {
     "title": "世界観",
     "url": "world.html",
-    "summary": "南北日本戦記の世界設定、価値観、制度、技術基盤を整理する入口ページです。",
+    "summary": "分断日本の政治・情報・経済・軍需構造を整理する入口ページ。",
     "tags": [
-      "section"
+      "section",
+      "world"
     ]
   },
   {
     "title": "年表",
     "url": "timeline.html",
-    "summary": "古代から現代までの主要事件を時系列で追うための入口ページです。",
+    "summary": "南北分裂から72時間事件後までの主要局面を時系列で整理。",
     "tags": [
-      "section"
+      "section",
+      "timeline"
     ]
   },
   {
     "title": "勢力",
     "url": "factions.html",
-    "summary": "国家・同盟・商会・地方勢力など主要組織を一覧化します。",
+    "summary": "南北政権、財閥、メディア、軍需企業の関係を整理。",
     "tags": [
-      "section"
+      "section",
+      "factions"
     ]
   },
   {
     "title": "人物",
     "url": "characters.html",
-    "summary": "主要人物の立場、背景、関係性を確認するための入口ページです。",
+    "summary": "レイム、マリサ、沙苗、弥栄、御子を中心に人物相関を整理。",
     "tags": [
-      "section"
+      "section",
+      "characters"
     ]
   },
   {
     "title": "地理",
     "url": "geography.html",
-    "summary": "地形、交通路、戦略拠点、資源地帯などの地理情報を管理します。",
+    "summary": "糸魚川境界線、白馬、松代、諏訪、佐渡を中心とした戦略地理。",
     "tags": [
-      "section"
+      "section",
+      "geography"
     ]
   },
   {
     "title": "用語集",
     "url": "glossary.html",
-    "summary": "固有名詞・制度・軍事語彙を五十音的に参照するための入口ページです。",
+    "summary": "政治ラベル・情報戦語・軍事語を横断参照する用語集。",
     "tags": [
-      "section"
+      "section",
+      "glossary"
     ]
   },
   {
     "title": "資料室",
     "url": "archive.html",
-    "summary": "一次資料、改訂履歴、地図メモを保存する保管庫です。",
+    "summary": "地図注釈と外交記録を保存する改稿履歴対応の保管庫。",
     "tags": [
-      "section"
+      "section",
+      "archive"
     ]
   },
   {
@@ -83,25 +91,28 @@
   {
     "title": "社会階層制度",
     "url": "world-social-order.html",
-    "summary": "社会階層制度の詳細設定ページ。",
+    "summary": "市民層から情報媒介層までの多層統治構造。",
     "tags": [
-      "detail"
+      "detail",
+      "world"
     ]
   },
   {
     "title": "技術水準",
     "url": "world-technology.html",
-    "summary": "技術水準の詳細設定ページ。",
+    "summary": "昭和的インフラと令和的情報戦技術の混在構造。",
     "tags": [
-      "detail"
+      "detail",
+      "world"
     ]
   },
   {
     "title": "経済構造",
     "url": "world-economy.html",
-    "summary": "経済構造の詳細設定ページ。",
+    "summary": "戦争継続を支える利権と越境取引の構造。",
     "tags": [
-      "detail"
+      "detail",
+      "world"
     ]
   },
   {
@@ -123,105 +134,120 @@
   {
     "title": "南北分裂",
     "url": "timeline-north-south-schism.html",
-    "summary": "南北分裂の詳細設定ページ。",
+    "summary": "フォッサマグナ境界線で分裂が固定化した局面。",
     "tags": [
-      "detail"
+      "detail",
+      "timeline"
     ]
   },
   {
     "title": "国境紛争期",
     "url": "timeline-border-conflicts.html",
-    "summary": "国境紛争期の詳細設定ページ。",
+    "summary": "慢性的局地戦と情報戦が続いた時期。",
     "tags": [
-      "detail"
+      "detail",
+      "timeline"
     ]
   },
   {
-    "title": "現代局面",
+    "title": "現代局面（72時間以後）",
     "url": "timeline-present-day.html",
-    "summary": "現代局面の詳細設定ページ。",
+    "summary": "沙苗失脚後の新膠着体制を整理。",
     "tags": [
-      "detail"
+      "detail",
+      "timeline"
     ]
   },
   {
-    "title": "帝都朝廷",
+    "title": "洩八グループ",
     "url": "faction-imperial-court.html",
-    "summary": "帝都朝廷の詳細設定ページ。",
+    "summary": "弥栄が率いる南日本中核財閥。インフラ・金融・兵站を掌握。",
     "tags": [
-      "detail"
+      "detail",
+      "faction"
     ]
   },
   {
-    "title": "北方同盟",
+    "title": "北日本（松代政権）",
     "url": "faction-northern-alliance.html",
-    "summary": "北方同盟の詳細設定ページ。",
+    "summary": "御子体制の統治構造と前線運用を整理。",
     "tags": [
-      "detail"
+      "detail",
+      "faction"
     ]
   },
   {
-    "title": "南方連合",
+    "title": "南日本（京都政権）",
     "url": "faction-southern-league.html",
-    "summary": "南方連合の詳細設定ページ。",
+    "summary": "南日本の公式統治機構。沙苗政権と周辺実力組織の関係を整理。",
     "tags": [
-      "detail"
+      "detail",
+      "faction"
     ]
   },
   {
-    "title": "海運商会",
+    "title": "川城重工",
     "url": "faction-maritime-guild.html",
-    "summary": "海運商会の詳細設定ページ。",
+    "summary": "南北双方に軍需技術を供給する軍産複合企業。",
     "tags": [
-      "detail"
+      "detail",
+      "faction",
+      "industry"
     ]
   },
   {
-    "title": "辺境諸氏族",
+    "title": "天通（情報網）",
     "url": "faction-frontier-clans.html",
-    "summary": "辺境諸氏族の詳細設定ページ。",
+    "summary": "南日本最大メディア企業。統合情報基盤「天網」を運用。",
     "tags": [
-      "detail"
+      "detail",
+      "tenzu",
+      "media"
     ]
   },
   {
-    "title": "霧島アオイ",
+    "title": "レイム",
     "url": "character-aoi-kirishima.html",
-    "summary": "霧島アオイの詳細設定ページ。",
+    "summary": "南日本将軍。平時無関心と戦闘時覚醒の二面性を持つ。",
     "tags": [
-      "detail"
+      "detail",
+      "character"
     ]
   },
   {
-    "title": "早乙女レン",
+    "title": "マリサ",
     "url": "character-ren-saotome.html",
-    "summary": "早乙女レンの詳細設定ページ。",
+    "summary": "北日本将軍。努力型の前線指揮官。",
     "tags": [
-      "detail"
+      "detail",
+      "character"
     ]
   },
   {
-    "title": "橘ユイ",
+    "title": "沙苗",
     "url": "character-yui-tachibana.html",
-    "summary": "橘ユイの詳細設定ページ。",
+    "summary": "南日本総理。72時間事件の中心人物。",
     "tags": [
-      "detail"
+      "detail",
+      "character"
     ]
   },
   {
-    "title": "鏡シュン",
+    "title": "弥栄",
     "url": "character-shun-kagami.html",
-    "summary": "鏡シュンの詳細設定ページ。",
+    "summary": "洩八グループ総帥。合理主義的な秩序維持を担う。",
     "tags": [
-      "detail"
+      "detail",
+      "character"
     ]
   },
   {
-    "title": "星名ミオ",
+    "title": "御子",
     "url": "character-mio-hoshina.html",
-    "summary": "星名ミオの詳細設定ページ。",
+    "summary": "北日本最高指導者。演説政治と情報集中を併用。",
     "tags": [
-      "detail"
+      "detail",
+      "character"
     ]
   },
   {
@@ -283,17 +309,19 @@
   {
     "title": "用語 M-R",
     "url": "glossary-terms-m-r.html",
-    "summary": "用語 M-Rの詳細設定ページ。",
+    "summary": "マジだよチャンネル、松代司令部、洩八などの用語集。",
     "tags": [
-      "detail"
+      "detail",
+      "glossary"
     ]
   },
   {
     "title": "用語 S-Z",
     "url": "glossary-terms-s-z.html",
-    "summary": "用語 S-Zの詳細設定ページ。",
+    "summary": "沙苗、従北、天網、ヴァイオレットなどの用語集。",
     "tags": [
-      "detail"
+      "detail",
+      "glossary"
     ]
   },
   {
@@ -307,17 +335,19 @@
   {
     "title": "地図注釈ノート",
     "url": "archive-map-notes.html",
-    "summary": "地図注釈ノートの詳細設定ページ。",
+    "summary": "戦略拠点と補給線の注釈メモ。",
     "tags": [
-      "detail"
+      "detail",
+      "archive"
     ]
   },
   {
-    "title": "外交記録簿",
+    "title": "外交記録簿（改稿ログ）",
     "url": "archive-diplomatic-ledger.html",
-    "summary": "外交記録簿の詳細設定ページ。",
+    "summary": "外交イベントとページ改稿履歴を併記する台帳。",
     "tags": [
-      "detail"
+      "detail",
+      "archive"
     ]
   }
 ]
