@@ -1,0 +1,10 @@
+title: "天通辞典"
+description: "南北日本戦記 世界資料網 — 天通が運用する公開設定資料サイト"
+lang: ja
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+exclude:
+  - README.md
+  - nanboku_nihon_senki.md
