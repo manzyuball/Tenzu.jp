@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/wiki.css' | relative_url }}">
+</head>
+<body>
+  <div id="mw-page-base"></div>
+  <div id="mw-head-base"></div>
+
+  <header id="mw-head">
+    <div id="p-personal">
+      <a id="wiki-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    </div>
+    <div id="p-search">
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="ページ検索（タイトル・概要）" autocomplete="off">
+        <ul id="searchResults" class="search-results" aria-live="polite"></ul>
+      </div>
+    </div>
+    <button class="nav-toggle" type="button" aria-label="ナビゲーションを開閉" data-nav-toggle>☰</button>
+  </header>
+
+  <div id="content" class="mw-body">
+    <div id="mw-content-wrapper">
+
+      <div id="mw-panel" data-sidebar>
+        <div id="p-logo">
+          <a href="{{ '/' | relative_url }}" title="{{ site.title }}">{{ site.title }}</a>
+        </div>
+        <nav id="p-navigation" aria-label="主要ナビゲーション">
+          <h3>ナビゲーション</h3>
+          <ul>
+            <li{% if page.nav_section == 'top' %} class="active"{% endif %}><a href="{{ '/index.html' | relative_url }}">トップ</a></li>
+            <li{% if page.nav_section == 'world' %} class="active"{% endif %}><a href="{{ '/world.html' | relative_url }}">世界観</a></li>
+            <li{% if page.nav_section == 'timeline' %} class="active"{% endif %}><a href="{{ '/timeline.html' | relative_url }}">年表</a></li>
+            <li{% if page.nav_section == 'factions' %} class="active"{% endif %}><a href="{{ '/factions.html' | relative_url }}">勢力</a></li>
+            <li{% if page.nav_section == 'characters' %} class="active"{% endif %}><a href="{{ '/characters.html' | relative_url }}">人物</a></li>
+            <li{% if page.nav_section == 'geography' %} class="active"{% endif %}><a href="{{ '/geography.html' | relative_url }}">地理</a></li>
+            <li{% if page.nav_section == 'glossary' %} class="active"{% endif %}><a href="{{ '/glossary.html' | relative_url }}">用語集</a></li>
+            <li{% if page.nav_section == 'archive' %} class="active"{% endif %}><a href="{{ '/archive.html' | relative_url }}">資料室</a></li>
+          </ul>
+        </nav>
+        <div id="p-tb">
+          <a class="history-link" href="{{ '/archive-diplomatic-ledger.html' | relative_url }}">更新履歴（外交記録簿）</a>
+        </div>
+      </div>
+
+      <main id="mw-content-text" class="mw-body-content">
+        {{ content }}
+      </main>
+
+    </div>
+  </div>
+
+  <footer id="footer">
+    <ul id="footer-info">
+      <li><a href="{{ '/index.html' | relative_url }}">トップへ戻る</a></li>
+      <li><a href="{{ '/404.html' | relative_url }}">404テスト</a></li>
+    </ul>
+    <ul id="footer-places">
+      <li id="footer-places-copyright">© {{ site.title }}</li>
+    </ul>
+  </footer>
+
+  <script src="{{ '/assets/app.js' | relative_url }}" defer></script>
+</body>
+</html>
