@@ -1,46 +1,144 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>洩八グループ（もりやグループ） - 概要</title>
-    <meta name="description" content="洩八グループ（もりやグループ）は、南日本を代表する財閥複合体。インフラ、金融、エネルギーなど各分野に広く関与し、南日本政府を支える三大財閥の一つである。">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>洩八グループ | 天通辞典</title>
+  <meta name="description" content="洩八グループ（もりやグループ）は、南日本を拠点とする財閥系企業グループ。インフラ・金融・エネルギー・物流を中核事業とする。">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <header>
-        <h1>洩八グループ（もりやグループ）</h1>
-        <nav>...</nav> <!-- existing site layout -->
-    </header>
-    <nav>...</nav> <!-- sidebar -->
-    <div class="breadcrumbs">...</div> <!-- breadcrumbs -->
-    <main>
+  <header class="site-header">
+    <a class="brand" href="index.html">天通辞典</a>
+    <button class="nav-toggle" type="button" aria-label="ナビゲーションを開閉" data-nav-toggle>☰</button>
+    <div class="search-wrap">
+      <input id="searchInput" type="search" placeholder="ページ検索（タイトル・概要）" autocomplete="off">
+      <ul id="searchResults" class="search-results" aria-live="polite"></ul>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" data-sidebar>
+      <nav aria-label="主要ナビゲーション">
+        <ul>
+          <li><a href="index.html">トップ</a></li>
+          <li><a href="world.html">世界観</a></li>
+          <li><a href="timeline.html">年表</a></li>
+          <li><a class="active" href="factions.html">勢力</a></li>
+          <li><a href="characters.html">人物</a></li>
+          <li><a href="geography.html">地理</a></li>
+          <li><a href="glossary.html">用語集</a></li>
+          <li><a href="archive.html">資料室</a></li>
+        </ul>
+      </nav>
+      <a class="history-link" href="archive-diplomatic-ledger.html">更新履歴（外交記録簿）</a>
+    </aside>
+
+    <main class="content">
+      <nav class="breadcrumbs" aria-label="パンくず">
+        <a href="index.html">トップ</a> › <a href="factions.html">勢力</a> › 洩八グループ
+      </nav>
+
+      <article>
+        <header>
+          <h1>洩八グループ</h1>
+          <p class="meta">基本ID: factions / 最終更新: 2026-04-20 / 公開状態: Public Draft</p>
+          <p>洩八グループ（もりやグループ）は、南日本を拠点とする財閥系企業グループ。社会インフ、金融、エネルギー、物流を中核事業とし、南日本における主要企業集団の一つとされる。</p>
+        </header>
+
         <section>
-            <h2>概要</h2>
-            <p>洩八グループ（もりやグループ）は、南日本を代表する財閥複合体。インフラ、金融、エネルギーなど各分野に広く関与し、南日本政府を支える三大財閥の一つである。</p>
+          <h2>概要</h2>
+          <p>グループは持株調整会社と中核事業会社群で構成され、公共性の高い事業領域に経営資源を集中している。事業ポートフォリオは、電力・交通インフラ、法人金融、燃料調達、広域物流の4領域を軸に編成される。</p>
+          <p>企業ブランドとしては「安定供給」「長期契約」「危機耐性」を重視する方針を掲げ、政府調達および大口法人向けの継続契約比率が高いとされる。</p>
         </section>
+
         <section>
-            <h2>沿革</h2>
-            <p>（ここに沿革の内容を記述します）</p>
+          <h2>沿革</h2>
+          <h3>創業・再編期</h3>
+          <p>分断固定化初期に、旧来の重工系事業者、地域金融機関、物流会社の再編を通じて企業集団を形成した。初期はインフラ復旧案件を中心に事業規模を拡大した。</p>
+
+          <h3>事業拡大型</h3>
+          <p>その後、諏訪工業圏に製造・保守拠点、京都金融圏に資金・管理機能を集約し、事業管理の二極体制を確立した。グループ内での調達・保険・輸送の内製化が進み、収益構造は設備保守契約と長期供給契約の比重が高まった。</p>
+
+          <h3>直近の再編</h3>
+          <p>72時間局面以後は、調達網と決済網の統合運用を優先する経営方針を公表。政策変動局面での供給継続を目的に、政府系案件と民間案件の配分見直しを実施したとされる。</p>
         </section>
+
         <section>
-            <h2>事業内容</h2>
-            <p>（ここに事業内容の詳細を記述します）</p>
+          <h2>事業セグメント</h2>
+          <dl>
+            <dt>インフラ</dt>
+            <dd>送配電設備、港湾・鉄道貨物関連、基幹道路保守。公共インフラの運営受託および更新工事を主力とする。</dd>
+
+            <dt>金融</dt>
+            <dd>法人向け融資、プロジェクトファイナンス、決済・保証。政府調達案件および大企業向け資金供給を中心に展開。</dd>
+
+            <dt>エネルギー</dt>
+            <dd>発電アセット運用、燃料調達、需給調整。産業向け長期供給契約の比率が高い。</dd>
+
+            <dt>物流・兵站</dt>
+            <dd>広域輸送、倉庫運営、調達代行。医療・エネルギー・製造向けの優先輸送網を保有。</dd>
+          </dl>
         </section>
+
         <section>
-            <h2>政治的立場</h2>
-            <p>（ここに政治的立場について説明します）</p>
+          <h2>本社・主要拠点</h2>
+          <ul>
+            <li>グループ本社機能：京都金融圏</li>
+            <li>事業統括拠点：諏訪工業圏</li>
+            <li>主要物流結節点：内陸ターミナルおよび沿岸荷役拠点（グループ運用）</li>
+          </ul>
         </section>
+
         <section>
-            <h2>関連人物</h2>
-            <p>（ここに関連人物の情報を記載します）</p>
+          <h2>主要取引先</h2>
+          <p>取引先は公共部門、大手製造業、エネルギー多消費産業、交通事業者が中心。契約形態は複数年の包括契約が多く、保守・調達・金融を組み合わせたパッケージ契約を採用している。</p>
         </section>
+
         <section>
-            <h2>関連項目</h2>
-            <p>（関連リンクをここに記載します）</p>
+          <h2>資本政策・出資関係</h2>
+          <p>持株会社を中心とした相互持株構造を採り、基幹事業会社への直接出資比率を高位に維持している。グループ外では、インフラ運営会社、燃料供給会社、物流事業会社への戦略出資を行う。</p>
+          <p>政策案件では政府系ファンドまたは公的金融枠と協調する案件があり、官民連携型スキームへの参加実績があるとされる。</p>
         </section>
+
+        <section>
+          <h2>政府との関係</h2>
+          <p>同グループは南日本政府の調達制度において、インフラ保守・燃料供給・輸送契約で高いシェアを持つ。制度上は民間企業グループであるが、公共供給責任の観点から政策協議体への参加頻度が高い。</p>
+          <p>一方で、公共案件への依存度や競争環境への影響をめぐり、契約透明性・入札競争性の確保を求める指摘もある。</p>
+        </section>
+
+        <section>
+          <h2>ブランド戦略</h2>
+          <p>対外メッセージは「止めない社会基盤」「平時品質・非常時継続」を基本軸とする。BtoB領域では供給信頼性を前面に出し、BtoG領域では履行実績と危機対応能力を訴求する。</p>
+        </section>
+
+        <section>
+          <h2>関連人物</h2>
+          <ul>
+            <li><a href="character-shun-kagami.html">弥栄</a>（統括者）</li>
+            <li><a href="character-yui-tachibana.html">沙苗</a>（政府側主要交渉先）</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>関連項目</h2>
+          <ul>
+            <li><a href="factions.html">力</a></li>
+            <li><a href="faction-southern-league.html">南日本（京都政権）</a></li>
+            <li><a href="world-economy.html">経済構造</a></li>
+            <li><a href="timeline-present-day.html">現代局面（72時間以後）</a></li>
+          </ul>
+        </section>
+      </article>
     </main>
-    <footer>
-        <p>Copyright © 2026</p>
-    </footer>
-    <script src="..."></script> <!-- script includes -->
+  </div>
+
+  <footer class="site-footer">
+    <a href="index.html">トップへ戻る</a>
+    <span>・</span>
+    <a href="404.html">404テスト</a>
+  </footer>
+
+  <script src="assets/app.js" defer></script>
 </body>
 </html>
