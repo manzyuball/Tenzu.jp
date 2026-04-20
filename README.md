@@ -11,13 +11,13 @@
 
 ## 主要ファイル
 
-- `/home/runner/work/Tenzu.jp/Tenzu.jp/index.html` : トップ
-- `/home/runner/work/Tenzu.jp/Tenzu.jp/*.html` : 各Wikiページ
-- `/home/runner/work/Tenzu.jp/Tenzu.jp/assets/styles.css` : 共通スタイル
-- `/home/runner/work/Tenzu.jp/Tenzu.jp/assets/app.js` : ナビ開閉・検索UI
-- `/home/runner/work/Tenzu.jp/Tenzu.jp/assets/search-index.json` : クライアント検索インデックス
-- `/home/runner/work/Tenzu.jp/Tenzu.jp/404.html` : 404ページ
-- `/home/runner/work/Tenzu.jp/Tenzu.jp/.nojekyll` : PagesでJekyll無効化
+- `index.html` : トップ
+- `*.html` : 各Wikiページ
+- `assets/styles.css` : 共通スタイル
+- `assets/app.js` : ナビ開閉・検索UI
+- `assets/search-index.json` : クライアント検索インデックス
+- `404.html` : 404ページ
+- `.nojekyll` : PagesでJekyll無効化
 
 ## 命名規則
 
