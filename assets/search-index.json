@@ -349,5 +349,15 @@
       "detail",
       "archive"
     ]
+  },
+  {
+    "title": "改稿ポリシー",
+    "url": "archive-edit-policy.html",
+    "summary": "天通辞典の常時更新運用ルールと履歴保全方針。",
+    "tags": [
+      "detail",
+      "archive",
+      "policy"
+    ]
   }
 ]
