@@ -422,3 +422,79 @@ li { margin-bottom: 0.1em; }
   #footer { margin-left: 0; }
   .infobox { float: none; width: 100%; margin: 1em 0; }
 }
+
+
+/* ---------- Hatnote / maintenance / references / categories ---------- */
+.hatnote {
+  font-style: italic;
+  padding: 3px 0 3px 1.6em;
+  margin-bottom: 0.5em;
+  color: #54595d;
+  font-size: 0.9em;
+  border-left: 3px solid #a2a9b1;
+}
+
+.ambox {
+  box-sizing: border-box;
+}
+
+.ambox td {
+  vertical-align: middle;
+}
+
+sup.reference {
+  font-size: 0.75em;
+  line-height: 1;
+}
+
+sup.reference a {
+  color: #0645ad;
+}
+
+.reflist {
+  font-size: 0.875em;
+  border-top: 1px solid #a2a9b1;
+  margin-top: 1em;
+  padding-top: 0.5em;
+}
+
+.reflist ol.references {
+  padding-left: 2em;
+}
+
+.reflist li {
+  margin-bottom: 0.3em;
+}
+
+#mw-normal-catlinks {
+  background-color: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  padding: 5px 10px;
+  margin-top: 1em;
+  font-size: 0.9em;
+  clear: both;
+}
+
+#mw-normal-catlinks ul {
+  display: inline;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#mw-normal-catlinks ul li {
+  display: inline;
+}
+
+#mw-normal-catlinks ul li::after {
+  content: " · ";
+  color: #54595d;
+}
+
+#mw-normal-catlinks ul li:last-child::after {
+  content: "";
+}
+
+#mw-normal-catlinks a {
+  color: #0645ad;
+}
