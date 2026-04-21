@@ -7,63 +7,118 @@
   {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/wiki.css' | relative_url }}">
 </head>
-<body>
-  <div id="mw-page-base"></div>
-  <div id="mw-head-base"></div>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 skin-vector action-view">
+  <div id="mw-page-base" class="noprint"></div>
+  <div id="mw-head-base" class="noprint"></div>
 
-  <header id="mw-head">
-    <div id="p-personal">
-      <a id="wiki-brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    </div>
-    <div id="p-search">
-      <div class="search-wrap">
-        <input id="searchInput" type="search" placeholder="ページ検索（タイトル・概要）" autocomplete="off">
-        <ul id="searchResults" class="search-results" aria-live="polite"></ul>
+  <div id="content" class="mw-body" role="main">
+    <a id="top"></a>
+    <div id="siteNotice"></div>
+    <div class="mw-indicators mw-body-content"></div>
+    <h1 id="firstHeading" class="firstHeading" lang="ja">{{ page.title | default: site.title }}</h1>
+    
+    <div id="bodyContent" class="mw-body-content">
+      <div id="siteSub" class="noprint">提供：{{ site.title }}</div>
+      <div id="contentSub"></div>
+      
+      <div id="mw-content-text" lang="ja" dir="ltr" class="mw-content-ltr">
+        {{ content }}
+      </div>
+      
+      <div class="printfooter" style="display:none;">
+        「<a dir="ltr" href="{{ page.url | absolute_url }}">{{ page.url | absolute_url }}</a>」から取得
       </div>
     </div>
-    <button class="nav-toggle" type="button" aria-label="ナビゲーションを開閉" data-nav-toggle>☰</button>
-  </header>
+  </div>
 
-  <div id="content" class="mw-body">
-    <div id="mw-content-wrapper">
-
-      <div id="mw-panel" data-sidebar>
-        <div id="p-logo">
-          <a href="{{ '/' | relative_url }}" title="{{ site.title }}">{{ site.title }}</a>
-        </div>
-        <nav id="p-navigation" aria-label="主要ナビゲーション">
-          <h3>ナビゲーション</h3>
+  <div id="mw-navigation">
+    <h2>案内メニュー</h2>
+    <div id="mw-head">
+      <div id="p-personal" role="navigation" aria-labelledby="p-personal-label">
+        <h3 id="p-personal-label">個人用ツール</h3>
+        <ul>
+          <li id="pt-anonuserpage">ログインしていません</li>
+          <li id="pt-anontalk"><a href="#">トーク</a></li>
+          <li id="pt-anoncontribs"><a href="#">投稿記録</a></li>
+          <li id="pt-createaccount"><a href="#">アカウント作成</a></li>
+          <li id="pt-login"><a href="#">ログイン</a></li>
+        </ul>
+      </div>
+      <div id="left-navigation">
+        <div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+          <h3 id="p-namespaces-label">名前空間</h3>
           <ul>
-            <li{% if page.nav_section == 'top' %} class="active"{% endif %}><a href="{{ '/index.html' | relative_url }}">トップ</a></li>
+            <li id="ca-nstab-main" class="selected"><span><a href="#">ページ</a></span></li>
+            <li id="ca-talk" class="new"><span><a href="#" class="new">ノート</a></span></li>
+          </ul>
+        </div>
+      </div>
+      <div id="right-navigation">
+        <div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+          <h3 id="p-views-label">表示</h3>
+          <ul>
+            <li id="ca-view" class="selected"><span><a href="#">閲覧</a></span></li>
+            <li id="ca-edit"><span><a href="#">編集</a></span></li>
+            <li id="ca-history" class="collapsible"><span><a href="#">履歴表示</a></span></li>
+          </ul>
+        </div>
+        <div id="p-search" role="search">
+          <h3><label for="searchInput">検索</label></h3>
+          <form action="#" id="searchform">
+            <div id="simpleSearch">
+              <input type="search" name="search" placeholder="{{ site.title }}内を検索" title="{{ site.title }}内を検索" id="searchInput">
+              <input type="submit" name="go" value="表示" title="一致する名前のページが存在すれば、そのページへ移動します" id="searchButton" class="searchButton">
+            </div>
+            <ul id="searchResults" class="search-results" aria-live="polite"></ul>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="mw-panel">
+      <div id="p-logo" role="banner">
+        <a class="mw-wiki-logo" href="{{ '/index.html' | relative_url }}" title="メインページに移動"></a>
+      </div>
+      <div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+        <h3 id="p-navigation-label">案内</h3>
+        <div class="body">
+          <ul>
+            <li{% if page.nav_section == 'top' %} class="active"{% endif %}><a href="{{ '/index.html' | relative_url }}">メインページ</a></li>
             <li{% if page.nav_section == 'world' %} class="active"{% endif %}><a href="{{ '/world.html' | relative_url }}">世界観</a></li>
             <li{% if page.nav_section == 'timeline' %} class="active"{% endif %}><a href="{{ '/timeline.html' | relative_url }}">年表</a></li>
             <li{% if page.nav_section == 'factions' %} class="active"{% endif %}><a href="{{ '/factions.html' | relative_url }}">勢力</a></li>
             <li{% if page.nav_section == 'characters' %} class="active"{% endif %}><a href="{{ '/characters.html' | relative_url }}">人物</a></li>
             <li{% if page.nav_section == 'geography' %} class="active"{% endif %}><a href="{{ '/geography.html' | relative_url }}">地理</a></li>
             <li{% if page.nav_section == 'glossary' %} class="active"{% endif %}><a href="{{ '/glossary.html' | relative_url }}">用語集</a></li>
-            <li{% if page.nav_section == 'archive' %} class="active"{% endif %}><a href="{{ '/archive.html' | relative_url }}">資料室</a></li>
+            <li{% if page.nav_section == 'archive' %} class="active"{% endif %}><a href="{{ '/archive.html' | relative_url }}">最近の出来事</a></li>
           </ul>
-        </nav>
-        <div id="p-tb">
-          <a class="history-link" href="{{ '/archive-diplomatic-ledger.html' | relative_url }}">更新履歴（外交記録簿）</a>
         </div>
       </div>
-
-      <main id="mw-content-text" class="mw-body-content">
-        {{ content }}
-      </main>
-
+      <div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+        <h3 id="p-tb-label">ツール</h3>
+        <div class="body">
+          <ul>
+            <li><a href="{{ '/archive-diplomatic-ledger.html' | relative_url }}">リンク元</a></li>
+            <li><a href="#">関連ページの更新状況</a></li>
+            <li><a href="#">特別ページ</a></li>
+            <li><a href="#">印刷用バージョン</a></li>
+            <li><a href="#">この版への固定リンク</a></li>
+            <li><a href="#">ページ情報</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
-  <footer id="footer">
+  <footer id="footer" role="contentinfo">
     <ul id="footer-info">
-      <li><a href="{{ '/index.html' | relative_url }}">トップへ戻る</a></li>
-      <li><a href="{{ '/404.html' | relative_url }}">404テスト</a></li>
+      <li id="footer-info-lastmod"> 最終更新 2026年4月20日 (月) 00:00</li>
     </ul>
     <ul id="footer-places">
-      <li id="footer-places-copyright">© {{ site.title }}</li>
+      <li id="footer-places-privacy"><a href="#">プライバシー・ポリシー</a></li>
+      <li id="footer-places-about"><a href="#">{{ site.title }}について</a></li>
+      <li id="footer-places-disclaimer"><a href="#">免責事項</a></li>
     </ul>
+    <div style="clear: both;"></div>
   </footer>
 
   <script src="{{ '/assets/app.js' | relative_url }}" defer></script>

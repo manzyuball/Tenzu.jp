@@ -1,19 +1,17 @@
-/* ===== Wikipedia Vector-inspired design system for 天通辞典 ===== */
+/* ===== Wikipedia Vector 2010 Style for 天通辞典 ===== */
 
 /* ---------- Reset & base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
-html { font-size: 16px; }
+html { font-size: 100%; }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Linux Libertine", "Georgia",
-               "Times", serif;
-  font-size: 0.875rem;
-  color: #202122;
-  background: #f8f9fa;
-  line-height: 1.6;
+  font-family: sans-serif;
+  font-size: 0.875em;
+  color: #222;
+  background-color: #f6f6f6;
 }
 
 /* ---------- Links ---------- */
@@ -24,407 +22,403 @@ a {
 a:visited { color: #0b0080; }
 a:hover, a:focus { text-decoration: underline; }
 a:active { color: #faa700; }
+a.new { color: #ba0000; }
+a.new:visited { color: #a55858; }
 
-/* ---------- Top header bar ---------- */
+/* ---------- Page layout & backgrounds ---------- */
 #mw-page-base {
-  height: 0;
+  height: 5em;
+  background-position: bottom left;
+  background-repeat: repeat-x;
+  background-color: #fbfbfb;
+  background-image: linear-gradient(to bottom, #ffffff 50%, #f6f6f6 100%);
 }
+
 #mw-head-base {
-  background: #fff;
-  height: 5px;
-  border-bottom: 1px solid #a2a9b1;
+  margin-top: -5em;
+  margin-left: 10em;
+  height: 5em;
 }
+
+#content {
+  margin-left: 10em;
+  padding: 1.25em 1.5em 1.5em 1.5em;
+  background-color: #ffffff;
+  color: #222222;
+  border: 1px solid #a7d7f9;
+  border-right-width: 0;
+  margin-top: -1px;
+  direction: ltr;
+  min-height: 80vh;
+}
+
+/* ---------- Top Navigation (Tabs & User) ---------- */
+#mw-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#mw-navigation h2 { display: none; }
 
 #mw-head {
-  position: sticky;
+  position: absolute;
   top: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.4rem 1rem;
-  background: #fff;
-  border-bottom: 1px solid #a2a9b1;
-  gap: 0.5rem;
+  right: 0;
+  width: 100%;
 }
 
 #p-personal {
-  flex: 0 0 auto;
+  position: absolute;
+  top: 0.33em;
+  right: 0.75em;
+  font-size: 0.75em;
+}
+#p-personal h3 { display: none; }
+#p-personal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+}
+#p-personal li { line-height: 1.125em; }
+#pt-anonuserpage { color: #54595d; }
+
+#left-navigation {
+  position: absolute;
+  left: 10em;
+  top: 2.5em;
 }
 
-#wiki-brand {
-  font-family: "Linux Libertine", "Georgia", "Times", serif;
-  font-size: 1.15rem;
-  font-weight: bold;
-  color: #202122;
+#right-navigation {
+  float: right;
+  margin-top: 2.5em;
+}
+
+/* Tabs */
+.vectorTabs {
+  float: left;
+  height: 2.5em;
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  padding-left: 1px;
+}
+.vectorTabs h3 { display: none; }
+.vectorTabs ul {
+  float: left;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.vectorTabs li {
+  float: left;
+  line-height: 1.125em;
+  display: inline-block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f3f3;
+  background-image: linear-gradient(to top, #e8e8e8 0, #f3f3f3 100%);
+  border: 1px solid #a7d7f9;
+  border-bottom: 0;
+  margin-right: 1px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
   white-space: nowrap;
 }
-#wiki-brand:hover { text-decoration: none; color: #0645ad; }
+.vectorTabs li.selected {
+  background-color: #ffffff;
+  background-image: none;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: -1px;
+  z-index: 1;
+}
+.vectorTabs li a {
+  display: inline-block;
+  height: 100%;
+  padding-top: 1.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  color: #0645ad;
+  cursor: pointer;
+}
+.vectorTabs li.selected a {
+  color: #222222;
+  text-decoration: none;
+}
+.vectorTabs li.new a {
+  color: #ba0000;
+}
 
+/* Search Box */
 #p-search {
-  flex: 1 1 auto;
-  max-width: 360px;
-  margin-left: auto;
+  float: left;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
 }
-
-.search-wrap {
-  position: relative;
-  width: 100%;
-}
-
-#searchInput {
-  width: 100%;
-  padding: 0.3rem 0.6rem;
-  border: 1px solid #a2a9b1;
+#p-search h3 { display: none; }
+#searchform { margin: 0.5em 0 0; position: relative; }
+#simpleSearch {
+  display: flex;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #a7d7f9;
   border-radius: 2px;
-  font-size: 0.85rem;
-  background: #fff;
-  color: #202122;
+  padding: 0;
 }
-#searchInput:focus { outline: none; border-color: #0645ad; box-shadow: 0 0 0 2px rgba(6,69,173,.15); }
+#searchInput {
+  border: none;
+  padding: 0.2em 0.4em;
+  font-size: 0.8em;
+  width: 14vw;
+  background: transparent;
+}
+#searchInput:focus { outline: none; }
+#searchButton {
+  background: #f8f9fa;
+  border: none;
+  border-left: 1px solid #a7d7f9;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  font-size: 0.8em;
+  color: #0645ad;
+}
 
+/* Search Results Dropdown */
 .search-results {
   list-style: none;
-  margin: 0.25rem 0 0;
-  padding: 0.2rem;
+  margin: 0;
+  padding: 0;
   background: #fff;
   border: 1px solid #a2a9b1;
-  border-radius: 2px;
   position: absolute;
+  top: 100%;
+  left: 0;
   width: 100%;
   display: none;
-  max-height: 18rem;
+  max-height: 20em;
   overflow-y: auto;
   z-index: 200;
-  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
 }
 .search-results.show { display: block; }
 .search-results li a {
   display: block;
-  padding: 0.35rem 0.5rem;
+  padding: 0.4em;
   color: #0645ad;
-  font-size: 0.85rem;
+  font-size: 0.85em;
 }
 .search-results li a:hover { background: #eaf3fb; text-decoration: none; }
 
-.nav-toggle {
-  display: none;
-  background: none;
-  border: 1px solid #a2a9b1;
-  border-radius: 2px;
-  padding: 0.3rem 0.55rem;
-  cursor: pointer;
-  font-size: 1rem;
-  color: #54595d;
-  flex-shrink: 0;
-}
-
-/* ---------- Page wrapper ---------- */
-#content.mw-body {
-  display: flex;
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0.75rem 1rem 1.5rem;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-#mw-content-wrapper {
-  display: flex;
-  width: 100%;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-/* ---------- Left panel / sidebar ---------- */
+/* ---------- Sidebar ---------- */
 #mw-panel {
-  flex: 0 0 180px;
-  min-width: 160px;
-  max-width: 200px;
-  position: sticky;
-  top: 4rem;
-  align-self: flex-start;
-  font-size: 0.8125rem;
+  position: absolute;
+  top: 0;
+  width: 10em;
+  left: 0;
+  font-size: 0.8em;
 }
-
-#p-logo a {
+#p-logo {
+  width: 10em;
+  height: 160px;
+  margin-bottom: 1em;
+}
+.mw-wiki-logo {
   display: block;
-  font-family: "Linux Libertine", "Georgia", serif;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #202122;
-  padding: 0.5rem 0 0.4rem;
-  border-bottom: 1px solid #a2a9b1;
-  margin-bottom: 0.5rem;
+  width: 135px;
+  height: 135px;
+  margin: 0 auto;
+  background-image: url('/assets/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-#p-logo a:hover { text-decoration: none; color: #0645ad; }
-
-#p-navigation h3 {
-  font-size: 0.7rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #54595d;
-  margin: 0.6rem 0 0.3rem;
-  padding-bottom: 0.15rem;
-  border-bottom: 1px solid #a2a9b1;
+.portal {
+  margin: 0 0.6em 0 0.7em;
+  padding: 0.25em 0;
+  direction: ltr;
 }
-
-#p-navigation ul {
-  list-style: none;
-  padding: 0;
+.portal h3 {
+  color: #4d4d4d;
+  font-weight: normal;
   margin: 0;
+  padding: 0.25em 0;
+  cursor: default;
+  font-size: 0.85em;
+  border-bottom: 1px solid #c8ccd1;
 }
-
-#p-navigation li a {
-  display: block;
-  padding: 0.2rem 0.35rem;
-  color: #0645ad;
-  border-radius: 2px;
-}
-#p-navigation li a:hover { background: #eaf3fb; text-decoration: none; }
-#p-navigation li.active > a {
-  font-weight: bold;
-  color: #202122;
-  background: #eaecf0;
-}
-
-#p-tb {
-  margin-top: 0.75rem;
-  padding-top: 0.4rem;
-  border-top: 1px solid #a2a9b1;
-}
-
-.history-link {
-  font-size: 0.78rem;
-  color: #0645ad;
-}
+.portal .body { margin: 0; padding-top: 0.5em; }
+.portal ul { list-style: none; padding: 0; margin: 0; }
+.portal li { margin: 0; padding: 0.25em 0; font-size: 0.95em; }
+.portal li a { color: #0645ad; }
+.portal li a:visited { color: #0b0080; }
+.portal li.active > a { font-weight: bold; color: #000; text-decoration: none; }
 
 /* ---------- Main content area ---------- */
-#mw-content-text.mw-body-content {
-  flex: 1 1 0;
-  min-width: 0;
-  background: #fff;
-  border: 1px solid #a2a9b1;
-  padding: 1rem 1.5rem 1.5rem;
-  font-size: 0.875rem;
-}
-
-/* ---------- Breadcrumbs ---------- */
-.breadcrumbs {
-  font-size: 0.8rem;
+#siteSub {
+  font-size: 84%;
   color: #54595d;
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
+  margin-bottom: 1em;
 }
-.breadcrumbs a { color: #0645ad; }
 
-/* ---------- Article heading ---------- */
-article > header h1,
-h1.firstHeading {
+h1.firstHeading, article > header h1 {
   font-family: "Linux Libertine", "Georgia", "Times", serif;
-  font-size: 2rem;
+  font-size: 1.8em;
   font-weight: normal;
   border-bottom: 1px solid #a2a9b1;
-  padding-bottom: 0.3rem;
-  margin: 0 0 0.5rem;
+  padding-bottom: 0.25em;
+  margin: 0 0 0.25em 0;
   color: #000;
   line-height: 1.3;
 }
 
-.meta {
-  color: #54595d;
-  font-size: 0.8rem;
-  margin: 0 0 0.75rem;
-}
-
-/* ---------- Section headings ---------- */
 h2 {
   font-family: "Linux Libertine", "Georgia", "Times", serif;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: normal;
   border-bottom: 1px solid #a2a9b1;
-  padding-bottom: 0.2rem;
-  margin: 1.25rem 0 0.5rem;
+  padding-bottom: 0.25em;
+  margin: 1em 0 0.25em 0;
   color: #000;
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.2em;
   font-weight: bold;
-  margin: 1rem 0 0.4rem;
-  color: #202122;
+  margin: 0.3em 0 0;
+  color: #000;
 }
 
-h4 {
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0.8rem 0 0.3rem;
-}
-
-/* ---------- Body text ---------- */
-p { margin: 0.4rem 0 0.7rem; }
+p { margin: 0.5em 0 1em; line-height: 1.6; }
 
 ul, ol {
-  padding-left: 2em;
-  margin: 0.3rem 0 0.7rem;
+  margin: 0.3em 0 0 1.6em;
+  padding: 0;
 }
-li { margin-bottom: 0.2rem; }
+li { margin-bottom: 0.1em; }
 
-/* ---------- Card grid (index page) ---------- */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
-  gap: 0.7rem;
-  margin: 0.5rem 0 1rem;
-}
-
-.card {
-  border: 1px solid #a2a9b1;
-  padding: 0.7rem 0.9rem;
-  background: #f8f9fa;
-  color: inherit;
-  transition: background 0.15s;
-}
-.card:hover { background: #eaf3fb; text-decoration: none; }
-.card h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #0645ad;
-}
-.card p {
-  margin: 0;
-  font-size: 0.82rem;
+.meta {
   color: #54595d;
+  font-size: 0.9em;
+  margin: 0 0 1em;
 }
+
+/* ---------- Table of contents ---------- */
+.toc {
+  display: inline-table;
+  background-color: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  padding: 7px;
+  font-size: 95%;
+  margin: 1em 0;
+}
+.toc-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.toc ul { margin: 0; padding-left: 1.5em; list-style: none; }
+.toc ul ul { padding-left: 1.5em; list-style: none; }
 
 /* ---------- Wikipedia-style infobox ---------- */
 .infobox {
   float: right;
   clear: right;
-  margin: 0 0 1rem 1.5rem;
-  padding: 0.5rem;
-  background: #f8f9fa;
+  margin: 0.5em 0 1em 1em;
+  padding: 0.2em;
+  background-color: #f8f9fa;
   border: 1px solid #a2a9b1;
-  font-size: 0.82rem;
-  max-width: 260px;
-  line-height: 1.4;
+  font-size: 88%;
+  line-height: 1.5em;
+  width: 22em;
+  color: #222;
+  border-collapse: collapse;
 }
-.infobox caption, .infobox .infobox-title {
-  background: #cee0f2;
-  text-align: center;
+.infobox caption {
   font-weight: bold;
-  padding: 0.3rem;
-  font-size: 0.9rem;
+  padding: 0.2em;
+  font-size: 125%;
+  background-color: #b0c4de;
 }
-.infobox th { text-align: left; padding: 0.2rem 0.4rem; white-space: nowrap; }
-.infobox td { padding: 0.2rem 0.4rem; }
+.infobox th {
+  text-align: left;
+  padding: 0.2em 0.4em;
+  vertical-align: top;
+  width: 6em;
+  background-color: #eaecf0;
+  border: 1px solid #a2a9b1;
+}
+.infobox td {
+  padding: 0.2em 0.4em;
+  vertical-align: top;
+  border: 1px solid #a2a9b1;
+}
 
-/* ---------- Table of contents ---------- */
-.toc {
-  display: inline-block;
-  background: #f8f9fa;
+/* ---------- Custom Card Grid (from original design) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1em;
+  margin: 1em 0;
+}
+
+.card {
   border: 1px solid #a2a9b1;
-  padding: 0.5rem 0.8rem;
-  font-size: 0.85rem;
-  margin: 0.5rem 0 1rem;
-  min-width: 200px;
+  padding: 1em;
+  background: #f8f9fa;
+  color: inherit;
 }
-.toc-title {
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 0.3rem;
+.card:hover { background: #eaecf0; text-decoration: none; }
+.card h3 {
+  margin: 0 0 0.5em;
+  font-size: 1.1em;
+  color: #0645ad;
 }
-.toc ol, .toc ul {
+.card p {
   margin: 0;
-  padding-left: 1.5em;
-}
-.toc li { margin: 0.1rem 0; }
-
-/* ---------- Hatnote / notice ---------- */
-.hatnote {
-  font-style: italic;
-  color: #54595d;
-  padding: 0.2rem 0.5rem;
-  border-left: 3px solid #a2a9b1;
-  margin-bottom: 0.75rem;
-  font-size: 0.85rem;
-}
-
-/* ---------- Category bar ---------- */
-.catlinks {
-  border-top: 1px solid #a2a9b1;
-  margin-top: 1.5rem;
-  padding-top: 0.5rem;
-  font-size: 0.82rem;
+  font-size: 0.9em;
   color: #54595d;
 }
+
+/* ---------- Breadcrumbs (custom addition) ---------- */
+.breadcrumbs {
+  font-size: 0.85em;
+  color: #54595d;
+  margin-bottom: 1em;
+}
+.breadcrumbs a { color: #0645ad; }
 
 /* ---------- Footer ---------- */
 #footer {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0.75rem 1rem;
-  border-top: 1px solid #a2a9b1;
-  font-size: 0.8rem;
-  color: #54595d;
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  margin-left: 10em;
+  margin-top: 0;
+  padding: 1.25em;
+  direction: ltr;
 }
-
 #footer ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
 }
-
+#footer li {
+  color: #222;
+  margin: 0;
+  padding: 0.5em 0;
+  font-size: 0.75em;
+}
+#footer-info li { line-height: 1.4em; }
+#footer-places { float: left; }
+#footer-places li { float: left; margin-right: 1em; line-height: 2em; }
 #footer a { color: #0645ad; }
 
-/* ---------- 404 centered ---------- */
-.centered {
-  min-height: 60vh;
-  display: grid;
-  place-items: center;
-  padding: 2rem;
-  text-align: center;
-}
-
-/* ---------- Responsive ---------- */
-@media (max-width: 900px) {
-  #mw-head {
-    flex-wrap: wrap;
-    padding: 0.35rem 0.75rem;
-  }
-  #p-personal { flex: 1 1 auto; }
-  .nav-toggle { display: block; }
-  #p-search { order: 3; flex: 0 0 100%; max-width: 100%; }
-
-  #content.mw-body { flex-direction: column; padding: 0.5rem 0.75rem 1.5rem; }
-  #mw-content-wrapper { flex-direction: column; }
-
-  #mw-panel {
-    position: static;
-    max-width: 100%;
-    width: 100%;
-    display: none;
-  }
-  #mw-panel.open { display: block; }
-
-  #mw-content-text.mw-body-content {
-    padding: 0.75rem 1rem 1rem;
-  }
-
-  .card-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-
-  .infobox { float: none; margin: 0 0 1rem; max-width: 100%; }
-}
-
-@media (max-width: 480px) {
-  article > header h1, h1.firstHeading { font-size: 1.5rem; }
-  h2 { font-size: 1.25rem; }
+/* ---------- Responsive overrides ---------- */
+@media screen and (max-width: 850px) {
+  #mw-panel { display: none; }
+  #mw-head-base { margin-left: 0; }
+  #content { margin-left: 0; border-right-width: 1px; }
+  #left-navigation { left: 0; }
+  #footer { margin-left: 0; }
+  .infobox { float: none; width: 100%; margin: 1em 0; }
 }
