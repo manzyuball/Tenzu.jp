@@ -296,6 +296,12 @@ h3 {
   color: #000;
 }
 
+.mw-headline {
+  display: inline-block;
+  color: #202122;
+  scroll-margin-top: 4.5em;
+}
+
 p { margin: 0.5em 0 1em; line-height: 1.6; }
 
 ul, ol {
@@ -484,6 +490,15 @@ sup.reference a {
 }
 .reference a { color: #3366cc; }
 
+.mw-cite-backlink {
+  margin-right: 0.35em;
+  color: #54595d;
+}
+
+.reference-text {
+  color: #202122;
+}
+
 .reflist {
   font-size: 0.875em;
   border-top: 1px solid #a2a9b1;
@@ -497,6 +512,10 @@ sup.reference a {
 
 .reflist li {
   margin-bottom: 0.3em;
+}
+
+ol.references {
+  list-style: decimal;
 }
 
 .plainlist {
