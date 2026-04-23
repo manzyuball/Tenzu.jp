@@ -565,3 +565,176 @@ ol.references {
 #mw-normal-catlinks a {
   color: #0645ad;
 }
+
+.wikitable {
+  margin: 1em 0;
+  border: 1px solid #a2a9b1;
+  border-collapse: collapse;
+  background: #f8f9fa;
+  color: #202122;
+  font-size: 0.95em;
+}
+
+.wikitable th,
+.wikitable td {
+  border: 1px solid #a2a9b1;
+  padding: 0.4em 0.6em;
+  vertical-align: top;
+}
+
+.wikitable th {
+  background: #eaecf0;
+  text-align: left;
+}
+
+.mw-headline {
+  font-weight: inherit;
+}
+
+.toctitle,
+.toc-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0.35em;
+}
+
+.tocnumber {
+  color: #202122;
+  margin-right: 0.35em;
+}
+
+.toctext {
+  color: inherit;
+}
+
+.ambox {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  margin: 0 0 1em;
+  font-size: 0.9em;
+}
+
+.ambox td {
+  padding: 0.5em 0.9em;
+  vertical-align: top;
+}
+
+.ambox-content {
+  border-left: 10px solid #f28500;
+  background: #fef6e7;
+}
+
+.ambox-style {
+  border-left: 10px solid #36c;
+  background: #eaf3ff;
+}
+
+.ambox-notice {
+  border-left: 10px solid #a2a9b1;
+  background: #f8f9fa;
+}
+
+.plainlist ul,
+.plainlist ol {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.plainlist li {
+  margin: 0.15em 0;
+}
+
+.infobox .infobox-above,
+.infobox .infobox-header {
+  background-color: #eaecf0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.infobox .infobox-subheader {
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.infobox .infobox-label {
+  background-color: #eaecf0;
+  font-weight: bold;
+  width: 8.5em;
+}
+
+.infobox .infobox-data {
+  background-color: #ffffff;
+}
+
+.infobox .infobox-image {
+  text-align: center;
+  background: #fff;
+}
+
+.reflist .references {
+  list-style: decimal;
+}
+
+.reflist.references-columns {
+  column-count: 2;
+  column-gap: 2.2em;
+}
+
+.mw-cite-backlink {
+  margin-right: 0.35em;
+  white-space: nowrap;
+}
+
+a.external.text::after {
+  content: "";
+}
+
+.navbox {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  border: 1px solid #a2a9b1;
+  padding: 1px;
+  background-color: #f8f9fa;
+  font-size: 0.9em;
+}
+
+.navbox table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.navbox th,
+.navbox td {
+  border-top: 1px solid #a2a9b1;
+  padding: 0.4em;
+  vertical-align: top;
+}
+
+.navbox tr:first-child th {
+  border-top: 0;
+}
+
+.navbox-title {
+  background: #ccddff;
+  text-align: center;
+}
+
+.navbox-group {
+  background: #ddedff;
+  width: 16%;
+  text-align: center;
+}
+
+@media screen and (max-width: 850px) {
+  .reflist.references-columns {
+    column-count: 1;
+  }
+
+  .navbox {
+    overflow-x: auto;
+  }
+}
