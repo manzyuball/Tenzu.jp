@@ -1,0 +1,23 @@
+{% if include.legend %}
+<p class="meta source-legend">{{ include.legend }}{{ site.data.reference_types.official.label }}、{{ site.data.reference_types.tentsu.label }}、{{ site.data.reference_types.diplomatic.label }}、{{ site.data.reference_types.trade.label }}、{{ site.data.reference_types.exile.label }}、{{ site.data.reference_types.estimate.label }}の6区分に整理している。</p>
+{% endif %}
+{% if include.notes %}
+<section>
+  <h2 id="注釈"><span class="mw-headline">注釈</span></h2>
+  <div class="reflist">
+    <ol class="references">
+      {{ include.notes }}
+    </ol>
+  </div>
+</section>
+{% endif %}
+{% if include.sources %}
+<section>
+  <h2 id="出典"><span class="mw-headline">出典</span></h2>
+  <div class="reflist references-columns">
+    <ol class="references">
+      {{ include.sources }}
+    </ol>
+  </div>
+</section>
+{% endif %}

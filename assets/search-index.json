@@ -12,28 +12,34 @@
   {
     "title": "世界観",
     "url": "world.html",
-    "summary": "分断日本の政治・情報・経済・軍需構造を整理する入口ページ。",
+    "summary": "分断国家、膠着、利権、情報秩序の四条件から世界を読む入口ページ。",
     "tags": [
       "section",
-      "world"
+      "world",
+      "setting",
+      "分断日本"
     ]
   },
   {
     "title": "年表",
     "url": "timeline.html",
-    "summary": "南北分裂から72時間事件後までの主要局面を時系列で整理。",
+    "summary": "分断成立、膠着の制度化、72時間事件後の再編集を三段階で整理。",
     "tags": [
       "section",
-      "timeline"
+      "timeline",
+      "history",
+      "分断史"
     ]
   },
   {
     "title": "勢力",
     "url": "factions.html",
-    "summary": "南北政権、財閥、メディア、軍需企業の関係を整理。",
+    "summary": "国家、財閥、情報複合体、軍需複合体の四極構造を読む入口ページ。",
     "tags": [
       "section",
-      "factions"
+      "factions",
+      "power",
+      "勢力図"
     ]
   },
   {
@@ -161,48 +167,60 @@
   {
     "title": "洩八グループ",
     "url": "faction-imperial-court.html",
-    "summary": "弥栄が率いる南日本中核財閥。インフラ・金融・兵站を掌握。",
-    "tags": [
-      "detail",
-      "faction"
-    ]
-  },
-  {
-    "title": "北日本（松代政権）",
-    "url": "faction-northern-alliance.html",
-    "summary": "御子体制の統治構造と前線運用を整理。",
-    "tags": [
-      "detail",
-      "faction"
-    ]
-  },
-  {
-    "title": "南日本（京都政権）",
-    "url": "faction-southern-league.html",
-    "summary": "南日本の公式統治機構。沙苗政権と周辺実力組織の関係を整理。",
-    "tags": [
-      "detail",
-      "faction"
-    ]
-  },
-  {
-    "title": "川城重工",
-    "url": "faction-maritime-guild.html",
-    "summary": "南北双方に軍需技術を供給する軍産複合企業。",
+    "summary": "金融・電力・物流を束ね、西日本の基礎供給を支える準統治的財閥。",
     "tags": [
       "detail",
       "faction",
-      "industry"
+      "zaibatsu",
+      "諏訪財閥"
     ]
   },
   {
-    "title": "天通（情報網）",
+    "title": "日本国（東京政権）",
+    "url": "faction-northern-alliance.html",
+    "summary": "太子体制、監視社会、計画経済で成り立つ東日本の母艦記事。",
+    "tags": [
+      "detail",
+      "faction",
+      "state",
+      "北日本",
+      "東京政権"
+    ]
+  },
+  {
+    "title": "日本国（京都政権）",
+    "url": "faction-southern-league.html",
+    "summary": "国際的に『日本』を継承する西日本国家の母艦記事。",
+    "tags": [
+      "detail",
+      "faction",
+      "state",
+      "南日本",
+      "京都政権"
+    ]
+  },
+  {
+    "title": "山崎川城工業",
+    "url": "faction-maritime-guild.html",
+    "summary": "防衛・宇宙・半導体・AIを束ねる技術複合体。",
+    "tags": [
+      "detail",
+      "faction",
+      "industry",
+      "technology",
+      "軍需"
+    ]
+  },
+  {
+    "title": "天通",
     "url": "faction-frontier-clans.html",
-    "summary": "南日本最大メディア企業。統合情報基盤「天網」を運用。",
+    "summary": "通信、報道、SNS、EC、辞典運営を束ねる情報複合体。",
     "tags": [
       "detail",
       "tenzu",
-      "media"
+      "media",
+      "platform",
+      "天網"
     ]
   },
   {

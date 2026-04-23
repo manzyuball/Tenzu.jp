@@ -1,38 +1,71 @@
 ---
 layout: default
 title: "勢力"
-description: "南北日本戦記における主要勢力の関係図。南北政権、財閥、メディア、密輸ネットワークを整理。"
+description: "国家、財閥、情報複合体、軍需複合体の四極から世界を読むための入口ページ。"
 nav_section: factions
+article_type: hub
+status: Public Draft
+updated_on: 2026-04-23
+aliases:
+  - 勢力図
+  - 権力構造
+related:
+  - title: "世界観"
+    url: "/world.html"
+    summary: "この勢力図がどの世界条件で動くのかを整理する。"
+  - title: "年表"
+    url: "/timeline.html"
+    summary: "各勢力の関係がどう変化したかを時系列で追う。"
+  - title: "用語集"
+    url: "/glossary.html"
+    summary: "固有制度や俗称を横断参照する。"
 ---
+{% capture toc_body %}
+<ul>
+  <li><a href="#構図"><span class="tocnumber">1</span> <span class="toctext">構図</span></a></li>
+  <li><a href="#主役記事"><span class="tocnumber">2</span> <span class="toctext">主役記事</span></a></li>
+  <li><a href="#読む順番"><span class="tocnumber">3</span> <span class="toctext">読む順番</span></a></li>
+  <li><a href="#関連項目"><span class="tocnumber">4</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+{% endcapture %}
 <nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › 勢力</nav>
-      <article>
-        <header>
-          <h1>勢力</h1>
-          <p class="meta">基本ID: factions / 最終更新: 2026-04-20 / 公開状態: Public Draft</p>
-          <p>この戦争は「南対北」の二項対立だけでは説明できない。政権・財閥・メディア・密輸網の相互依存で膠着が維持されている。</p>
-        </header>
+<article class="mw-body">
+  <header>
+    <h1 class="firstHeading">勢力</h1>
+    <p class="meta">基本ID: factions / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
+    <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
+    {% include hatnote.html text='このページは勢力の要約索引であり、本体説明は各母艦記事に置かれる。' %}
+    <p><b>勢力</b>は、南北二国家だけでなく、資金、情報、技術の三層を重ねて世界を読むための入口である。現在の膠着は、国家同士の対立というより、供給と認識を誰が握るかの均衡として成立している。</p>
+  </header>
 
-<section>
-  <h2>勢力図（要約）</h2>
-  <ul>
-    <li>南日本（京都政権）: 表向きの行政・軍指揮系統。</li>
-    <li>北日本（松代政権）: 統一を掲げるが体制維持を優先。</li>
-    <li>洩八グループ: 南側のインフラ・金融・兵站を実質掌握。</li>
-    <li>天通: 報道とSNS基盤「天網」を運用し世論を形成。</li>
-    <li>川城重工: 南北双方に軍需技術を供給。</li>
-  </ul>
-</section>
-<section>
-  <h2>収録ページ</h2>
-  <ul><li><a href="faction-southern-league.html">南日本（京都政権）</a></li><li><a href="faction-northern-alliance.html">北日本（松代政権）</a></li><li><a href="faction-imperial-court.html">洩八グループ</a></li><li><a href="faction-frontier-clans.html">天通（情報網）</a></li><li><a href="faction-maritime-guild.html">川城重工</a></li></ul>
-</section>
-<section>
-  <h2>編集メモ</h2>
-  <p>勢力の利害は章更新ごとに変化するため、同盟関係・断絶関係は固定値として扱わず、各ページで更新時点を必ず明記すること。</p>
-</section>
+  <div class="mw-parser-output">
+    {% include toc.html body=toc_body %}
 
-        <section>
-          <h2>関連項目</h2>
-          <ul><li><a href="timeline-border-conflicts.html">国境紛争期</a></li><li><a href="archive-diplomatic-ledger.html">外交記録簿</a></li><li><a href="characters.html">人物</a></li></ul>
-        </section>
-      </article>
+    <section>
+      <h2 id="構図"><span class="mw-headline">構図</span></h2>
+      <p>読むべき勢力は四つに絞れる。<a href="faction-southern-league.html">日本国（京都政権）</a>が表の国家、<a href="faction-northern-alliance.html">日本国（東京政権）</a>が対立する革命国家、<a href="faction-imperial-court.html">洩八グループ</a>が供給の底床、<a href="faction-frontier-clans.html">天通</a>が認識の編集者、<a href="faction-maritime-guild.html">山崎川城工業</a>が再軍備と技術の中核である。</p>
+    </section>
+
+    <section id="主役記事">
+      <h2><span class="mw-headline">主役記事</span></h2>
+      <div class="card-grid">
+        <a class="card" href="faction-southern-league.html"><h3>日本国（京都政権）</h3><p>豊かな後方国家と半常時動員国家の二面性。</p></a>
+        <a class="card" href="faction-northern-alliance.html"><h3>日本国（東京政権）</h3><p>太子体制、監視社会、計画経済の母艦記事。</p></a>
+        <a class="card" href="faction-imperial-court.html"><h3>洩八グループ</h3><p>金融・電力・物流を通じて国家を支える財閥。</p></a>
+        <a class="card" href="faction-frontier-clans.html"><h3>天通</h3><p>通信と世論と辞典運営を束ねる情報複合体。</p></a>
+        <a class="card" href="faction-maritime-guild.html"><h3>山崎川城工業</h3><p>軍需・半導体・AIを接続する技術複合体。</p></a>
+      </div>
+    </section>
+
+    <section id="読む順番">
+      <h2><span class="mw-headline">読む順番</span></h2>
+      <ol>
+        <li>まず <a href="faction-southern-league.html">京都政権</a> と <a href="faction-northern-alliance.html">東京政権</a> を読み、国家の並立を把握する。</li>
+        <li>次に <a href="faction-imperial-court.html">洩八グループ</a> と <a href="faction-maritime-guild.html">山崎川城工業</a> を読み、供給と再軍備の基盤を押さえる。</li>
+        <li>最後に <a href="faction-frontier-clans.html">天通</a> を読むと、なぜこの世界がこう見えているのかがわかる。</li>
+      </ol>
+    </section>
+
+    {% include related-links.html items=page.related %}
+  </div>
+</article>

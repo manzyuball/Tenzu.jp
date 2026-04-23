@@ -1,0 +1,6 @@
+{% assign ambox_kind = include.kind | default: "notice" %}
+<table class="ambox ambox-{{ ambox_kind }}">
+  <tr>
+    <td>{{ include.text }}</td>
+  </tr>
+</table>

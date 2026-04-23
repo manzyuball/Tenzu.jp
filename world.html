@@ -1,37 +1,75 @@
 ---
 layout: default
 title: "世界観"
-description: "南北分断日本の政治・情報・経済・軍需構造を整理する世界観ページ。"
+description: "主役記事群を読む前提として、分断国家・膠着・利権・情報秩序の四条件を整理する入口ページ。"
 nav_section: world
+article_type: hub
+status: Public Draft
+updated_on: 2026-04-23
+aliases:
+  - 分断日本
+  - 膠着秩序
+related:
+  - title: "勢力"
+    url: "/factions.html"
+    summary: "国家・財閥・情報・軍需の四極構造。"
+  - title: "年表"
+    url: "/timeline.html"
+    summary: "この世界がどう膠着へ至ったかを時系列で読む。"
+  - title: "経済構造"
+    url: "/world-economy.html"
+    summary: "戦争が続くことで誰が得るかを整理する。"
 ---
+{% capture toc_body %}
+<ul>
+  <li><a href="#前提条件"><span class="tocnumber">1</span> <span class="toctext">前提条件</span></a></li>
+  <li><a href="#読むべき母艦記事"><span class="tocnumber">2</span> <span class="toctext">読むべき母艦記事</span></a></li>
+  <li><a href="#補助ページ"><span class="tocnumber">3</span> <span class="toctext">補助ページ</span></a></li>
+</ul>
+{% endcapture %}
 <nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › 世界観</nav>
-      <article>
-        <header>
-          <h1>世界観</h1>
-          <p class="meta">基本ID: world / 最終更新: 2026-04-20 / 公開状態: Public Draft</p>
-          <p>魔法・妖力を排し、軍事・経済・情報で説明される「分断日本」の架空現代。統一は理念であり、実態は膠着維持の政治技術として機能する。</p>
-        </header>
+<article class="mw-body">
+  <header>
+    <h1 class="firstHeading">世界観</h1>
+    <p class="meta">基本ID: world / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
+    <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
+    {% include hatnote.html text='このページは世界設定の本体ではなく、母艦記事群へ向かうための整理ページである。' %}
+    <p><b>世界観</b>は、南北二国家の対立だけでなく、膠着が利権になり、利権が情報で正当化される構造を指す。ここでは細部を増やさず、読むべき条件だけを四つに絞って示す。</p>
+  </header>
 
-<section>
-  <h2>構造の要点</h2>
-  <ul>
-    <li>境界線: フォッサマグナ（糸魚川付近）。</li>
-    <li>南側: 財閥・メディア・米軍支援による安定維持。</li>
-    <li>北側: 動員体制と情報集中による統治。</li>
-    <li>中間層: 川城重工・佐渡密輸網など越境経済圏。</li>
-  </ul>
-</section>
-<section>
-  <h2>収録ページ</h2>
-  <ul><li><a href="world-social-order.html">社会階層制度</a></li><li><a href="world-technology.html">技術水準</a></li><li><a href="world-economy.html">経済構造</a></li><li><a href="faction-frontier-clans.html">天通（情報統制）</a></li></ul>
-</section>
-<section>
-  <h2>編集メモ</h2>
-  <p>世界観ページは「設定説明」だけでなく、戦争が続くインセンティブ（誰が得をするか）を更新単位ごとに反映する。</p>
-</section>
+  <div class="mw-parser-output">
+    {% include toc.html body=toc_body %}
 
-        <section>
-          <h2>関連項目</h2>
-          <ul><li><a href="timeline.html">年表</a></li><li><a href="factions.html">勢力</a></li><li><a href="glossary-terms-s-z.html">用語 S-Z</a></li></ul>
-        </section>
-      </article>
+    <section id="前提条件">
+      <h2><span class="mw-headline">前提条件</span></h2>
+      <ol>
+        <li>国家は二つあるが、どちらも自分を唯一の日本国とみなしている。</li>
+        <li>停戦線は終戦の失敗ではなく、管理された均衡として維持されている。</li>
+        <li>経済は平時の市場と有事の備えが分離されず、同じ企業群が両方を回している。</li>
+        <li>情報は出来事を伝えるだけでなく、何が世界の常識に見えるかまで編集している。</li>
+      </ol>
+    </section>
+
+    <section id="読むべき母艦記事">
+      <h2><span class="mw-headline">読むべき母艦記事</span></h2>
+      <ul>
+        <li><a href="faction-southern-league.html">日本国（京都政権）</a> - 豊かな後方国家がどう膠着を維持しているか。</li>
+        <li><a href="faction-northern-alliance.html">日本国（東京政権）</a> - 監視・動員・配給で成り立つ革命国家の実像。</li>
+        <li><a href="faction-imperial-court.html">洩八グループ</a> - 供給の底床として国家を支える財閥。</li>
+        <li><a href="faction-frontier-clans.html">天通</a> - 世界の見え方を編集する情報複合体。</li>
+        <li><a href="faction-maritime-guild.html">山崎川城工業</a> - 再軍備と平時技術を接続する技術複合体。</li>
+      </ul>
+    </section>
+
+    <section id="補助ページ">
+      <h2><span class="mw-headline">補助ページ</span></h2>
+      <ul>
+        <li><a href="world-economy.html">経済構造</a> - 誰が戦争から利益を得るか。</li>
+        <li><a href="world-social-order.html">社会階層制度</a> - どの層がどの秩序を受け入れているか。</li>
+        <li><a href="world-technology.html">技術水準</a> - 昭和的重工業と令和的AIの混成。</li>
+      </ul>
+    </section>
+
+    {% include related-links.html items=page.related %}
+  </div>
+</article>

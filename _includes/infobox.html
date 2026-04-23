@@ -1,0 +1,11 @@
+<table class="infobox vevent">
+  {% if include.caption %}
+  <caption class="infobox-above">{{ include.caption }}</caption>
+  {% endif %}
+  {% if include.image_html %}
+  <tr>
+    <td colspan="2" class="infobox-image">{{ include.image_html }}</td>
+  </tr>
+  {% endif %}
+  {{ include.rows }}
+</table>

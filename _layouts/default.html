@@ -15,11 +15,12 @@
     <a id="top"></a>
     <div id="siteNotice"></div>
     <div class="mw-indicators mw-body-content"></div>
-    <h1 id="firstHeading" class="firstHeading" lang="ja">{{ page.title | default: site.title }}</h1>
-    
+
     <div id="bodyContent" class="mw-body-content">
       <div id="siteSub" class="noprint">提供：{{ site.title }}</div>
-      <div id="contentSub"></div>
+      <div id="contentSub">
+        {% if page.article_type %}種別: {{ page.article_type }}{% endif %}
+      </div>
       
       <div id="mw-content-text" lang="ja" dir="ltr" class="mw-content-ltr">
         {{ content }}
@@ -111,7 +112,7 @@
 
   <footer id="footer" role="contentinfo">
     <ul id="footer-info">
-      <li id="footer-info-lastmod"> 最終更新 2026年4月20日 (月) 00:00</li>
+      <li id="footer-info-lastmod">最終更新 {{ page.updated_on | default: "2026-04-20" }}</li>
     </ul>
     <ul id="footer-places">
       <li id="footer-places-privacy"><a href="#">プライバシー・ポリシー</a></li>

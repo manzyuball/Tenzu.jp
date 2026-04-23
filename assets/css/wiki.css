@@ -316,6 +316,21 @@ li { margin-bottom: 0.1em; }
   margin: 0 0 1em;
 }
 
+.alias-list {
+  margin: -0.25em 0 1em;
+  color: #202122;
+  font-size: 0.95em;
+}
+
+.alias-list b {
+  color: #54595d;
+  font-weight: normal;
+}
+
+.source-legend {
+  margin-bottom: 0.5em;
+}
+
 /* ---------- Table of contents ---------- */
 .toc {
   display: inline-table;

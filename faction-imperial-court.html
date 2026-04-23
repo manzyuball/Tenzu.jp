@@ -1,304 +1,144 @@
 ---
 layout: default
 title: "洩八グループ"
-description: "洩八グループ（もりやグループ）に関する情報。西日本最大の総合財閥・金融グループ。"
+description: "金融・電力・物流・公共インフラを束ねる西日本最大級の財閥。戦争継続と日常経済を同時に支える母艦記事。"
 nav_section: factions
+article_type: corporation
+status: Public Draft
+updated_on: 2026-04-23
+aliases:
+  - 洩八
+  - 諏訪財閥
+  - 西日本インフラ財閥
+related:
+  - title: "日本国（京都政権）"
+    url: "/faction-southern-league.html"
+    summary: "公共圏の多くを洩八グループに依存する後方国家。"
+  - title: "天通"
+    url: "/faction-frontier-clans.html"
+    summary: "情報流通と広告市場で結びつく系列企業。"
+  - title: "山崎川城工業"
+    url: "/faction-maritime-guild.html"
+    summary: "軍需と技術開発の相棒であり、資本でも相互依存する。"
+  - title: "現代局面（72時間以後）"
+    url: "/timeline-present-day.html"
+    summary: "沙苗失脚後の再調整局面で洩八の調停力が可視化された。"
+external_links:
+  - title: "外交記録簿（改稿ログ）"
+    url: "archive-diplomatic-ledger.html"
+    summary: "停戦線利権と企業外交に関する断片資料。"
 ---
+{% capture infobox_rows %}
+<tr><th class="infobox-header" colspan="2">企業概要</th></tr>
+<tr><th class="infobox-label">名称</th><td class="infobox-data">洩八グループ株式会社</td></tr>
+<tr><th class="infobox-label">通称</th><td class="infobox-data">洩八、諏訪財閥</td></tr>
+<tr><th class="infobox-label">本社</th><td class="infobox-data">長野県諏訪市</td></tr>
+<tr><th class="infobox-label">中核人物</th><td class="infobox-data"><a href="character-shun-kagami.html">弥栄</a></td></tr>
+<tr><th class="infobox-label">設立</th><td class="infobox-data">1978年（持株会社化）</td></tr>
+<tr><th class="infobox-header" colspan="2">事業規模</th></tr>
+<tr><th class="infobox-label">連結売上高</th><td class="infobox-data">36.4兆円<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></td></tr>
+<tr><th class="infobox-label">総資産</th><td class="infobox-data">224兆円<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></td></tr>
+<tr><th class="infobox-label">主力部門</th><td class="infobox-data">金融、電力、港湾、道路、物流</td></tr>
+<tr><th class="infobox-label">主要提携先</th><td class="infobox-data"><a href="faction-frontier-clans.html">天通</a>、<a href="faction-maritime-guild.html">山崎川城工業</a></td></tr>
+<tr><th class="infobox-label">政治的位置</th><td class="infobox-data">公共圏の基礎供給を担う準統治主体<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></td></tr>
+{% endcapture %}
+{% capture toc_body %}
+<ul>
+  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+  <li><a href="#呼称・位置づけ"><span class="tocnumber">2</span> <span class="toctext">呼称・位置づけ</span></a></li>
+  <li><a href="#沿革"><span class="tocnumber">3</span> <span class="toctext">沿革</span></a></li>
+  <li><a href="#組織・主要部門"><span class="tocnumber">4</span> <span class="toctext">組織・主要部門</span></a></li>
+  <li><a href="#経済・社会的位置"><span class="tocnumber">5</span> <span class="toctext">経済・社会的位置</span></a></li>
+  <li><a href="#対外関係"><span class="tocnumber">6</span> <span class="toctext">対外関係</span></a></li>
+  <li><a href="#批判・論争"><span class="tocnumber">7</span> <span class="toctext">批判・論争</span></a></li>
+  <li><a href="#注釈"><span class="tocnumber">8</span> <span class="toctext">注釈</span></a></li>
+  <li><a href="#出典"><span class="tocnumber">9</span> <span class="toctext">出典</span></a></li>
+  <li><a href="#関連項目"><span class="tocnumber">10</span> <span class="toctext">関連項目</span></a></li>
+  <li><a href="#外部リンク"><span class="tocnumber">11</span> <span class="toctext">外部リンク</span></a></li>
+</ul>
+{% endcapture %}
+{% capture notes %}
+<li id="cite_note-note1"><span class="mw-cite-backlink"><a href="#cite_ref-note1">↑</a></span><span class="reference-text">売上高と総資産は連結決算ベースだが、指定管理資産や第三セクターを通じた実効支配分は含まれない。</span></li>
+<li id="cite_note-note2"><span class="mw-cite-backlink"><a href="#cite_ref-note2">↑</a></span><span class="reference-text">本項における「準統治主体」は法的区分ではなく、公共料金、港湾、道路、金融決済を通じて自治体や中央政府を実質的に拘束しうる立場を指す。</span></li>
+<li id="cite_note-note3"><span class="mw-cite-backlink"><a href="#cite_ref-note3">↑</a></span><span class="reference-text">対北物流は直接取引だけでなく、第三国商社、港湾再積替え、系列保険会社を介したリスク移転を含むため、名目上の取引額と実効規模に大きな差がある。</span></li>
+{% endcapture %}
+{% capture sources %}
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 洩八グループ『2026年3月期統合報告書』。</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 西日本金融市場観測『インフラ財閥の貸借対照表』。</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.estimate.label }}</strong>: 公共圏研究所『企業が国家を支えるとき』。</span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.tentsu.label }}</strong>: 天通経済面「洩八はなぜ諏訪にいるのか」。</span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 洩八グループ社史編纂室『統合持株会社五十年史』。</span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.diplomatic.label }}</strong>: 外交記録簿「諏訪利権地帯と停戦交渉」。</span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 港湾・送配電連結資料『広域供給網の支配集中』。</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.estimate.label }}</strong>: 財閥統治研究センター『洩八と政策形成』。</span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 西日本公共料金年鑑『電力・道路・水道の系列化』。</span></li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.exile.label }}</strong>: 元系列銀行幹部証言『三社委員会の内側』。</span></li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.diplomatic.label }}</strong>: 境界物流対策会議メモ 2024-2026。</span></li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.tentsu.label }}</strong>: 天通解説「弥栄以後の洩八」。</span></li>
+{% endcapture %}
 <nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › <a href="factions.html">勢力</a> › 洩八グループ</nav>
-<article>
+<article class="mw-body">
   <header>
     <h1 class="firstHeading">洩八グループ</h1>
-    <div class="hatnote">
-      「洩八グループ」のその他の用法については「<a href="#">洩八（曖昧さ回避）</a>」をご覧ください。
-    </div>
-
-    <table class="ambox ambox-content" style="border: 1px solid #f28500; background: #fef6e7; width:100%; margin-bottom:1em; font-size:0.9em;">
-      <tr>
-        <td style="padding:0.5em 1em; color:#333;">
-          <strong>この記事の内容</strong>は特定の情報源に基づいており、<strong>独立した検証が困難</strong>な部分が含まれます。
-          信頼できる情報源の追加にご協力ください。<small>（2025年4月）</small>
-        </td>
-      </tr>
-    </table>
+    <p class="meta">基本ID: faction-imperial-court / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
+    <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
+    {% include hatnote.html text='この項目では、金融・電力・物流を束ねる企業集団を扱う。弥栄個人については「<a href="character-shun-kagami.html">弥栄</a>」を参照。' %}
+    {% include ambox.html kind="content" text='洩八グループに関する一次資料の多くは企業広報と系列金融資料で占められる。政治関与や対北取引については、外部推計と内部証言を交差させた記述が含まれる。' %}
   </header>
 
-  <table class="infobox">
-    <caption>洩八グループ</caption>
-    <tr><td colspan="2" style="text-align:center; padding: 10px 0; background-color: #f0f0f0; border: 1px dashed #ccc;"><small style="color:#666;">（画像募集中・API制限により非表示）</small></td></tr>
-    <tr><th>種類</th><td>株式会社（上場）</td></tr>
-    <tr><th>本社所在地</th><td><a href="#">長野県</a><a href="#">諏訪市</a></td></tr>
-    <tr><th>設立</th><td>1978年6月（統合<a href="#">持株会社</a>発足）</td></tr>
-    <tr><th>前身</th><td><a href="#">信州中央電力株式会社</a>（1949年設立）<br><a href="#">諏訪産業銀行</a>（1952年設立）<br><a href="#">八阪財閥</a>（旧西日本財閥系企業群）</td></tr>
-    <tr><th>代表者</th><td>代表取締役会長 <a href="character-shun-kagami.html">弥栄</a><br>代表取締役社長 <a href="#">東城 眞一</a></td></tr>
-    <tr><th>証券コード</th><td>8839（大阪証券取引所）</td></tr>
-    <tr><th>設立者</th><td><a href="#">信州中央電力株式会社</a>創業家（<a href="#">八阪財閥</a>系）</td></tr>
-    <tr><th>資本金</th><td>2兆3,000億円（2025年3月末時点）</td></tr>
-    <tr><th>売上高</th><td>連結36兆4,000億円（2025年3月期）</td></tr>
-    <tr><th>営業利益</th><td>3兆1,200億円（2025年3月期）</td></tr>
-    <tr><th>純利益</th><td>1兆8,600億円（2025年3月期）</td></tr>
-    <tr><th>総資産</th><td>224兆円（2025年3月末時点）</td></tr>
-    <tr><th>従業員数</th><td>約900万人（連結、2025年3月末時点）</td></tr>
-    <tr><th>格付け</th><td>東亜信用格付研究所：AA+（安定的）<br>南洋レーティングサービス：Aa2</td></tr>
-    <tr><th>事業内容</th><td>金融持株会社、総合インフラ、エネルギー、物流</td></tr>
-    <tr><th>主要子会社</th><td><a href="#">洩八電力</a>株式会社<br><a href="#">西日本第一興銀</a>株式会社<br><a href="#">南部興業銀行</a>株式会社<br><a href="#" class="new">八阪生命保険</a>株式会社<br><a href="#" class="new">洩八都市開発</a>株式会社<br><a href="#" class="new">Moriya Global Investments</a><br><a href="#" class="new">西日本資源開発</a>株式会社</td></tr>
-    <tr><th>主要拠点</th><td>諏訪（本社）・京都・大阪・東京<br>ロンドン（欧州金融ハブ）・ニューヨーク・シドニー・ムンバイ</td></tr>
-    <tr><th>ウェブサイト</th><td><a href="#" class="external text">moriya-group.co.jp</a></td></tr>
-  </table>
+  <div class="mw-parser-output">
+    {% include infobox.html caption=page.title rows=infobox_rows %}
 
-  <p><b>洩八グループ株式会社</b>（もりやグループかぶしきがいしゃ）は、長野県諏訪市に本社を置く総合金融・インフラ持株会社である。西日本の電力、金融、物流、公共インフラ運営を広範に担い、2025年時点でグループ売上高は国内GDP（西日本エリア）のおおむね20%規模に相当するとされる<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>。</p>
+    <p><b>洩八グループ</b>は、長野県諏訪市に本社を置き、金融、電力、港湾、道路、物流を中核に西日本の基礎供給を掌握する企業集団である<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup>。単なる財閥ではなく、公共料金、決済網、重工業資金、広域インフラ更新を同時に握るため、しばしば国家と市場の中間に立つ準統治主体として説明される<sup id="cite_ref-note2" class="reference"><a href="#cite_note-note2">[注 2]</a></sup><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup>。</p>
+    <p>京都政権の表の統治が議会と官庁にあるとすれば、洩八は裏側の供給を担う。停電を避け、港を回し、資金を流し、公共事業を止めないことで国家の日常を支える一方、その依存の深さが政治的な影響力の源泉となっている<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup>。</p>
+    <p>また、<a href="faction-frontier-clans.html">天通</a>と<a href="faction-maritime-guild.html">山崎川城工業</a>との相互依存は非常に強く、情報、資金、軍需、物流を相互補完する「三社」体制の基礎を形成する。これは平時には供給安定をもたらすが、危機時には権力集中の回路として作用するとみられている<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>。</p>
+    <p>弥栄時代の洩八は、戦争を終わらせる勢力というより、戦争が続く条件を管理可能な範囲に保つ勢力として語られることが多い。膠着の管理こそが、同社の最大の政治資産である<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup>。</p>
 
-  <div id="toc" class="toc">
-    <div class="toc-title">目次</div>
-    <ul>
-      <li><a href="#概要">1 概要</a></li>
-      <li><a href="#沿革">2 沿革</a></li>
-      <li><a href="#グループ構造">3 グループ構造</a></li>
-      <li><a href="#主要事業">4 主要事業</a>
-        <ul>
-          <li><a href="#金融事業">4.1 金融事業</a></li>
-          <li><a href="#インフラ・エネルギー事業">4.2 インフラ・エネルギー事業</a></li>
-          <li><a href="#物流事業">4.3 物流事業</a></li>
-        </ul>
-      </li>
-      <li><a href="#経営体制">5 経営体制</a></li>
-      <li><a href="#批判・問題点">6 批判・問題点</a></li>
-      <li><a href="#業績推移">7 業績推移</a></li>
-      <li><a href="#関連項目">8 関連項目</a></li>
-      <li><a href="#外部リンク">9 外部リンク</a></li>
-      <li><a href="#注釈">10 注釈</a></li>
-      <li><a href="#出典">11 出典</a></li>
-    </ul>
-  </div>
+    {% include toc.html body=toc_body %}
 
-  <section>
-    <h2 id="概要">概要</h2>
-    <p>洩八グループは、電力供給、銀行・保険、港湾・道路・水道管理、陸海運までを同一企業集団の下で運営する点に特徴がある<sup id="cite_ref-my1" class="reference"><a href="#cite_note-my1">[2]</a></sup>。西日本エリアGDPの約20%規模という指標は、単なる売上や資産規模にとどまらず、産業活動に必要な「資金循環」と「エネルギー供給」を同時に握っていることを意味する<sup id="cite_ref-note1" class="reference"><a href="#cite_note-note1">[注 1]</a></sup>。製造業向け運転資金の供給、電力料金政策、基幹物流の配船・配車計画が連動するため、同グループの投資判断は民間経済と国家財政の双方に波及しやすい構造にある<sup id="cite_ref-my2" class="reference"><a href="#cite_note-my2">[3]</a></sup><sup id="cite_ref-my3" class="reference"><a href="#cite_note-my3">[4]</a></sup>。</p>
-    <p>同社は、銀行貸出、社債引受、インフラ投資を一体化した資金供給機能を担い、日本政府の公共事業資金調達にも深く関与している<sup id="cite_ref-my4" class="reference"><a href="#cite_note-my4">[5]</a></sup>。これにより景気安定に寄与したとの評価がある一方で、公共料金改定や大型再開発の意思決定過程が実質的に同グループに依存しているとの批判も根強い<sup id="cite_ref-my5" class="reference"><a href="#cite_note-my5">[6]</a></sup>。会長である<a href="character-shun-kagami.html">弥栄</a>の個人的影響力は、官民の調整能力として肯定的に語られる場合と、統治の透明性を損なう要因として論じられる場合に分かれる<sup id="cite_ref-my6" class="reference"><a href="#cite_note-my6">[7]</a></sup><sup id="cite_ref-my7" class="reference"><a href="#cite_note-my7">[8]</a></sup>。</p>
-    <p>三社持株関係では、<a href="faction-frontier-clans.html">天通ホールディングス</a>が情報通信網、<a href="faction-maritime-guild.html">山崎川城工業</a>が製造・防衛技術を担うのに対し、洩八は資金と物理的インフラを供給する「底辺機能」を担当する位置づけとされる<sup id="cite_ref-my8" class="reference"><a href="#cite_note-my8">[9]</a></sup>。三社共同での設備投資計画共有は、供給安定に寄与する一方、市場の開放性を低下させる可能性があるとの見方もある<sup id="cite_ref-my9" class="reference"><a href="#cite_note-my9">[10]</a></sup>。</p>
-  </section>
+    <section>
+      <h2 id="概要"><span class="mw-headline">概要</span></h2>
+      {% include hatnote.html text='→関連項目は「<a href="world-economy.html">経済構造</a>」「<a href="geography.html">地理</a>」を参照。' %}
+      <p>洩八の強みは、供給網の基礎部分を同時に握っていることにある。電力会社、地方銀行、保険、港湾運営、道路維持、広域物流が同一資本圏に置かれているため、危機時の資源再配分を社内調整で済ませやすい。国家が同社に依存するのは、この再配分能力が代替困難だからである<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup>。</p>
+      <p>一方で、この構造は民間企業でありながら公共圏全体を拘束しうることを意味する。自治体が独自の港湾政策や料金政策を取りたくても、電力・保険・金融まで系列に握られているため、実務上の自由度は限られるとされる<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup>。</p>
+    </section>
 
-  <section>
-    <h2 id="沿革">沿革</h2>
-    <table>
-      <tr><th>年</th><th>事項</th></tr>
-      <tr><td>1949年</td><td>前身の<a href="#">信州中央電力</a>株式会社を設立。諏訪・松本圏で電力供給を開始。</td></tr>
-      <tr><td>1952年</td><td>前身の<a href="#">諏訪産業銀行</a>を設立。地域工業向け融資を拡大。</td></tr>
-      <tr><td>1974年</td><td>南北分断の混乱期に西日本広域インフラ管理公社の運営受託を獲得し、送電・港湾管理で実質的支配力を強化<sup id="cite_ref-my10" class="reference"><a href="#cite_note-my10">[11]</a></sup>。</td></tr>
-      <tr><td>1978年</td><td>八阪財閥系企業群との統合交渉が妥結し、洩八グループ株式会社を設立<sup id="cite_ref-my11" class="reference"><a href="#cite_note-my11">[12]</a></sup>。</td></tr>
-      <tr><td>1983年</td><td>「西日本復興融口」枠を通じて電源、港湾、高速幹線の集中投資を実施。</td></tr>
-      <tr><td>1996年</td><td>西日本第一興銀を中核に証券・保険・リース事業を再編し金融部門を統合<sup id="cite_ref-my12" class="reference"><a href="#cite_note-my12">[13]</a></sup>。</td></tr>
-      <tr><td>2008年</td><td>物流部門を分社化し、陸運・海運・倉庫の一体運営体制を確立<sup id="cite_ref-my13" class="reference"><a href="#cite_note-my13">[14]</a></sup>。</td></tr>
-      <tr><td>2017年</td><td>公共インフラ指定管理の全国共通契約制度に対応するため、インフラ運営子会社群を再統合。</td></tr>
-      <tr><td>2025年</td><td>金融・エネルギー・物流を横断する統合リスク管理システムを全面導入<sup id="cite_ref-my14" class="reference"><a href="#cite_note-my14">[15]</a></sup>。</td></tr>
-    </table>
-  </section>
+    <section>
+      <h2 id="呼称・位置づけ"><span class="mw-headline">呼称・位置づけ</span></h2>
+      <p>企業広報では「総合インフラ持株会社」「生活基盤企業群」といった穏当な表現が用いられるが、外部では「諏訪財閥」「洩八国家」「西日本の底床」といった呼び方もみられる。どの呼称を選ぶかで、同社を公共的パートナーとみるか、私企業による国家包摂とみるかの評価が分かれる<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup>。</p>
+    </section>
 
-  <section>
-    <h2 id="グループ構造">グループ構造</h2>
-    <p>同グループは持株会社直下に業種別中間持株会社を置く多層構造を採る。上場・非上場子会社は2025年時点で320社超とされ、公共性の高い事業を中心に地域独占的な運営権を持つ企業が多い。主要子会社は以下のとおり。</p>
-    <table class="wikitable">
-      <tr><th>カテゴリ</th><th>会社名</th><th>上場区分</th><th>主な事業</th></tr>
-      <tr><td>金融</td><td><a href="#">西日本第一興銀</a>株式会社</td><td>上場</td><td>法人融資、投資銀行、決済</td></tr>
-      <tr><td>金融</td><td><a href="#">南部興業銀行</a>株式会社</td><td>上場</td><td>個人金融、中小企業融資</td></tr>
-      <tr><td>金融</td><td><a href="#">洩八証券</a>株式会社</td><td>非上場</td><td>社債引受、株式・債券仲介</td></tr>
-      <tr><td>金融</td><td><a href="#">八阪生命保険</a>株式会社</td><td>非上場</td><td>生命保険、年金商品</td></tr>
-      <tr><td>金融</td><td><a href="#" class="new">洩八損害保険</a>株式会社</td><td>非上場</td><td>企業保険、インフラ保険</td></tr>
-      <tr><td>金融</td><td><a href="#" class="new">信州総合リース</a>株式会社</td><td>非上場</td><td>設備リース、航空機リース</td></tr>
-      <tr><td>金融（海外）</td><td><a href="#" class="new">Moriya Global Investments</a></td><td>非上場</td><td>海外投資、ファンド運営（NY・ロンドン拠点）</td></tr>
-      <tr><td>エネルギー</td><td><a href="#">洩八電力</a>株式会社</td><td>上場</td><td>発電・送配電・需給調整</td></tr>
-      <tr><td>エネルギー</td><td><a href="#">西海ガス供給</a>株式会社</td><td>非上場</td><td>都市ガス供給</td></tr>
-      <tr><td>エネルギー</td><td><a href="#" class="new">南都石油備蓄</a>株式会社</td><td>非上場</td><td>石油備蓄、燃料卸</td></tr>
-      <tr><td>エネルギー</td><td><a href="#" class="new">西日本資源開発</a>株式会社</td><td>上場</td><td>海外鉱山開発、資源権益確保（シドニー拠点）</td></tr>
-      <tr><td>インフラ</td><td><a href="#">洩八上下水インフラ</a>株式会社</td><td>非上場</td><td>上下水道運営・更新工事</td></tr>
-      <tr><td>インフラ</td><td><a href="#">西日本港湾マネジメント</a>株式会社</td><td>非上場</td><td>港湾運営、埠頭管理</td></tr>
-      <tr><td>インフラ</td><td><a href="#" class="new">西日本幹線道路サービス</a>株式会社</td><td>非上場</td><td>有料道路運営、維持管理</td></tr>
-      <tr><td>インフラ</td><td><a href="#" class="new">洩八軌道システム</a>株式会社</td><td>非上場</td><td>鉄道設備保守、車両更新支援</td></tr>
-      <tr><td>物流</td><td><a href="#">洩八ロジスティクス</a>株式会社</td><td>上場</td><td>陸運、宅配、幹線輸送</td></tr>
-      <tr><td>物流</td><td><a href="#">南洋海運</a>株式会社</td><td>上場</td><td>内航・外航海運、コンテナ輸送</td></tr>
-      <tr><td>物流</td><td><a href="#" class="new">西都倉庫ネットワーク</a>株式会社</td><td>非上場</td><td>倉庫運営、温度管理物流</td></tr>
-      <tr><td>その他</td><td><a href="#">洩八都市開発</a>株式会社</td><td>上場</td><td>不動産開発、オフィス運営、ホテル事業</td></tr>
-      <tr><td>その他</td><td><a href="#">八阪建設</a>株式会社</td><td>非上場</td><td>土木建設、公共工事</td></tr>
-      <tr><td>その他</td><td><a href="#" class="new">信州アグリバリュー</a>株式会社</td><td>非上場</td><td>農業関連投資、食品流通</td></tr>
-      <tr><td>その他</td><td><a href="#" class="new">八阪商事</a>株式会社</td><td>上場</td><td>総合商社、貿易、海外拠点管理</td></tr>
-    </table>
-  </section>
+    <section>
+      <h2 id="沿革"><span class="mw-headline">沿革</span></h2>
+      <p>前身は戦後復興期の地域電力会社、産業銀行、道路・港湾管理法人に分かれる。これらは分断戦争と復興政策のなかで相互に結びつき、1970年代後半の持株会社化によって現在の洩八グループへ再編された<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup>。</p>
+      <p>その後の成長局面では、国有・半官半民インフラの受託、地方銀行の救済合併、港湾・倉庫・海運の系列化が進み、諏訪を軸とする資本集積が形成された。洩八は、国が弱っているときほど拡大しやすい企業であったとしばしば評される<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup>。</p>
+    </section>
 
-  <section>
-    <h2 id="主要事業">主要事業</h2>
+    <section>
+      <h2 id="組織・主要部門"><span class="mw-headline">組織・主要部門</span></h2>
+      <p>組織は大きく金融、エネルギー、インフラ運営、物流、不動産の五部門に分かれるが、実務上はこれらが単独で動くことは少ない。たとえば港湾再開発一件でも、系列銀行の融資、系列保険のリスク引受、系列電力の送電増強、系列物流の倉庫配置が同時に走る<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>。</p>
+      <p>この統合性が強みである一方、社内の意思決定が不透明になりやすく、責任所在が分散するという問題も生む。弥栄の個人調整力が高く評価される背景には、制度より人物に依存する部分が依然として大きいという事情がある<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">[12]</a></sup>。</p>
+    </section>
 
-    <h3 id="金融事業">金融事業</h3>
-    <p>西日本第一興銀の総資産は118兆円、預金残高は73兆円、貸出残高は61兆円（いずれも2025年3月末）で、国家基幹産業向けの大型融資に強みを持つ<sup id="cite_ref-my15" class="reference"><a href="#cite_note-my15">[16]</a></sup>。南部興業銀行は総資産34兆円、預金残高25兆円、貸出残高19兆円で、地域中堅企業と家計金融を担う<sup id="cite_ref-my16" class="reference"><a href="#cite_note-my16">[17]</a></sup>。企業向け貸出の業種別構成は、製造業31%、エネルギー22%、防衛関連15%、運輸・物流12%、その他20%（2025年時点）とされる。</p>
-    <p>証券・保険分野では、洩八証券が政府系債券とインフラ社債の主幹事比率で首位級にあり、八阪生命保険および洩八損害保険（グループ再保険会社含む）が企業保険・インフラ保険の引受を担う<sup id="cite_ref-my17" class="reference"><a href="#cite_note-my17">[18]</a></sup>。資金供給と保険引受を同時に提供できる点はグループ優位性とされる一方、価格形成の透明性確保を求める声もある<sup id="cite_ref-my18" class="reference"><a href="#cite_note-my18">[19]</a></sup>。</p>
+    <section>
+      <h2 id="経済・社会的位置"><span class="mw-headline">経済・社会的位置</span></h2>
+      <p>洩八は西日本経済にとって、単なる雇用主や投資主体ではなく、社会の基底条件を決める企業である。電力料金、交通料金、社債引受、自治体向け融資の配分が同社の判断一つで変動しうるため、景気循環そのものが洩八の資本政策と連動しやすい<sup id="cite_ref-note1" class="reference"><a href="#cite_note-note1">[注 1]</a></sup><sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup>。</p>
+      <p>また、停戦線の存在は同社に独特の役割を与えている。供給危機や有事転用を想定した広域冗長化投資は、国家にとって必要不可欠だが、その維持費用は公共料金と税制優遇を通じて社会全体に転嫁される。つまり洩八は、平時の豊かさと有事への備えの両方を課金する立場にある<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup>。</p>
+    </section>
 
-    <h3 id="インフラ・エネルギー事業">インフラ・エネルギー事業</h3>
-    <p>洩八電力の総設備容量は186GW（2025年時点）で、西日本地域の需要カバー率は86.9%と公表される<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[20]</a></sup>。発電ソース別構成は火力58%、原子力21%、<a href="#">再生可能エネルギー</a>21%であり、再エネ比率の上昇を進める一方、火力依存が依然として高い<sup id="cite_ref-my19" class="reference"><a href="#cite_note-my19">[21]</a></sup>。送電網は超高圧幹線を中心に全域を結び、需給ひっ迫時の融通運用を主導している。</p>
-    <p>インフラ運営では、港湾指定管理48件、上下水道事業運営67件、幹線道路維持管理92件（いずれも2025年時点）を受託し<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[22]</a></sup>、対象地域は近畿・山陽・九州北部に集中する。公共性の高い業務を一括受託するモデルは災害対応の迅速化に資するとされるが、自治体側の交渉力低下を懸念する研究もある<sup id="cite_ref-my20" class="reference"><a href="#cite_note-my20">[23]</a></sup>。</p>
+    <section>
+      <h2 id="対外関係"><span class="mw-headline">対外関係</span></h2>
+      <p>表向きには国内インフラ企業群であるが、実際には保険、海運、資源権益、再保険、仲介金融を通じて海外に深く張り出している。とりわけ第三国商社や港湾再積替えを介した対北物流には、直接関与を否定しつつも強い影響力を持つとみられている<sup id="cite_ref-note3" class="reference"><a href="#cite_note-note3">[注 3]</a></sup><sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup>。</p>
+      <p>このため洩八は、外交の正式当事者ではないにもかかわらず、制裁、保険、運賃、供給契約を通じて停戦線の実務空間を左右する。国家が交渉し、洩八が回す、という分業で理解されることが多い<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup>。</p>
+    </section>
 
-    <h3 id="物流事業">物流事業</h3>
-    <p>物流部門は国内外で1,240拠点を運営し、保有トラックは98,000台、コンテナ船は146隻<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[24]</a></sup>、鉄道コンテナ取扱量は年間1,900万TEU（2025年度）とされる。エネルギー輸送、産業資材、生活物資を同一ネットワークで処理する統合モデルを採用し、平時・有事双方の供給維持能力を重視している<sup id="cite_ref-my21" class="reference"><a href="#cite_note-my21">[25]</a></sup>。</p>
-    <p><a href="#">電子商取引</a>分野では、<a href="faction-frontier-clans.html">天通ホールディングス</a>の天通市場向け幹線輸送とラストワンマイル中継に関する長期契約を締結しており、取扱個数ベースで同サービス全体の約56%を担うとされる<sup id="cite_ref-my22" class="reference"><a href="#cite_note-my22">[26]</a></sup>。系列間取引の安定性を評価する声がある一方、独立系物流企業からは参入余地の狭さを問題視する意見が出ている<sup id="cite_ref-my23" class="reference"><a href="#cite_note-my23">[27]</a></sup>。</p>
-  </section>
+    <section>
+      <h2 id="批判・論争"><span class="mw-headline">批判・論争</span></h2>
+      <p>主な批判は、公共性の私有化である。供給を止めないという実績が、逆に言えば止めうる権力でもあるからだ。自治体契約、公共料金、再開発、危機対策融資の各局面で、洩八に逆らいにくい構造が固定化しているという指摘は絶えない<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup>。</p>
+      <p>もう一つの論点は、膠着の経済化である。停戦線が消えない限り、冗長化投資、備蓄、迂回物流、保険料率、危機調達は高止まりし、洩八の収益構造を支え続ける。戦争を煽っているわけではなくても、終わらないことによって利益を得る企業だという見方は根強い<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup>。</p>
+    </section>
 
-  <section>
-    <h2 id="経営体制">経営体制</h2>
-    <p>会長の弥栄は1961年生まれ、長野県出身。信州中央電力の創業家分流に連なる家系とされ、1985年にグループ入りし、電力・金融・物流の再編案件を主導した後、2009年に会長へ就任した<sup id="cite_ref-my24" class="reference"><a href="#cite_note-my24">[28]</a></sup>。社長の東城眞一は旧西日本第一興銀出身の専門経営者で、2021年に就任して以降、資本効率と規制対応の両立を掲げる<sup id="cite_ref-my25" class="reference"><a href="#cite_note-my25">[29]</a></sup>。家族経営の色彩は残るものの、執行面では外部登用比率を高める方針が示されている。</p>
-    <p>ガバナンス機構として、法定の取締役会に加え、グループ経営委員会、公共インフラ監督会議、統合リスク管理委員会を設置している<sup id="cite_ref-my26" class="reference"><a href="#cite_note-my26">[30]</a></sup>。重要投資案件はグループ経営委員会で一次審議された後、取締役会で決議される建て付けだが、実務上は会長主導の調整が最終判断に大きく影響するとの見方がある<sup id="cite_ref-my27" class="reference"><a href="#cite_note-my27">[31]</a></sup>。こうした統治構造は迅速な意思決定を可能にする一方、権限集中の妥当性を巡る論争も招いている。</p>
-  </section>
-
-  <section>
-    <h2 id="批判・問題点">批判・問題点</h2>
-    <p><b>独占・競合排除</b>については、電力と金融の双方で参入障壁を高めているとの批判が継続している<sup id="cite_ref-my28" class="reference"><a href="#cite_note-my28">[32]</a></sup>。電力小売新規事業者は送配電利用条件と需給調整市場での不利を、地方銀行連合は大口貸出における系列優遇を問題視してきた<sup id="cite_ref-my29" class="reference"><a href="#cite_note-my29">[33]</a></sup>。日本国の<a href="#">公正取引委員会</a>は2020年、2024年に基幹インフラ分野の市場実態調査を公表し、支配的事業者に対する情報開示拡充を勧告している<sup id="cite_ref-my30" class="reference"><a href="#cite_note-my30">[34]</a></sup>。</p>
-    <p><b>政財界癒着</b>では、歴代政権要職者とグループ幹部の人事交流、いわゆる天下り・民間人登用の慣行が、政策決定の中立性を損なうとの指摘が野党や政治学研究者から示されている<sup id="cite_ref-my31" class="reference"><a href="#cite_note-my31">[35]</a></sup>。公共事業の委託先選定や料金改定議論において、政策当局と企業側の距離が近すぎるとの問題提起である<sup id="cite_ref-my32" class="reference"><a href="#cite_note-my32">[36]</a></sup>。グループ側は、専門人材の相互活用は制度運営の安定に資すると説明している。</p>
-    <p><b>環境問題</b>としては、洩八電力の火力発電由来CO2排出量が年間3.1億トン（2024年度推計）とされる点が批判の対象となっている<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[37]</a></sup>。2038年度までに排出原単位を半減する目標を掲げるものの、市民団体は火力更新計画の継続により達成可能性は限定的だと主張する<sup id="cite_ref-my33" class="reference"><a href="#cite_note-my33">[38]</a></sup>。会社側は、アンモニア混焼や再エネ投資拡大で改善可能との立場を示す。</p>
-    <p><b>諏訪本社の地政学的問題</b>を巡っては、境界線に比較的近い諏訪市へ中枢機能を集中させることに対し、一部安全保障研究者がリスク分散不足を指摘している<sup id="cite_ref-my34" class="reference"><a href="#cite_note-my34">[39]</a></sup>。通信・金融・電力の統合司令機能が同一地域に集積することで、災害や有事の継続運営に脆弱性が生じるとの見解である。グループは複数地域でのバックアップ拠点整備を進めていると説明している<sup id="cite_ref-my35" class="reference"><a href="#cite_note-my35">[40]</a></sup>。</p>
-  </section>
-
-  <section>
-    <h2 id="業績推移">業績推移</h2>
-    <p>以下は洩八グループの連結財務ハイライトの推移である<sup id="cite_ref-annual" class="reference"><a href="#cite_note-annual">[6]</a></sup>。</p>
-    <table class="wikitable" style="text-align:right; font-size:0.9em;">
-      <caption>洩八グループ 連結財務ハイライト（単位：億円）</caption>
-      <thead>
-        <tr>
-          <th>決算期</th>
-          <th>売上高</th>
-          <th>営業利益</th>
-          <th>純利益</th>
-          <th>総資産</th>
-          <th>従業員数（人）</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>2021年3月期</td><td>298,400</td><td>22,100</td><td>12,300</td><td>1,870,000</td><td>約8,520,000</td></tr>
-        <tr><td>2022年3月期</td><td>314,600</td><td>24,800</td><td>14,100</td><td>1,960,000</td><td>約8,640,000</td></tr>
-        <tr><td>2023年3月期</td><td>330,200</td><td>27,500</td><td>15,700</td><td>2,080,000</td><td>約8,750,000</td></tr>
-        <tr><td>2024年3月期</td><td>348,500</td><td>29,400</td><td>16,900</td><td>2,160,000</td><td>約8,820,000</td></tr>
-        <tr style="font-weight:bold; background-color:#f0f0ff;"><td>2025年3月期</td><td>364,000</td><td>31,200</td><td>18,600</td><td>2,240,000</td><td>約9,000,000</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section>
-    <h2 id="関連項目">関連項目</h2>
-    <ul>
-      <li><a href="character-shun-kagami.html">弥栄</a>（会長）</li>
-      <li><a href="faction-southern-league.html">日本国（京都政権）</a></li>
-      <li><a href="faction-frontier-clans.html">天通ホールディングス</a></li>
-      <li><a href="faction-maritime-guild.html">山崎＝川城重工業</a></li>
-      <li><a href="world-economy.html">経済構造</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="外部リンク">外部リンク</h2>
-    <ul>
-      <li><a href="#" class="external text" rel="nofollow">洩八グループ株式会社 公式サイト</a></li>
-      <li><a href="#" class="external text" rel="nofollow">洩八電力株式会社 公式サイト</a></li>
-      <li><a href="#" class="external text" rel="nofollow">西日本第一興銀株式会社 公式サイト</a></li>
-      <li><a href="#" class="external text" rel="nofollow">南洋海運株式会社 公式サイト</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="注釈">注釈</h2>
-    <div class="reflist">
-      <ol class="references">
-        <li id="cite_note-note1"><span class="mw-cite-backlink"><a href="#cite_ref-note1">↑</a></span> <span class="reference-text">西日本の大手製造業の約7割がメインバンクを西日本第一興銀としている。</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <section>
-    <h2 id="出典">出典</h2>
-    <div class="reflist" style="column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; font-size: 0.9em;">
-      <ol class="references">
-        <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">「経済統計局 GDPアカウント 2025年度」経済統計局、2025年10月。</span></li>
-        <li id="cite_note-my1"><span class="mw-cite-backlink"><a href="#cite_ref-my1">↑</a></span> <span class="reference-text">『西日本企業便覧 2025』帝国企業リサーチ、p.12。</span></li>
-        <li id="cite_note-my2"><span class="mw-cite-backlink"><a href="#cite_ref-my2">↑</a></span> <span class="reference-text">「洩八グループのインフラ支配構造」『経済航路』2024年4月号。</span></li>
-        <li id="cite_note-my3"><span class="mw-cite-backlink"><a href="#cite_ref-my3">↑</a></span> <span class="reference-text">『週刊ダイヤモンド関西版』「最強財閥の解剖」2025年1月。</span></li>
-        <li id="cite_note-my4"><span class="mw-cite-backlink"><a href="#cite_ref-my4">↑</a></span> <span class="reference-text">「日本政府 公共投資等調達実績表」財務省、2024年。</span></li>
-        <li id="cite_note-my5"><span class="mw-cite-backlink"><a href="#cite_ref-my5">↑</a></span> <span class="reference-text">「巨大インフラ独占の弊害」『関西経済研究』2024年秋号。</span></li>
-        <li id="cite_note-my6"><span class="mw-cite-backlink"><a href="#cite_ref-my6">↑</a></span> <span class="reference-text">京都日報「政界のフィクサーか、安定の礎か 弥栄会長を問う」2024年12月1日。</span></li>
-        <li id="cite_note-my7"><span class="mw-cite-backlink"><a href="#cite_ref-my7">↑</a></span> <span class="reference-text">『月刊論壇』「不透明な意思決定」2025年2月。</span></li>
-        <li id="cite_note-my8"><span class="mw-cite-backlink"><a href="#cite_ref-my8">↑</a></span> <span class="reference-text">「三社寡占体制の行方」西日本新聞、2025年3月15日。</span></li>
-        <li id="cite_note-my9"><span class="mw-cite-backlink"><a href="#cite_ref-my9">↑</a></span> <span class="reference-text">公正取引委員会「持株会社の市場影響度調査」2025年。</span></li>
-        <li id="cite_note-my10"><span class="mw-cite-backlink"><a href="#cite_ref-my10">↑</a></span> <span class="reference-text">『西日本戦後経済史』東亜出版、2010年、p.198。</span></li>
-        <li id="cite_note-my11"><span class="mw-cite-backlink"><a href="#cite_ref-my11">↑</a></span> <span class="reference-text">洩八グループ株式会社『統合50年史』2028年（予定稿）。</span></li>
-        <li id="cite_note-my12"><span class="mw-cite-backlink"><a href="#cite_ref-my12">↑</a></span> <span class="reference-text">「金融再編の嵐」『週刊南都レビュー』1996年10月。</span></li>
-        <li id="cite_note-my13"><span class="mw-cite-backlink"><a href="#cite_ref-my13">↑</a></span> <span class="reference-text">「洩八ロジスティクス 事業概要2025」洩八ロジスティクス株式会社、2025年4月。</span></li>
-        <li id="cite_note-my14"><span class="mw-cite-backlink"><a href="#cite_ref-my14">↑</a></span> <span class="reference-text">「全グループ横断リスク管理の本格稼働」洩八グループ広報発表、2025年2月。</span></li>
-        <li id="cite_note-my15"><span class="mw-cite-backlink"><a href="#cite_ref-my15">↑</a></span> <span class="reference-text">西日本第一興銀株式会社「ディスクロージャー誌 2025」。</span></li>
-        <li id="cite_note-my16"><span class="mw-cite-backlink"><a href="#cite_ref-my16">↑</a></span> <span class="reference-text">南部興業銀行株式会社「アニュアルレポート 2025」。</span></li>
-        <li id="cite_note-my17"><span class="mw-cite-backlink"><a href="#cite_ref-my17">↑</a></span> <span class="reference-text">『インフラ金融の現在』金融財政リサーチ、2024年。</span></li>
-        <li id="cite_note-my18"><span class="mw-cite-backlink"><a href="#cite_ref-my18">↑</a></span> <span class="reference-text">「系列保険による価格ゆがみ」『経済航路』2025年1月号。</span></li>
-        <li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">「洩八電力 統合報告書2025」洩八電力株式会社、2025年6月。</span></li>
-        <li id="cite_note-my19"><span class="mw-cite-backlink"><a href="#cite_ref-my19">↑</a></span> <span class="reference-text">資源エネルギー庁「電源構成比率推移」2025年速報。</span></li>
-        <li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">「国土交通省 インフラ管理業務委託一覧 2025年度」国土交通省、2025年8月。</span></li>
-        <li id="cite_note-my20"><span class="mw-cite-backlink"><a href="#cite_ref-my20">↑</a></span> <span class="reference-text">『自治体インフラの民営化課題』地方自治研究センター、2024年。</span></li>
-        <li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">南洋海運株式会社「フリート構成表 2025」。</span></li>
-        <li id="cite_note-my21"><span class="mw-cite-backlink"><a href="#cite_ref-my21">↑</a></span> <span class="reference-text">「有事の兵站網：洩八ロジスティクス」『ミリタリー・レビュー』2025年5月号。</span></li>
-        <li id="cite_note-my22"><span class="mw-cite-backlink"><a href="#cite_ref-my22">↑</a></span> <span class="reference-text">「天通市場の裏側」『ITビジネス関西』2024年11月。</span></li>
-        <li id="cite_note-my23"><span class="mw-cite-backlink"><a href="#cite_ref-my23">↑</a></span> <span class="reference-text">西日本物流協会「市場健全化への提言」2025年3月。</span></li>
-        <li id="cite_note-my24"><span class="mw-cite-backlink"><a href="#cite_ref-my24">↑</a></span> <span class="reference-text">「弥栄体制16年の功罪」『週刊ダイヤモンド関西版』2025年5月。</span></li>
-        <li id="cite_note-my25"><span class="mw-cite-backlink"><a href="#cite_ref-my25">↑</a></span> <span class="reference-text">「東城新社長の改革路線」京都日報、2021年4月10日。</span></li>
-        <li id="cite_note-my26"><span class="mw-cite-backlink"><a href="#cite_ref-my26">↑</a></span> <span class="reference-text">洩八グループ株式会社 コーポレート・ガバナンス報告書、2025年。</span></li>
-        <li id="cite_note-my27"><span class="mw-cite-backlink"><a href="#cite_ref-my27">↑</a></span> <span class="reference-text">「誰が西日本を動かすのか」『月刊オルタナティブ』2024年8月号。</span></li>
-        <li id="cite_note-my28"><span class="mw-cite-backlink"><a href="#cite_ref-my28">↑</a></span> <span class="reference-text">新関西タイムス「見えない壁：新規参入を阻むもの」2023年9月。</span></li>
-        <li id="cite_note-my29"><span class="mw-cite-backlink"><a href="#cite_ref-my29">↑</a></span> <span class="reference-text">地方銀行連合会「公正な金融市場を求める声明」2024年12月。</span></li>
-        <li id="cite_note-my30"><span class="mw-cite-backlink"><a href="#cite_ref-my30">↑</a></span> <span class="reference-text">公正取引委員会「基幹インフラ分野における実態調査報告」2024年版。</span></li>
-        <li id="cite_note-my31"><span class="mw-cite-backlink"><a href="#cite_ref-my31">↑</a></span> <span class="reference-text">「天下り構造の温床」『週刊南都レビュー』2025年2月。</span></li>
-        <li id="cite_note-my32"><span class="mw-cite-backlink"><a href="#cite_ref-my32">↑</a></span> <span class="reference-text">市民団体「透明なインフラ政策を求める会」公開質問状、2025年4月。</span></li>
-        <li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">「環境省 大規模排出事業者報告書 2024年度集計」環境省、2025年7月。</span></li>
-        <li id="cite_note-my33"><span class="mw-cite-backlink"><a href="#cite_ref-my33">↑</a></span> <span class="reference-text">環境NGOネットワーク「気候変動対策への不十分な取り組み」2025年。</span></li>
-        <li id="cite_note-my34"><span class="mw-cite-backlink"><a href="#cite_ref-my34">↑</a></span> <span class="reference-text">西日本安全保障研究所『地政学リスク・レポート 2024』。</span></li>
-        <li id="cite_note-my35"><span class="mw-cite-backlink"><a href="#cite_ref-my35">↑</a></span> <span class="reference-text">洩八グループ「事業継続計画（BCP）の基本方針」2025年更新版。</span></li>
-        <li id="cite_note-annual"><span class="mw-cite-backlink"><a href="#cite_ref-annual">↑</a></span> <span class="reference-text">「洩八グループ 統合報告書 2021–2025」洩八グループ株式会社、2025年6月。</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <div class="navbox" style="margin-top:2em; margin-bottom:1em; border:1px solid #aaa; padding:1px; background-color:#f9f9f9;">
-    <table style="width:100%; background:transparent; border-collapse:collapse; text-align:center; font-size:0.9em;">
-      <tr><th colspan="2" style="background:#ccddff; padding:0.4em;">洩八グループ</th></tr>
-      <tr>
-        <th style="background:#ddedff; width:15%; padding:0.4em; border-top:1px solid #aaa;">金融・保険</th>
-        <td style="padding:0.4em; border-top:1px solid #aaa; text-align:left;">
-          <a href="#">西日本第一興銀</a> | <a href="#">南部興業銀行</a> | <a href="#">洩八証券</a> | <a href="#">八阪生命保険</a> | <a href="#" class="new">洩八損害保険</a> | <a href="#" class="new">信州総合リース</a> | <a href="#" class="new">Moriya Global Investments</a>
-        </td>
-      </tr>
-      <tr>
-        <th style="background:#ddedff; width:15%; padding:0.4em; border-top:1px solid #aaa;">エネルギー・インフラ</th>
-        <td style="padding:0.4em; border-top:1px solid #aaa; text-align:left;">
-          <a href="#">洩八電力</a> | <a href="#">西海ガス供給</a> | <a href="#" class="new">南都石油備蓄</a> | <a href="#" class="new">西日本資源開発</a> | <a href="#">洩八上下水インフラ</a> | <a href="#">西日本港湾マネジメント</a> | <a href="#" class="new">西日本幹線道路サービス</a> | <a href="#" class="new">洩八軌道システム</a>
-        </td>
-      </tr>
-      <tr>
-        <th style="background:#ddedff; width:15%; padding:0.4em; border-top:1px solid #aaa;">物流・不動産・商社</th>
-        <td style="padding:0.4em; border-top:1px solid #aaa; text-align:left;">
-          <a href="#">洩八ロジスティクス</a> | <a href="#">南洋海運</a> | <a href="#" class="new">西都倉庫ネットワーク</a> | <a href="#">洩八都市開発</a> | <a href="#">八阪建設</a> | <a href="#" class="new">八阪商事</a>
-        </td>
-      </tr>
-      <tr>
-        <th style="background:#ddedff; width:15%; padding:0.4em; border-top:1px solid #aaa;">関連・提携企業</th>
-        <td style="padding:0.4em; border-top:1px solid #aaa; text-align:left;">
-          <a href="faction-frontier-clans.html">天通ホールディングス</a> | <a href="faction-maritime-guild.html">山崎川城工業</a>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="mw-normal-catlinks" id="mw-normal-catlinks">
-    <a href="/Tenzu.jp/special-categories.html">カテゴリ</a>：
-    <ul>
-      <li><a href="#">日本の持株会社</a></li>
-      <li><a href="#">長野県の企業</a></li>
-      <li><a href="#">諏訪市の企業</a></li>
-      <li><a href="#">エネルギー企業</a></li>
-      <li><a href="#">金融機関</a></li>
-      <li><a href="#">物流企業</a></li>
-      <li><a href="#">1978年設立の企業</a></li>
-      <li><a href="#">架空の企業</a></li>
-      <li><a href="#">天通辞典</a></li>
-    </ul>
+    {% include references.html legend='本文に用いた出典区分は、' notes=notes sources=sources %}
+    {% include related-links.html items=page.related external=page.external_links %}
   </div>
 </article>

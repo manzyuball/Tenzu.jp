@@ -1,0 +1,18 @@
+official:
+  label: "官報/広報"
+  description: "政府、企業、機関の公式公表資料。"
+tentsu:
+  label: "天通報道"
+  description: "天通系の報道、解説、番組、系列媒体による整理。"
+diplomatic:
+  label: "外交記録"
+  description: "停戦管理記録、会談要旨、声明、交渉ログ。"
+trade:
+  label: "流通資料"
+  description: "物流、配給、市場取引、決算、需給推計の資料。"
+exile:
+  label: "亡命証言"
+  description: "離脱者、元幹部、元従業員、越境関係者の証言。"
+estimate:
+  label: "外部推計"
+  description: "研究機関、監視団体、観測筋による推計値。"

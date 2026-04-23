@@ -1,293 +1,144 @@
 ---
 layout: default
 title: "山崎川城工業"
-description: "山崎川城工業株式会社に関する情報。防衛・宇宙、自動車、AI開発、製鉄を担う巨大複合企業。"
+description: "防衛・宇宙・自動車・半導体・AIを束ねる技術複合体。再軍備と平時産業を接続する母艦記事。"
 nav_section: factions
+article_type: corporation
+status: Public Draft
+updated_on: 2026-04-23
+aliases:
+  - 山崎川城
+  - 山崎川城重工
+  - 西日本技術同盟中核
+related:
+  - title: "日本国（京都政権）"
+    url: "/faction-southern-league.html"
+    summary: "抑止力の発注主体であり、安全保障政策の相手先。"
+  - title: "洩八グループ"
+    url: "/faction-imperial-court.html"
+    summary: "投資・保険・物流の基礎を支える系列資本。"
+  - title: "天通"
+    url: "/faction-frontier-clans.html"
+    summary: "AIと通信設備の大口実装先。"
+  - title: "技術水準"
+    url: "/world-technology.html"
+    summary: "昭和的重工業と令和的情報戦技術の混成を整理する。"
+external_links:
+  - title: "外交記録簿（改稿ログ）"
+    url: "archive-diplomatic-ledger.html"
+    summary: "装備輸出・共同研究・停戦線抑止に関する断片資料。"
 ---
+{% capture infobox_rows %}
+<tr><th class="infobox-header" colspan="2">企業概要</th></tr>
+<tr><th class="infobox-label">名称</th><td class="infobox-data">山崎川城工業株式会社</td></tr>
+<tr><th class="infobox-label">通称</th><td class="infobox-data">山崎川城、山崎川城重工</td></tr>
+<tr><th class="infobox-label">本社</th><td class="infobox-data">京都市伏見区</td></tr>
+<tr><th class="infobox-label">設立</th><td class="infobox-data">1993年（合併）</td></tr>
+<tr><th class="infobox-label">主要分野</th><td class="infobox-data">防衛、宇宙、自動車、AI、半導体</td></tr>
+<tr><th class="infobox-header" colspan="2">事業規模</th></tr>
+<tr><th class="infobox-label">連結売上高</th><td class="infobox-data">18.44兆円<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></td></tr>
+<tr><th class="infobox-label">総資産</th><td class="infobox-data">34.8兆円<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></td></tr>
+<tr><th class="infobox-label">防衛受注比率</th><td class="infobox-data">国内調達額の42.3%<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></td></tr>
+<tr><th class="infobox-label">主要連携先</th><td class="infobox-data"><a href="faction-imperial-court.html">洩八グループ</a>、<a href="faction-frontier-clans.html">天通</a></td></tr>
+{% endcapture %}
+{% capture image_html %}
+<img src="assets/images/yamakawashiro_logo.png" width="150" alt="山崎川城工業ロゴ"><br>
+<small>企業ロゴ</small>
+{% endcapture %}
+{% capture toc_body %}
+<ul>
+  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+  <li><a href="#呼称・構成"><span class="tocnumber">2</span> <span class="toctext">呼称・構成</span></a></li>
+  <li><a href="#沿革"><span class="tocnumber">3</span> <span class="toctext">沿革</span></a></li>
+  <li><a href="#組織・主要部門"><span class="tocnumber">4</span> <span class="toctext">組織・主要部門</span></a></li>
+  <li><a href="#経済・社会的位置"><span class="tocnumber">5</span> <span class="toctext">経済・社会的位置</span></a></li>
+  <li><a href="#対外関係"><span class="tocnumber">6</span> <span class="toctext">対外関係</span></a></li>
+  <li><a href="#批判・論争"><span class="tocnumber">7</span> <span class="toctext">批判・論争</span></a></li>
+  <li><a href="#注釈"><span class="tocnumber">8</span> <span class="toctext">注釈</span></a></li>
+  <li><a href="#出典"><span class="tocnumber">9</span> <span class="toctext">出典</span></a></li>
+  <li><a href="#関連項目"><span class="tocnumber">10</span> <span class="toctext">関連項目</span></a></li>
+  <li><a href="#外部リンク"><span class="tocnumber">11</span> <span class="toctext">外部リンク</span></a></li>
+</ul>
+{% endcapture %}
+{% capture notes %}
+<li id="cite_note-note1"><span class="mw-cite-backlink"><a href="#cite_ref-note1">↑</a></span><span class="reference-text">防衛受注比率はライフサイクル保守や下請系列分を含む推計であり、純粋な完成品受注だけを示すものではない。</span></li>
+<li id="cite_note-note2"><span class="mw-cite-backlink"><a href="#cite_ref-note2">↑</a></span><span class="reference-text">「西日本技術同盟」は正式名称ではなく、山崎川城、天通、洩八の設備・資本・研究開発連携を指す総称である。</span></li>
+<li id="cite_note-note3"><span class="mw-cite-backlink"><a href="#cite_ref-note3">↑</a></span><span class="reference-text">AI部門と防衛部門のデータ共有範囲は非公開であり、外部推計では企業説明より深い統合が行われているとされる。</span></li>
+{% endcapture %}
+{% capture sources %}
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 山崎川城工業『2026年3月期統合報告書』。</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 重工業金融資料『防衛・自動車複合企業の資産構造』。</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.estimate.label }}</strong>: 防衛装備研究会『主要装備調達比率 2026』。</span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.tentsu.label }}</strong>: 天通経済面「山崎川城は何を作る会社か」。</span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 山崎川城工業社史編纂室『合併三十年史』。</span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 西日本産業再編年表『重工・自動車・半導体の統合』。</span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.estimate.label }}</strong>: 先端技術政策研究『AI軍需複合体の形成』。</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 半導体・装備産業連関表『京都-諏訪ラインの技術移転』。</span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.tentsu.label }}</strong>: 天通解説「Octopus-4.4の社会実装」。</span></li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.exile.label }}</strong>: 元防衛調達官証言『系列企業に閉じる技術政策』。</span></li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.diplomatic.label }}</strong>: 外交記録簿「共同研究・輸出管理・抑止交渉」。</span></li>
+{% endcapture %}
 <nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › <a href="factions.html">勢力</a> › 山崎川城工業</nav>
-<article>
+<article class="mw-body">
   <header>
     <h1 class="firstHeading">山崎川城工業</h1>
-    <div class="hatnote">
-      「山崎川城」の旧称および各事業子会社については「<a href="#">山崎重工業（旧）</a>」および「<a href="#">川城工業</a>」をご覧ください。
-    </div>
-
-    <table class="ambox ambox-content" style="border: 1px solid #f28500; background: #fef6e7; width:100%; margin-bottom:1em; font-size:0.9em;">
-      <tr>
-        <td style="padding:0.5em 1em; color:#333;">
-          この記事には<strong>出典が不足している箇所</strong>があります。信頼できる情報源を追加してください。
-          <a href="#">出典を追加する</a><small>（2024年11月）</small>
-        </td>
-      </tr>
-    </table>
+    <p class="meta">基本ID: faction-maritime-guild / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
+    <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
+    {% include hatnote.html text='この項目では、山崎川城工業本体を扱う。技術環境全般については「<a href="world-technology.html">技術水準</a>」を参照。' %}
+    {% include ambox.html kind="content" text='企業資料は豊富だが、防衛・AI・半導体の境界領域では秘匿契約が多く、外部推計を交えた記述を含む。とくに調達比率とAI実装範囲は注釈の確認が必要とされる。' %}
   </header>
 
-  <table class="infobox">
-    <caption>山崎川城工業</caption>
-    <tr><td colspan="2" style="text-align:center; padding: 10px 0; background-color: #fff;"><img src="assets/images/yamakawashiro_logo.png" width="160" alt="山崎川城工業のロゴ"></td></tr>
-    <tr><th>種類</th><td>株式会社（上場）</td></tr>
-    <tr><th>本社所在地</th><td><a href="#">京都府</a><a href="#">京都市</a>伏見区</td></tr>
-    <tr><th>設立</th><td>1993年10月（山崎重工業と川城工業の合併）</td></tr>
-    <tr><th>前身</th><td><a href="#" class="new">山崎重工業株式会社</a>（1934年創業）<br><a href="#" class="new">川城工業株式会社</a>（1958年創業）</td></tr>
-    <tr><th>代表者</th><td>代表取締役会長 <a href="#" class="new">神代 恒一</a><br>代表取締役社長 <a href="#" class="new">高槻 健吾</a></td></tr>
-    <tr><th>証券コード</th><td>7643（大阪証券取引所）</td></tr>
-    <tr><th>資本金</th><td>1兆2,600億円（2025年3月末時点）</td></tr>
-    <tr><th>売上高</th><td>連結18兆4,400億円（2025年3月期）</td></tr>
-    <tr><th>営業利益</th><td>1兆8,900億円（2025年3月期）</td></tr>
-    <tr><th>純利益</th><td>1兆120億円（2025年3月期）</td></tr>
-    <tr><th>総資産</th><td>34兆8,000億円（2025年3月末時点）</td></tr>
-    <tr><th>従業員数</th><td>268,500人（連結、2025年3月末時点）</td></tr>
-    <tr><th>主要株主</th><td><a href="faction-imperial-court.html">洩八グループ</a>（18.9%）<br><a href="faction-frontier-clans.html">天通ホールディングス</a>（14.2%）<br>山崎川城取引先持株会（6.1%）</td></tr>
-    <tr><th>事業内容</th><td>純粋持株会社</td></tr>
-    <tr><th>主要子会社</th><td><a href="#" class="new">山崎川城モーター</a><br><a href="#" class="new">クローズAI</a><br><a href="#" class="new">山崎川城重工業</a><br><a href="#" class="new">古賀佐製鉄</a><br><a href="#" class="new">山崎川城航空機リース</a><br><a href="#" class="new">古賀佐マテリアルズ</a><br><a href="#" class="new">Yamakawashiro Global</a></td></tr>
-    <tr><th>主要拠点</th><td>本社（京都）・北九州・瀬戸内・京都・諏訪<br>シアトル・パリ・メルボルン・バンガロール</td></tr>
-    <tr><th>ウェブサイト</th><td><a href="#" class="external text">yamakawa-kogyo.co.jp</a></td></tr>
-  </table>
+  <div class="mw-parser-output">
+    {% include infobox.html caption=page.title image_html=image_html rows=infobox_rows %}
 
-  <p><b>山崎川城工業株式会社</b>（やまざきかわしろこうぎょうかぶしきがいしゃ）は、京都府京都市に本社を置く、自動車、防衛・宇宙、人工知能、製鉄を中核とする巨大複合企業（コングロマリット）である<sup id="cite_ref-yk1" class="reference"><a href="#cite_note-yk1">[1]</a></sup>。各事業は子会社化されており、国内の防衛装備調達や自動車産業において支配的な比率を占めるとされ<sup id="cite_ref-yk2" class="reference"><a href="#cite_note-yk2">[2]</a></sup>、官需と民需をまたぐ西日本最大の技術集約型企業集団として位置付けられる<sup id="cite_ref-note1" class="reference"><a href="#cite_note-note1">[注 1]</a></sup>。</p>
+    <p><b>山崎川城工業</b>は、防衛、宇宙、自動車、半導体、人工知能を束ねる西日本最大級の技術複合企業である<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup>。民生産業と軍需産業の境界をまたぐことで、京都政権の再軍備、物流自動化、通信高度化、産業競争力を一体的に支えている<sup id="cite_ref-note2" class="reference"><a href="#cite_note-note2">[注 2]</a></sup><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup>。</p>
+    <p>同社の特徴は、重工業的な巨大設備と、ソフトウェア・AI的な軽量技術を同じ資本圏で扱える点にある。艦艇、装甲車、工作機械、半導体ファブ、推論モデル、監視支援システムが同一の戦略地図に乗っているため、国家にとっては「技術の総合請負人」に近い存在となっている<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>。</p>
+    <p>また、<a href="faction-imperial-court.html">洩八グループ</a>の資金と保険、<a href="faction-frontier-clans.html">天通</a>の回線と実装先が揃うことで、研究から量産、そして社会配備までの距離が非常に短い。これが西日本の技術競争力の源泉である一方、政策の系列閉鎖性を強める要因でもある<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup>。</p>
+    <p>とりわけ近年は、AIモデル「Octopus」系の社会実装が同社像を変えた。山崎川城は、兵器を作る会社であるだけでなく、見る・測る・予測する技術を生活領域へ滲出させる会社になりつつある<sup id="cite_ref-note3" class="reference"><a href="#cite_note-note3">[注 3]</a></sup><sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup>。</p>
 
-  <div id="toc" class="toc">
-    <div class="toc-title">目次</div>
-    <ul>
-      <li><a href="#概要">1 概要</a></li>
-      <li><a href="#沿革">2 沿革</a></li>
-      <li><a href="#主要事業">3 主要事業</a>
-        <ul>
-          <li><a href="#防衛・宇宙部門">3.1 防衛・宇宙部門</a></li>
-          <li><a href="#半導体製造">3.2 半導体製造</a></li>
-          <li><a href="#人工知能（AI）研究">3.3 人工知能（AI）研究</a></li>
-        </ul>
-      </li>
-      <li><a href="#業績推移">4 業績推移</a></li>
-      <li><a href="#主要拠点">5 主要拠点</a></li>
-      <li><a href="#経営体制">6 経営体制</a></li>
-      <li><a href="#批判・問題点">7 批判・問題点</a></li>
-      <li><a href="#関連項目">8 関連項目</a></li>
-      <li><a href="#外部リンク">9 外部リンク</a></li>
-      <li><a href="#注釈">10 注釈</a></li>
-      <li><a href="#出典">11 出典</a></li>
-    </ul>
-  </div>
+    {% include toc.html body=toc_body %}
 
-  <section>
-    <h2 id="概要">概要</h2>
-    <p>山崎重工業は戦前期に造船・機械製造・製鉄から出発した重工メーカー、川城工業は諏訪地域の精密機器産業と自動車産業を母体とするメーカーとして発展した<sup id="cite_ref-yk3" class="reference"><a href="#cite_note-yk3">[3]</a></sup>。南北分断後の防衛需要拡大と産業再編の過程で、重工基盤と自動車・精密技術を統合する必要性が高まり、1993年に両社が合併して現在の体制となった<sup id="cite_ref-yk4" class="reference"><a href="#cite_note-yk4">[4]</a></sup><sup id="cite_ref-yk5" class="reference"><a href="#cite_note-yk5">[5]</a></sup>。2020年代には事業ポートフォリオを大幅に見直し、グループを純粋持株会社体制へ移行させ、主力事業を「山崎川城モーター」「クローズAI」「山崎川城重工業」「古賀佐製鉄」といった専門子会社群に分割した<sup id="cite_ref-yk6" class="reference"><a href="#cite_note-yk6">[6]</a></sup>。</p>
-    <p>防衛省公表資料の集計では、2025年度の国内防衛装備調達額に占める同社グループ関連受注比率は42.3%とされる<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[7]</a></sup>。<a href="faction-imperial-court.html">洩八グループ</a>からの資金・インフラ支援、<a href="faction-frontier-clans.html">天通ホールディングス</a>の通信基盤・プラットフォームとの連携により、開発から実装までを国内で完結させる「西日本技術同盟」の中核を担う<sup id="cite_ref-yk7" class="reference"><a href="#cite_note-yk7">[8]</a></sup>。</p>
-  </section>
+    <section>
+      <h2 id="概要"><span class="mw-headline">概要</span></h2>
+      <p>山崎川城の企業モデルは、平時の大量市場を持つ自動車・半導体と、有事需要を持つ防衛・宇宙を相互補完させる点にある。景気後退期でも防衛需要が下支えし、平時には民生技術が量産効果を生み出すため、技術蓄積が途切れにくい<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>。</p>
+      <p>国家から見れば、装備と産業政策を同時に託せる便利な相手だが、その分だけ代替性は低い。山崎川城が止まれば、防衛装備だけでなく車両、工作機械、先端半導体、AI推論基盤まで同時に揺らぐとされる<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup>。</p>
+    </section>
 
-  <section>
-    <h2 id="沿革">沿革</h2>
-    <table>
-      <tr><th>年</th><th>事項</th></tr>
-      <tr><td>1934年</td><td>山崎重工業の前身となる山崎機械製作所を創業。</td></tr>
-      <tr><td>1958年</td><td>川城工業の前身となる川城精密電機を諏訪で設立。</td></tr>
-      <tr><td>1970年代後半</td><td>分断後の防衛需要拡大を受け、山崎は艦艇・航空・製鉄、川城は自動車・誘導制御で事業を拡大。</td></tr>
-      <tr><td>1991年</td><td>両社の経営統合交渉を開始。</td></tr>
-      <tr><td>1993年</td><td>山崎重工業と川城工業が合併し、山崎川城工業株式会社が発足<sup id="cite_ref-yk8" class="reference"><a href="#cite_note-yk8">[9]</a></sup>。</td></tr>
-      <tr><td>2007年</td><td>先端ロジック半導体製造事業へ参入し、京都工場の第1ファブ稼働。</td></tr>
-      <tr><td>2016年</td><td>AI研究組織を分社化し、「クローズAI」を設立<sup id="cite_ref-yk9" class="reference"><a href="#cite_note-yk9">[10]</a></sup>。</td></tr>
-      <tr><td>2021年</td><td>持株会社体制へ移行。事業を「山崎川城モーター」「山崎川城重工業」「古賀佐製鉄」などに再編<sup id="cite_ref-yk10" class="reference"><a href="#cite_note-yk10">[11]</a></sup>。</td></tr>
-      <tr><td>2025年</td><td>第2世代防衛向けAI統合管制基盤を実装し、現行体制を確立。</td></tr>
-    </table>
-  </section>
+    <section>
+      <h2 id="呼称・構成"><span class="mw-headline">呼称・構成</span></h2>
+      <p>一般には「重工」と略されることも多いが、実態は純粋な重工会社ではない。防衛・宇宙を扱う山崎系、自動車・精密を扱う川城系、そしてAI・半導体の新規事業が持株会社の下で再編されており、巨大製造業というより技術複合体と呼ぶ方が実情に近い<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup>。</p>
+    </section>
 
-  <section>
-    <h2 id="主要事業">主要事業</h2>
+    <section>
+      <h2 id="沿革"><span class="mw-headline">沿革</span></h2>
+      <p>山崎系は戦前由来の造船・重工基盤、川城系は戦後の精密機器・自動車基盤にルーツを持つ。分断後の軍需拡大と産業再編を経て1993年に合併し、21世紀に入ってからは持株会社化、AI分社化、半導体内製化によって現在の姿に近づいた<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup>。</p>
+      <p>近年の転換点は、兵器製造会社から「国家基盤技術会社」への自己定義の変更である。これにより防衛予算だけでなく、通信、医療、物流、行政DXの予算にも関与できるようになった<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>。</p>
+    </section>
 
-    <h3 id="山崎川城重工業（防衛・宇宙）">山崎川城重工業（防衛・宇宙）</h3>
-    <table class="infobox" style="float: right; clear: right; width: 250px; margin: 0 0 1em 1em; font-size: 0.9em; background-color: #f8f9fa;">
-      <caption style="background-color:#b0c4de;">F-15J</caption>
-      <tr><th colspan="2" style="background-color:#d0e4fe; text-align:center;">基本情報</th></tr>
-      <tr><th>分類</th><td>制空戦闘機</td></tr>
-      <tr><th>ライセンス生産</th><td>山崎川城重工業</td></tr>
-      <tr><th>運用開始</th><td>1981年</td></tr>
-      <tr><th>配備数</th><td>213機</td></tr>
-      <tr><th colspan="2" style="background-color:#d0e4fe; text-align:center;">諸元</th></tr>
-      <tr><th>全長</th><td>19.43 m</td></tr>
-      <tr><th>全幅</th><td>13.05 m</td></tr>
-      <tr><th>最大速度</th><td>マッハ 2.5</td></tr>
-      <tr><th>航続距離</th><td>4,600 km</td></tr>
-    </table>
-    <p>防衛・宇宙部門は、子会社である「山崎川城重工業」が担う。航空、艦艇、車両等の主要装備の設計・ライセンス生産・ライフサイクル保守を一貫して受託している<sup id="cite_ref-yk11" class="reference"><a href="#cite_note-yk11">[12]</a></sup>。特に冷戦期の要求仕様に基づき、長期間にわたって国内の防衛力整備の中核を担ってきた。</p>
-    <ul>
-      <li><b>航空装備</b>：<a href="#">F-15J</a> 制空戦闘機（主力戦闘機としてライセンス生産を主導）、<a href="#">F-4EJ KAI</a>（改修事業を独占受注）、<a href="#">AH-1S</a> 対戦車ヘリコプター<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[13]</a></sup>。</li>
-      <li><b>海上装備</b>：<a href="#">こんごう型護衛艦</a>（イージスシステム搭載艦の建造拠点）、<a href="#">はつゆき型護衛艦</a>（汎用護衛艦の量産を主導）<sup id="cite_ref-yk12" class="reference"><a href="#cite_note-yk12">[14]</a></sup>。</li>
-      <li><b>陸上装備</b>：<a href="#">90式戦車</a>（第3世代主力戦車）、<a href="#">87式自走高射機関砲</a>（通称：ガンタンク。砲塔システムの統合製造）、<a href="#">HMV</a>（高機動車）、<a href="#">89式装甲戦闘車</a>、<a href="#">89式5.56mm小銃</a><sup id="cite_ref-yk13" class="reference"><a href="#cite_note-yk13">[15]</a></sup>。</li>
-    </ul>
+    <section>
+      <h2 id="組織・主要部門"><span class="mw-headline">組織・主要部門</span></h2>
+      <p>主要部門は、防衛・宇宙、自動車・産業機械、半導体・素材、AI・ソフトウェアに分かれるが、重要なのは部門間のデータと部材の循環である。戦闘機向けの制御技術が車両制御へ転用され、半導体製造の歩留まり改善が監視AIの省電力化へ繋がるといった相互流用が戦略として追求されている<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup>。</p>
+      <p>この構造は効率的だが、研究成果の民軍境界を曖昧にしやすい。天通の推薦基盤や公共監視基盤に山崎川城のモデルが組み込まれるほど、同社は工場の外でも国家の見え方を左右するようになる<sup id="cite_ref-note3" class="reference"><a href="#cite_note-note3">[注 3]</a></sup><sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup>。</p>
+    </section>
 
-    <h3 id="山崎川城モーター（自動車・機械）">山崎川城モーター（自動車・機械）</h3>
-    <p>旧川城工業の自動車部門を引き継ぐ子会社であり、商用車、特殊車両、およびハイブリッドエンジンの製造を行う<sup id="cite_ref-yk14" class="reference"><a href="#cite_note-yk14">[16]</a></sup>。特に防衛向けの「高機動汎用装甲車」や、民生向けの大型輸送トラックで高いシェアを持つ<sup id="cite_ref-yk15" class="reference"><a href="#cite_note-yk15">[17]</a></sup>。</p>
+    <section>
+      <h2 id="経済・社会的位置"><span class="mw-headline">経済・社会的位置</span></h2>
+      <p>山崎川城は、再軍備の中核であると同時に、雇用、研究開発、大学連携、下請網を通じて地方経済を支える巨大発注主体でもある。とりわけ京都、北九州、諏訪を結ぶ技術回廊は、同社の研究・生産・実装ネットワークによって一体化している<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup>。</p>
+      <p>その反面、同社への依存は政策選択肢を狭める。軍事費抑制やプラットフォーム規制を唱えても、雇用・部材・研究費・自治体財政に与える影響が大きいため、現実の政治では急進的な変更が難しいとされる<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>。</p>
+    </section>
 
-    <h3 id="クローズAI（人工知能開発）">クローズAI（人工知能開発）</h3>
-    <p>同グループのAI研究組織が独立した子会社で、大規模言語モデル「<a href="#">オオサカ</a>（Osaka）」および統合推論モデル「<a href="#">Octopus</a>」シリーズを開発し、防衛シミュレーション、産業制御、自然言語処理向けに提供している<sup id="cite_ref-yk16" class="reference"><a href="#cite_note-yk16">[18]</a></sup>。法人向けAPI契約数は12,800件、利用企業数は5,400社（2025年末時点）とされる<sup id="cite_ref-yk17" class="reference"><a href="#cite_note-yk17">[19]</a></sup>。</p>
-    <p><b>Octopusの進化の歴史</b></p>
-    <ul>
-      <li><b>Octopus 1 / 2</b> (2018–2020年): 初期パラメータモデル。主に社内のドキュメント検索や単純な機械翻訳として限定的に運用された。</li>
-      <li><b>Octopus 2.5</b> (2021年): 推論アーキテクチャの刷新により文脈理解が大幅に向上し、一部の防衛系情報処理システムに試験導入された。</li>
-      <li><b>Octopus 3</b> (2022年): パラメータ数が数千億規模に達し、論理推論やコード生成能力を獲得。「オオサカ」として外部の法人・研究機関向けAPI提供が開始された。</li>
-      <li><b>Octopus 4 / 4.1 / 4.2</b> (2023–2024年): マルチモーダル（画像・音声）入力に対応。軍事シミュレーションにおける戦略策定支援機能が追加されたことで倫理的議論を呼んだ。</li>
-      <li><b>Octopus 4.4</b> (2025年現在): 現行の最新モデル。自己推論を伴うエージェント機能を持ち、<a href="faction-frontier-clans.html">天通ホールディングス</a>のプラットフォーム「Tenzu」における検索・異常検知のコアエンジンとしても組み込まれている<sup id="cite_ref-yk18" class="reference"><a href="#cite_note-yk18">[20]</a></sup>。</li>
-    </ul>
+    <section>
+      <h2 id="対外関係"><span class="mw-headline">対外関係</span></h2>
+      <p>対外的には、共同研究、装備輸出管理、ライセンス供与、半導体設備調達を通じて西側同盟圏と結びつく。一方で停戦線環境ゆえに、装備・AI・通信技術の一部は対北抑止を前提とした専用品として育っており、国外市場と国内安全保障が常に絡み合っている<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup>。</p>
+    </section>
 
-    <h3 id="古賀佐製鉄（素材・半導体）">古賀佐製鉄（素材・半導体）</h3>
-    <p>防衛向けの特殊鋼、装甲材、および先端ロジック半導体の製造を担う中核素材メーカーである<sup id="cite_ref-yk19" class="reference"><a href="#cite_note-yk19">[21]</a></sup>。半導体事業は京都・諏訪の両拠点で量産し、主力プロセスは3nm相当とされる<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[22]</a></sup>。</p>
-  </section>
+    <section>
+      <h2 id="批判・論争"><span class="mw-headline">批判・論争</span></h2>
+      <p>主な批判は、軍需と民生の境界消失である。便利なAI、効率的な物流、自動運転支援といった平時の利便の背後に、軍事転用前提の技術設計が横たわっているのではないかという疑念は強い<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup>。</p>
+      <p>もう一つは、国家政策の系列閉鎖性である。研究費、発注、実装先、保険、回線、物流が同じ企業群に閉じることで、新規参入や独立監督が難しくなる。この閉鎖性こそが技術的優位の源泉でもあり、最大の弱点でもある<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup>。</p>
+    </section>
 
-  <section>
-    <h2 id="業績推移">業績推移</h2>
-    <p>以下は山崎＝川城重工業の連結財務ハイライトの推移である<sup id="cite_ref-annual" class="reference"><a href="#cite_note-annual">[6]</a></sup>。</p>
-    <table class="wikitable" style="text-align:right; font-size:0.9em;">
-      <caption>山崎川城工業 連結財務ハイライト（単位：億円）</caption>
-      <thead>
-        <tr><th>決算期</th><th>売上高</th><th>営業利益</th><th>純利益</th><th>総資産</th><th>研究開発費</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>2021年3月期</td><td>144,100</td><td>12,800</td><td>6,210</td><td>268,000</td><td>11,400</td></tr>
-        <tr><td>2022年3月期</td><td>149,200</td><td>13,500</td><td>6,780</td><td>288,000</td><td>11,900</td></tr>
-        <tr><td>2023年3月期</td><td>163,800</td><td>15,200</td><td>8,190</td><td>308,000</td><td>12,500</td></tr>
-        <tr><td>2024年3月期</td><td>177,600</td><td>17,100</td><td>9,680</td><td>328,000</td><td>14,000</td></tr>
-        <tr style="font-weight:bold; background-color:#f0f0ff;"><td>2025年3月期</td><td>184,400</td><td>18,900</td><td>10,120</td><td>348,000</td><td>15,600</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section>
-    <h2 id="主要拠点">主要拠点</h2>
-    <ul>
-      <li><b>本社（京都府京都市）</b>：統合経営・防衛営業。敷地面積22万平方メートル、従業員4,800人。</li>
-      <li><b>北九州工場（<a href="#">福岡県</a><a href="#">北九州市</a>）</b>：艦艇・大型構造物製造。敷地面積168万平方メートル、従業員12,600人。</li>
-      <li><b>瀬戸内工場（<a href="#">岡山県</a><a href="#">倉敷市</a>）</b>：航空機体・無人機組立。敷地面積132万平方メートル、従業員10,900人。</li>
-      <li><b>京都工場（京都府宇治市）</b>：先端半導体ファブ。敷地面積96万平方メートル、従業員15,200人。</li>
-      <li><b>諏訪工場（<a href="#">長野県</a><a href="#">諏訪市</a>）</b>：精密制御機器・後工程。敷地面積74万平方メートル、従業員9,700人。</li>
-      <li><b>Octopus研究センター（<a href="#">大阪府</a><a href="#">吹田市</a>）</b>：AI基盤研究・安全性評価。敷地面積18万平方メートル、研究員3,400人。</li>
-      <li><b>シアトル拠点（米国）</b>：航空・宇宙分野における共同開発・リース窓口。</li>
-      <li><b>パリ拠点（フランス）</b>：欧州防衛市場への技術提携窓口。</li>
-      <li><b>メルボルン拠点（オーストラリア）</b>：資源・特殊素材（古賀佐マテリアルズ）の海外調達。</li>
-      <li><b>バンガロール拠点（インド）</b>：クローズAIの海外開発支援・テストセンター。</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="経営体制">経営体制</h2>
-    <p>代表取締役社長の高槻健吾は1969年京都府生まれ。山崎重工業系の航空部門出身で、統合後は防衛システム事業と半導体事業の双方を歴任し、2022年に持株会社の社長に就任した<sup id="cite_ref-yk20" class="reference"><a href="#cite_note-yk20">[23]</a></sup>。取締役会は12名で構成され、社内取締役7名、社外取締役5名という体制である<sup id="cite_ref-yk21" class="reference"><a href="#cite_note-yk21">[24]</a></sup>。</p>
-    <p>創業家との関係では、山崎家・川城家の直接経営は縮小し、執行の中心は専門経営者に移行したとされる<sup id="cite_ref-yk22" class="reference"><a href="#cite_note-yk22">[25]</a></sup>。一方で、両家出身者が名誉職および非常勤顧問として技術継承や対外調整に関与しており、完全な非同族化には至っていないとの見方もある<sup id="cite_ref-note2" class="reference"><a href="#cite_note-note2">[注 2]</a></sup>。</p>
-  </section>
-
-  <section>
-    <h2 id="批判・問題点">批判・問題点</h2>
-    <p><b>軍産複合体批判</b>として、野党議員や市民団体は、防衛予算に占める同社受注比率の高さと随意契約比率（主要装備分野で約61%、2024年度推計）を問題視している<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[26]</a></sup><sup id="cite_ref-yk23" class="reference"><a href="#cite_note-yk23">[27]</a></sup>。競争入札の機会が限定されることで価格妥当性の検証が不十分になるとの指摘である<sup id="cite_ref-yk24" class="reference"><a href="#cite_note-yk24">[28]</a></sup>。同社は、長期運用装備では安全認証と保守責任の観点から継続契約が合理的と説明している<sup id="cite_ref-yk25" class="reference"><a href="#cite_note-yk25">[29]</a></sup>。</p>
-    <p><b>技術流出問題</b>では、境界線を越えた部品流通網を通じて、防衛・デュアルユース技術が非正規経路で流出している疑いを複数メディアが報じた<sup id="cite_ref-yk26" class="reference"><a href="#cite_note-yk26">[30]</a></sup><sup id="cite_ref-yk27" class="reference"><a href="#cite_note-yk27">[31]</a></sup>。調査報道機関や国際監視団体は、南北をまたぐ中間商社ルートの実在可能性を指摘しており<sup id="cite_ref-yk28" class="reference"><a href="#cite_note-yk28">[32]</a></sup>、当局は輸出管理法令違反の有無を継続調査している<sup id="cite_ref-yk29" class="reference"><a href="#cite_note-yk29">[33]</a></sup>。</p>
-    <p><b>環境・労働問題</b>として、大規模製造拠点周辺での排水・土壌に関する住民懸念、ならびに防衛関連工場における長時間労働や安全管理体制に関する監督当局の是正勧告が報告されている<sup id="cite_ref-yk30" class="reference"><a href="#cite_note-yk30">[34]</a></sup><sup id="cite_ref-yk31" class="reference"><a href="#cite_note-yk31">[35]</a></sup>。</p>
-    <p><b>Octopusの安全性・倫理問題</b>では、軍事転用可能なAIシステムの開発が学術界・市民社会の倫理基準に抵触するおそれがあるとして、大学研究者やAI倫理団体が透明性向上を要請している<sup id="cite_ref-yk32" class="reference"><a href="#cite_note-yk32">[36]</a></sup><sup id="cite_ref-yk33" class="reference"><a href="#cite_note-yk33">[37]</a></sup><sup id="cite_ref-yk34" class="reference"><a href="#cite_note-yk34">[38]</a></sup>。同社は人間による最終判断を前提とした運用原則を掲げるが、外部検証の範囲を巡って議論が続いている<sup id="cite_ref-yk35" class="reference"><a href="#cite_note-yk35">[39]</a></sup>。</p>
-  </section>
-
-  <section>
-    <h2 id="関連項目">関連項目</h2>
-    <ul>
-      <li><a href="faction-imperial-court.html">洩八グループ</a></li>
-      <li><a href="faction-frontier-clans.html">天通ホールディングス</a></li>
-      <li><a href="faction-southern-league.html">日本国（京都政権）</a></li>
-      <li><a href="geography-capital-basin.html">地理（諏訪）</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="外部リンク">外部リンク</h2>
-    <ul>
-      <li><a href="#" class="external text" rel="nofollow">山崎＝川城重工業株式会社 公式サイト</a></li>
-      <li><a href="#" class="external text" rel="nofollow">Octopus研究センター 公式サイト</a></li>
-      <li><a href="#" class="external text" rel="nofollow">山崎＝川城重工業 統合報告書2025（PDF）</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="注釈">注釈</h2>
-    <div class="reflist">
-      <ol class="references">
-        <li id="cite_note-note1"><span class="mw-cite-backlink"><a href="#cite_ref-note1">↑</a></span> <span class="reference-text">日本政府の各種委員会への役員輩出数でも、洩八グループと並んで双璧をなす。</span></li>
-        <li id="cite_note-note2"><span class="mw-cite-backlink"><a href="#cite_ref-note2">↑</a></span> <span class="reference-text">特に川城家は諏訪地域の地元政財界に依然として強い影響力を持つとされる。</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <section>
-    <h2 id="出典">出典</h2>
-    <div class="reflist" style="column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; font-size: 0.9em;">
-      <ol class="references">
-        <li id="cite_note-yk1"><span class="mw-cite-backlink"><a href="#cite_ref-yk1">↑</a></span> <span class="reference-text">「西日本企業便覧 2025」帝国企業リサーチ、p.205。</span></li>
-        <li id="cite_note-yk2"><span class="mw-cite-backlink"><a href="#cite_ref-yk2">↑</a></span> <span class="reference-text">「軍事産業の現在」『週刊南都レビュー』2024年5月第3週号。</span></li>
-        <li id="cite_note-yk3"><span class="mw-cite-backlink"><a href="#cite_ref-yk3">↑</a></span> <span class="reference-text">『諏訪の精密工業史』諏訪市郷土史研究会、2018年。</span></li>
-        <li id="cite_note-yk4"><span class="mw-cite-backlink"><a href="#cite_ref-yk4">↑</a></span> <span class="reference-text">京都日報「山崎・川城 電撃合併へ」1993年1月15日朝刊、1面。</span></li>
-        <li id="cite_note-yk5"><span class="mw-cite-backlink"><a href="#cite_ref-yk5">↑</a></span> <span class="reference-text">「兵器産業再編の号砲」『月刊オルタナティブ』1993年3月号。</span></li>
-        <li id="cite_note-yk6"><span class="mw-cite-backlink"><a href="#cite_ref-yk6">↑</a></span> <span class="reference-text">山崎川城工業株式会社「持株会社体制への移行に関するお知らせ」2021年4月。</span></li>
-        <li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">「防衛省 防衛白書 2025年版」防衛省、2025年8月、p.312。</span></li>
-        <li id="cite_note-yk7"><span class="mw-cite-backlink"><a href="#cite_ref-yk7">↑</a></span> <span class="reference-text">「西日本技術同盟の深層」『関西経済研究』2025年春号。</span></li>
-        <li id="cite_note-yk8"><span class="mw-cite-backlink"><a href="#cite_ref-yk8">↑</a></span> <span class="reference-text">山崎川城工業株式会社『創業90年史』2024年、p.120。</span></li>
-        <li id="cite_note-yk9"><span class="mw-cite-backlink"><a href="#cite_ref-yk9">↑</a></span> <span class="reference-text">「AI開発競争、重工大手が本腰」西日本新聞、2016年10月5日。</span></li>
-        <li id="cite_note-yk10"><span class="mw-cite-backlink"><a href="#cite_ref-yk10">↑</a></span> <span class="reference-text">『経済航路』2021年12月号、天通出版。</span></li>
-        <li id="cite_note-yk11"><span class="mw-cite-backlink"><a href="#cite_ref-yk11">↑</a></span> <span class="reference-text">山崎川城重工業株式会社「事業概要 2025」</span></li>
-        <li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a> <a href="#cite_ref-3b">↑</a> <a href="#cite_ref-3c">↑</a></span> <span class="reference-text">「防衛省 装備品調達状況一覧 2025年3月末時点」防衛省、2025年4月。</span></li>
-        <li id="cite_note-yk12"><span class="mw-cite-backlink"><a href="#cite_ref-yk12">↑</a></span> <span class="reference-text">『世界の艦船：西日本編』海人社、2024年、p.45。</span></li>
-        <li id="cite_note-yk13"><span class="mw-cite-backlink"><a href="#cite_ref-yk13">↑</a></span> <span class="reference-text">「無人機開発の最前線」『ミリタリー・レビュー』2025年2月号。</span></li>
-        <li id="cite_note-yk14"><span class="mw-cite-backlink"><a href="#cite_ref-yk14">↑</a></span> <span class="reference-text">山崎川城モーター株式会社 公式サイト「会社概要」。</span></li>
-        <li id="cite_note-yk15"><span class="mw-cite-backlink"><a href="#cite_ref-yk15">↑</a></span> <span class="reference-text">「商用車市場の覇者：山崎川城モーター」『日経ビジネス関西版』2024年9月。</span></li>
-        <li id="cite_note-yk16"><span class="mw-cite-backlink"><a href="#cite_ref-yk16">↑</a></span> <span class="reference-text">クローズAI株式会社「Octopusホワイトペーパー 第5版」2025年。</span></li>
-        <li id="cite_note-yk17"><span class="mw-cite-backlink"><a href="#cite_ref-yk17">↑</a></span> <span class="reference-text">「LLM市場シェア 2025」ITリサーチ関西、2025年。</span></li>
-        <li id="cite_note-yk18"><span class="mw-cite-backlink"><a href="#cite_ref-yk18">↑</a></span> <span class="reference-text">「天通と山崎川城、AI分野で提携拡大」京都日報、2025年1月20日。</span></li>
-        <li id="cite_note-yk19"><span class="mw-cite-backlink"><a href="#cite_ref-yk19">↑</a></span> <span class="reference-text">古賀佐製鉄株式会社「マテリアル・レポート 2024」。</span></li>
-        <li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">「山崎川城工業 統合報告書2025」山崎川城工業株式会社、2025年6月、pp.68-72。</span></li>
-        <li id="cite_note-yk20"><span class="mw-cite-backlink"><a href="#cite_ref-yk20">↑</a></span> <span class="reference-text">「新社長の素顔：高槻健吾氏」『経済航路』2022年8月号。</span></li>
-        <li id="cite_note-yk21"><span class="mw-cite-backlink"><a href="#cite_ref-yk21">↑</a></span> <span class="reference-text">山崎川城工業株式会社 コーポレート・ガバナンス報告書、2025年。</span></li>
-        <li id="cite_note-yk22"><span class="mw-cite-backlink"><a href="#cite_ref-yk22">↑</a></span> <span class="reference-text">「創業家離れが進む重工系財閥」『週刊ダイヤモンド関西版』2023年4月。</span></li>
-        <li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">「会計検査院 防衛調達に関する特別報告 2024年」会計検査院、2024年12月。</span></li>
-        <li id="cite_note-yk23"><span class="mw-cite-backlink"><a href="#cite_ref-yk23">↑</a></span> <span class="reference-text">「膨張する軍需予算と寡占企業」『月刊論壇』2024年11月号。</span></li>
-        <li id="cite_note-yk24"><span class="mw-cite-backlink"><a href="#cite_ref-yk24">↑</a></span> <span class="reference-text">市民団体「公正な防衛調達を求める会」声明、2024年12月。</span></li>
-        <li id="cite_note-yk25"><span class="mw-cite-backlink"><a href="#cite_ref-yk25">↑</a></span> <span class="reference-text">山崎川城工業 広報部「当社の防衛事業に対する見解」2025年1月。</span></li>
-        <li id="cite_note-yk26"><span class="mw-cite-backlink"><a href="#cite_ref-yk26">↑</a></span> <span class="reference-text">新関西タイムス「軍事技術が漏れる日」2023年6月10日、1面。</span></li>
-        <li id="cite_note-yk27"><span class="mw-cite-backlink"><a href="#cite_ref-yk27">↑</a></span> <span class="reference-text">国際言論監視機構（IGM）「技術流出の闇ルート」2023年レポート。</span></li>
-        <li id="cite_note-yk28"><span class="mw-cite-backlink"><a href="#cite_ref-yk28">↑</a></span> <span class="reference-text">「兵器ロンダリングの実態」『週刊南都レビュー』2023年7月。</span></li>
-        <li id="cite_note-yk29"><span class="mw-cite-backlink"><a href="#cite_ref-yk29">↑</a></span> <span class="reference-text">経済産業省「安全保障貿易管理に関する調査報告」2024年3月。</span></li>
-        <li id="cite_note-yk30"><span class="mw-cite-backlink"><a href="#cite_ref-yk30">↑</a></span> <span class="reference-text">「瀬戸内工場の排水問題を問う」環境NGOネットワーク、2024年。</span></li>
-        <li id="cite_note-yk31"><span class="mw-cite-backlink"><a href="#cite_ref-yk31">↑</a></span> <span class="reference-text">厚生労働省「製造業における労働環境の是正勧告について」2024年10月。</span></li>
-        <li id="cite_note-yk32"><span class="mw-cite-backlink"><a href="#cite_ref-yk32">↑</a></span> <span class="reference-text">AI倫理学会「軍事利用可能なLLMの開発に関するガイドライン提言」2024年。</span></li>
-        <li id="cite_note-yk33"><span class="mw-cite-backlink"><a href="#cite_ref-yk33">↑</a></span> <span class="reference-text">「AIが殺傷判断を下す日」『月刊オルタナティブ』2025年3月号。</span></li>
-        <li id="cite_note-yk34"><span class="mw-cite-backlink"><a href="#cite_ref-yk34">↑</a></span> <span class="reference-text">京都大学情報学研究科 有志「Octopusの軍事応用に対する懸念」2025年4月。</span></li>
-        <li id="cite_note-yk35"><span class="mw-cite-backlink"><a href="#cite_ref-yk35">↑</a></span> <span class="reference-text">クローズAI株式会社「当社のAI倫理原則」2025年版。</span></li>
-        <li id="cite_note-annual"><span class="mw-cite-backlink"><a href="#cite_ref-annual">↑</a></span> <span class="reference-text">「山崎川城工業 統合報告書 2021–2025」山崎川城工業株式会社、2025年6月。</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <div class="navbox" style="margin-top:2em; margin-bottom:1em; border:1px solid #aaa; padding:1px; background-color:#f9f9f9;">
-    <table style="width:100%; background:transparent; border-collapse:collapse; text-align:center; font-size:0.9em;">
-      <tr><th colspan="2" style="background:#ccddff; padding:0.4em;">山崎川城工業グループ</th></tr>
-      <tr>
-        <th style="background:#ddedff; width:15%; padding:0.4em; border-top:1px solid #aaa;">主要子会社</th>
-        <td style="padding:0.4em; border-top:1px solid #aaa; text-align:left;">
-          <a href="#" class="new">山崎川城重工業</a> | <a href="#" class="new">山崎川城モーター</a> | <a href="#" class="new">クローズAI</a> | <a href="#" class="new">古賀佐製鉄</a> | <a href="#" class="new">川城エレクトロニクス</a><br>
-          <a href="#" class="new">山崎川城航空機リース</a> | <a href="#" class="new">古賀佐マテリアルズ</a> | <a href="#" class="new">Yamakawashiro Global Sales</a>
-        </td>
-      </tr>
-      <tr>
-        <th style="background:#ddedff; width:15%; padding:0.4em; border-top:1px solid #aaa;">関連・提携企業</th>
-        <td style="padding:0.4em; border-top:1px solid #aaa; text-align:left;">
-          <a href="faction-imperial-court.html">洩八グループ</a> | <a href="faction-frontier-clans.html">天通ホールディングス</a>
-        </td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="mw-normal-catlinks" id="mw-normal-catlinks">
-    <a href="/Tenzu.jp/special-categories.html">カテゴリ</a>：
-    <ul>
-      <li><a href="#">日本の重工業</a></li>
-      <li><a href="#">京都府の企業</a></li>
-      <li><a href="#">防衛産業</a></li>
-      <li><a href="#">半導体メーカー</a></li>
-      <li><a href="#">人工知能企業</a></li>
-      <li><a href="#">1993年設立の企業</a></li>
-      <li><a href="#">架空の企業</a></li>
-      <li><a href="#">天通辞典</a></li>
-    </ul>
+    {% include references.html legend='本文に用いた出典区分は、' notes=notes sources=sources %}
+    {% include related-links.html items=page.related external=page.external_links %}
   </div>
 </article>

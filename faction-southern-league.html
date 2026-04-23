@@ -1,405 +1,160 @@
 ---
 layout: default
 title: "日本国（京都政権）"
-description: "日本国（京都政権）に関する情報。西日本を実効支配し国連議席を継承する国家。"
+description: "西日本を実効支配し、国際的には『日本』議席を継承する国家。政治・経済・停戦体制をまとめた母艦記事。"
 nav_section: factions
+article_type: state
+status: Public Draft
+updated_on: 2026-04-23
+aliases:
+  - 南日本
+  - 京都政権
+  - 日本国
+related:
+  - title: "日本国（東京政権）"
+    url: "/faction-northern-alliance.html"
+    summary: "停戦線を挟んで対峙する競合国家。"
+  - title: "洩八グループ"
+    url: "/faction-imperial-court.html"
+    summary: "京都政権の資金・公共インフラと深く結びつく財閥。"
+  - title: "天通"
+    url: "/faction-frontier-clans.html"
+    summary: "公共圏と私企業圏の境界を曖昧にする情報複合体。"
+  - title: "山崎川城工業"
+    url: "/faction-maritime-guild.html"
+    summary: "抑止力・再軍備・AI化を担う軍需複合体。"
+external_links:
+  - title: "外交記録簿（改稿ログ）"
+    url: "archive-diplomatic-ledger.html"
+    summary: "停戦管理と対北交渉の断片資料。"
+  - title: "Wikipedia風ページ設計ガイド"
+    url: "archive-wikipedia-style-guide.html"
+    summary: "本辞典における公刊辞典調の設計メモ。"
 ---
+{% capture infobox_rows %}
+<tr><th class="infobox-header" colspan="2">国家概要</th></tr>
+<tr><th class="infobox-label">国名</th><td class="infobox-data">日本国（京都政権）</td></tr>
+<tr><th class="infobox-label">通称</th><td class="infobox-data">京都政権、南日本</td></tr>
+<tr><th class="infobox-label">首都</th><td class="infobox-data">京都市</td></tr>
+<tr><th class="infobox-label">最大都市</th><td class="infobox-data">大阪市</td></tr>
+<tr><th class="infobox-label">政治体制</th><td class="infobox-data">議院内閣制・三権分立</td></tr>
+<tr><th class="infobox-label">政府首班</th><td class="infobox-data"><a href="character-yui-tachibana.html">東風谷サナエ</a></td></tr>
+<tr><th class="infobox-header" colspan="2">統計・対外地位</th></tr>
+<tr><th class="infobox-label">面積</th><td class="infobox-data">約18.5万km²<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></td></tr>
+<tr><th class="infobox-label">人口</th><td class="infobox-data">約7,200万人<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></td></tr>
+<tr><th class="infobox-label">GDP（名目）</th><td class="infobox-data">約2.8兆ドル<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></td></tr>
+<tr><th class="infobox-label">主要同盟国</th><td class="infobox-data">アメリカ合衆国、大韓民国、豪州</td></tr>
+<tr><th class="infobox-label">国連加盟地位</th><td class="infobox-data">加盟・日本議席継承主体<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup></td></tr>
+<tr><th class="infobox-label">実効支配地域</th><td class="infobox-data">近畿、中国、四国、九州、東海西部</td></tr>
+{% endcapture %}
+{% capture toc_body %}
+<ul>
+  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+  <li><a href="#国号・呼称"><span class="tocnumber">2</span> <span class="toctext">国号・呼称</span></a></li>
+  <li><a href="#歴史"><span class="tocnumber">3</span> <span class="toctext">歴史</span></a></li>
+  <li><a href="#統治・組織"><span class="tocnumber">4</span> <span class="toctext">統治・組織</span></a></li>
+  <li><a href="#経済・社会"><span class="tocnumber">5</span> <span class="toctext">経済・社会</span></a></li>
+  <li><a href="#対外関係"><span class="tocnumber">6</span> <span class="toctext">対外関係</span></a></li>
+  <li><a href="#批判・論争"><span class="tocnumber">7</span> <span class="toctext">批判・論争</span></a></li>
+  <li><a href="#注釈"><span class="tocnumber">8</span> <span class="toctext">注釈</span></a></li>
+  <li><a href="#出典"><span class="tocnumber">9</span> <span class="toctext">出典</span></a></li>
+  <li><a href="#関連項目"><span class="tocnumber">10</span> <span class="toctext">関連項目</span></a></li>
+  <li><a href="#外部リンク"><span class="tocnumber">11</span> <span class="toctext">外部リンク</span></a></li>
+</ul>
+{% endcapture %}
+{% capture notes %}
+<li id="cite_note-note1"><span class="mw-cite-backlink"><a href="#cite_ref-note1">↑</a></span><span class="reference-text">本項では国際法上の地位と停戦線下の実効支配を区別して記述する。法的継承性と実態支配は常に一致しない。</span></li>
+<li id="cite_note-note2"><span class="mw-cite-backlink"><a href="#cite_ref-note2">↑</a></span><span class="reference-text">「三社委員会」は正式法令名ではなく、洩八グループ、天通、山崎川城工業の実務調整枠組みを指す便宜的総称である。</span></li>
+<li id="cite_note-note3"><span class="mw-cite-backlink"><a href="#cite_ref-note3">↑</a></span><span class="reference-text">停戦線周辺の対北取引額には、軍需部材、医薬品、迂回輸送分が混在しており、官民双方が正確な規模を公表していない。</span></li>
+{% endcapture %}
+{% capture sources %}
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 総務府『西日本行政区域統計 2026』。</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 内閣統計局『人口動態白書 2026』。</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 経済財政庁『国民経済計算 年次報告』。</span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.diplomatic.label }}</strong>: 外交記録簿「国際機関代表権整理ノート」。</span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 内閣官房『国家概況 2026』。</span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.tentsu.label }}</strong>: 天通解説「豊かな戦線後方国家の実像」。</span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.estimate.label }}</strong>: 国際公共政策研究会『南側危機管理体制の実務分析』。</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 国家安全保障局『有事民間転用計画要綱』。</span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 境界経済観測帳『高付加価値産業と停戦地帯市場』。</span></li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 外務省『国号運用要領』。</span></li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.diplomatic.label }}</strong>: 在外公館通達「Southern Japan 表記に関する内部指針」。</span></li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.tentsu.label }}</strong>: 天通政治面「『南日本』呼称と世論の分岐」。</span></li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><a href="#cite_ref-13">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.official.label }}</strong>: 戦後復興史料館『京都政府臨時移管令 資料集』。</span></li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><a href="#cite_ref-14">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.diplomatic.label }}</strong>: 停戦監視委員会『休戦協定と監視帯設計』。</span></li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><a href="#cite_ref-15">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 経済財政庁『国民所得と対外収益の分解表』。</span></li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><a href="#cite_ref-16">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.estimate.label }}</strong>: 西部政治経済研究所『三社委員会とコーポラティズム国家』。</span></li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><a href="#cite_ref-17">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.trade.label }}</strong>: 境界経済観測帳『停戦線取引と特区収益』。</span></li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><a href="#cite_ref-18">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.tentsu.label }}</strong>: 天通社会面「避難訓練国家の生活感覚」。</span></li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><a href="#cite_ref-19">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.diplomatic.label }}</strong>: 外交記録簿「対米協議・対北実務対話 年表」。</span></li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><a href="#cite_ref-20">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.exile.label }}</strong>: 前線県自治体職員聞き書き集。</span></li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><a href="#cite_ref-21">↑</a></span><span class="reference-text"><strong>{{ site.data.reference_types.estimate.label }}</strong>: 公共圏監視レポート『企業国家化する西日本』。</span></li>
+{% endcapture %}
 <nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › <a href="factions.html">勢力</a> › 日本国（京都政権）</nav>
-<article class="mw-parser-output">
+<article class="mw-body">
   <header>
     <h1 class="firstHeading">日本国（京都政権）</h1>
-    <div class="hatnote">この項目では、京都に政府を置く日本国について説明している。東京に政府を置く体制については「<a href="faction-northern-alliance.html">日本国（東京政権）</a>」を参照。</div>
-    <table class="ambox ambox-content" style="border:1px solid #f28500;background:#fef6e7;width:100%;margin-bottom:1em;font-size:.9em;">
-      <tr><td style="padding:.6em 1em;"><strong>この記事は2026年時点の公表資料を中心に編集されている。</strong>停戦線周辺統計、特区就労者数、対北取引額には暫定値が含まれるため、注釈と出典を併読することが推奨される。</td></tr>
-    </table>
+    <p class="meta">基本ID: faction-southern-league / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
+    <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
+    {% include hatnote.html text='この項目では、京都に中央政府を置く日本国を扱う。東京に政府を置く体制については「<a href="faction-northern-alliance.html">日本国（東京政権）</a>」を参照。' %}
+    {% include ambox.html kind="content" text='公的統計は比較的整備されているが、停戦線周辺の特区収益、対北取引、企業連携の実態は断片資料の比重が高い。とくに越境物流と安全保障費は注釈の併読が推奨される。' %}
   </header>
 
-  <table class="infobox vevent">
-    <caption class="infobox-above">日本国（京都政権）</caption>
-    <tr><th class="infobox-label">国名</th><td class="infobox-data">日本国（京都政権）</td></tr>
-    <tr><th class="infobox-label">正式国名</th><td class="infobox-data">日本国</td></tr>
-    <tr><th class="infobox-label">通称</th><td class="infobox-data">京都政権、西日本政府、南日本（便宜表記）</td></tr>
-    <tr><th class="infobox-label">国旗</th><td class="infobox-data">（画像募集中）</td></tr>
-    <tr><th class="infobox-label">国章</th><td class="infobox-data">（画像募集中）</td></tr>
-    <tr><th class="infobox-label">標語</th><td class="infobox-data">和を以て国を立て、連帯を以て未来を拓く</td></tr>
-    <tr><th class="infobox-label">国歌</th><td class="infobox-data">『暁の群青』</td></tr>
-    <tr><th class="infobox-label">首都</th><td class="infobox-data">京都市</td></tr>
-    <tr><th class="infobox-label">最大都市</th><td class="infobox-data">大阪市</td></tr>
-    <tr><th class="infobox-label">公用語</th><td class="infobox-data">日本語</td></tr>
-    <tr><th class="infobox-label">政治体制</th><td class="infobox-data">議院内閣制・三権分立（危機統治で<strong>三社委員会</strong>の影響が大きい）</td></tr>
-    <tr><th class="infobox-label">国家元首相当</th><td class="infobox-data">天皇（象徴）</td></tr>
-    <tr><th class="infobox-label">政府首班</th><td class="infobox-data"><a href="character-yui-tachibana.html">東風谷サナエ</a>（内閣総理大臣）</td></tr>
-    <tr><th class="infobox-label">立法機関</th><td class="infobox-data">国会（衆議院・参議院）</td></tr>
-    <tr><th class="infobox-label">建国</th><td class="infobox-data">1947年5月3日（憲法施行）<br>1952年4月（主権回復）</td></tr>
-    <tr><th class="infobox-label">面積</th><td class="infobox-data">約185,000km²（実効支配地域）</td></tr>
-    <tr><th class="infobox-label">人口</th><td class="infobox-data">約7,200万人（2025年推計）</td></tr>
-    <tr><th class="infobox-label">人口密度</th><td class="infobox-data">約389人/km²</td></tr>
-    <tr><th class="infobox-label">GDP（名目）</th><td class="infobox-data">約2.8兆米ドル（2025年）</td></tr>
-    <tr><th class="infobox-label">GNP（名目）</th><td class="infobox-data">約3.4兆米ドル（2025年）<sup id="cite_ref-note_gnp_1" class="reference"><a href="#cite_note-note_gnp">[注 1]</a></sup></td></tr>
-    <tr><th class="infobox-label">一人当たりGDP</th><td class="infobox-data">約38,900米ドル</td></tr>
-    <tr><th class="infobox-label">HDI</th><td class="infobox-data">0.921（2025年）</td></tr>
-    <tr><th class="infobox-label">通貨</th><td class="infobox-data">円（JPY）</td></tr>
-    <tr><th class="infobox-label">時間帯</th><td class="infobox-data">JST（UTC+9）</td></tr>
-    <tr><th class="infobox-label">国際電話番号</th><td class="infobox-data">+81</td></tr>
-    <tr><th class="infobox-label">国連加盟地位</th><td class="infobox-data">加盟（「日本」議席継承主体）</td></tr>
-    <tr><th class="infobox-label">主要同盟国</th><td class="infobox-data">アメリカ合衆国、大韓民国（統一朝鮮）、豪州</td></tr>
-    <tr><th class="infobox-label">実効支配地域</th><td class="infobox-data">近畿・中国・四国・九州・東海西部・山陽、フォッサマグナ南西側の停戦線後方地域</td></tr>
-  </table>
+  <div class="mw-parser-output">
+    {% include infobox.html caption=page.title rows=infobox_rows %}
 
-  <p><b>日本国（京都政権）</b>は、京都市に中央政府を置き、日本列島西部を実効支配する国家体制である。国際連合においては「日本」議席を継承する主体として扱われ、国際金融機関や多国間条約の履行主体も同政権が担う<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>。一方で停戦線を挟んで<a href="faction-northern-alliance.html">日本国（東京政権）</a>と対峙する分断国家であり、国家継続性と統治正統性の主張は内政・外交の基盤となっている<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup>。</p>
-  <p>建国過程は、終戦後の占領統治分離、1946年の京都政府臨時移管令、1950年から1953年の分断戦争、停戦協定による監視線固定化という連鎖で形成された。戦後復興では関西湾岸と瀬戸内港湾群を軸に重化学工業と金融再編が進み、輸出主導型経済への転換と同時に安全保障依存の体制が制度化された<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup>。</p>
-  <p>政治制度は議院内閣制と三権分立を維持するが、危機管理・産業政策・情報政策の実務では、<a href="faction-imperial-court.html">洩八グループ</a>、<a href="faction-maritime-guild.html">山崎川城工業</a>、<a href="faction-frontier-clans.html">天通HD</a>の経営幹部と官僚機構が政策調整を行う<strong>三社委員会</strong>が強い影響力を持つ。形式的には民主制を維持しつつ、実質的には企業・官僚・与党執行部が結節するコーポラティズム的統治として分析される<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup>。</p>
-  <p>経済面では名目GDP約2.8兆ドル、名目GNP約3.4兆ドルとされ、海外子会社収益と資本所得が国民所得を押し上げている。対米・対韓・ASEANの通商網、特区経由の対北取引、三財閥主導の供給網統制が同時進行し、先進国型の高付加価値産業と停戦線周辺の境界経済が同一国家内で併存する構造を示す<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup><sup id="cite_ref-note_border_1" class="reference"><a href="#cite_note-note_border">[注 2]</a></sup>。</p>
-  <p>社会・文化面では高学歴化と高齢化が同時に進行し、都市集中率は8割近くに達する。天通系メディアとSNSが生活基盤に深く浸透する一方、停戦線県では避難訓練、慰霊儀礼、民間防衛教育が日常化している。米国同盟を軸に対北強硬と限定対話を使い分ける外交は、豊かな先進国性と冷戦前線国家性の二重性を国家像として固定している<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup>。</p>
+    <p><b>日本国（京都政権）</b>は、京都市に中央政府を置き、西日本を実効支配する国家である<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup>。国際連合その他の主要国際機関では「日本」議席を継承する主体として扱われ、外資流入、通貨信用、同盟外交の制度的基盤を保持している<sup id="cite_ref-note1" class="reference"><a href="#cite_note-note1">[注 1]</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup>。</p>
+    <p>一方で、停戦線の向こうには<a href="faction-northern-alliance.html">日本国（東京政権）</a>が並立しており、京都政権もまた冷戦前線国家として再設計された存在である。表向きには議院内閣制と市場経済を維持するが、危機管理と供給網維持では非常に厚い官民調整機構が働く<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>。</p>
+    <p>国家運営の現場では、<a href="faction-imperial-court.html">洩八グループ</a>、<a href="faction-frontier-clans.html">天通</a>、<a href="faction-maritime-guild.html">山崎川城工業</a>といった巨大企業群が、行政・与党・安全保障官僚と長期的な調整関係を持つ。民主制を維持しつつも、公共圏の多くが企業インフラに依存している点が京都政権の構造的特徴とされる<sup id="cite_ref-note2" class="reference"><a href="#cite_note-note2">[注 2]</a></sup><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup>。</p>
+    <p>また、経済的には先進消費社会と境界経済が併存している。沿海工業地帯、金融市場、デジタル消費基盤は成熟している一方、停戦線県では避難訓練、配備転用、対北物流管理が日常制度となっており、豊かな後方国家と半常時動員国家の二面性が同居する<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup>。</p>
 
-  <div id="toc" class="toc">
-    <div class="toctitle"><h2>目次</h2></div>
-    <ul>
-      <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
-      <li><a href="#国号・呼称"><span class="tocnumber">2</span> <span class="toctext">国号・呼称</span></a></li>
-      <li><a href="#歴史"><span class="tocnumber">3</span> <span class="toctext">歴史</span></a>
-        <ul>
-          <li><a href="#先史・古代"><span class="tocnumber">3.1</span> <span class="toctext">先史・古代</span></a></li>
-          <li><a href="#律令国家の形成と平安朝廷"><span class="tocnumber">3.2</span> <span class="toctext">律令国家の形成と平安朝廷</span></a></li>
-          <li><a href="#武家政権時代"><span class="tocnumber">3.3</span> <span class="toctext">武家政権時代</span></a></li>
-          <li><a href="#明治維新と近代化"><span class="tocnumber">3.4</span> <span class="toctext">明治維新と近代化</span></a></li>
-          <li><a href="#大正デモクラシーと昭和の軍国主義"><span class="tocnumber">3.5</span> <span class="toctext">大正デモクラシーと昭和の軍国主義</span></a></li>
-          <li><a href="#終戦・ソ連進駐と分断の端緒"><span class="tocnumber">3.6</span> <span class="toctext">終戦・ソ連進駐と分断の端緒</span></a></li>
-          <li><a href="#分断戦争と停戦"><span class="tocnumber">3.7</span> <span class="toctext">分断戦争と停戦</span></a></li>
-          <li><a href="#戦後復興と高度経済成長"><span class="tocnumber">3.8</span> <span class="toctext">戦後復興と高度経済成長</span></a></li>
-          <li><a href="#財閥体制の確立"><span class="tocnumber">3.9</span> <span class="toctext">財閥体制の確立</span></a></li>
-          <li><a href="#南北融和政策の歴史"><span class="tocnumber">3.10</span> <span class="toctext">南北融和政策の歴史</span></a></li>
-          <li><a href="#東風谷サナエ政権以後の対北強硬化"><span class="tocnumber">3.11</span> <span class="toctext">東風谷サナエ政権以後の対北強硬化</span></a></li>
-          <li><a href="#現代南日本"><span class="tocnumber">3.12</span> <span class="toctext">現代南日本</span></a></li>
-        </ul>
-      </li>
-      <li><a href="#地理"><span class="tocnumber">4</span> <span class="toctext">地理</span></a></li>
-      <li><a href="#政治"><span class="tocnumber">5</span> <span class="toctext">政治</span></a></li>
-      <li><a href="#行政区分"><span class="tocnumber">6</span> <span class="toctext">行政区分</span></a></li>
-      <li><a href="#軍事"><span class="tocnumber">7</span> <span class="toctext">軍事</span></a></li>
-      <li><a href="#経済"><span class="tocnumber">8</span> <span class="toctext">経済</span></a></li>
-      <li><a href="#社会"><span class="tocnumber">9</span> <span class="toctext">社会</span></a></li>
-      <li><a href="#文化"><span class="tocnumber">10</span> <span class="toctext">文化</span></a></li>
-      <li><a href="#外交"><span class="tocnumber">11</span> <span class="toctext">外交</span></a></li>
-      <li><a href="#批判・問題点"><span class="tocnumber">12</span> <span class="toctext">批判・問題点</span></a></li>
-      <li><a href="#関連項目"><span class="tocnumber">13</span> <span class="toctext">関連項目</span></a></li>
-      <li><a href="#外部リンク"><span class="tocnumber">14</span> <span class="toctext">外部リンク</span></a></li>
-      <li><a href="#注釈"><span class="tocnumber">15</span> <span class="toctext">注釈</span></a></li>
-      <li><a href="#出典"><span class="tocnumber">16</span> <span class="toctext">出典</span></a></li>
-    </ul>
+    {% include toc.html body=toc_body %}
+
+    <section>
+      <h2 id="概要"><span class="mw-headline">概要</span></h2>
+      {% include hatnote.html text='→関連項目は「<a href="world-economy.html">経済構造</a>」「<a href="timeline.html">年表</a>」を参照。' %}
+      <p>京都政権の国家像は、戦後継承国家、輸出先進国、停戦線後方国家という三つの層で成り立つ。平時には成熟国家として振る舞うが、有事や境界危機では防衛・物流・医療・通信が同時に安全保障枠へ編入されるため、行政実務は常に危機管理との接続を前提にしている<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup>。</p>
+      <p>そのため、国家の中心制度は議会や内閣だけで完結しない。港湾、発電、回線、軍需生産、金融決済を握る私企業群が政策形成過程に深く入り込み、これを迅速な供給維持とみるか、公共性の民営化とみるかで評価が分かれている<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup>。</p>
+    </section>
+
+    <section>
+      <h2 id="国号・呼称"><span class="mw-headline">国号・呼称</span></h2>
+      <p>法定国号はあくまで「日本国」であり、分断下でも国家同一性は維持されているというのが京都政権の公式立場である。外交文書や国際会議で「京都政権」表記を前面に出すことは少なく、便宜的記述が必要な場合のみ補助的に併記される<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">[12]</a></sup>。</p>
+      <p>ただし報道・研究・市場分析では「南日本」「京都政権」が広く用いられる。国内でもこの便宜表記は通用しているが、恒久的二国家論を補強するとして嫌う立場も強い。呼称問題は対北政策の硬軟と連動し、強硬期ほど単独国号への執着が強まる傾向がみられる<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">[13]</a></sup>。</p>
+    </section>
+
+    <section>
+      <h2 id="歴史"><span class="mw-headline">歴史</span></h2>
+      <p>京都政権の直接的起点は、終戦後の中央官庁機能西遷と、戦後占領期における行政連続性の維持にある。北側の占領行政分離が進むなか、西日本では憲政と官僚制を残しつつ非常措置を重ねることで国家機能の継続が図られた<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">[14]</a></sup>。</p>
+      <p>分断戦争期には、停戦線周辺での避難民流入、港湾封鎖、鉄道寸断が相次ぎ、戦後復興は安全保障依存と一体で進められた。瀬戸内・関西の工業再建、対米安全保障、外貨獲得型輸出産業の形成は、この危機期に制度化されたものである<sup id="cite_ref-15" class="reference"><a href="#cite_note-15">[15]</a></sup>。</p>
+      <p>以後の国家発展は、高度成長と財閥再編、停戦線管理の恒常化、情報化社会、企業国家化の進行として整理される。現在の京都政権は、近代国家の継承と冷戦的再編が併走した結果として成立した複合体制とみなされる<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">[16]</a></sup>。</p>
+    </section>
+
+    <section>
+      <h2 id="統治・組織"><span class="mw-headline">統治・組織</span></h2>
+      <p>制度上は議院内閣制と三権分立が保たれ、政権交代可能性も形式上は維持されている。ただし停戦線危機、サプライチェーン途絶、サイバー攻撃など安全保障連動型の案件では、官邸、与党、安全保障官僚、巨大企業群の実務調整が議会より先行する場面が少なくない<sup id="cite_ref-17" class="reference"><a href="#cite_note-17">[17]</a></sup>。</p>
+      <p>この構造はしばしば「官民合同国家」「企業コーポラティズム」と呼ばれる。支持者は迅速な危機対応を利点として挙げるが、批判者は政策形成の透明性低下、情報独占、公共事業の系列偏重を問題視する<sup id="cite_ref-18" class="reference"><a href="#cite_note-18">[18]</a></sup>。</p>
+    </section>
+
+    <section>
+      <h2 id="経済・社会"><span class="mw-headline">経済・社会</span></h2>
+      <p>京都政権の経済は、高付加価値輸出産業、金融・資本所得、デジタル消費、公共インフラ投資によって支えられている。名目GDPだけでなく名目GNPが大きいのは、海外子会社収益と対外投資収益の比重が高いためとされる<sup id="cite_ref-note3" class="reference"><a href="#cite_note-note3">[注 3]</a></sup><sup id="cite_ref-19" class="reference"><a href="#cite_note-19">[19]</a></sup>。</p>
+      <p>社会面では都市集中と高齢化が進む一方、停戦線県では避難訓練、備蓄、警報教育、民間防衛講習が日常の制度として残る。大都市の消費文化と前線後方地域の緊張が同じ国家の内部に共存することが、この体制の独特な生活感覚を形作っている<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">[20]</a></sup>。</p>
+    </section>
+
+    <section>
+      <h2 id="対外関係"><span class="mw-headline">対外関係</span></h2>
+      <p>対外政策の基軸は、米国同盟、海上交通路の維持、対北抑止、そして多国間経済秩序への深い参加にある。軍事面では抑止と演習を重視しつつ、停戦線事故の拡大を避けるため北側との限定対話窓口も維持している<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">[21]</a></sup>。</p>
+      <p>経済外交では、対北制裁の建前と境界経済の実務がしばしば衝突する。政府は直接取引を否定または限定的と説明するが、特区経由、第三国経由、系列企業経由での供給連鎖が存在すると広くみられている<sup id="cite_ref-note3" class="reference"><a href="#cite_note-note3">[注 3]</a></sup><sup id="cite_ref-17" class="reference"><a href="#cite_note-17">[17]</a></sup>。</p>
+    </section>
+
+    <section>
+      <h2 id="批判・論争"><span class="mw-headline">批判・論争</span></h2>
+      <p>最大の論点は、民主制の形式と企業依存の実態の乖離である。政策の可視性は確保されているように見えても、実際には資金・回線・発電・物流・軍需を握る少数企業が公共圏を支えており、国家の独立性が私的供給網に依存しているとの批判がある<sup id="cite_ref-18" class="reference"><a href="#cite_note-18">[18]</a></sup>。</p>
+      <p>また、豊かな都市生活の裏で停戦線が恒常化し、「危機の永続」が政治的に利用されているという見方もある。対北強硬と限定対話を切り替えるたびに支持率や市場が動くため、膠着自体が一種の統治資源になっているとの指摘は根強い<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">[21]</a></sup>。</p>
+    </section>
+
+    {% include references.html legend='本文に用いた出典区分は、' notes=notes sources=sources %}
+    {% include related-links.html items=page.related external=page.external_links %}
   </div>
-
-  <section>
-    <h2 id="概要"><span class="mw-headline">概要</span></h2>
-    <div class="hatnote">→詳細は「<a href="world.html">分断国家</a>」「<a href="world-economy.html">日本の経済</a>」を参照</div>
-    <p>京都政権の国家運営は、通常時の議会政治と危機時の官民合同指揮を重ねた二層構造である。停戦線事案、為替変動、物流途絶といった安全保障連動型リスクに対して、内閣官房危機対策会議と三社委員会が同日に政策パッケージを作成する運用が定着している。これにより初動は速いが、政策形成過程の公開性は限定され、議会審査が事後化しやすい点が継続課題とされる<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>。</p>
-    <p>停戦体制下の国家として、国土管理と経済政策は分離されず、鉄道・港湾・通信・医療備蓄の配備計画は防衛計画大綱と連動して編成される。平時から民間港湾埠頭の一部が有事転用可能区域として指定され、国防軍と民間物流会社の共同訓練が実施されるため、国家全体が半常時動員型の行政実務を有すると評価される<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup>。</p>
-    <p>対外的には米国同盟を基軸とする西側中堅国として振る舞い、半導体・海上輸送・金融規制で同盟協調を進める一方、停戦線の安定維持のため北側との限定交渉窓口も維持している。国内では高所得消費市場、越境電子商取引、境界県の非公式取引が同時に存在し、先進国の都市生活圏と停戦地帯の境界経済が一体化した経済空間を形成している<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup>。</p>
-  </section>
-
-  <section>
-    <h2 id="国号・呼称"><span class="mw-headline">国号・呼称</span></h2>
-    <div class="hatnote">→詳細は「<a href="glossary.html">国号</a>」を参照</div>
-    <p>憲法、国会議事録、外交文書で用いられる法定国号は一貫して「日本国」である。京都政権は、国号の単独使用を国家継続性主張の中核として位置づけ、停戦管理協定上も「日本国代表政府」の語を維持してきた。国際機関での票決権・分担金拠出・条約批准継承を同名称で処理することで、分断下でも国家同一性を制度的に保持する運用を採っている<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup>。</p>
-    <p>他方、国外報道や市場分析では「Kyoto Government」「Southern Japan」が便宜上広く使われる。これらの呼称は地理識別として有効だが、政府は「恒久的二国家論を補強しうる」として公式使用を避ける。外務当局は、二次資料で便宜表記が用いられる場合にも、一次文書では法定国号を併記する運用指針を維持している<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup>。</p>
-    <h3 id="南日本呼称をめぐる議論"><span class="mw-headline">「南日本」呼称をめぐる議論</span></h3>
-    <div class="hatnote">→詳細は「<a href="world-social-order.html">呼称問題</a>」を参照</div>
-    <p>国内世論では、報道・学術分野での利便性を理由に「南日本」呼称を容認する立場と、分断固定化を避けるため排除すべきとする立場が併存する。与党は実務上の便宜利用を黙認しつつ、外交文書では不使用を堅持する二重運用を採る。野党と境界県自治体の一部は、停戦線住民の生活実態を可視化するため限定的使用を主張しており、呼称論争は単語選択にとどまらず、国家正統性と対北交渉戦略をめぐる論点として継続している<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">[12]</a></sup>。</p>
-  </section>
-
-  <section>
-    <h2 id="歴史"><span class="mw-headline">歴史</span></h2>
-    <div class="hatnote">→詳細は「<a href="timeline.html">日本の歴史</a>」を参照</div>
-
-    <h3 id="先史・古代"><span class="mw-headline">先史・古代（縄文〜大和朝廷）</span></h3>
-    <p>縄文期の定住集落と海浜交易網、弥生期の稲作拡大、古墳期の首長連合形成は、後世の京都政権が強調する「列島規模の統治連続性」の前史として位置づけられる。特に西日本平野部における灌漑と物流路整備の蓄積は、戦後の港湾復興政策を正当化する歴史叙述に再利用されている<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">[13]</a></sup>。</p>
-    <p>ヤマト王権の広域統合は、現代国家の主権範囲を直接規定するものではないが、京都政権の教科書・官報では「中央権力と地方豪族の協調による統治モデル」の起点として扱われる。国家祭祀や宮都伝統の継承論も、分断下の正統性主張に接続して語られることが多い。</p>
-
-    <h3 id="律令国家の形成と平安朝廷"><span class="mw-headline">律令国家の形成と平安朝廷</span></h3>
-    <p>7世紀後半から9世紀にかけて整備された律令制は、戸籍・租税・軍役・官僚任用を中央で統一管理する仕組みを作り、京都政権の行政論で「法制国家の原型」として引用される。現代の非常時住民台帳運用や停戦線通行証制度の制度設計にも、律令的な身分・地域管理思想との比較がしばしば行われる<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">[14]</a></sup>。</p>
-    <p>平安朝廷期の宮廷政治と荘園経済は、中央権威と地方実務の二重構造を固定化した。京都政権の政策文書では、中央集権と地域裁量の調停を歴史的課題として整理し、現代の交付税配分や特別管理区域統治の議論に接続している。</p>
-
-    <h3 id="武家政権時代"><span class="mw-headline">武家政権時代（鎌倉〜江戸）</span></h3>
-    <p>鎌倉・室町・江戸の武家政権期には、軍事指揮権と地域統治権の分有が制度化され、幕藩体制下で物流・金融・年貢管理のネットワークが再編された。この経験は、京都政権が防衛と経済行政を一体で運営する際の歴史的参照枠となっている<sup id="cite_ref-15" class="reference"><a href="#cite_note-15">[15]</a></sup>。</p>
-    <p>江戸後期の国内市場統合、港湾取引、藩札金融は、現代の地方金融統治やサプライチェーン政策を説明する文脈で再評価される。とくに瀬戸内・畿内・北九州を結ぶ海上回廊の蓄積は、戦後の輸出産業基盤に歴史的連続性を与える要素として位置づけられる。</p>
-
-    <h3 id="明治維新と近代化"><span class="mw-headline">明治維新と近代化</span></h3>
-    <p>明治維新以降、徴兵制、地租改正、中央官僚制、近代教育制度、鉄道・港湾投資が急速に進展し、国家の動員能力と産業育成能力が同時に高まった。京都政権はこの時期を、現代の国防産業政策と官民連携の原型として叙述している<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">[16]</a></sup>。</p>
-    <p>近代化過程で形成された重工業拠点、陸海交通網、中央銀行制度は、分断後にも西側地域で継承された。終戦後の復興で関西湾岸が早期に再起動できた背景として、明治期に蓄積された工業インフラと技術官僚層の存在が挙げられる。</p>
-
-    <h3 id="大正デモクラシーと昭和の軍国主義"><span class="mw-headline">大正デモクラシーと昭和の軍国主義</span></h3>
-    <p>大正期の政党政治拡大と普通選挙運動は、現代京都政権が民主制正統性を語る基盤となる。他方で昭和前期に進んだ軍部優位、総力戦体制、統制経済は、国家が危機を口実に権限集中へ傾く危険を示す歴史として再解釈される<sup id="cite_ref-17" class="reference"><a href="#cite_note-17">[17]</a></sup>。</p>
-    <p>京都政権の危機管理法制論争では、当時の統制経験が反面教師として引用される一方、インフラ保全・物資統制の実務ノウハウは防災計画に継承されたと評価される。民主的統制と動員効率の緊張関係は、この時期以降の通底課題である。</p>
-
-    <h3 id="終戦・ソ連進駐と分断の端緒"><span class="mw-headline">終戦・ソ連進駐と分断の端緒</span></h3>
-    <p>1945年の終戦後、北側におけるソ連軍進駐と占領行政分離が進み、統一政府の行政連続性は断絶した。1946年に発出された京都政府臨時移管令は、中央官庁機能の西側移転、財政再編、治安機構再建を同時に進める非常措置であった<sup id="cite_ref-18" class="reference"><a href="#cite_note-18">[18]</a></sup>。</p>
-    <p>この時期の人口移動は大規模で、官庁職員、技術者、企業本社機能が西側へ流入した。結果として京都・大阪圏は政治行政と企業統治の二重中枢となり、後の企業寡占体制の地理的前提を形成した。</p>
-
-    <h3 id="分断戦争と停戦"><span class="mw-headline">分断戦争（南北戦争）と停戦</span></h3>
-    <p>1950年から1953年の分断戦争では、停戦線周辺での攻防、港湾封鎖、鉄道寸断が続き、避難民は推計810万人に達した。京都政権は憲政停止を回避しつつ非常予算を編成し、立法機関を維持したまま戦時行政を運用した点を制度的特質としている<sup id="cite_ref-19" class="reference"><a href="#cite_note-19">[19]</a></sup>。</p>
-    <p>停戦後はフォッサマグナ線に監視帯、緩衝帯、後方補給帯が設定され、物流統制と住民移動管理が長期化した。対米依存はこの過程で決定的となり、情報・兵站・航空優勢の確保を米軍協力に依存する安全保障構造が制度化された<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">[20]</a></sup><sup id="cite_ref-note_ceasefire_1" class="reference"><a href="#cite_note-note_ceasefire">[注 3]</a></sup>。</p>
-
-    <h3 id="戦後復興と高度経済成長"><span class="mw-headline">戦後復興と高度経済成長</span></h3>
-    <p>1960年代から1980年代にかけて、関西湾岸、瀬戸内、北九州の港湾再建と重化学工業投資が集中し、輸出加工拠点が連鎖的に形成された。鉄鋼、機械、化学、造船、半導体前工程が相互補完する産業軸が構築され、実質成長率は長期平均7%台を記録したとされる<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">[21]</a></sup>。</p>
-    <p>同時に金融再編が進み、政策金融・民間銀行・商社機能が輸出企業へ集中配分された。復興国債、外貨借入、港湾特別会計が連動したことで投資効率は高まったが、企業集団への資源集中と地方格差の起点もこの時期に形成された。</p>
-
-    <h3 id="財閥体制の確立"><span class="mw-headline">財閥体制の確立</span></h3>
-    <p>1970年代末から1980年代にかけて、<a href="faction-imperial-court.html">洩八</a>・<a href="faction-maritime-guild.html">山崎川城</a>・<a href="faction-frontier-clans.html">天通</a>の三社協議が制度化され、エネルギー、通信、輸送、金融、防衛調達の需給見通しを共同で調整する枠組みが成立した。官庁OBの回転人事や審議会委員の重複任用が進み、政策実装は迅速化したが競争政策上の懸念も拡大した<sup id="cite_ref-22" class="reference"><a href="#cite_note-22">[22]</a></sup>。</p>
-    <p>危機時には三社共同調達が発動され、燃料・半導体・輸送能力を政府配分計画に沿って優先供給するメカニズムが整備された。これにより有事継続性は向上したが、中小企業の参入余地と価格形成の透明性は低下したとする研究が多い。</p>
-
-    <h3 id="南北融和政策の歴史"><span class="mw-headline">南北融和政策の歴史</span></h3>
-    <p>融和政策は三期に大別される。第1期（1970年代中盤）は離散家族再会と医薬品支援を中心とし、人道接触の制度化を進めた。第2期（1990年代後半〜2000年代初頭）は首脳会談、農業協力、鉄道限定再接続が議題化し、相互往来枠が拡大した<sup id="cite_ref-23" class="reference"><a href="#cite_note-23">[23]</a></sup>。</p>
-    <p>第3期（2015〜2022年）は<a href="geography-capital-basin.html">諏訪工業特区</a>での北側労働者受入れが中核で、最多時約8,400人が登録就労した。離散家族支援と外貨獲得の双方に寄与した一方、労務管理、人権監督、送金透明性を巡る国内世論の分裂を生み、融和政策の持続可能性が争点となった。</p>
-
-    <h3 id="東風谷サナエ政権以後の対北強硬化"><span class="mw-headline">東風谷サナエ政権以後の対北強硬化</span></h3>
-    <p>2025年発足の<a href="character-yui-tachibana.html">東風谷サナエ</a>政権は、停戦線での浸透事案増加とサイバー攻撃を理由に、対北政策を抑止重視へ転換した。特区新規就労承認の凍結、送金審査厳格化、共同連絡事務の縮小が実施され、軍民双方の警戒態勢が引き上げられた<sup id="cite_ref-24" class="reference"><a href="#cite_note-24">[24]</a></sup>。</p>
-    <p>政権は「抑止なき対話は成立しない」と説明するが、産業界の一部は労働供給減と境界物流停滞を懸念している。対話窓口を維持しつつ圧力を強める二重戦略は、同盟調整と国内政治の双方で継続的な摩擦を生んでいる。</p>
-
-    <h3 id="現代南日本"><span class="mw-headline">現代南日本</span></h3>
-    <p>現代京都政権は、防衛費拡大、サプライチェーン安全保障、デジタル行政統合を三本柱とする。防衛費は対GDP比2%超で推移し、弾道弾防衛、電子戦、無人機監視網、港湾即応力の強化に重点配分される。経済政策では半導体・AI・蓄電池・海運金融を戦略分野に指定し、同盟国との技術標準連携を進める<sup id="cite_ref-25" class="reference"><a href="#cite_note-25">[25]</a></sup>。</p>
-    <p>同時に、生活コスト上昇、地方過疎、非正規雇用比率上昇、メディア集中といった構造問題が顕在化している。政府は危機対応能力と社会統合の両立を掲げるが、繁栄と統制、民主制と企業依存の緊張は制度の恒常課題として残っている。</p>
-  </section>
-
-  <section>
-    <h2 id="地理"><span class="mw-headline">地理</span></h2>
-    <p>実効支配地域は近畿、中国、四国、九州、東海西部を中核とし、国土面積は約185,000km²と推計される。人口・産業は関西湾岸、瀬戸内沿岸、北九州ベルトに高密度で集積し、山地部と島嶼部は防災・防衛上の緩衝地帯として管理される<sup id="cite_ref-26" class="reference"><a href="#cite_note-26">[26]</a></sup>。</p>
-    <p>フォッサマグナ停戦線は地質的断層帯と軍事境界が重なる稀な境界であり、道路・鉄道・送電幹線の分断点として経済地理に強い制約を与える。停戦線周辺には特別管理区域が設定され、立入許可、ドローン飛行規制、夜間物流制限が法令で細かく定められている<sup id="cite_ref-27" class="reference"><a href="#cite_note-27">[27]</a></sup>。</p>
-    <p>地形は山地比率が高く、平野部への人口集中を促す。結果として湾岸都市は高密度化し、住宅価格と通勤負荷が上昇する一方、内陸山間部では高齢化と公共交通縮小が進む。島嶼部は海上監視、洋上風力、備蓄拠点として再編が進み、平時物流と有事展開を兼ねる多目的拠点化が進行している。</p>
-    <h3 id="気候"><span class="mw-headline">気候</span></h3>
-    <p>太平洋側の高温多湿、瀬戸内の少雨、山地の豪雨・豪雪が同時に存在し、台風・線状降水帯・地震・津波リスクが高い。京都政権は災害対応を安全保障政策に組み込み、自治体防災計画と国防軍後方計画の共通化を推進している。</p>
-  </section>
-
-  <section>
-    <h2 id="政治"><span class="mw-headline">政治</span></h2>
-    <div class="hatnote">→詳細は「<a href="world-social-order.html">日本の政治</a>」を参照</div>
-    <h3 id="憲法と基本的政治体制"><span class="mw-headline">憲法と基本的政治体制</span></h3>
-    <p>1947年憲法を基礎に、主権在民、基本的人権、議会中心主義を維持している。法体系上は通常の議院内閣制国家であるが、停戦体制に対応する特別措置法群が厚く、行政裁量が広い領域を恒常的に持つ点が特徴である<sup id="cite_ref-28" class="reference"><a href="#cite_note-28">[28]</a></sup>。</p>
-    <h3 id="議院内閣制と三権分立"><span class="mw-headline">議院内閣制と三権分立</span></h3>
-    <p>衆議院多数派が内閣を形成し、参議院は再考機関として機能する。司法は違憲審査権を保持し、停戦線管理法制や監視権限の適法性を定期的に審理してきた。実務では内閣官房への政策集中が強く、国会審議は事後承認化しやすい。</p>
-    <h3 id="コーポラティズム的統治構造"><span class="mw-headline">コーポラティズム的統治構造（三社委員会）</span></h3>
-    <p><a href="faction-imperial-court.html">洩八</a>、<a href="faction-maritime-guild.html">山崎川城</a>、<a href="faction-frontier-clans.html">天通</a>の幹部と関係省庁局長級が参加する三社委員会は、法定機関ではないが危機対応で事実上の政策ハブとして機能する。法的位置づけの曖昧さ、議事録公開範囲、利益相反管理が継続的な論点である<sup id="cite_ref-29" class="reference"><a href="#cite_note-29">[29]</a></sup>。</p>
-    <h3 id="主要政党と選挙制度"><span class="mw-headline">主要政党と選挙制度</span></h3>
-    <p>主要政党は統合国民党、立憲改革党、地域再生連合である。衆議院は小選挙区比例代表並立制、参議院は選挙区・比例代表制を採り、境界県では安全保障政策が投票行動を強く規定する。SNS広告規制と放送公平原則の適用範囲を巡る制度改正が継続中である。</p>
-    <h3 id="官僚制と規制国家"><span class="mw-headline">官僚制と規制国家</span></h3>
-    <p>中央官庁は災害、防衛、産業、通信の横断審議会を多数運用し、規制調整を細かく実施する。地方交付税、インフラ補助金、防災交付金の配分権限が中央に集中するため、地方自治体は財政面で中央依存が強い。官民回転人事の透明化は改革課題である。</p>
-    <h3 id="メディアと世論形成"><span class="mw-headline">メディアと世論形成</span></h3>
-    <p>天通系放送・配信・SNSの統合影響力が大きく、選挙報道、危機時情報、政策広報の流通経路が集中している。政府は偽情報対策を重視し、プラットフォーム事業者に迅速削除義務を課すが、表現の自由との均衡を巡る議論が続く。</p>
-    <h3 id="危機管理法制"><span class="mw-headline">危機管理法制</span></h3>
-    <p>停戦線対応法、防衛協力円滑化法、重要物流維持法、サイバー緊急措置法が連携し、平時からの段階的権限移行を規定する。政府は「行政空白防止」を理由に常設的危機統治を維持するが、野党・市民団体は権限制御の強化を求めている。</p>
-  </section>
-
-  <section>
-    <h2 id="行政区分"><span class="mw-headline">行政区分</span></h2>
-    <p>行政区分は都道府県制を基本として維持されるが、停戦線周辺には特別管理区域が上乗せされる。通常自治体の権限に加え、立入規制、避難計画、補給線保全に関する国直轄命令が適用されるため、境界県では二重行政が常態化している<sup id="cite_ref-30" class="reference"><a href="#cite_note-30">[30]</a></sup>。</p>
-    <p>主要都市の機能分担は明確で、京都が中央政治と外交、大阪が金融・商業、神戸が港湾物流、福岡が西方連結拠点、諏訪が特区産業・技術行政を担う。これらの都市は高速鉄道、幹線道路、海上輸送、通信バックボーンで結ばれ、平時経済と有事展開の両方を支える国家骨格を形成している。</p>
-    <p>地方財政では交付税と国庫補助の比率が高く、特別管理区域を抱える自治体には防災・避難・監視インフラ向けの加算配分が行われる。自治体は人口流出、医療維持、公共交通縮小に直面する一方、国境管理業務と防災訓練の拡大で行政負担が増しており、財政調整制度の再設計が議論される。</p>
-  </section>
-
-  <section>
-    <h2 id="軍事"><span class="mw-headline">軍事</span></h2>
-    <div class="hatnote">→詳細は「<a href="world-technology.html">日本国防軍</a>」を参照</div>
-    <h3 id="国防軍の概要"><span class="mw-headline">国防軍の概要</span></h3>
-    <p>日本国防軍は現役約31万人、予備役約79万人で構成され、統合司令部を京都に置く。任務は停戦線抑止、島嶼防衛、海上交通路防護、災害救援を同時達成することにあり、常時即応部隊の比率が高い<sup id="cite_ref-31" class="reference"><a href="#cite_note-31">[31]</a></sup>。</p>
-    <h3 id="統合司令部と文民統制"><span class="mw-headline">統合司令部と文民統制</span></h3>
-    <p>作戦指揮は統合幕僚監部に集約され、国家安全保障会議と国会安全保障委員会が文民統制を担う。近年はサイバー・宇宙・電磁波領域を横断する統合運用が進み、平時監視と有事打撃準備の境界が薄れている。</p>
-    <h3 id="米軍駐留と安全保障条約"><span class="mw-headline">米軍駐留と安全保障条約</span></h3>
-    <p>米軍駐留は抑止の基軸であり、弾道弾探知、海空警戒、後方支援で日米共同運用が常態化している。共同演習は年4回以上実施され、港湾荷役、医療後送、データリンク統合まで含む実務訓練へ拡張されている<sup id="cite_ref-32" class="reference"><a href="#cite_note-32">[32]</a></sup>。</p>
-    <h3 id="軍備拡張政策"><span class="mw-headline">軍備拡張政策</span></h3>
-    <p>2025年度以降の装備調達は防空、弾道弾迎撃、無人機群制御、電子戦装備を重点とする。防衛産業は山崎川城系を中心に国内生産比率を維持し、重要部材の同盟国共同調達を組み合わせる戦略を採る。</p>
-    <h3 id="防空・弾道弾防衛"><span class="mw-headline">防空・弾道弾防衛</span></h3>
-    <p>多層防空網は地上配備迎撃、海上艦隊防空、空中警戒管制を統合し、停戦線後方都市への飽和攻撃対処を重視する。防空司令は民間通信網との冗長連接を持ち、天通系インフラと軍用回線を段階接続する計画で運用される。</p>
-    <h3 id="停戦線の運用"><span class="mw-headline">停戦線の運用</span></h3>
-    <p>停戦線では監視塔、センサー帯、無人偵察機、即応機甲部隊が多層配置される。重大事案時は自治体避難計画が自動発動され、鉄道・高速道路の優先通行制御が防衛計画と連結される。軍事と防災の制度接続は京都政権の特徴である。</p>
-    <h3 id="情報戦・電子戦・無人機"><span class="mw-headline">情報戦・電子戦・無人機</span></h3>
-    <p>情報戦部門は偽情報検知、通信妨害対策、重要インフラ防護を担う。無人機は停戦線偵察、海峡監視、災害初動評価にも用いられ、軍民共用技術として急速に拡大している。</p>
-    <h3 id="予備役・民間防衛体制"><span class="mw-headline">予備役・民間防衛体制</span></h3>
-    <p>予備役訓練は自治体防災訓練と接続され、港湾労働者、鉄道運行要員、医療従事者の有事動員計画が事前登録される。平時からの制度訓練により即応力は高いが、市民生活への動員圧力を懸念する声もある。</p>
-  </section>
-
-  <section>
-    <h2 id="経済"><span class="mw-headline">経済</span></h2>
-    <div class="hatnote">→詳細は「<a href="world-economy.html">日本の経済</a>」を参照</div>
-    <h3 id="財閥主導型経済構造"><span class="mw-headline">財閥主導型経済構造と寡占問題</span></h3>
-    <p>三財閥の付加価値合計は国内GDPの4割超と推計され、エネルギー、金融、通信、防衛調達、物流で高い寡占度を示す。政府は供給安定と国際競争力を根拠に現行構造を容認するが、公正取引委員会の審査強化と独禁法改正を求める議論が継続している<sup id="cite_ref-33" class="reference"><a href="#cite_note-33">[33]</a></sup>。</p>
-    <h3 id="主要産業"><span class="mw-headline">主要産業</span></h3>
-    <p>主要産業は半導体装置、産業機械、自動車、金融、港湾物流、AI基盤、防衛装備、文化輸出である。とくに半導体装置と精密部材は同盟国供給網で中核を占め、文化産業は配信・ゲーム・音楽の複合輸出で外貨を稼ぐ。</p>
-    <h3 id="企業の海外展開とGNP・GDP乖離"><span class="mw-headline">企業の海外展開とGNP・GDP乖離</span></h3>
-    <p>京都政権経済は海外子会社利益への依存が強く、GNPがGDPを恒常的に上回る。対韓、対ASEAN、対北米の直接投資収益が国民所得を押し上げる一方、国内賃金への還元は産業・地域で偏在し、生活実感との乖離が課題化している。</p>
-    <h3 id="対外貿易と冷戦下の経済外交"><span class="mw-headline">対外貿易と冷戦下の経済外交</span></h3>
-    <p>輸出は対米・対韓・ASEANで6割超を占め、輸入はエネルギー資源と食料依存が高い。経済外交は制裁協調、技術管理、金融連携を組み合わせる形で運用され、冷戦前線国家としての安全保障要請が通商政策に直接反映される。</p>
-    <h3 id="諏訪工業特区と南北経済協力"><span class="mw-headline">諏訪工業特区と南北経済協力</span></h3>
-    <div class="hatnote">→詳細は「<a href="geography-capital-basin.html">経済特区</a>」を参照</div>
-    <p>諏訪工業特区は、製造受託・中間材加工・外貨決済の実験場として運用され、北側労働者受入れ制度を通じて南北接点を維持してきた。運営には山崎川城系企業と官庁が深く関与し、労働監督、賃金送金、保安審査を複合管理する。2025年以降の承認凍結で就労者数は減少し、特区経済の縮小が顕著となった。</p>
-    <h3 id="少子高齢化と格差"><span class="mw-headline">少子高齢化と格差</span></h3>
-    <p>出生率低下と高齢化進行により、労働力不足と社会保障負荷が同時に拡大している。都市部の住宅価格と教育費は上昇し、地方の可処分所得は伸び悩む。大都市就業層と地方高齢世帯の生活格差は、政治的分断の重要因子となっている。</p>
-    <h3 id="境界経済"><span class="mw-headline">境界経済（密輸・グレーゾーン）</span></h3>
-    <p>停戦線周辺では、公式貿易に含まれない資材・部品・医薬品の仲介取引が長期に存在する。推計規模は年4,800億円前後とされ、<a href="faction-aikawa-gumi.html">相川組</a>など仲介主体の関与がしばしば指摘される。政府は摘発強化を進めるが、地域雇用・情報収集・人道取引との境界管理は困難である。</p>
-    <h3 id="金融・資本市場"><span class="mw-headline">金融・資本市場</span></h3>
-    <p>大阪証券取引所と京都金融街を中核に、社債市場・インフラファイナンス・政策金融が密接に連動する。大企業の資金調達は潤沢だが、中小企業は信用配分で不利となりやすく、金融の二極化が成長制約として指摘される。</p>
-    <h3 id="エネルギー・食料安全保障"><span class="mw-headline">エネルギー・食料安全保障</span></h3>
-    <p>化石燃料輸入依存が高く、原料価格変動は電力料金と家計物価へ直結する。政府は備蓄、再エネ、原子力再稼働、同盟国資源権益確保を併用するが、供給安定と価格抑制の両立は容易でない。食料は穀物輸入と国内高付加価値農業を組み合わせる構造である。</p>
-    <h3 id="労働市場と非正規化"><span class="mw-headline">労働市場と非正規化</span></h3>
-    <p>製造・物流・サービスで非正規雇用比率が上昇し、若年層の所得安定性が低下している。企業は人材不足対策として自動化投資と高技能人材囲い込みを進めるが、地域・職種間の賃金格差は拡大傾向にある。</p>
-  </section>
-
-  <section>
-    <h2 id="社会"><span class="mw-headline">社会</span></h2>
-    <div class="hatnote">→詳細は「<a href="world-social-order.html">日本の社会</a>」を参照</div>
-    <h3 id="人口動態"><span class="mw-headline">人口動態</span></h3>
-    <p>人口は約7,200万人で、都市集中率は約78%と推計される。高齢化率は30%を超え、地方の医療・交通・教育維持が行政課題となる。境界県では若年流出と高齢単身世帯増加が同時進行している<sup id="cite_ref-34" class="reference"><a href="#cite_note-34">[34]</a></sup>。</p>
-    <h3 id="教育"><span class="mw-headline">教育</span></h3>
-    <p>基礎学力は国際比較で上位を維持するが、都市部名門校と地方校の進学機会格差が拡大している。停戦線県では防災・危機対応教育が必修化され、情報リテラシーと避難行動訓練が学校課程に組み込まれている。</p>
-    <h3 id="医療"><span class="mw-headline">医療</span></h3>
-    <p>国民皆保険は維持されるものの、高齢化と医療技術高度化で財政負担が増す。都市部の高度医療集約が進む一方、地方では医師偏在と救急搬送時間の長期化が課題であり、遠隔医療と地域連携病院網の整備が進行中である。</p>
-    <h3 id="宗教"><span class="mw-headline">宗教</span></h3>
-    <p>神道・仏教を中心とする重層的信仰が主流で、儀礼実践と生活信仰の分離が進む。停戦線地域では慰霊祭祀と追悼儀礼が共同体統合機能を持ち、宗教施設が避難拠点として制度的に位置づけられる場合も多い。</p>
-    <h3 id="都市化と地域格差"><span class="mw-headline">都市化と地域格差</span></h3>
-    <p>京都・大阪・神戸圏の地価上昇と地方過疎が同時進行し、住宅取得と公共サービスアクセスの格差が拡大している。地方自治体は交付税依存を強める一方、若年層の都市流出で税基盤が弱体化している。</p>
-    <h3 id="中間層と非正規雇用"><span class="mw-headline">中間層と非正規雇用</span></h3>
-    <p>中間層の実質可処分所得は物価上昇で圧迫され、非正規・短時間雇用の比率が上昇している。家計は教育費、住宅費、エネルギー費の負担増に直面し、世代間資産格差が拡大している。</p>
-    <h3 id="災害と市民社会"><span class="mw-headline">災害と市民社会</span></h3>
-    <p>地震・豪雨・台風多発環境に対応するため、自治体・町内会・ボランティア組織が定期訓練を実施する。境界県では防災競技大会が市民教育として定着し、避難誘導、通信確保、物資配分の実技が地域行事化している。</p>
-    <h3 id="治安と監視インフラ"><span class="mw-headline">治安と監視インフラ</span></h3>
-    <p>デジタル行政の進展で住民利便性は向上したが、顔認証、移動履歴、通信メタデータ管理の範囲拡大に対し監視社会化への懸念が示される。政府はテロ・浸透工作対策を根拠に制度維持を主張する。</p>
-  </section>
-
-  <section>
-    <h2 id="文化"><span class="mw-headline">文化</span></h2>
-    <div class="hatnote">→詳細は「<a href="world.html">日本の文化</a>」を参照</div>
-    <h3 id="国民的メディア文化"><span class="mw-headline">国民的メディア文化</span></h3>
-    <p><a href="faction-frontier-clans.html">天通HD</a>系プラットフォームは放送、配信、SNS、決済を横断し、日常情報流通の基盤となっている。報道と娯楽の同時配信により全国同時体験を形成する一方、情報供給の集中と論点設定の偏りが議論される。</p>
-    <h3 id="出版・映像・配信産業"><span class="mw-headline">出版・映像・配信産業</span></h3>
-    <p>京都・大阪の制作拠点はアニメ、ゲーム、音楽、映画、配信ドラマを大量に生産し、文化輸出の主要源となる。国内市場の厚みと海外配信網を背景に、コンテンツ産業は製造業に次ぐ外貨獲得部門へ成長している。</p>
-    <h3 id="戦後記憶と分断表象"><span class="mw-headline">戦後記憶と分断表象</span></h3>
-    <p>分断戦争、離散家族、停戦線生活を題材とする小説・映画・ドキュメンタリーが継続的に制作され、記憶継承の中心領域を形成する。境界県の慰霊文化は、国家儀礼と地域追悼が重層化した独自形態を示す。</p>
-    <h3 id="スポーツ"><span class="mw-headline">スポーツ</span></h3>
-    <p>野球、サッカー、バレーボールは全国統合を象徴する競技として機能し、企業リーグと自治体リーグが連結している。国防軍・自治体共催の防災スポーツは、体力競技と危機対応訓練を統合した地域統合装置として定着した。</p>
-    <h3 id="祭礼・宗教行事・地域文化"><span class="mw-headline">祭礼・宗教行事・地域文化</span></h3>
-    <p>都市祭礼、港湾祭、農村祭祀は観光資源であると同時に共同体維持機能を持つ。災害追悼行事と軍事記憶行事が重なる地域も多く、先進的消費文化と冷戦記憶文化が日常空間で併存している。</p>
-    <h3 id="境界県文化"><span class="mw-headline">境界県文化</span></h3>
-    <p>停戦線近接地域では、警報訓練、避難食文化、通信断絶対策、越境家族記録の保存活動が地域文化として制度化されている。日常生活に安全保障語彙が浸透している点は、他地域との顕著な差異である。</p>
-  </section>
-
-  <section>
-    <h2 id="外交"><span class="mw-headline">外交</span></h2>
-    <div class="hatnote">→詳細は「<a href="archive-diplomatic-ledger.html">日本の外交</a>」を参照</div>
-    <h3 id="米国との同盟関係"><span class="mw-headline">米国との同盟関係</span></h3>
-    <p>対米外交は安全保障、先端技術、金融協調の三層で構成される。共同演習、情報共有、対制裁執行、半導体設備規制で連携が深まり、停戦線抑止の実効性を支えている。負担分担と装備調達条件は継続交渉対象である。</p>
-    <h3 id="大韓民国との関係"><span class="mw-headline">大韓民国（統一朝鮮）との関係</span></h3>
-    <p>対韓関係は投資・部材供給・港湾連携で緊密化しており、サプライチェーン安全保障の中核軸となる。技術協力は拡大する一方、対北政策温度差や歴史認識問題が周期的に外交摩擦を生む。</p>
-    <h3 id="北日本との関係"><span class="mw-headline">北日本（東京政権）との関係</span></h3>
-    <p>停戦協議は継続するが、平和条約交渉は断続的に中断している。京都政権は制裁、監視、限定交渉、人道接触を状況別に使い分け、全面対話と全面遮断のいずれにも固定しない運用を採る。</p>
-    <h3 id="国際社会における立場"><span class="mw-headline">国際社会における立場</span></h3>
-    <p>国連枠組みでは中堅国外交を掲げ、PKO、災害救援、海上保安支援で人的拠出を行う。分断国家でありながら先進工業国として行動する点が外交上の特徴で、安定供給国家としての評価と安全保障リスク国家としての警戒が併存する。</p>
-    <h3 id="ASEAN・豪州・欧州との関係"><span class="mw-headline">ASEAN・豪州・欧州との関係</span></h3>
-    <p>ASEANとは製造分業と港湾物流で、豪州とは資源・防衛技術で、欧州とは規制協調と金融で協力が進む。企業投資と政府外交は連動性が高く、三財閥の海外展開が国家外交の実効性に直結している。</p>
-    <h3 id="経済安全保障外交"><span class="mw-headline">経済安全保障外交</span></h3>
-    <p>経済安保は輸出管理、重要鉱物確保、海運保険、金融制裁の統合運用を特徴とする。政府は民間企業を政策実装主体として組み込み、官民共同で対外規制対応を進める体制を維持する。</p>
-    <h3 id="PKOと中堅国外交"><span class="mw-headline">PKOと中堅国外交</span></h3>
-    <p>PKO派遣は工兵、通信、医療支援が中心で、累計派遣規模は1万人台後半とされる。実務経験は防災・復旧技術輸出にも接続され、冷戦前線国家でありながら国際公共財提供国としての役割を強調する外交資産となっている。</p>
-  </section>
-
-  <section>
-    <h2 id="批判・問題点"><span class="mw-headline">批判・問題点</span></h2>
-    <div class="hatnote">→詳細は「<a href="archive-edit-policy.html">政財界汚職</a>」を参照</div>
-    <h3 id="三社委員会と政財界癒着"><span class="mw-headline">三社委員会と政財界癒着</span></h3>
-    <p>研究者や野党は、三社委員会が法定外でありながら政策決定に強い影響を持つ点を問題視している。とくに危機時の予算配分と調達仕様が限定的な関係企業へ集中しやすいとの指摘がある。政府側は、緊急時の供給確保に不可欠な実務枠組みであると説明する。</p>
-    <h3 id="市場寡占と競争制限"><span class="mw-headline">市場寡占と競争制限</span></h3>
-    <p>公取委の調査では、通信、物流、エネルギー、金融で参入障壁が高く、系列外企業の拡大が難しい領域が確認される。産業界の一部は供給安定性を評価する一方、価格形成の硬直化と技術多様性低下を懸念している。</p>
-    <h3 id="メディア集中と世論誘導"><span class="mw-headline">メディア集中と世論誘導</span></h3>
-    <p>天通系媒体の高い市場占有率により、政策論点設定が特定事業者へ集中する可能性が指摘される。市民団体は報道独立性とアルゴリズム透明化を求め、事業者は災害時の情報一元化と偽情報抑制の有効性を強調している。</p>
-    <h3 id="特区労働・対北送金の倫理問題"><span class="mw-headline">特区労働・対北送金の倫理問題</span></h3>
-    <p>諏訪特区の北側労働者制度を巡っては、労働条件、送金経路、監督責任に関する倫理論争が続く。人道的接触と外貨流入管理をどう両立するかが焦点であり、政府は監督強化を進めるが、野党は第三者監査の常設化を求める。</p>
-    <h3 id="境界経済と密輸依存"><span class="mw-headline">境界経済と密輸依存</span></h3>
-    <p>停戦線地域ではグレー取引が雇用と情報流通を支える側面を持つため、全面摘発が地域経済を悪化させるとの懸念がある。一方で違法物流は治安と外交交渉を不安定化させるため、段階的縮減と代替雇用創出が課題とされる。</p>
-    <h3 id="格差拡大と地方疲弊"><span class="mw-headline">格差拡大と地方疲弊</span></h3>
-    <p>大都市の資本集中と地方の税基盤縮小により、教育・医療・交通の格差が拡大している。地方自治体は防災・国境管理業務を担う一方、人口流出で行政体力が低下し、国家安全保障要求との不均衡が問題視される。</p>
-    <h3 id="安全保障優先と市民的自由"><span class="mw-headline">安全保障優先による市民的自由の圧迫</span></h3>
-    <p>監視強化、通信規制、非常権限拡張について、法学者は市民的自由との均衡を課題として指摘する。政府は停戦線情勢の継続的不安定性を根拠に制度維持を主張するが、司法審査と議会監督の実効性強化を求める声が強い。</p>
-  </section>
-
-  <section>
-    <h2 id="関連項目"><span class="mw-headline">関連項目</span></h2>
-    <ul>
-      <li><a href="faction-northern-alliance.html">日本国（東京政権）</a></li>
-      <li><a href="character-yui-tachibana.html">東風谷サナエ</a></li>
-      <li><a href="faction-imperial-court.html">洩八グループ</a></li>
-      <li><a href="faction-maritime-guild.html">山崎川城工業</a></li>
-      <li><a href="faction-frontier-clans.html">天通HD</a></li>
-      <li><a href="faction-aikawa-gumi.html">相川組</a></li>
-      <li><a href="world-economy.html">日本の経済</a></li>
-      <li><a href="world-social-order.html">日本の政治</a></li>
-      <li><a href="world-social-order.html">日本の社会</a></li>
-      <li><a href="world.html">日本の文化</a></li>
-      <li><a href="archive-diplomatic-ledger.html">日本の外交</a></li>
-      <li><a href="timeline-north-south-schism.html">分断戦争</a></li>
-      <li><a href="timeline-border-conflicts.html">南北関係史</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="外部リンク"><span class="mw-headline">外部リンク</span></h2>
-    <ul class="plainlist">
-      <li><a href="#" class="external text" rel="nofollow">京都政府首相官邸（広報ポータル）</a></li>
-      <li><a href="#" class="external text" rel="nofollow">総務省統計局 年次統計公開室</a></li>
-      <li><a href="#" class="external text" rel="nofollow">停戦監視委員会 公開資料室</a></li>
-      <li><a href="#" class="external text" rel="nofollow">日本国防軍統合幕僚監部 広報ページ</a></li>
-      <li><a href="#" class="external text" rel="nofollow">諏訪工業特区管理局 情報公開窓口</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 id="注釈"><span class="mw-headline">注釈</span></h2>
-    <div class="reflist">
-      <ol class="references">
-        <li id="cite_note-note_gnp"><span class="mw-cite-backlink"><a href="#cite_ref-note_gnp_1">↑</a></span> <span class="reference-text">本項では海外子会社利益、利子・配当所得を含む国民概念でGNPを用いている。国内生産概念のGDPとは計測範囲が異なる。</span></li>
-        <li id="cite_note-note_border"><span class="mw-cite-backlink"><a href="#cite_ref-note_border_1">↑</a></span> <span class="reference-text">境界経済には違法取引のみならず、許可制度の狭間で発生する半公式仲介、緊急物資の代替流通も含む推計が用いられる。</span></li>
-        <li id="cite_note-note_ceasefire"><span class="mw-cite-backlink"><a href="#cite_ref-note_ceasefire_1">↑</a></span> <span class="reference-text">停戦線統計は監視委員会、自治体、国防軍公表値で定義が異なるため、件数比較には留保が必要である。</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <section>
-    <h2 id="出典"><span class="mw-headline">出典</span></h2>
-    <div class="reflist" style="column-count:2; -moz-column-count:2; -webkit-column-count:2; font-size:0.9em;">
-      <ol class="references">
-        <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">停戦監視委員会『東アジア停戦体制年報 2026』。</span></li>
-        <li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">国際法政策研究会『国家継続性と分断体制』2025年。</span></li>
-        <li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">東方経済新聞「戦後復興と湾岸再編」2025年7月19日。</span></li>
-        <li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">政治構造レビュー「三社委員会と危機統治」2026年春号。</span></li>
-        <li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">東方経済新聞「2025年主要国民経済計算」2026年2月。</span></li>
-        <li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text">国際情勢季報「冷戦前線国家の社会像」2026年冬号。</span></li>
-        <li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text">京都日報「危機対策会議の公開範囲」2026年1月12日。</span></li>
-        <li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span> <span class="reference-text">軍事研究季報「民間港湾の有事転用計画」2025年秋号。</span></li>
-        <li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text">経済航路「境界経済と都市消費市場」2026年2月号。</span></li>
-        <li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span> <span class="reference-text">外務政策資料館『国号運用実務集』2025年改訂版。</span></li>
-        <li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span> <span class="reference-text">毎朝新報「Kyoto Government表記の外交実務」2025年10月8日。</span></li>
-        <li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span> <span class="reference-text">週刊南都レビュー「『南日本』呼称をめぐる世論」2026年3月号。</span></li>
-        <li id="cite_note-13"><span class="mw-cite-backlink"><a href="#cite_ref-13">↑</a></span> <span class="reference-text">南都書房編集部『古代列島史概説』2024年。</span></li>
-        <li id="cite_note-14"><span class="mw-cite-backlink"><a href="#cite_ref-14">↑</a></span> <span class="reference-text">春峰出版『律令国家形成史』2023年。</span></li>
-        <li id="cite_note-15"><span class="mw-cite-backlink"><a href="#cite_ref-15">↑</a></span> <span class="reference-text">南都書房『中世日本の政治構造』2022年。</span></li>
-        <li id="cite_note-16"><span class="mw-cite-backlink"><a href="#cite_ref-16">↑</a></span> <span class="reference-text">三稜社『近代国家形成と産業化』2021年。</span></li>
-        <li id="cite_note-17"><span class="mw-cite-backlink"><a href="#cite_ref-17">↑</a></span> <span class="reference-text">政治構造レビュー「総力戦体制の遺産」2025年冬号。</span></li>
-        <li id="cite_note-18"><span class="mw-cite-backlink"><a href="#cite_ref-18">↑</a></span> <span class="reference-text">停戦監視委員会『分断起源資料集』2026年版。</span></li>
-        <li id="cite_note-19"><span class="mw-cite-backlink"><a href="#cite_ref-19">↑</a></span> <span class="reference-text">国際情勢季報「1950-53年交戦の人口影響」2025年秋号。</span></li>
-        <li id="cite_note-20"><span class="mw-cite-backlink"><a href="#cite_ref-20">↑</a></span> <span class="reference-text">同盟安全保障研究所『停戦線兵站と対米協力』2026年。</span></li>
-        <li id="cite_note-21"><span class="mw-cite-backlink"><a href="#cite_ref-21">↑</a></span> <span class="reference-text">東方経済新聞「関西湾の奇跡再評価」2025年7月。</span></li>
-        <li id="cite_note-22"><span class="mw-cite-backlink"><a href="#cite_ref-22">↑</a></span> <span class="reference-text">独禁政策研究所『産業集中度白書』2026年。</span></li>
-        <li id="cite_note-23"><span class="mw-cite-backlink"><a href="#cite_ref-23">↑</a></span> <span class="reference-text">停戦監視委員会「南北交流40年史」2026年版。</span></li>
-        <li id="cite_note-24"><span class="mw-cite-backlink"><a href="#cite_ref-24">↑</a></span> <span class="reference-text">京都日報「東風谷内閣の対北政策転換」2026年1月5日。</span></li>
-        <li id="cite_note-25"><span class="mw-cite-backlink"><a href="#cite_ref-25">↑</a></span> <span class="reference-text">国家安全保障会議『防衛・経済安全保障統合計画 2026』。</span></li>
-        <li id="cite_note-26"><span class="mw-cite-backlink"><a href="#cite_ref-26">↑</a></span> <span class="reference-text">総務省統計局「国土・人口分布統計」2025年。</span></li>
-        <li id="cite_note-27"><span class="mw-cite-backlink"><a href="#cite_ref-27">↑</a></span> <span class="reference-text">停戦監視委員会「特別管理区域運用報告」2026年。</span></li>
-        <li id="cite_note-28"><span class="mw-cite-backlink"><a href="#cite_ref-28">↑</a></span> <span class="reference-text">国際法政策研究会『戦後憲政体制』2024年改訂。</span></li>
-        <li id="cite_note-29"><span class="mw-cite-backlink"><a href="#cite_ref-29">↑</a></span> <span class="reference-text">政治構造レビュー「法定外協議体の統治影響」2026年3月号。</span></li>
-        <li id="cite_note-30"><span class="mw-cite-backlink"><a href="#cite_ref-30">↑</a></span> <span class="reference-text">地方行政研究所『境界行政ハンドブック』2025年。</span></li>
-        <li id="cite_note-31"><span class="mw-cite-backlink"><a href="#cite_ref-31">↑</a></span> <span class="reference-text">軍事研究季報「京都政権兵力推計」2026年夏号。</span></li>
-        <li id="cite_note-32"><span class="mw-cite-backlink"><a href="#cite_ref-32">↑</a></span> <span class="reference-text">国際情勢季報「日米共同演習の実務変化」2026年春号。</span></li>
-        <li id="cite_note-33"><span class="mw-cite-backlink"><a href="#cite_ref-33">↑</a></span> <span class="reference-text">公正取引委員会「基幹産業分野競争実態調査」2026年。</span></li>
-        <li id="cite_note-34"><span class="mw-cite-backlink"><a href="#cite_ref-34">↑</a></span> <span class="reference-text">毎朝新報「人口白書2026」2026年6月30日。</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <footer class="page-footer-meta">最終更新 2026年4月22日 (水) 23:00</footer>
 </article>

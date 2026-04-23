@@ -1,10 +1,10 @@
-# Tenzu.jp 設定Wiki（GitHub Pages）
+# Tenzu.jp 設定Wiki（GitHub Pages / Jekyll）
 
-南北日本戦記の設定資料を管理する、静的HTMLベースのWiki風サイトです。
+南北日本戦記の設定資料を管理する、Jekyll ベースの静的Wiki風サイトです。
 
 ## 構成方針
 
-- 技術方式: 素のHTML/CSS/JavaScript（ビルド不要）
+- 技術方式: GitHub Pages 互換の Jekyll + HTML/CSS/JavaScript
 - デザイン: シンプルWiki風（左ナビ・検索・パンくず・関連リンク）
 - 運用: 1人編集（Write権限を持つユーザーのみ更新）
 - 規模: 初期で約40ページ
@@ -13,7 +13,10 @@
 
 - `index.html` : トップ
 - `*.html` : 各Wikiページ
-- `assets/styles.css` : 共通スタイル
+- `_layouts/default.html` : 共通レイアウト
+- `_includes/` : ハットノート、注意箱、情報ボックス、目次、脚注、関連項目などの再利用部品
+- `_data/` : 出典種別や標準節構成などの共通データ
+- `assets/css/wiki.css` : 共通スタイル
 - `assets/app.js` : ナビ開閉・検索UI
 - `assets/search-index.json` : クライアント検索インデックス
 - `404.html` : 404ページ
@@ -27,13 +30,27 @@
 - カテゴリ入口は単語のみ
   - 例: `world.html`, `timeline.html`
 
+## 記事 front matter
+
+長文記事では最低限、以下の front matter を使います。
+
+- `title`
+- `description`
+- `nav_section`
+- `article_type`
+- `status`
+- `updated_on`
+- `aliases`
+- `related`
+
 ## 追加方法（新規ページ）
 
 1. 既存ページを複製して新しい `*.html` を作成
-2. パンくず・メタ情報・関連項目を更新
-3. 左ナビまたはカテゴリページからリンク追加
-4. `assets/search-index.json` にタイトル・概要・URLを追記
-5. 参照元ページへ相互リンクを追加
+2. front matter を更新し、必要なら `_includes` を利用して構造を揃える
+3. パンくず・メタ情報・関連項目を更新
+4. 左ナビまたはカテゴリページからリンク追加
+5. `assets/search-index.json` にタイトル・概要・URLを追記
+6. 参照元ページへ相互リンクを追加
 
 ## 更新フロー
 

@@ -1,0 +1,26 @@
+{% assign related_items = include.items %}
+{% if related_items and related_items.size > 0 %}
+<section>
+  <h2 id="関連項目"><span class="mw-headline">関連項目</span></h2>
+  <ul>
+    {% for item in related_items %}
+    <li>
+      <a href="{{ item.url | relative_url }}">{{ item.title }}</a>{% if item.summary %} - {{ item.summary }}{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% assign external_items = include.external %}
+{% if external_items and external_items.size > 0 %}
+<section>
+  <h2 id="外部リンク"><span class="mw-headline">外部リンク</span></h2>
+  <ul>
+    {% for item in external_items %}
+    <li>
+      <a href="{{ item.url }}">{{ item.title }}</a>{% if item.summary %} - {{ item.summary }}{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
