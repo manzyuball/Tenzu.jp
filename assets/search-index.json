@@ -172,6 +172,12 @@
       "detail",
       "faction",
       "zaibatsu",
+      "chaebol",
+      "keiretsu",
+      "conglomerate",
+      "財閥",
+      "三社体制",
+      "公共圏",
       "諏訪財閥"
     ]
   },
@@ -208,7 +214,13 @@
       "faction",
       "industry",
       "technology",
-      "軍需"
+      "chaebol",
+      "keiretsu",
+      "conglomerate",
+      "財閥",
+      "三社体制",
+      "軍需",
+      "軍需複合体"
     ]
   },
   {
@@ -220,6 +232,12 @@
       "tenzu",
       "media",
       "platform",
+      "chaebol",
+      "keiretsu",
+      "conglomerate",
+      "財閥",
+      "三社体制",
+      "公共圏",
       "天網"
     ]
   },
