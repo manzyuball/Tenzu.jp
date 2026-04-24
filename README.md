@@ -87,11 +87,14 @@
 - 無料で不要なら設定しなくて問題ありません。
 - 利用する場合のみ `CNAME` ファイルを追加し、DNSを設定してください。
 
-## 品質チェック（最低限）
+## 品質チェック（必須）
 
 - ページ追加時に手動でリンク遷移を確認
 - 404ページ表示確認
 - 検索で新規ページがヒットすることを確認
+- 生成時プリチェック（禁止語）: `scripts/tenzu-content-check.sh pre <対象ファイル>`
+- 生成後ポストチェック（高リスク表現）: `scripts/tenzu-content-check.sh post <対象ファイル>`
+- 詳細ルール: `references/compatibility-exclusions.md`
 
 ## バックアップ
 
