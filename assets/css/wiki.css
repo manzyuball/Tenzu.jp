@@ -235,7 +235,7 @@ a.new:visited { color: #a55858; }
   width: 135px;
   height: 135px;
   margin: 0 auto;
-  background-image: url('/assets/logo.png');
+  background-image: url('../logo.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
