@@ -20,7 +20,6 @@
 - `assets/app.js` : ナビ開閉・検索UI
 - `assets/search-index.json` : クライアント検索インデックス
 - `404.html` : 404ページ
-- `.nojekyll` : PagesでJekyll無効化
 
 ## 命名規則
 
@@ -92,6 +91,7 @@
 - ページ追加時に手動でリンク遷移を確認
 - 404ページ表示確認
 - 検索で新規ページがヒットすることを確認
+- Vector 2022風UI移行後の静的チェック: `powershell -ExecutionPolicy Bypass -File scripts/tenzu-quality-check.ps1`
 - 生成時プリチェック（禁止語）: `scripts/tenzu-content-check.sh pre <対象ファイル>`
 - 生成後ポストチェック（高リスク表現）: `scripts/tenzu-content-check.sh post <対象ファイル>`
 - 詳細ルール: `references/compatibility-exclusions.md`

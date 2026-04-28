@@ -395,5 +395,30 @@
       "archive",
       "policy"
     ]
+  },
+  {
+    "title": "Wikipedia風ページ設計ガイド",
+    "url": "archive-wikipedia-style-guide.html",
+    "summary": "現行Wikipedia風の記事構成、Vector 2022風UI、出典・脚注設計をまとめた実装ガイド。",
+    "tags": [
+      "detail",
+      "archive",
+      "style",
+      "wikipedia",
+      "vector"
+    ]
+  },
+  {
+    "title": "相川組",
+    "url": "faction-aikawa-gumi.html",
+    "summary": "佐渡島を拠点に日本海沿岸物流へ影響を持つ港湾系地下経済ネットワーク。",
+    "tags": [
+      "detail",
+      "faction",
+      "佐渡",
+      "港湾",
+      "密輸",
+      "境界経済"
+    ]
   }
 ]
