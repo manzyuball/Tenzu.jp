@@ -52,15 +52,6 @@
     ]
   },
   {
-    "title": "地理",
-    "url": "geography.html",
-    "summary": "糸魚川境界線、白馬、松代、諏訪、佐渡を中心とした戦略地理。",
-    "tags": [
-      "section",
-      "geography"
-    ]
-  },
-  {
     "title": "用語集",
     "url": "glossary.html",
     "summary": "政治ラベル・情報戦語・軍事語を横断参照する用語集。",
@@ -76,22 +67,6 @@
     "tags": [
       "section",
       "archive"
-    ]
-  },
-  {
-    "title": "世界創成神話",
-    "url": "world-creation-myth.html",
-    "summary": "世界創成神話の詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
-    "title": "信仰体系",
-    "url": "world-faith-systems.html",
-    "summary": "信仰体系の詳細設定ページ。",
-    "tags": [
-      "detail"
     ]
   },
   {
@@ -119,22 +94,6 @@
     "tags": [
       "detail",
       "world"
-    ]
-  },
-  {
-    "title": "古代期",
-    "url": "timeline-ancient-age.html",
-    "summary": "古代期の詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
-    "title": "統一期戦役",
-    "url": "timeline-unification-war.html",
-    "summary": "統一期戦役の詳細設定ページ。",
-    "tags": [
-      "detail"
     ]
   },
   {
@@ -287,62 +246,6 @@
     ]
   },
   {
-    "title": "帝都盆地",
-    "url": "geography-capital-basin.html",
-    "summary": "帝都盆地の詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
-    "title": "鉄嶺回廊",
-    "url": "geography-iron-pass.html",
-    "summary": "鉄嶺回廊の詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
-    "title": "凍原北縁",
-    "url": "geography-frozen-frontier.html",
-    "summary": "凍原北縁の詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
-    "title": "内海交易圏",
-    "url": "geography-inland-sea.html",
-    "summary": "内海交易圏の詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
-    "title": "南群島",
-    "url": "geography-southern-archipelago.html",
-    "summary": "南群島の詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
-    "title": "用語 A-F",
-    "url": "glossary-terms-a-f.html",
-    "summary": "用語 A-Fの詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
-    "title": "用語 G-L",
-    "url": "glossary-terms-g-l.html",
-    "summary": "用語 G-Lの詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
     "title": "用語 M-R",
     "url": "glossary-terms-m-r.html",
     "summary": "マジだよチャンネル、松代司令部、洩八などの用語集。",
@@ -361,14 +264,6 @@
     ]
   },
   {
-    "title": "軍制階級一覧",
-    "url": "glossary-military-ranks.html",
-    "summary": "軍制階級一覧の詳細設定ページ。",
-    "tags": [
-      "detail"
-    ]
-  },
-  {
     "title": "地図注釈ノート",
     "url": "archive-map-notes.html",
     "summary": "戦略拠点と補給線の注釈メモ。",
@@ -384,28 +279,6 @@
     "tags": [
       "detail",
       "archive"
-    ]
-  },
-  {
-    "title": "改稿ポリシー",
-    "url": "archive-edit-policy.html",
-    "summary": "天通辞典の常時更新運用ルールと履歴保全方針。",
-    "tags": [
-      "detail",
-      "archive",
-      "policy"
-    ]
-  },
-  {
-    "title": "Wikipedia風ページ設計ガイド",
-    "url": "archive-wikipedia-style-guide.html",
-    "summary": "現行Wikipedia風の記事構成、Vector 2022風UI、出典・脚注設計をまとめた実装ガイド。",
-    "tags": [
-      "detail",
-      "archive",
-      "style",
-      "wikipedia",
-      "vector"
     ]
   },
   {
