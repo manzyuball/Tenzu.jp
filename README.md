@@ -1,101 +1,57 @@
-# Tenzu.jp 設定Wiki（GitHub Pages / Jekyll）
+# Tenzu.jp 設定Wiki
 
-南北日本戦記の設定資料を管理する、Jekyll ベースの静的Wiki風サイトです。
+南北日本戦記の設定資料を管理する、GitHub Pages / Jekyll ベースの静的Wiki風サイトです。
 
 ## 構成方針
 
-- 技術方式: GitHub Pages 互換の Jekyll + HTML/CSS/JavaScript
-- デザイン: シンプルWiki風（左ナビ・検索・パンくず・関連リンク）
-- 運用: 1人編集（Write権限を持つユーザーのみ更新）
-- 規模: 初期で約40ページ
+- 技術方式: GitHub Pages互換の Jekyll + HTML/CSS/JavaScript
+- デザイン: Vector 2022風の静的Wiki UI
+- 運用: 1ページ1ファイル。外部DB、ログイン、投稿、閲覧ログなどの動的機能は使わない
+- 記事品質: front matter、出典区分、関連項目、検索インデックス、品質チェックを揃える
 
 ## 主要ファイル
 
-- `index.html` : トップ
-- `*.html` : 各Wikiページ
-- `_layouts/default.html` : 共通レイアウト
-- `_includes/` : ハットノート、注意箱、情報ボックス、目次、脚注、関連項目などの再利用部品
-- `_data/` : 出典種別や標準節構成などの共通データ
-- `assets/css/wiki.css` : 共通スタイル
-- `assets/app.js` : ナビ開閉・検索UI
-- `assets/search-index.json` : クライアント検索インデックス
-- `404.html` : 404ページ
+- `index.html`: トップページ
+- `*.html`: 各Wikiページ
+- `_layouts/default.html`: 共通レイアウト
+- `_includes/`: hatnote、ambox、infobox、脚注、関連項目などの部品
+- `_data/article_sections.yml`: 記事種別ごとの必須見出しとinfobox項目
+- `_data/reference_types.yml`: 出典区分
+- `assets/css/wiki.css`: 共通スタイル
+- `assets/app.js`: ナビゲーション、検索、ページ内目次
+- `assets/search-index.json`: クライアント内検索インデックス
+- `references/tenzu-generation-prompt.md`: Tenzu記事生成プロンプト
+- `references/templates-tenzu.md`: 記事テンプレート定義
+- `scripts/tenzu-quality-check.ps1`: 静的品質チェック
 
-## 命名規則
+## 記事追加手順
 
-- 1ページ1ファイル
-- 英数字スラッグ（kebab-case）で命名
-  - 例: `faction-japan-tokyo-government.html`
-- カテゴリ入口は単語のみ
-  - 例: `world.html`, `timeline.html`
+1. `references/templates-tenzu.md` から対象種別のテンプレートを選ぶ。
+2. `references/tenzu-generation-prompt.md` の方針に沿って本文を作る。
+3. front matterに `layout`, `title`, `description`, `nav_section`, `article_type`, `status`, `updated_on` を入れる。
+4. 必要なincludeを使い、infobox、注釈、出典、関連項目を整える。
+5. `assets/search-index.json` に記事を追加する。
+6. 品質チェックを実行する。
 
-## 記事 front matter
+## 品質チェック
 
-長文記事では最低限、以下の front matter を使います。
+PowerShellで以下を実行します。
 
-- `title`
-- `description`
-- `nav_section`
-- `article_type`
-- `status`
-- `updated_on`
-- `aliases`
-- `related`
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/tenzu-quality-check.ps1
+```
 
-## 追加方法（新規ページ）
+主なチェック項目:
 
-1. 既存ページを複製して新しい `*.html` を作成
-2. front matter を更新し、必要なら `_includes` を利用して構造を揃える
-3. パンくず・メタ情報・関連項目を更新
-4. 左ナビまたはカテゴリページからリンク追加
-5. `assets/search-index.json` にタイトル・概要・URLを追記
-6. 参照元ページへ相互リンクを追加
+- UTF-8 BOMなし
+- front matterの存在
+- 文字化けの疑い
+- 未変換のMediaWiki記法
+- 内部リンク切れ
+- 検索インデックス漏れ
+- `article_type` と `_data/article_sections.yml` の整合
+- 脚注IDの重複
 
-## 更新フロー（ブランチ運用）
+## 運用メモ
 
-実装対象ごとに独立したブランチを作り、PR単位で安全に取り込む運用を推奨します。
-
-1. 実装対象ごとにブランチを作成
-   - 例: `feat/skill-core`, `feat/ui-layout`, `feat/quality-gates`
-2. 各ブランチで変更し、作業単位で `git add` / `git commit`
-3. `git push origin <branch>` でリモートへ反映
-4. ブランチごとにPRを作成（タイトル・概要・チェック項目を記載）
-5. CIと表示確認が通ったPRから順にマージ
-6. 最後にGitHub Pagesのデプロイ完了を確認
-
-### PRテンプレート（推奨）
-
-- **タイトル**: `feat: <変更点の要約>`
-- **概要**: 何を、なぜ変更したか
-- **チェック項目**:
-  - [ ] ローカル表示確認
-  - [ ] 主要リンク遷移確認
-  - [ ] 検索インデックス更新（必要時）
-  - [ ] CI通過
-  - [ ] Pagesデプロイ確認
-
-## GitHub Pages 公開手順
-
-1. GitHub リポジトリの **Settings > Pages** を開く
-2. Build and deployment の Source を **Deploy from a branch** に設定
-3. Branch を `main`（または `gh-pages`）/ `/ (root)` に設定
-4. 数分後に公開URLへアクセスして反映確認
-
-## 独自ドメイン（任意）
-
-- 無料で不要なら設定しなくて問題ありません。
-- 利用する場合のみ `CNAME` ファイルを追加し、DNSを設定してください。
-
-## 品質チェック（必須）
-
-- ページ追加時に手動でリンク遷移を確認
-- 404ページ表示確認
-- 検索で新規ページがヒットすることを確認
-- Vector 2022風UI移行後の静的チェック: `powershell -ExecutionPolicy Bypass -File scripts/tenzu-quality-check.ps1`
-- 生成時プリチェック（禁止語）: `scripts/tenzu-content-check.sh pre <対象ファイル>`
-- 生成後ポストチェック（高リスク表現）: `scripts/tenzu-content-check.sh post <対象ファイル>`
-- 詳細ルール: `references/compatibility-exclusions.md`
-
-## バックアップ
-
-- Git履歴がそのままバックアップになります。
+このサイトは静的ファイルだけで公開できる構成を維持します。サイバーセキュリティ上のリスクを増やす外部認証、投稿フォーム、管理API、データベース接続は、このリポジトリの通常運用には含めません。

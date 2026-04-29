@@ -7,10 +7,48 @@ $ErrorActionPreference = 'Stop'
 $root = Resolve-Path (Join-Path $PSScriptRoot '..')
 $failures = New-Object System.Collections.Generic.List[string]
 $htmlFiles = Get-ChildItem -Path $root -File -Filter '*.html'
+$articleSectionsPath = Join-Path $root '_data/article_sections.yml'
+$articleSectionTypes = New-Object System.Collections.Generic.HashSet[string]
+
+if (Test-Path -LiteralPath $articleSectionsPath) {
+  $sectionText = [System.IO.File]::ReadAllText($articleSectionsPath, [System.Text.Encoding]::UTF8)
+  foreach ($match in [regex]::Matches($sectionText, '(?m)^([a-z_]+):\s*$')) {
+    [void]$articleSectionTypes.Add($match.Groups[1].Value)
+  }
+}
 
 function Add-Failure {
   param([string]$Message)
   $failures.Add($Message) | Out-Null
+}
+
+function Get-FrontMatter {
+  param([string]$Text)
+
+  $result = @{}
+  if ($Text -notmatch '(?s)^---\s*\r?\n(.*?)\r?\n---') {
+    return $result
+  }
+
+  $currentKey = $null
+  foreach ($line in ($Matches[1] -split "`r?`n")) {
+    if ($line -match '^([A-Za-z0-9_]+):\s*(.*)$') {
+      $currentKey = $Matches[1]
+      $value = $Matches[2].Trim()
+      if ($value -eq '') {
+        $result[$currentKey] = @()
+      } else {
+        $result[$currentKey] = $value.Trim('"')
+      }
+    } elseif ($line -match '^\s*-\s+(.+)$' -and $currentKey) {
+      if (-not ($result[$currentKey] -is [System.Collections.IList])) {
+        $result[$currentKey] = @()
+      }
+      $result[$currentKey] = @($result[$currentKey]) + $Matches[1].Trim().Trim('"')
+    }
+  }
+
+  return $result
 }
 
 foreach ($file in $htmlFiles) {
@@ -26,6 +64,7 @@ foreach ($file in $htmlFiles) {
   }
 
   $text = [System.IO.File]::ReadAllText($file.FullName, [System.Text.Encoding]::UTF8)
+  $frontMatter = Get-FrontMatter -Text $text
 
   if ($text -match '(繝|縺|譛|蜊|蝓|髢|螟|謾|隕|邨|荳|逕|譁|豁ｴ|莠){3,}') {
     Add-Failure "$relative contains likely mojibake text."
@@ -33,6 +72,28 @@ foreach ($file in $htmlFiles) {
 
   if ($file.Name -ne 'archive-wikipedia-style-guide.html' -and $text -match '(?m)(\{\{(?:Infobox|Main|Reflist)|\[\[[^\]]+\]\]|^==[^=].*==\s*$)') {
     Add-Failure "$relative contains unconverted MediaWiki syntax."
+  }
+
+  if ($file.Name -ne '404.html') {
+    foreach ($requiredKey in @('layout', 'title', 'description', 'nav_section')) {
+      if (-not $frontMatter.ContainsKey($requiredKey) -or [string]::IsNullOrWhiteSpace([string]$frontMatter[$requiredKey])) {
+        Add-Failure "$relative is missing front matter key: $requiredKey"
+      }
+    }
+  }
+
+  if ($frontMatter.ContainsKey('article_type') -and -not $articleSectionTypes.Contains([string]$frontMatter['article_type'])) {
+    Add-Failure "$relative has unknown article_type: $($frontMatter['article_type'])"
+  }
+
+  $ids = @{}
+  foreach ($match in [regex]::Matches($text, 'id="(cite_note[^"]+)"')) {
+    $id = $match.Groups[1].Value
+    if ($ids.ContainsKey($id)) {
+      Add-Failure "$relative contains duplicate citation id: $id"
+    } else {
+      $ids[$id] = $true
+    }
   }
 }
 
@@ -76,6 +137,14 @@ try {
     }
     if (-not $indexedUrls.ContainsKey($file.Name)) {
       Add-Failure "$($file.Name) is missing from assets/search-index.json."
+    }
+  }
+
+  foreach ($item in $searchIndex) {
+    foreach ($requiredKey in @('title', 'url', 'summary', 'tags', 'article_type', 'nav_section', 'aliases', 'related')) {
+      if (-not $item.PSObject.Properties.Name.Contains($requiredKey)) {
+        Add-Failure "assets/search-index.json item '$($item.title)' is missing key: $requiredKey"
+      }
     }
   }
 } catch {

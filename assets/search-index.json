@@ -1,297 +1,602 @@
 [
-  {
-    "title": "天通辞典",
-    "url": "index.html",
-    "summary": "天通が運営する南北日本戦記のWikipedia風資料サイト。継続改稿型で運用。",
-    "tags": [
-      "top",
-      "home",
-      "tenzu"
-    ]
-  },
-  {
-    "title": "世界観",
-    "url": "world.html",
-    "summary": "分断国家、膠着、利権、情報秩序の四条件から世界を読む入口ページ。",
-    "tags": [
-      "section",
-      "world",
-      "setting",
-      "分断日本"
-    ]
-  },
-  {
-    "title": "年表",
-    "url": "timeline.html",
-    "summary": "分断成立、膠着の制度化、72時間事件後の再編集を三段階で整理。",
-    "tags": [
-      "section",
-      "timeline",
-      "history",
-      "分断史"
-    ]
-  },
-  {
-    "title": "勢力",
-    "url": "factions.html",
-    "summary": "国家、財閥、情報複合体、軍需複合体の四極構造を読む入口ページ。",
-    "tags": [
-      "section",
-      "factions",
-      "power",
-      "勢力図"
-    ]
-  },
-  {
-    "title": "人物",
-    "url": "characters.html",
-    "summary": "レイム、マリサ、沙苗、弥栄、御子を中心に人物相関を整理。",
-    "tags": [
-      "section",
-      "characters"
-    ]
-  },
-  {
-    "title": "用語集",
-    "url": "glossary.html",
-    "summary": "政治ラベル・情報戦語・軍事語を横断参照する用語集。",
-    "tags": [
-      "section",
-      "glossary"
-    ]
-  },
-  {
-    "title": "資料室",
-    "url": "archive.html",
-    "summary": "地図注釈と外交記録を保存する改稿履歴対応の保管庫。",
-    "tags": [
-      "section",
-      "archive"
-    ]
-  },
-  {
-    "title": "社会階層制度",
-    "url": "world-social-order.html",
-    "summary": "市民層から情報媒介層までの多層統治構造。",
-    "tags": [
-      "detail",
-      "world"
-    ]
-  },
-  {
-    "title": "技術水準",
-    "url": "world-technology.html",
-    "summary": "昭和的インフラと令和的情報戦技術の混在構造。",
-    "tags": [
-      "detail",
-      "world"
-    ]
-  },
-  {
-    "title": "経済構造",
-    "url": "world-economy.html",
-    "summary": "戦争継続を支える利権と越境取引の構造。",
-    "tags": [
-      "detail",
-      "world"
-    ]
-  },
-  {
-    "title": "南北分裂",
-    "url": "timeline-north-south-schism.html",
-    "summary": "フォッサマグナ境界線で分裂が固定化した局面。",
-    "tags": [
-      "detail",
-      "timeline"
-    ]
-  },
-  {
-    "title": "国境紛争期",
-    "url": "timeline-border-conflicts.html",
-    "summary": "慢性的局地戦と情報戦が続いた時期。",
-    "tags": [
-      "detail",
-      "timeline"
-    ]
-  },
-  {
-    "title": "現代局面（72時間以後）",
-    "url": "timeline-present-day.html",
-    "summary": "沙苗失脚後の新膠着体制を整理。",
-    "tags": [
-      "detail",
-      "timeline"
-    ]
-  },
-  {
-    "title": "洩八グループ",
-    "url": "faction-moriya-yasaka-group.html",
-    "summary": "金融・電力・物流を束ね、西日本の基礎供給を支える準統治的財閥。",
-    "tags": [
-      "detail",
-      "faction",
-      "zaibatsu",
-      "chaebol",
-      "keiretsu",
-      "conglomerate",
-      "財閥",
-      "三社体制",
-      "公共圏",
-      "諏訪財閥"
-    ]
-  },
-  {
-    "title": "日本国（東京政権）",
-    "url": "faction-japan-tokyo-government.html",
-    "summary": "太子体制、監視社会、計画経済で成り立つ東日本の母艦記事。",
-    "tags": [
-      "detail",
-      "faction",
-      "state",
-      "北日本",
-      "東京政権"
-    ]
-  },
-  {
-    "title": "日本国（京都政権）",
-    "url": "faction-japan-kyoto-government.html",
-    "summary": "国際的に『日本』を継承する西日本国家の母艦記事。",
-    "tags": [
-      "detail",
-      "faction",
-      "state",
-      "南日本",
-      "京都政権"
-    ]
-  },
-  {
-    "title": "山崎川城工業",
-    "url": "faction-yamazaki-kawashiro-industries.html",
-    "summary": "防衛・宇宙・半導体・AIを束ねる技術複合体。",
-    "tags": [
-      "detail",
-      "faction",
-      "industry",
-      "technology",
-      "chaebol",
-      "keiretsu",
-      "conglomerate",
-      "財閥",
-      "三社体制",
-      "軍需",
-      "軍需複合体"
-    ]
-  },
-  {
-    "title": "天通",
-    "url": "faction-tenzu.html",
-    "summary": "通信、報道、SNS、EC、辞典運営を束ねる情報複合体。",
-    "tags": [
-      "detail",
-      "tenzu",
-      "media",
-      "platform",
-      "chaebol",
-      "keiretsu",
-      "conglomerate",
-      "財閥",
-      "三社体制",
-      "公共圏",
-      "天網"
-    ]
-  },
-  {
-    "title": "レイム",
-    "url": "character-hakurei-reimu.html",
-    "summary": "南日本将軍。平時無関心と戦闘時覚醒の二面性を持つ。",
-    "tags": [
-      "detail",
-      "character"
-    ]
-  },
-  {
-    "title": "マリサ",
-    "url": "character-marisa.html",
-    "summary": "北日本将軍。努力型の前線指揮官。",
-    "tags": [
-      "detail",
-      "character"
-    ]
-  },
-  {
-    "title": "沙苗",
-    "url": "character-sanae.html",
-    "summary": "南日本総理。72時間事件の中心人物。",
-    "tags": [
-      "detail",
-      "character"
-    ]
-  },
-  {
-    "title": "弥栄",
-    "url": "character-yasaka-kanako.html",
-    "summary": "洩八グループ総帥。合理主義的な秩序維持を担う。",
-    "tags": [
-      "detail",
-      "character"
-    ]
-  },
-  {
-    "title": "御子",
-    "url": "character-toyosato-miko.html",
-    "summary": "北日本最高指導者。演説政治と情報集中を併用。",
-    "tags": [
-      "detail",
-      "character"
-    ]
-  },
-  {
-    "title": "用語 M-R",
-    "url": "glossary-terms-m-r.html",
-    "summary": "マジだよチャンネル、松代司令部、洩八などの用語集。",
-    "tags": [
-      "detail",
-      "glossary"
-    ]
-  },
-  {
-    "title": "用語 S-Z",
-    "url": "glossary-terms-s-z.html",
-    "summary": "沙苗、従北、天網、ヴァイオレットなどの用語集。",
-    "tags": [
-      "detail",
-      "glossary"
-    ]
-  },
-  {
-    "title": "地図注釈ノート",
-    "url": "archive-map-notes.html",
-    "summary": "戦略拠点と補給線の注釈メモ。",
-    "tags": [
-      "detail",
-      "archive"
-    ]
-  },
-  {
-    "title": "外交記録簿（改稿ログ）",
-    "url": "archive-diplomatic-ledger.html",
-    "summary": "外交イベントとページ改稿履歴を併記する台帳。",
-    "tags": [
-      "detail",
-      "archive"
-    ]
-  },
-  {
-    "title": "相川組",
-    "url": "faction-aikawa-gumi.html",
-    "summary": "佐渡島を拠点に日本海沿岸物流へ影響を持つ港湾系地下経済ネットワーク。",
-    "tags": [
-      "detail",
-      "faction",
-      "佐渡",
-      "港湾",
-      "密輸",
-      "境界経済"
-    ]
-  }
+    {
+        "title":  "天通辞典",
+        "url":  "index.html",
+        "summary":  "天通が運営する南北日本戦記のWikipedia風資料サイト。継続改稿型で運用。",
+        "tags":  [
+                     "top",
+                     "home",
+                     "tenzu"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "top",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "世界観",
+        "url":  "world.html",
+        "summary":  "分断国家、膠着、利権、情報秩序の四条件から世界を読む入口ページ。",
+        "tags":  [
+                     "section",
+                     "world",
+                     "setting",
+                     "分断日本"
+                 ],
+        "article_type":  "hub",
+        "nav_section":  "world",
+        "aliases":  [
+                        "分断日本",
+                        "膠着秩序"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "年表",
+        "url":  "timeline.html",
+        "summary":  "分断成立、膠着の制度化、72時間事件後の再編集を三段階で整理。",
+        "tags":  [
+                     "section",
+                     "timeline",
+                     "history",
+                     "分断史"
+                 ],
+        "article_type":  "hub",
+        "nav_section":  "timeline",
+        "aliases":  [
+                        "主要局面",
+                        "分断史"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "勢力",
+        "url":  "factions.html",
+        "summary":  "国家、財閥、情報複合体、軍需複合体の四極構造を読む入口ページ。",
+        "tags":  [
+                     "section",
+                     "factions",
+                     "power",
+                     "勢力図"
+                 ],
+        "article_type":  "hub",
+        "nav_section":  "factions",
+        "aliases":  [
+                        "勢力図",
+                        "権力構造"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "人物",
+        "url":  "characters.html",
+        "summary":  "レイム、マリサ、沙苗、弥栄、御子を中心に人物相関を整理。",
+        "tags":  [
+                     "section",
+                     "characters"
+                 ],
+        "article_type":  "hub",
+        "nav_section":  "characters",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "用語集",
+        "url":  "glossary.html",
+        "summary":  "政治ラベル・情報戦語・軍事語を横断参照する用語集。",
+        "tags":  [
+                     "section",
+                     "glossary"
+                 ],
+        "article_type":  "hub",
+        "nav_section":  "glossary",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "資料室",
+        "url":  "archive.html",
+        "summary":  "地図注釈と外交記録を保存する改稿履歴対応の保管庫。",
+        "tags":  [
+                     "section",
+                     "archive"
+                 ],
+        "article_type":  "hub",
+        "nav_section":  "archive",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "社会階層制度",
+        "url":  "world-social-order.html",
+        "summary":  "市民層から情報媒介層までの多層統治構造。",
+        "tags":  [
+                     "detail",
+                     "world"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "world",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "技術水準",
+        "url":  "world-technology.html",
+        "summary":  "昭和的インフラと令和的情報戦技術の混在構造。",
+        "tags":  [
+                     "detail",
+                     "world"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "world",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "経済構造",
+        "url":  "world-economy.html",
+        "summary":  "戦争継続を支える利権と越境取引の構造。",
+        "tags":  [
+                     "detail",
+                     "world"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "world",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "南北分裂",
+        "url":  "timeline-north-south-schism.html",
+        "summary":  "フォッサマグナ境界線で分裂が固定化した局面。",
+        "tags":  [
+                     "detail",
+                     "timeline"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "timeline",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "国境紛争期",
+        "url":  "timeline-border-conflicts.html",
+        "summary":  "慢性的局地戦と情報戦が続いた時期。",
+        "tags":  [
+                     "detail",
+                     "timeline"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "timeline",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "現代局面（72時間以後）",
+        "url":  "timeline-present-day.html",
+        "summary":  "沙苗失脚後の新膠着体制を整理。",
+        "tags":  [
+                     "detail",
+                     "timeline"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "timeline",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "洩八グループ",
+        "url":  "faction-moriya-yasaka-group.html",
+        "summary":  "金融・電力・物流を束ね、西日本の基礎供給を支える準統治的財閥。",
+        "tags":  [
+                     "detail",
+                     "faction",
+                     "zaibatsu",
+                     "chaebol",
+                     "keiretsu",
+                     "conglomerate",
+                     "財閥",
+                     "三社体制",
+                     "公共圏",
+                     "諏訪財閥"
+                 ],
+        "article_type":  "corporation",
+        "nav_section":  "factions",
+        "aliases":  [
+                        "洩八",
+                        "諏訪財閥",
+                        "西日本生活基盤財閥"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "日本国（東京政権）",
+        "url":  "faction-japan-tokyo-government.html",
+        "summary":  "太子体制、監視社会、計画経済で成り立つ東日本の母艦記事。",
+        "tags":  [
+                     "detail",
+                     "faction",
+                     "state",
+                     "北日本",
+                     "東京政権"
+                 ],
+        "article_type":  "state",
+        "nav_section":  "factions",
+        "aliases":  [
+                        "東京政権",
+                        "東側日本国",
+                        "日本国"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "日本国（京都政権）",
+        "url":  "faction-japan-kyoto-government.html",
+        "summary":  "国際的に『日本』を継承する西日本国家の母艦記事。",
+        "tags":  [
+                     "detail",
+                     "faction",
+                     "state",
+                     "南日本",
+                     "京都政権"
+                 ],
+        "article_type":  "state",
+        "nav_section":  "factions",
+        "aliases":  [
+                        "南日本",
+                        "京都政権",
+                        "日本国"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "山崎川城工業",
+        "url":  "faction-yamazaki-kawashiro-industries.html",
+        "summary":  "防衛・宇宙・半導体・AIを束ねる技術複合体。",
+        "tags":  [
+                     "detail",
+                     "faction",
+                     "industry",
+                     "technology",
+                     "chaebol",
+                     "keiretsu",
+                     "conglomerate",
+                     "財閥",
+                     "三社体制",
+                     "軍需",
+                     "軍需複合体"
+                 ],
+        "article_type":  "corporation",
+        "nav_section":  "factions",
+        "aliases":  [
+                        "山崎川城",
+                        "山崎川城重工",
+                        "西日本技術同盟中核"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "天通",
+        "url":  "faction-tenzu.html",
+        "summary":  "通信、報道、SNS、EC、辞典運営を束ねる情報複合体。",
+        "tags":  [
+                     "detail",
+                     "tenzu",
+                     "media",
+                     "platform",
+                     "chaebol",
+                     "keiretsu",
+                     "conglomerate",
+                     "財閥",
+                     "三社体制",
+                     "公共圏",
+                     "天網"
+                 ],
+        "article_type":  "media",
+        "nav_section":  "factions",
+        "aliases":  [
+                        "天通ホールディングス",
+                        "天網",
+                        "天通辞典運営体"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "レイム",
+        "url":  "character-hakurei-reimu.html",
+        "summary":  "南日本将軍。平時無関心と戦闘時覚醒の二面性を持つ。",
+        "tags":  [
+                     "detail",
+                     "character"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "characters",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "マリサ",
+        "url":  "character-marisa.html",
+        "summary":  "北日本将軍。努力型の前線指揮官。",
+        "tags":  [
+                     "detail",
+                     "character"
+                 ],
+        "article_type":  "person",
+        "nav_section":  "characters",
+        "aliases":  [
+                        "霧雨マリサ",
+                        "北部前線の実務家"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "沙苗",
+        "url":  "character-sanae.html",
+        "summary":  "南日本総理。72時間事件の中心人物。",
+        "tags":  [
+                     "detail",
+                     "character"
+                 ],
+        "article_type":  "person",
+        "nav_section":  "characters",
+        "aliases":  [
+                        "東風谷沙苗",
+                        "72時間事件の首班"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "弥栄",
+        "url":  "character-yasaka-kanako.html",
+        "summary":  "洩八グループ総帥。合理主義的な秩序維持を担う。",
+        "tags":  [
+                     "detail",
+                     "character"
+                 ],
+        "article_type":  "person",
+        "nav_section":  "characters",
+        "aliases":  [
+                        "八坂神奈子",
+                        "洩八会長",
+                        "諏訪財界の調整者"
+                    ],
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "御子",
+        "url":  "character-toyosato-miko.html",
+        "summary":  "北日本最高指導者。演説政治と情報集中を併用。",
+        "tags":  [
+                     "detail",
+                     "character"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "characters",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "用語 M-R",
+        "url":  "glossary-terms-m-r.html",
+        "summary":  "マジだよチャンネル、松代司令部、洩八などの用語集。",
+        "tags":  [
+                     "detail",
+                     "glossary"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "glossary",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "用語 S-Z",
+        "url":  "glossary-terms-s-z.html",
+        "summary":  "沙苗、従北、天網、ヴァイオレットなどの用語集。",
+        "tags":  [
+                     "detail",
+                     "glossary"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "glossary",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "地図注釈ノート",
+        "url":  "archive-map-notes.html",
+        "summary":  "戦略拠点と補給線の注釈メモ。",
+        "tags":  [
+                     "detail",
+                     "archive"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "archive",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "外交記録簿（改稿ログ）",
+        "url":  "archive-diplomatic-ledger.html",
+        "summary":  "外交イベントとページ改稿履歴を併記する台帳。",
+        "tags":  [
+                     "detail",
+                     "archive"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "archive",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "相川組",
+        "url":  "faction-aikawa-gumi.html",
+        "summary":  "佐渡島を拠点に日本海沿岸物流へ影響を持つ港湾系地下経済ネットワーク。",
+        "tags":  [
+                     "detail",
+                     "faction",
+                     "佐渡",
+                     "港湾",
+                     "密輸",
+                     "境界経済"
+                 ],
+        "article_type":  "detail",
+        "nav_section":  "factions",
+        "aliases":  {
+
+                    },
+        "related":  [
+
+                    ]
+    },
+    {
+        "title":  "改稿ポリシー",
+        "url":  "archive-edit-policy.html",
+        "summary":  "Tenzu.jpにおける記事改稿、暫定記述、出典区分、静的運用の基本方針。",
+        "tags":  [
+                     "detail",
+                     "archive",
+                     "policy",
+                     "編集方針"
+                 ],
+        "article_type":  "archive",
+        "nav_section":  "archive",
+        "aliases":  [
+                        "編集方針",
+                        "改稿規則"
+                    ],
+        "related":  [
+                        "資料室",
+                        "記事設計ガイド"
+                    ]
+    },
+    {
+        "title":  "記事設計ガイド",
+        "url":  "archive-wikipedia-style-guide.html",
+        "summary":  "Tenzu.jpの記事をWikipedia風の静的百科事典ページとして整えるための書式ガイド。",
+        "tags":  [
+                     "detail",
+                     "archive",
+                     "style",
+                     "template"
+                 ],
+        "article_type":  "archive",
+        "nav_section":  "archive",
+        "aliases":  [
+                        "Wikipedia風記事ガイド",
+                        "記事書式"
+                    ],
+        "related":  [
+                        "改稿ポリシー",
+                        "資料室"
+                    ]
+    },
+    {
+        "title":  "地理",
+        "url":  "geography.html",
+        "summary":  "分断日本における境界線、都市、補給線、港湾、戦略拠点を整理する地理カテゴリ。",
+        "tags":  [
+                     "section",
+                     "geography",
+                     "place",
+                     "境界線",
+                     "補給線"
+                 ],
+        "article_type":  "place",
+        "nav_section":  "geography",
+        "aliases":  [
+                        "地理カテゴリ",
+                        "地域"
+                    ],
+        "related":  [
+                        "世界観",
+                        "地図注釈ノート"
+                    ]
+    }
 ]

@@ -119,10 +119,16 @@
     if (!q) return [];
 
     return index.filter((item) => {
-      const title = String(item.title || '').toLowerCase();
-      const summary = String(item.summary || '').toLowerCase();
-      const tags = Array.isArray(item.tags) ? item.tags.join(' ').toLowerCase() : '';
-      return title.includes(q) || summary.includes(q) || tags.includes(q);
+      const searchable = [
+        item.title,
+        item.summary,
+        item.article_type,
+        item.nav_section,
+        ...(Array.isArray(item.aliases) ? item.aliases : []),
+        ...(Array.isArray(item.tags) ? item.tags : []),
+        ...(Array.isArray(item.related) ? item.related : []),
+      ].filter(Boolean).join(' ').toLowerCase();
+      return searchable.includes(q);
     });
   };
 
@@ -136,7 +142,7 @@
     }
 
     searchResults.innerHTML = currentMatches.map((item) => (
-      `<li><a href="${escapeHtml(item.url)}"><strong>${escapeHtml(item.title)}</strong><br><small>${escapeHtml(item.summary)}</small></a></li>`
+      `<li><a href="${escapeHtml(item.url)}"><strong>${escapeHtml(item.title)}</strong><br><small>${escapeHtml(item.summary)}</small>${item.article_type ? `<br><small class="search-result-meta">${escapeHtml(item.article_type)}</small>` : ''}</a></li>`
     )).join('');
     searchResults.classList.add('show');
   };

@@ -1,0 +1,46 @@
+---
+layout: default
+title: "記事設計ガイド"
+description: "Tenzu.jpの記事をWikipedia風の静的百科事典ページとして整えるための書式ガイド。"
+nav_section: archive
+article_type: archive
+status: Public Draft
+updated_on: 2026-04-29
+aliases:
+  - Wikipedia風記事ガイド
+  - 記事書式
+related:
+  - title: "改稿ポリシー"
+    url: "/archive-edit-policy.html"
+    summary: "記事改稿と品質確認の運用方針。"
+  - title: "資料室"
+    url: "/archive.html"
+    summary: "補助資料と台帳の入口。"
+---
+<nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › <a href="archive.html">資料室</a> › 記事設計ガイド</nav>
+<article class="mw-body">
+  <header>
+    <h1 class="firstHeading">記事設計ガイド</h1>
+    <p class="meta">基本ID: archive-wikipedia-style-guide / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
+  </header>
+  <div class="mw-parser-output">
+    <p><b>記事設計ガイド</b>は、Tenzu.jpの記事をWikipedia風の静的百科事典ページとして整えるための書式ガイドである。</p>
+    <section>
+      <h2 id="概要"><span class="mw-headline">概要</span></h2>
+      <p>記事は、定義文、infobox、本文見出し、注釈、出典、関連項目、カテゴリ相当の導線で構成する。装飾よりも、読み手が対象の位置づけ、時期、関係主体を素早く把握できることを優先する。</p>
+    </section>
+    <section>
+      <h2 id="収録範囲"><span class="mw-headline">収録範囲</span></h2>
+      <p>本ガイドは、勢力記事、人物記事、事件記事、技術記事、地理記事、用語記事、資料室記事に適用する。種別ごとの必須見出しは <code>_data/article_sections.yml</code> を基準にする。</p>
+    </section>
+    <section>
+      <h2 id="資料区分"><span class="mw-headline">資料区分</span></h2>
+      <p>脚注は、注釈と出典を分ける。出典文には資料区分を明示し、天通系列資料だけで本文を閉じないようにする。</p>
+    </section>
+    <section>
+      <h2 id="利用上の注意"><span class="mw-headline">利用上の注意</span></h2>
+      <p>MediaWiki記法を直接残さず、Jekyll includeとHTMLへ変換する。内部リンクは実在する静的ページを指し、未作成語は赤リンク風の候補として扱う。</p>
+    </section>
+    {% include related-links.html items=page.related %}
+  </div>
+</article>
