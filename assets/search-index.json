@@ -166,7 +166,7 @@
   },
   {
     "title": "洩八グループ",
-    "url": "faction-imperial-court.html",
+    "url": "faction-moriya-yasaka-group.html",
     "summary": "金融・電力・物流を束ね、西日本の基礎供給を支える準統治的財閥。",
     "tags": [
       "detail",
@@ -183,7 +183,7 @@
   },
   {
     "title": "日本国（東京政権）",
-    "url": "faction-northern-alliance.html",
+    "url": "faction-japan-tokyo-government.html",
     "summary": "太子体制、監視社会、計画経済で成り立つ東日本の母艦記事。",
     "tags": [
       "detail",
@@ -195,7 +195,7 @@
   },
   {
     "title": "日本国（京都政権）",
-    "url": "faction-southern-league.html",
+    "url": "faction-japan-kyoto-government.html",
     "summary": "国際的に『日本』を継承する西日本国家の母艦記事。",
     "tags": [
       "detail",
@@ -207,7 +207,7 @@
   },
   {
     "title": "山崎川城工業",
-    "url": "faction-maritime-guild.html",
+    "url": "faction-yamazaki-kawashiro-industries.html",
     "summary": "防衛・宇宙・半導体・AIを束ねる技術複合体。",
     "tags": [
       "detail",
@@ -225,7 +225,7 @@
   },
   {
     "title": "天通",
-    "url": "faction-frontier-clans.html",
+    "url": "faction-tenzu.html",
     "summary": "通信、報道、SNS、EC、辞典運営を束ねる情報複合体。",
     "tags": [
       "detail",
@@ -243,7 +243,7 @@
   },
   {
     "title": "レイム",
-    "url": "character-aoi-kirishima.html",
+    "url": "character-hakurei-reimu.html",
     "summary": "南日本将軍。平時無関心と戦闘時覚醒の二面性を持つ。",
     "tags": [
       "detail",
@@ -252,7 +252,7 @@
   },
   {
     "title": "マリサ",
-    "url": "character-ren-saotome.html",
+    "url": "character-marisa.html",
     "summary": "北日本将軍。努力型の前線指揮官。",
     "tags": [
       "detail",
@@ -261,7 +261,7 @@
   },
   {
     "title": "沙苗",
-    "url": "character-yui-tachibana.html",
+    "url": "character-sanae.html",
     "summary": "南日本総理。72時間事件の中心人物。",
     "tags": [
       "detail",
@@ -270,7 +270,7 @@
   },
   {
     "title": "弥栄",
-    "url": "character-shun-kagami.html",
+    "url": "character-yasaka-kanako.html",
     "summary": "洩八グループ総帥。合理主義的な秩序維持を担う。",
     "tags": [
       "detail",
@@ -279,7 +279,7 @@
   },
   {
     "title": "御子",
-    "url": "character-mio-hoshina.html",
+    "url": "character-toyosato-miko.html",
     "summary": "北日本最高指導者。演説政治と情報集中を併用。",
     "tags": [
       "detail",

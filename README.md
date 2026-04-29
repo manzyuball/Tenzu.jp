@@ -25,7 +25,7 @@
 
 - 1ページ1ファイル
 - 英数字スラッグ（kebab-case）で命名
-  - 例: `faction-northern-alliance.html`
+  - 例: `faction-japan-tokyo-government.html`
 - カテゴリ入口は単語のみ
   - 例: `world.html`, `timeline.html`
 
