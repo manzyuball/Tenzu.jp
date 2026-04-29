@@ -1,4 +1,4 @@
-param(
+﻿param(
   [switch]$Strict
 )
 
@@ -98,9 +98,34 @@ foreach ($file in $htmlFiles) {
 }
 
 $hrefRegex = [regex]'href\s*=\s*"([^"#?]+?\.html)(?:[?#][^"]*)?"'
+$publicForbiddenPatterns = @(
+  'timeline-present-day\.html',
+  '72時間',
+  '沙苗失脚',
+  '官邸拘束',
+  '拘束下',
+  '新膠着',
+  '現代局面',
+  '本編',
+  '本作',
+  '物語',
+  '設定資料',
+  '世界観',
+  '入口ページ',
+  '母艦記事',
+  '読む順番',
+  '主役記事',
+  'カテゴリ',
+  '現実の'
+)
 foreach ($file in $htmlFiles) {
   $relative = Resolve-Path -Path $file.FullName -Relative
   $text = [System.IO.File]::ReadAllText($file.FullName, [System.Text.Encoding]::UTF8)
+  foreach ($pattern in $publicForbiddenPatterns) {
+    if ($text -match $pattern) {
+      Add-Failure "$relative contains forbidden public-facing term or future reference: $pattern"
+    }
+  }
   foreach ($match in $hrefRegex.Matches($text)) {
     $href = $match.Groups[1].Value
     if ($href -match '^(https?:|mailto:|javascript:)') {
@@ -144,6 +169,12 @@ try {
     foreach ($requiredKey in @('title', 'url', 'summary', 'tags', 'article_type', 'nav_section', 'aliases', 'related')) {
       if (-not $item.PSObject.Properties.Name.Contains($requiredKey)) {
         Add-Failure "assets/search-index.json item '$($item.title)' is missing key: $requiredKey"
+      }
+    }
+    $searchText = ($item | ConvertTo-Json -Depth 8)
+    foreach ($pattern in $publicForbiddenPatterns) {
+      if ($searchText -match $pattern) {
+        Add-Failure "assets/search-index.json item '$($item.title)' contains forbidden public-facing term or future reference: $pattern"
       }
     }
   }

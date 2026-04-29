@@ -1,72 +1,58 @@
 ---
 layout: default
-title: "世界観"
-description: "主役記事群を読む前提として、分断国家・膠着・利権・情報秩序の四条件を整理する入口ページ。"
+title: "情勢総覧"
+description: "2026年5月6日時点で公表されている南北日本の政治、停戦線、基盤企業、情報流通に関する総覧。"
 nav_section: world
 article_type: hub
 status: Public Draft
-updated_on: 2026-04-23
+updated_on: 2026-05-06
 aliases:
-  - 分断日本
-  - 膠着秩序
+  - 南北情勢
+  - 基幹資料総覧
 related:
   - title: "勢力"
     url: "/factions.html"
-    summary: "国家・財閥・情報・軍需の四極構造。"
+    summary: "国家、企業集団、報道機関、地下経済組織の一覧。"
   - title: "年表"
     url: "/timeline.html"
-    summary: "この世界がどう膠着へ至ったかを時系列で読む。"
+    summary: "2026年5月6日までに記録された主要局面。"
   - title: "経済構造"
     url: "/world-economy.html"
-    summary: "戦争が続くことで誰が得るかを整理する。"
+    summary: "停戦線下の公共料金、軍需、物流、越境取引。"
 ---
 {% capture toc_body %}
 <ul>
-  <li><a href="#前提条件"><span class="tocnumber">1</span> <span class="toctext">前提条件</span></a></li>
-  <li><a href="#読むべき母艦記事"><span class="tocnumber">2</span> <span class="toctext">読むべき母艦記事</span></a></li>
-  <li><a href="#補助ページ"><span class="tocnumber">3</span> <span class="toctext">補助ページ</span></a></li>
+  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+  <li><a href="#公表資料"><span class="tocnumber">2</span> <span class="toctext">公表資料</span></a></li>
+  <li><a href="#関連項目"><span class="tocnumber">3</span> <span class="toctext">関連項目</span></a></li>
 </ul>
 {% endcapture %}
-<nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › 世界観</nav>
+<nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › 情勢総覧</nav>
 <article class="mw-body">
   <header>
-    <h1 class="firstHeading">世界観</h1>
+    <h1 class="firstHeading">情勢総覧</h1>
     <p class="meta">基本ID: world / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
     <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
-    {% include hatnote.html text='このページは世界設定の本体ではなく、母艦記事群へ向かうための整理ページである。' %}
-    <p><b>世界観</b>は、南北二国家の対立だけでなく、膠着が利権になり、利権が情報で正当化される構造を指す。ここでは細部を増やさず、読むべき条件だけを四つに絞って示す。</p>
+    <p><b>情勢総覧</b>は、2026年5月6日時点で公表されている南北日本関係、停戦線運用、生活基盤企業、報道・通信基盤に関する資料を集約する項目である。</p>
   </header>
 
   <div class="mw-parser-output">
     {% include toc.html body=toc_body %}
 
-    <section id="前提条件">
-      <h2><span class="mw-headline">前提条件</span></h2>
-      <ol>
-        <li>国家は二つあるが、どちらも自分を唯一の日本国とみなしている。</li>
-        <li>停戦線は終戦の失敗ではなく、管理された均衡として維持されている。</li>
-        <li>経済は平時の市場と有事の備えが分離されず、同じ企業群が両方を回している。</li>
-        <li>情報は出来事を伝えるだけでなく、何が世界の常識に見えるかまで編集している。</li>
-      </ol>
+    <section id="概要">
+      <h2><span class="mw-headline">概要</span></h2>
+      <p>南北の政権はいずれも日本国を称し、停戦線、通商制限、渡航審査、通信遮断、報道規制を通じて相互の実効支配圏を管理している。京都政権は国際承認と後方経済を重視し、東京政権は動員、配給、監視を制度化しているとされる。</p>
+      <p>京都側では、生活基盤、金融、通信、報道、軍需の多くが民間企業集団と長期契約で結び付いている。天通辞典では、政府発表、企業報告書、外交記録、業界資料、亡命者証言を区別し、確認時点を明示する方針を採る。</p>
     </section>
 
-    <section id="読むべき母艦記事">
-      <h2><span class="mw-headline">読むべき母艦記事</span></h2>
+    <section id="公表資料">
+      <h2><span class="mw-headline">公表資料</span></h2>
       <ul>
-        <li><a href="faction-japan-kyoto-government.html">日本国（京都政権）</a> - 豊かな後方国家がどう膠着を維持しているか。</li>
-        <li><a href="faction-japan-tokyo-government.html">日本国（東京政権）</a> - 監視・動員・配給で成り立つ革命国家の実像。</li>
-        <li><a href="faction-moriya-yasaka-group.html">洩八グループ</a> - 供給の底床として国家を支える財閥。</li>
-        <li><a href="faction-tenzu.html">天通</a> - 世界の見え方を編集する情報複合体。</li>
-        <li><a href="faction-yamazaki-kawashiro-industries.html">山崎川城工業</a> - 再軍備と平時技術を接続する技術複合体。</li>
-      </ul>
-    </section>
-
-    <section id="補助ページ">
-      <h2><span class="mw-headline">補助ページ</span></h2>
-      <ul>
-        <li><a href="world-economy.html">経済構造</a> - 誰が戦争から利益を得るか。</li>
-        <li><a href="world-social-order.html">社会階層制度</a> - どの層がどの秩序を受け入れているか。</li>
-        <li><a href="world-technology.html">技術水準</a> - 昭和的重工業と令和的AIの混成。</li>
+        <li><a href="faction-japan-kyoto-government.html">日本国（京都政権）</a> - 京都に置かれる政府機構と西日本側の行政資料。</li>
+        <li><a href="faction-japan-tokyo-government.html">日本国（東京政権）</a> - 東京に置かれる政府機構と東日本側の発表資料。</li>
+        <li><a href="faction-moriya-yasaka-group.html">洩八グループ</a> - 金融、電力、港湾、道路、物流に関する企業資料。</li>
+        <li><a href="faction-tenzu.html">天通</a> - 通信、報道、SNS、辞典運営に関する企業資料。</li>
+        <li><a href="faction-yamazaki-kawashiro-industries.html">山崎川城工業</a> - 防衛、半導体、AI、重工業に関する企業資料。</li>
       </ul>
     </section>
 

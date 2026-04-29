@@ -2,7 +2,7 @@
     {
         "title":  "天通辞典",
         "url":  "index.html",
-        "summary":  "天通が運営する南北日本戦記のWikipedia風資料サイト。継続改稿型で運用。",
+        "summary":  "天通が運営する公開資料網。政治、停戦線、企業、人物、用語、資料室を継続改稿する。",
         "tags":  [
                      "top",
                      "home",
@@ -10,28 +10,28 @@
                  ],
         "article_type":  "detail",
         "nav_section":  "top",
-        "aliases":  {
+        "aliases":  [
 
-                    },
+                    ],
         "related":  [
 
                     ]
     },
     {
-        "title":  "世界観",
+        "title":  "情勢総覧",
         "url":  "world.html",
-        "summary":  "分断国家、膠着、利権、情報秩序の四条件から世界を読む入口ページ。",
+        "summary":  "2026年5月6日時点で公表されている南北日本の政治、停戦線、基盤企業、情報流通に関する総覧。",
         "tags":  [
                      "section",
                      "world",
-                     "setting",
-                     "分断日本"
+                     "情勢総覧",
+                     "南北情勢"
                  ],
         "article_type":  "hub",
         "nav_section":  "world",
         "aliases":  [
-                        "分断日本",
-                        "膠着秩序"
+                        "南北情勢",
+                        "基幹資料総覧"
                     ],
         "related":  [
 
@@ -40,7 +40,7 @@
     {
         "title":  "年表",
         "url":  "timeline.html",
-        "summary":  "分断成立、膠着の制度化、72時間事件後の再編集を三段階で整理。",
+        "summary":  "2026年5月6日までに記録された南北分裂、停戦線固定化、国境紛争期の主要事項。",
         "tags":  [
                      "section",
                      "timeline",
@@ -60,18 +60,18 @@
     {
         "title":  "勢力",
         "url":  "factions.html",
-        "summary":  "国家、財閥、情報複合体、軍需複合体の四極構造を読む入口ページ。",
+        "summary":  "国家、企業集団、報道機関、軍需企業、地下経済組織に関する公開資料の一覧。",
         "tags":  [
                      "section",
                      "factions",
                      "power",
-                     "勢力図"
+                     "勢力一覧"
                  ],
         "article_type":  "hub",
         "nav_section":  "factions",
         "aliases":  [
-                        "勢力図",
-                        "権力構造"
+                        "勢力一覧",
+                        "関係主体一覧"
                     ],
         "related":  [
 
@@ -80,16 +80,16 @@
     {
         "title":  "人物",
         "url":  "characters.html",
-        "summary":  "レイム、マリサ、沙苗、弥栄、御子を中心に人物相関を整理。",
+        "summary":  "2026年5月6日時点で公表資料に現れる主要人物の職務、所属、報道上の評価を収録。",
         "tags":  [
                      "section",
                      "characters"
                  ],
         "article_type":  "hub",
         "nav_section":  "characters",
-        "aliases":  {
+        "aliases":  [
 
-                    },
+                    ],
         "related":  [
 
                     ]
@@ -97,16 +97,16 @@
     {
         "title":  "用語集",
         "url":  "glossary.html",
-        "summary":  "政治ラベル・情報戦語・軍事語を横断参照する用語集。",
+        "summary":  "政治ラベル、情報流通語、軍事・経済関連語を横断検索する用語集。",
         "tags":  [
                      "section",
                      "glossary"
                  ],
         "article_type":  "hub",
         "nav_section":  "glossary",
-        "aliases":  {
+        "aliases":  [
 
-                    },
+                    ],
         "related":  [
 
                     ]
@@ -131,16 +131,17 @@
     {
         "title":  "社会階層制度",
         "url":  "world-social-order.html",
-        "summary":  "市民層から情報媒介層までの多層統治構造。",
+        "summary":  "公表資料に見られる市民層、行政・軍指揮層、財界、情報媒介層の関係。",
         "tags":  [
                      "detail",
-                     "world"
+                     "world",
+                     "社会階層"
                  ],
         "article_type":  "detail",
         "nav_section":  "world",
-        "aliases":  {
+        "aliases":  [
 
-                    },
+                    ],
         "related":  [
 
                     ]
@@ -148,16 +149,18 @@
     {
         "title":  "技術水準",
         "url":  "world-technology.html",
-        "summary":  "昭和的インフラと令和的情報戦技術の混在構造。",
+        "summary":  "通信、重工業、防衛、AI、物流技術に関する公表資料。",
         "tags":  [
                      "detail",
-                     "world"
+                     "world",
+                     "technology",
+                     "技術"
                  ],
         "article_type":  "detail",
         "nav_section":  "world",
-        "aliases":  {
+        "aliases":  [
 
-                    },
+                    ],
         "related":  [
 
                     ]
@@ -165,16 +168,18 @@
     {
         "title":  "経済構造",
         "url":  "world-economy.html",
-        "summary":  "戦争継続を支える利権と越境取引の構造。",
+        "summary":  "停戦線下の公共料金、軍需、物流、越境取引に関する資料。",
         "tags":  [
                      "detail",
-                     "world"
+                     "world",
+                     "economy",
+                     "経済"
                  ],
         "article_type":  "detail",
         "nav_section":  "world",
-        "aliases":  {
+        "aliases":  [
 
-                    },
+                    ],
         "related":  [
 
                     ]
@@ -200,23 +205,6 @@
         "title":  "国境紛争期",
         "url":  "timeline-border-conflicts.html",
         "summary":  "慢性的局地戦と情報戦が続いた時期。",
-        "tags":  [
-                     "detail",
-                     "timeline"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "timeline",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "現代局面（72時間以後）",
-        "url":  "timeline-present-day.html",
-        "summary":  "沙苗失脚後の新膠着体制を整理。",
         "tags":  [
                      "detail",
                      "timeline"
@@ -260,7 +248,7 @@
     {
         "title":  "日本国（東京政権）",
         "url":  "faction-japan-tokyo-government.html",
-        "summary":  "太子体制、監視社会、計画経済で成り立つ東日本の母艦記事。",
+        "summary":  "太子体制、監視社会、計画経済で成り立つ東日本側政府に関する資料。",
         "tags":  [
                      "detail",
                      "faction",
@@ -282,7 +270,7 @@
     {
         "title":  "日本国（京都政権）",
         "url":  "faction-japan-kyoto-government.html",
-        "summary":  "国際的に『日本』を継承する西日本国家の母艦記事。",
+        "summary":  "国際的に「日本」議席を継承する西日本側政府に関する資料。",
         "tags":  [
                      "detail",
                      "faction",
@@ -395,16 +383,18 @@
     {
         "title":  "沙苗",
         "url":  "character-sanae.html",
-        "summary":  "南日本総理。72時間事件の中心人物。",
+        "summary":  "日本国（京都政権）の総理大臣。統一政策会議を主宰する政治家。",
         "tags":  [
                      "detail",
-                     "character"
+                     "character",
+                     "person",
+                     "京都政権"
                  ],
         "article_type":  "person",
         "nav_section":  "characters",
         "aliases":  [
                         "東風谷沙苗",
-                        "72時間事件の首班"
+                        "京都政権総理"
                     ],
         "related":  [
 
@@ -413,10 +403,12 @@
     {
         "title":  "弥栄",
         "url":  "character-yasaka-kanako.html",
-        "summary":  "洩八グループ総帥。合理主義的な秩序維持を担う。",
+        "summary":  "洩八グループ会長。生活基盤事業の再編と政財関係で知られる財界人。",
         "tags":  [
                      "detail",
-                     "character"
+                     "character",
+                     "person",
+                     "財界"
                  ],
         "article_type":  "person",
         "nav_section":  "characters",
@@ -538,7 +530,7 @@
     {
         "title":  "改稿ポリシー",
         "url":  "archive-edit-policy.html",
-        "summary":  "Tenzu.jpにおける記事改稿、暫定記述、出典区分、静的運用の基本方針。",
+        "summary":  "天通辞典における記事改稿、暫定記述、出典区分、静的運用の基本方針。",
         "tags":  [
                      "detail",
                      "archive",
@@ -559,7 +551,7 @@
     {
         "title":  "記事設計ガイド",
         "url":  "archive-wikipedia-style-guide.html",
-        "summary":  "Tenzu.jpの記事をWikipedia風の静的百科事典ページとして整えるための書式ガイド。",
+        "summary":  "天通辞典の記事を静的百科事典ページとして整えるための書式ガイド。",
         "tags":  [
                      "detail",
                      "archive",
@@ -569,7 +561,7 @@
         "article_type":  "archive",
         "nav_section":  "archive",
         "aliases":  [
-                        "Wikipedia風記事ガイド",
+                        "記事ガイド",
                         "記事書式"
                     ],
         "related":  [
@@ -578,9 +570,9 @@
                     ]
     },
     {
-        "title":  "地理",
+        "title":  "境界地誌",
         "url":  "geography.html",
-        "summary":  "分断日本における境界線、都市、補給線、港湾、戦略拠点を整理する地理カテゴリ。",
+        "summary":  "境界線、都市、補給線、港湾、戦略拠点に関する地誌。",
         "tags":  [
                      "section",
                      "geography",
@@ -591,11 +583,10 @@
         "article_type":  "place",
         "nav_section":  "geography",
         "aliases":  [
-                        "地理カテゴリ",
-                        "地域"
+                        "停戦線地誌",
+                        "地域資料"
                     ],
         "related":  [
-                        "世界観",
                         "地図注釈ノート"
                     ]
     }

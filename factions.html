@@ -1,32 +1,31 @@
 ---
 layout: default
 title: "勢力"
-description: "国家、財閥、情報複合体、軍需複合体の四極から世界を読むための入口ページ。"
+description: "国家、企業集団、報道機関、軍需企業、地下経済組織に関する公開資料の一覧。"
 nav_section: factions
 article_type: hub
 status: Public Draft
-updated_on: 2026-04-23
+updated_on: 2026-05-06
 aliases:
-  - 勢力図
-  - 権力構造
+  - 勢力一覧
+  - 関係主体一覧
 related:
-  - title: "世界観"
+  - title: "情勢総覧"
     url: "/world.html"
-    summary: "この勢力図がどの世界条件で動くのかを整理する。"
+    summary: "政治、企業、報道、停戦線運用の総覧。"
   - title: "年表"
     url: "/timeline.html"
-    summary: "各勢力の関係がどう変化したかを時系列で追う。"
+    summary: "各主体に関係する主要局面。"
   - title: "用語集"
     url: "/glossary.html"
     summary: "固有制度や俗称を横断参照する。"
 ---
 {% capture toc_body %}
 <ul>
-  <li><a href="#構図"><span class="tocnumber">1</span> <span class="toctext">構図</span></a></li>
-  <li><a href="#主役記事"><span class="tocnumber">2</span> <span class="toctext">主役記事</span></a></li>
-  <li><a href="#財閥3社"><span class="tocnumber">3</span> <span class="toctext">財閥3社</span></a></li>
-  <li><a href="#読む順番"><span class="tocnumber">4</span> <span class="toctext">読む順番</span></a></li>
-  <li><a href="#関連項目"><span class="tocnumber">5</span> <span class="toctext">関連項目</span></a></li>
+  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+  <li><a href="#収録主体"><span class="tocnumber">2</span> <span class="toctext">収録主体</span></a></li>
+  <li><a href="#主要企業"><span class="tocnumber">3</span> <span class="toctext">主要企業</span></a></li>
+  <li><a href="#関連項目"><span class="tocnumber">4</span> <span class="toctext">関連項目</span></a></li>
 </ul>
 {% endcapture %}
 <nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › 勢力</nav>
@@ -35,53 +34,41 @@ related:
     <h1 class="firstHeading">勢力</h1>
     <p class="meta">基本ID: factions / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
     <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
-    {% include hatnote.html text='このページは勢力の要約索引であり、本体説明は各母艦記事に置かれる。' %}
-    <p><b>勢力</b>は、南北二国家だけでなく、資金、情報、技術の三層を重ねて世界を読むための入口である。現在の膠着は、国家同士の対立というより、供給と認識を誰が握るかの均衡として成立している。</p>
-    <p>京都政権は制度上の主権者だが、実務上は財閥3社の供給能力に大きく依存する。洩八の総資産224兆円、山崎川城の防衛調達関与42.3%、天通のSNS普及率82.4%という数字は、それぞれ金融、軍需、世論の入口を示す指標であり、三社を合わせて読むことで南側社会の実効支配構造が見える。</p>
+    <p><b>勢力</b>は、南北日本に関係する国家機関、企業集団、報道機関、軍需企業、地下経済組織に関する公開資料の一覧である。</p>
   </header>
 
   <div class="mw-parser-output">
     {% include toc.html body=toc_body %}
 
-    <section>
-      <h2 id="構図"><span class="mw-headline">構図</span></h2>
-      <p>読むべき勢力は四つに絞れる。<a href="faction-japan-kyoto-government.html">日本国（京都政権）</a>が表の国家、<a href="faction-japan-tokyo-government.html">日本国（東京政権）</a>が対立する革命国家、<a href="faction-moriya-yasaka-group.html">洩八グループ</a>が供給の底床、<a href="faction-tenzu.html">天通</a>が認識の編集者、<a href="faction-yamazaki-kawashiro-industries.html">山崎川城工業</a>が再軍備と技術の中核である。</p>
-      <p>このうち南側の三社は、財閥、情報複合体、軍需技術企業という別々の顔を持ちながら、資本・発注・物流・報道を相互に支える「三社体制」を形成している。国家の表の制度を読むだけでは、この世界の実務権力は把握しにくい。</p>
-      <p>三社体制の特徴は、ひとつの企業がすべてを支配するのではなく、弱点を相互に補う点にある。洩八は世論形成に弱いが天通の画面を使える。山崎川城は巨額投資を必要とするが洩八の金融を使える。天通は通信設備とAIを内製しきれないが山崎川城の技術を使える。このため、個別企業への規制は三社全体の調整で吸収されやすい。</p>
+    <section id="概要">
+      <h2><span class="mw-headline">概要</span></h2>
+      <p>京都政権は制度上の主権者だが、公共料金、金融、通信、港湾、軍需調達では民間企業集団への依存が大きい。東京政権は動員と配給を制度化し、軍管区、青年団体、官製媒体を通じて統治を行う。</p>
+      <p>天通辞典では、各主体について登記、政府発表、企業報告、報道、批判資料を分けて扱う。未確認の内部協議や発生していない事件に基づく説明は収録しない。</p>
     </section>
 
-    <section id="主役記事">
-      <h2><span class="mw-headline">主役記事</span></h2>
+    <section id="収録主体">
+      <h2><span class="mw-headline">収録主体</span></h2>
       <div class="card-grid">
-        <a class="card" href="faction-japan-kyoto-government.html"><h3>日本国（京都政権）</h3><p>豊かな後方国家と半常時動員国家の二面性。</p></a>
-        <a class="card" href="faction-japan-tokyo-government.html"><h3>日本国（東京政権）</h3><p>太子体制、監視社会、計画経済の母艦記事。</p></a>
-        <a class="card" href="faction-moriya-yasaka-group.html"><h3>洩八グループ</h3><p>金融・電力・物流を通じて国家を支える財閥。</p></a>
-        <a class="card" href="faction-tenzu.html"><h3>天通</h3><p>通信と世論と辞典運営を束ねる情報複合体。</p></a>
-        <a class="card" href="faction-yamazaki-kawashiro-industries.html"><h3>山崎川城工業</h3><p>軍需・半導体・AIを接続する技術複合体。</p></a>
+        <a class="card" href="faction-japan-kyoto-government.html"><h3>日本国（京都政権）</h3><p>西日本側の政府機構と行政資料。</p></a>
+        <a class="card" href="faction-japan-tokyo-government.html"><h3>日本国（東京政権）</h3><p>東日本側の政府機構と公表資料。</p></a>
+        <a class="card" href="faction-moriya-yasaka-group.html"><h3>洩八グループ</h3><p>金融・電力・物流を扱う生活基盤企業集団。</p></a>
+        <a class="card" href="faction-tenzu.html"><h3>天通</h3><p>通信、報道、SNS、辞典運営を扱う情報複合体。</p></a>
+        <a class="card" href="faction-yamazaki-kawashiro-industries.html"><h3>山崎川城工業</h3><p>防衛、半導体、AI、重工業を扱う企業。</p></a>
+        <a class="card" href="faction-aikawa-gumi.html"><h3>相川組</h3><p>佐渡島を拠点とする港湾系地下経済ネットワーク。</p></a>
       </div>
     </section>
 
-    <section id="財閥3社">
-      <h2><span class="mw-headline">財閥3社</span></h2>
-      <p>財閥3社は、現実のチェボル、財閥系大企業、巨大プラットフォーム企業を組み合わせたような存在である。洩八は資金とインフラ、山崎川城は技術と軍需、天通は情報と公共圏を担い、三社が相互持合いと長期契約によって京都政権の実務を支える。</p>
+    <section id="主要企業">
+      <h2><span class="mw-headline">主要企業</span></h2>
+      <p>京都側の企業資料では、金融・電力・物流、軍需・半導体・AI、通信・報道・広告が相互に長期契約を結ぶ例が確認される。各社の影響は、資本関係だけでなく、公共契約、行政API、非常時優先契約、広告市場にも現れる。</p>
       <table class="wikitable">
-        <thead><tr><th>企業</th><th>主な領域</th><th>代表的な数値</th><th>三社体制での役割</th><th>主な論争</th></tr></thead>
+        <thead><tr><th>企業</th><th>主な領域</th><th>公表規模</th><th>資料上の主な論点</th></tr></thead>
         <tbody>
-          <tr><td><a href="faction-moriya-yasaka-group.html">洩八グループ</a></td><td>金融、電力、港湾、道路、物流</td><td>総資産224兆円、主要7港</td><td>資金と基礎供給を止めない底床</td><td>公共性の私有化、料金・金融支配、膠着経済への依存</td></tr>
-          <tr><td><a href="faction-yamazaki-kawashiro-industries.html">山崎川城工業</a></td><td>防衛、宇宙、自動車、半導体、AI</td><td>売上18.44兆円、防衛調達42.3%</td><td>再軍備と産業政策を接続する技術基盤</td><td>民軍境界、調達寡占、AI監視、輸出管理</td></tr>
-          <tr><td><a href="faction-tenzu.html">天通</a></td><td>通信、報道、SNS、EC、広告、辞典運営</td><td>SNS普及率82.4%、日次利用者約6,200万人</td><td>生活者が世界を見る画面と流通経路</td><td>情報集中、推薦アルゴリズム、自己叙述問題</td></tr>
+          <tr><td><a href="faction-moriya-yasaka-group.html">洩八グループ</a></td><td>金融、電力、港湾、道路、物流</td><td>総資産224兆円、主要7港</td><td>公共性の私有化、料金・金融支配、自治体依存。</td></tr>
+          <tr><td><a href="faction-yamazaki-kawashiro-industries.html">山崎川城工業</a></td><td>防衛、宇宙、自動車、半導体、AI</td><td>売上18.44兆円、防衛調達42.3%</td><td>民軍境界、調達寡占、AI監視、輸出管理。</td></tr>
+          <tr><td><a href="faction-tenzu.html">天通</a></td><td>通信、報道、SNS、EC、広告、辞典運営</td><td>SNS普及率82.4%、日次利用者約6,200万人</td><td>情報集中、推薦アルゴリズム、自己叙述問題。</td></tr>
         </tbody>
       </table>
-      <p>この三社を読む順序によって、世界の見え方も変わる。洩八から読めば膠着は金融と公共料金の問題に見え、山崎川城から読めば産業政策と軍需の問題に見え、天通から読めば世論と情報流通の問題に見える。いずれも正しいが、単独では不十分である。</p>
-    </section>
-
-    <section id="読む順番">
-      <h2><span class="mw-headline">読む順番</span></h2>
-      <ol>
-        <li>まず <a href="faction-japan-kyoto-government.html">京都政権</a> と <a href="faction-japan-tokyo-government.html">東京政権</a> を読み、国家の並立を把握する。</li>
-        <li>次に <a href="faction-moriya-yasaka-group.html">洩八グループ</a>、<a href="faction-yamazaki-kawashiro-industries.html">山崎川城工業</a>、<a href="faction-tenzu.html">天通</a> を続けて読み、三社体制の資金・技術・情報の分担を押さえる。</li>
-        <li>最後に <a href="world-economy.html">経済構造</a> を読むと、なぜ膠着が終わらない経済合理性を持つのかがわかる。</li>
-      </ol>
     </section>
 
     {% include related-links.html items=page.related %}

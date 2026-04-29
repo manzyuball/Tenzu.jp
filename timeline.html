@@ -1,30 +1,27 @@
 ---
 layout: default
 title: "年表"
-description: "長期膠着が成立するまでの流れを、母艦記事へ入るための三段階で整理する入口ページ。"
+description: "2026年5月6日までに記録された南北分裂、停戦線固定化、国境紛争期の主要事項。"
 nav_section: timeline
 article_type: hub
 status: Public Draft
-updated_on: 2026-04-23
+updated_on: 2026-05-06
 aliases:
   - 主要局面
   - 分断史
 related:
-  - title: "世界観"
+  - title: "情勢総覧"
     url: "/world.html"
-    summary: "年表で起きた変化がどんな構造を作ったかを整理する。"
+    summary: "政治、企業、報道、停戦線運用の総覧。"
   - title: "勢力"
     url: "/factions.html"
-    summary: "時間の結果として成立した権力配置を読む。"
-  - title: "現代局面（72時間以後）"
-    url: "/timeline-present-day.html"
-    summary: "現在地をさらに詳しく見る。"
+    summary: "年表上の出来事に関係する国家、企業、団体。"
 ---
 {% capture toc_body %}
 <ul>
-  <li><a href="#三段階"><span class="tocnumber">1</span> <span class="toctext">三段階</span></a></li>
-  <li><a href="#詳細ページ"><span class="tocnumber">2</span> <span class="toctext">詳細ページ</span></a></li>
-  <li><a href="#読む順番"><span class="tocnumber">3</span> <span class="toctext">読む順番</span></a></li>
+  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+  <li><a href="#主要局面"><span class="tocnumber">2</span> <span class="toctext">主要局面</span></a></li>
+  <li><a href="#詳細記録"><span class="tocnumber">3</span> <span class="toctext">詳細記録</span></a></li>
 </ul>
 {% endcapture %}
 <nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › 年表</nav>
@@ -33,34 +30,32 @@ related:
     <h1 class="firstHeading">年表</h1>
     <p class="meta">基本ID: timeline / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
     <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
-    {% include hatnote.html text='このページは主要局面の整理であり、通史本文は各詳細ページと母艦記事に分散している。' %}
-    <p><b>年表</b>は、長い通史をすべて載せるためではなく、現在の膠着を生んだ局面を三段階でつかむためのページである。重要なのは日付の網羅より、どの局面で国家、利権、情報秩序が固定化したかである。</p>
+    <p><b>年表</b>は、南北分裂から2026年5月6日までに確認された停戦線運用、国境紛争、制度再編、企業関与の記録を扱う項目である。</p>
   </header>
 
   <div class="mw-parser-output">
     {% include toc.html body=toc_body %}
 
-    <section id="三段階">
-      <h2><span class="mw-headline">三段階</span></h2>
+    <section id="概要">
+      <h2><span class="mw-headline">概要</span></h2>
+      <p>本項は、天通辞典で確認できる公表資料、外交記録、報道資料、企業資料に基づき、南北日本関係の主要局面を示す。未確認の将来予定、非公開協議、発生していない政変は収録しない。</p>
+    </section>
+
+    <section id="主要局面">
+      <h2><span class="mw-headline">主要局面</span></h2>
       <ol>
-        <li>分断の成立 - 終戦処理の失敗、占領分離、建国宣言、分断戦争、停戦線固定化。</li>
-        <li>膠着の制度化 - 復興、財閥再編、軍需集中、境界経済、監視と備蓄の恒常化。</li>
-        <li>現代の再編集 - 沙苗失脚、72時間の情報戦、その後の新しい均衡形成。</li>
+        <li>南北分裂 - 終戦処理、占領分離、建国宣言、分断戦争、停戦線固定化。</li>
+        <li>国境紛争期 - 白馬、糸魚川、松代、佐渡周辺での局地戦、工作戦、宣伝戦。</li>
+        <li>基盤再編期 - 財閥再編、通信網統合、港湾・道路・電力契約の長期化。</li>
       </ol>
     </section>
 
-    <section id="詳細ページ">
-      <h2><span class="mw-headline">詳細ページ</span></h2>
+    <section id="詳細記録">
+      <h2><span class="mw-headline">詳細記録</span></h2>
       <ul>
-        <li><a href="timeline-north-south-schism.html">南北分裂</a> - 境界線が政治的現実に変わるまで。</li>
-        <li><a href="timeline-border-conflicts.html">国境紛争期</a> - 膠着が日常化し利権化するまで。</li>
-        <li><a href="timeline-present-day.html">現代局面（72時間以後）</a> - 情報戦と再調整局面。</li>
+        <li><a href="timeline-north-south-schism.html">南北分裂</a> - 境界線が政治的現実として固定化するまでの記録。</li>
+        <li><a href="timeline-border-conflicts.html">国境紛争期</a> - 慢性的な局地戦と情報戦に関する記録。</li>
       </ul>
-    </section>
-
-    <section id="読む順番">
-      <h2><span class="mw-headline">読む順番</span></h2>
-      <p>通史として読むなら、まずこの年表で三段階を掴み、その後に <a href="faction-japan-kyoto-government.html">京都政権</a> と <a href="faction-japan-tokyo-government.html">東京政権</a> を読むと、現在の制度が過去のどの局面から来ているかが理解しやすい。</p>
     </section>
 
     {% include related-links.html items=page.related %}
