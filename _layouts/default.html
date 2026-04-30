@@ -7,15 +7,10 @@
   {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
   <link rel="stylesheet" href="{{ '/assets/css/wiki.css' | relative_url }}">
 </head>
-<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 skin-vector-2022 action-view">
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 skin-vector-2022 action-view{% if page.nav_section == 'top' %} vector-is-top-page{% else %} vector-is-article-page{% endif %}">
   <a class="skip-link" href="#content">本文へ移動</a>
 
   <header id="vector-header" class="vector-header">
-    <button class="vector-main-menu-toggle" type="button" data-nav-toggle aria-controls="mw-panel" aria-expanded="false">
-      <span aria-hidden="true">☰</span>
-      <span class="vector-button-label">メニュー</span>
-    </button>
-
     <a class="vector-header-brand" href="{{ '/index.html' | relative_url }}" aria-label="{{ site.title }} メインページ">
       <span class="mw-wiki-logo" aria-hidden="true"></span>
       <span class="vector-brand-wordmark">{{ site.title }}</span>
@@ -40,10 +35,7 @@
   </header>
 
   <div class="vector-page">
-    <div class="vector-page-controls">
-      <button type="button" class="vector-toc-toggle" data-toc-toggle aria-controls="vector-page-toc" aria-expanded="true">目次を非表示</button>
-    </div>
-
+    {% if page.nav_section == 'top' %}
     <aside id="mw-panel" class="vector-main-menu" aria-label="案内" data-sidebar>
       <div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
         <h3 id="p-navigation-label">案内</h3>
@@ -70,8 +62,13 @@
         </div>
       </div>
     </aside>
+    {% endif %}
 
+    {% unless page.nav_section == 'top' %}
     <aside id="vector-page-toc" class="vector-page-toc" aria-labelledby="vector-toc-label">
+      <div class="vector-toc-actions">
+        <button type="button" class="vector-toc-toggle" data-toc-toggle aria-controls="vector-page-toc" aria-expanded="true">目次を非表示</button>
+      </div>
       <details open data-page-toc-details>
         <summary id="vector-toc-label">目次</summary>
         <nav data-page-toc-body aria-label="ページ内目次">
@@ -79,6 +76,8 @@
         </nav>
       </details>
     </aside>
+    <button type="button" class="vector-toc-restore" data-toc-restore aria-controls="vector-page-toc" aria-expanded="false" hidden>目次を表示</button>
+    {% endunless %}
 
     <main id="content" class="mw-body" role="main">
       <a id="top"></a>

@@ -3,13 +3,12 @@
   const searchInput = document.getElementById('searchInput');
   const searchResults = document.getElementById('searchResults');
   const searchForm = document.getElementById('searchform');
-  const navToggle = document.querySelector('[data-nav-toggle]');
-  const sidebar = document.querySelector('[data-sidebar]');
   const printButton = document.querySelector('[data-print-page]');
   const tocPanel = document.getElementById('vector-page-toc');
   const tocBody = document.querySelector('[data-page-toc-body]');
   const tocDetails = document.querySelector('[data-page-toc-details]');
   const tocToggle = document.querySelector('[data-toc-toggle]');
+  const tocRestore = document.querySelector('[data-toc-restore]');
 
   const escapeHtml = (value) => String(value ?? '')
     .replaceAll('&', '&amp;')
@@ -26,31 +25,6 @@
     return 'assets/search-index.json';
   };
 
-  if (navToggle && sidebar) {
-    navToggle.addEventListener('click', () => {
-      const isOpen = body.classList.toggle('nav-open');
-      navToggle.setAttribute('aria-expanded', String(isOpen));
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape') return;
-
-      if (body.classList.contains('nav-open')) {
-        body.classList.remove('nav-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.focus();
-      }
-    });
-
-    document.addEventListener('click', (event) => {
-      if (!body.classList.contains('nav-open')) return;
-      if (sidebar.contains(event.target) || navToggle.contains(event.target)) return;
-
-      body.classList.remove('nav-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
-  }
-
   if (printButton) {
     printButton.addEventListener('click', () => {
       window.print();
@@ -58,7 +32,7 @@
   }
 
   const buildPageToc = () => {
-    if (!tocBody) return;
+    if (!tocPanel || !tocBody || !tocToggle) return;
 
     const content = document.getElementById('mw-content-text');
     if (!content) return;
@@ -69,6 +43,10 @@
 
     if (!headings.length) {
       body.classList.add('vector-no-page-toc');
+      tocPanel.hidden = true;
+      if (tocRestore) {
+        tocRestore.hidden = true;
+      }
       return;
     }
 
@@ -115,12 +93,13 @@
 
     const setTocHidden = (hidden, persist = true) => {
       body.classList.toggle('toc-hidden', hidden);
-      if (tocToggle) {
-        tocToggle.textContent = hidden ? '目次を表示' : '目次を非表示';
-        tocToggle.setAttribute('aria-expanded', String(!hidden));
-      }
-      if (tocPanel) {
-        tocPanel.setAttribute('aria-hidden', String(hidden));
+      tocPanel.hidden = hidden;
+      tocPanel.setAttribute('aria-hidden', String(hidden));
+      tocToggle.textContent = '目次を非表示';
+      tocToggle.setAttribute('aria-expanded', String(!hidden));
+      if (tocRestore) {
+        tocRestore.hidden = !hidden;
+        tocRestore.setAttribute('aria-expanded', String(!hidden));
       }
       if (tocDetails && !hidden) {
         tocDetails.setAttribute('open', '');
@@ -132,9 +111,13 @@
 
     setTocHidden(getStoredTocHidden(), false);
 
-    if (tocToggle) {
-      tocToggle.addEventListener('click', () => {
-        setTocHidden(!body.classList.contains('toc-hidden'));
+    tocToggle.addEventListener('click', () => {
+      setTocHidden(true);
+    });
+
+    if (tocRestore) {
+      tocRestore.addEventListener('click', () => {
+        setTocHidden(false);
       });
     }
   };
