@@ -20,18 +20,25 @@
     {
         "title":  "情勢総覧",
         "url":  "world.html",
-        "summary":  "2026年5月6日時点で公表されている南北日本の政治、停戦線、基盤企業、情報流通に関する総覧。",
+        "summary":  "南北日本の制度、統治、物流、社会階層、企業支配、情報流通を横断して整理する総覧。旧社会秩序・旧経済構造の内容を統合。",
         "tags":  [
                      "section",
                      "world",
                      "情勢総覧",
-                     "南北情勢"
+                     "南北情勢",
+                     "社会秩序",
+                     "経済構造",
+                     "物流",
+                     "企業支配",
+                     "統治"
                  ],
         "article_type":  "hub",
         "nav_section":  "world",
         "aliases":  [
                         "南北情勢",
-                        "基幹資料総覧"
+                        "基幹資料総覧",
+                        "社会秩序",
+                        "経済構造"
                     ],
         "related":  [
 
@@ -129,24 +136,6 @@
                     ]
     },
     {
-        "title":  "社会階層制度",
-        "url":  "world-social-order.html",
-        "summary":  "公表資料に見られる市民層、行政・軍指揮層、財界、情報媒介層の関係。",
-        "tags":  [
-                     "detail",
-                     "world",
-                     "社会階層"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "world",
-        "aliases":  [
-
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
         "title":  "技術水準",
         "url":  "world-technology.html",
         "summary":  "通信、重工業、防衛、AI、物流技術に関する公表資料。",
@@ -155,25 +144,6 @@
                      "world",
                      "technology",
                      "技術"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "world",
-        "aliases":  [
-
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "経済構造",
-        "url":  "world-economy.html",
-        "summary":  "停戦線下の公共料金、軍需、物流、越境取引に関する資料。",
-        "tags":  [
-                     "detail",
-                     "world",
-                     "economy",
-                     "経済"
                  ],
         "article_type":  "detail",
         "nav_section":  "world",
