@@ -6,8 +6,10 @@
   const navToggle = document.querySelector('[data-nav-toggle]');
   const sidebar = document.querySelector('[data-sidebar]');
   const printButton = document.querySelector('[data-print-page]');
+  const tocPanel = document.getElementById('vector-page-toc');
   const tocBody = document.querySelector('[data-page-toc-body]');
   const tocDetails = document.querySelector('[data-page-toc-details]');
+  const tocToggle = document.querySelector('[data-toc-toggle]');
 
   const escapeHtml = (value) => String(value ?? '')
     .replaceAll('&', '&amp;')
@@ -31,11 +33,21 @@
     });
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && body.classList.contains('nav-open')) {
+      if (event.key !== 'Escape') return;
+
+      if (body.classList.contains('nav-open')) {
         body.classList.remove('nav-open');
         navToggle.setAttribute('aria-expanded', 'false');
         navToggle.focus();
       }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!body.classList.contains('nav-open')) return;
+      if (sidebar.contains(event.target) || navToggle.contains(event.target)) return;
+
+      body.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
     });
   }
 
@@ -56,7 +68,7 @@
     ));
 
     if (!headings.length) {
-      tocBody.innerHTML = '<p class="toc-empty">このページには見出しがありません</p>';
+      body.classList.add('vector-no-page-toc');
       return;
     }
 
@@ -85,17 +97,46 @@
     tocBody.innerHTML = `<ul>${items.join('')}</ul>`;
     body.classList.add('vector-has-generated-toc');
 
-    const setMobileTocState = () => {
-      if (!tocDetails) return;
-      if (window.matchMedia('(max-width: 980px)').matches) {
-        tocDetails.removeAttribute('open');
-      } else {
-        tocDetails.setAttribute('open', '');
+    const getStoredTocHidden = () => {
+      try {
+        return window.localStorage.getItem('tenzu-page-toc') === 'hidden';
+      } catch {
+        return false;
       }
     };
 
-    setMobileTocState();
-    window.addEventListener('resize', setMobileTocState);
+    const storeTocHidden = (hidden) => {
+      try {
+        window.localStorage.setItem('tenzu-page-toc', hidden ? 'hidden' : 'visible');
+      } catch {
+        // Ignore storage failures so the control still works in private contexts.
+      }
+    };
+
+    const setTocHidden = (hidden, persist = true) => {
+      body.classList.toggle('toc-hidden', hidden);
+      if (tocToggle) {
+        tocToggle.textContent = hidden ? '目次を表示' : '目次を非表示';
+        tocToggle.setAttribute('aria-expanded', String(!hidden));
+      }
+      if (tocPanel) {
+        tocPanel.setAttribute('aria-hidden', String(hidden));
+      }
+      if (tocDetails && !hidden) {
+        tocDetails.setAttribute('open', '');
+      }
+      if (persist) {
+        storeTocHidden(hidden);
+      }
+    };
+
+    setTocHidden(getStoredTocHidden(), false);
+
+    if (tocToggle) {
+      tocToggle.addEventListener('click', () => {
+        setTocHidden(!body.classList.contains('toc-hidden'));
+      });
+    }
   };
 
   buildPageToc();

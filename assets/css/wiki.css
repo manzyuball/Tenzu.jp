@@ -87,7 +87,7 @@ input {
 }
 
 .vector-main-menu-toggle {
-  display: none;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   min-height: 32px;
@@ -234,14 +234,13 @@ input {
 /* ---------- Page grid ---------- */
 .vector-page {
   display: grid;
-  grid-template-columns: 176px minmax(176px, 244px) minmax(0, 960px) minmax(150px, 200px);
+  grid-template-columns: minmax(0, 1040px) minmax(176px, 244px);
   gap: 24px;
-  max-width: 1650px;
+  max-width: 1340px;
   margin: 0 auto;
   padding: 0 24px 32px;
 }
 
-.vector-main-menu,
 .vector-page-toc,
 .vector-page-tools {
   position: sticky;
@@ -252,8 +251,22 @@ input {
 }
 
 .vector-main-menu {
-  grid-column: 1;
-  padding-top: 18px;
+  position: fixed;
+  top: calc(var(--header-height) + 8px);
+  left: 24px;
+  z-index: 65;
+  display: none;
+  width: min(86vw, 320px);
+  max-height: calc(100vh - var(--header-height) - 16px);
+  padding: 16px;
+  overflow: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+}
+
+body.nav-open .vector-main-menu {
+  display: block;
 }
 
 .vector-page-toc {
@@ -262,15 +275,27 @@ input {
 }
 
 .mw-body {
-  grid-column: 3;
+  grid-column: 1;
   min-width: 0;
   padding: 24px 0 48px;
   background: var(--color-surface);
 }
 
 .vector-page-tools {
-  grid-column: 4;
+  display: none;
   padding-top: 18px;
+}
+
+body.toc-hidden .vector-page,
+body.vector-no-page-toc .vector-page {
+  grid-template-columns: minmax(0, 1040px);
+  max-width: 1090px;
+}
+
+body.toc-hidden .vector-page-toc,
+body.vector-no-page-toc .vector-page-toc,
+body.vector-no-page-toc .vector-page-controls {
+  display: none;
 }
 
 .portal {
@@ -323,6 +348,27 @@ input {
 .vector-page-toc details {
   padding-bottom: 12px;
   border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.vector-page-controls {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  margin: 16px 0 -8px;
+}
+
+.vector-toc-toggle {
+  min-height: 30px;
+  padding: 4px 10px;
+  color: var(--color-base);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border-subtle);
+  cursor: pointer;
+}
+
+.vector-toc-toggle:hover,
+.vector-toc-toggle:focus {
+  background: var(--color-surface-alt);
 }
 
 .vector-page-toc summary {
@@ -884,33 +930,15 @@ a.external.text::after {
 /* ---------- Responsive ---------- */
 @media screen and (max-width: 1300px) {
   .vector-page {
-    grid-template-columns: 176px minmax(176px, 220px) minmax(0, 1fr);
-  }
-
-  .mw-body {
-    grid-column: 3;
-  }
-
-  .vector-page-tools {
-    display: none;
+    grid-template-columns: minmax(0, 1fr) minmax(168px, 220px);
+    max-width: 100%;
   }
 }
 
 @media screen and (max-width: 1100px) {
   .vector-page {
-    grid-template-columns: 176px minmax(0, 1fr);
-  }
-
-  .mw-body {
-    grid-column: 2;
-  }
-
-  .vector-page-toc {
-    display: none;
-  }
-
-  body.vector-has-generated-toc #mw-content-text .toc {
-    display: inline-block;
+    grid-template-columns: minmax(0, 1fr) minmax(160px, 190px);
+    gap: 18px;
   }
 }
 
@@ -929,7 +957,6 @@ a.external.text::after {
   }
 
   .vector-main-menu-toggle {
-    display: inline-flex;
     grid-area: toggle;
   }
 
@@ -952,21 +979,12 @@ a.external.text::after {
   }
 
   .vector-main-menu {
-    position: fixed;
     top: var(--header-height);
     left: 0;
-    z-index: 60;
-    display: none;
     width: min(82vw, 280px);
     max-height: calc(100vh - var(--header-height));
-    padding: 16px;
-    background: var(--color-surface);
     border-right: 1px solid var(--color-border);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
-  }
-
-  body.nav-open .vector-main-menu {
-    display: block;
+    border-left: 0;
   }
 
   .vector-page-toc {
@@ -975,6 +993,10 @@ a.external.text::after {
     max-height: none;
     margin: 12px 0 0;
     padding: 0;
+  }
+
+  body.toc-hidden .vector-page-toc {
+    display: none;
   }
 
   .vector-page-toc details {
@@ -987,8 +1009,9 @@ a.external.text::after {
     padding: 16px 0 32px;
   }
 
-  .vector-page-tools {
-    display: none;
+  .vector-page-controls {
+    justify-content: flex-start;
+    margin-top: 12px;
   }
 
   .infobox {
