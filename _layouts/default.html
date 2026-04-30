@@ -34,51 +34,51 @@
     </nav>
   </header>
 
+  {% if page.nav_section == 'top' %}
+  <aside id="mw-panel" class="vector-main-menu" aria-label="案内" data-sidebar>
+    <div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+      <h3 id="p-navigation-label">案内</h3>
+      <div class="body">
+        <ul>
+          <li{% if page.nav_section == 'top' %} class="active"{% endif %}><a href="{{ '/index.html' | relative_url }}">メインページ</a></li>
+          <li{% if page.nav_section == 'factions' %} class="active"{% endif %}><a href="{{ '/factions.html' | relative_url }}">勢力</a></li>
+          <li{% if page.nav_section == 'characters' %} class="active"{% endif %}><a href="{{ '/characters.html' | relative_url }}">人物</a></li>
+          <li{% if page.nav_section == 'history' %} class="active"{% endif %}><a href="{{ '/history.html' | relative_url }}">歴史</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="portal" role="navigation" id="p-site-tools" aria-labelledby="p-site-tools-label">
+      <h3 id="p-site-tools-label">主要ページ</h3>
+      <div class="body">
+        <ul>
+          <li><a href="{{ '/faction-japan-kyoto-government.html' | relative_url }}">日本国（京都政権）</a></li>
+          <li><a href="{{ '/faction-japan-tokyo-government.html' | relative_url }}">日本国（東京政権）</a></li>
+          <li><a href="{{ '/faction-moriya-yasaka-group.html' | relative_url }}">洩八グループ</a></li>
+          <li><a href="{{ '/faction-tenzu.html' | relative_url }}">天通</a></li>
+          <li><a href="{{ '/faction-yamazaki-kawashiro-industries.html' | relative_url }}">山崎川城工業</a></li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+  {% endif %}
+
+  {% unless page.nav_section == 'top' %}
+  <aside id="vector-page-toc" class="vector-page-toc" aria-labelledby="vector-toc-label">
+    <div class="vector-toc-actions">
+      <button type="button" class="vector-toc-toggle" data-toc-toggle aria-controls="vector-page-toc" aria-expanded="true">目次を非表示</button>
+    </div>
+    <details open data-page-toc-details>
+      <summary id="vector-toc-label">目次</summary>
+      <nav data-page-toc-body aria-label="ページ内目次">
+        <p class="toc-empty">見出しを読み込み中</p>
+      </nav>
+    </details>
+  </aside>
+  <button type="button" class="vector-toc-restore" data-toc-restore aria-controls="vector-page-toc" aria-expanded="false" hidden>目次を表示</button>
+  {% endunless %}
+
   <div class="vector-page">
-    {% if page.nav_section == 'top' %}
-    <aside id="mw-panel" class="vector-main-menu" aria-label="案内" data-sidebar>
-      <div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
-        <h3 id="p-navigation-label">案内</h3>
-        <div class="body">
-          <ul>
-            <li{% if page.nav_section == 'top' %} class="active"{% endif %}><a href="{{ '/index.html' | relative_url }}">メインページ</a></li>
-            <li{% if page.nav_section == 'factions' %} class="active"{% endif %}><a href="{{ '/factions.html' | relative_url }}">勢力</a></li>
-            <li{% if page.nav_section == 'characters' %} class="active"{% endif %}><a href="{{ '/characters.html' | relative_url }}">人物</a></li>
-            <li{% if page.nav_section == 'history' %} class="active"{% endif %}><a href="{{ '/history.html' | relative_url }}">歴史</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="portal" role="navigation" id="p-site-tools" aria-labelledby="p-site-tools-label">
-        <h3 id="p-site-tools-label">主要ページ</h3>
-        <div class="body">
-          <ul>
-            <li><a href="{{ '/faction-japan-kyoto-government.html' | relative_url }}">日本国（京都政権）</a></li>
-            <li><a href="{{ '/faction-japan-tokyo-government.html' | relative_url }}">日本国（東京政権）</a></li>
-            <li><a href="{{ '/faction-moriya-yasaka-group.html' | relative_url }}">洩八グループ</a></li>
-            <li><a href="{{ '/faction-tenzu.html' | relative_url }}">天通</a></li>
-            <li><a href="{{ '/faction-yamazaki-kawashiro-industries.html' | relative_url }}">山崎川城工業</a></li>
-          </ul>
-        </div>
-      </div>
-    </aside>
-    {% endif %}
-
-    {% unless page.nav_section == 'top' %}
-    <aside id="vector-page-toc" class="vector-page-toc" aria-labelledby="vector-toc-label">
-      <div class="vector-toc-actions">
-        <button type="button" class="vector-toc-toggle" data-toc-toggle aria-controls="vector-page-toc" aria-expanded="true">目次を非表示</button>
-      </div>
-      <details open data-page-toc-details>
-        <summary id="vector-toc-label">目次</summary>
-        <nav data-page-toc-body aria-label="ページ内目次">
-          <p class="toc-empty">見出しを読み込み中</p>
-        </nav>
-      </details>
-    </aside>
-    <button type="button" class="vector-toc-restore" data-toc-restore aria-controls="vector-page-toc" aria-expanded="false" hidden>目次を表示</button>
-    {% endunless %}
-
     <main id="content" class="mw-body" role="main">
       <a id="top"></a>
       <div id="siteNotice"></div>
