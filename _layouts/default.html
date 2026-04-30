@@ -33,8 +33,9 @@
     </div>
 
     <nav class="vector-user-links" aria-label="サイトツール">
-      <a href="{{ '/archive.html' | relative_url }}">資料室</a>
-      <a href="{{ '/archive-edit-policy.html' | relative_url }}">方針</a>
+      <a href="{{ '/factions.html' | relative_url }}">勢力</a>
+      <a href="{{ '/characters.html' | relative_url }}">人物</a>
+      <a href="{{ '/history.html' | relative_url }}">歴史</a>
     </nav>
   </header>
 
@@ -45,13 +46,9 @@
         <div class="body">
           <ul>
             <li{% if page.nav_section == 'top' %} class="active"{% endif %}><a href="{{ '/index.html' | relative_url }}">メインページ</a></li>
-            <li{% if page.nav_section == 'world' %} class="active"{% endif %}><a href="{{ '/world.html' | relative_url }}">情勢総覧</a></li>
-            <li{% if page.nav_section == 'timeline' %} class="active"{% endif %}><a href="{{ '/timeline.html' | relative_url }}">年表</a></li>
             <li{% if page.nav_section == 'factions' %} class="active"{% endif %}><a href="{{ '/factions.html' | relative_url }}">勢力</a></li>
             <li{% if page.nav_section == 'characters' %} class="active"{% endif %}><a href="{{ '/characters.html' | relative_url }}">人物</a></li>
-            <li{% if page.nav_section == 'geography' %} class="active"{% endif %}><a href="{{ '/geography.html' | relative_url }}">地理</a></li>
-            <li{% if page.nav_section == 'glossary' %} class="active"{% endif %}><a href="{{ '/glossary.html' | relative_url }}">用語集</a></li>
-            <li{% if page.nav_section == 'archive' %} class="active"{% endif %}><a href="{{ '/archive.html' | relative_url }}">資料室</a></li>
+            <li{% if page.nav_section == 'history' %} class="active"{% endif %}><a href="{{ '/history.html' | relative_url }}">歴史</a></li>
           </ul>
         </div>
       </div>
@@ -121,9 +118,9 @@
       <li>このサイトは作中世界の資料網として構成されています。</li>
     </ul>
     <ul id="footer-places">
-      <li><a href="{{ '/archive-edit-policy.html' | relative_url }}">改稿ポリシー</a></li>
-      <li><a href="{{ '/archive-wikipedia-style-guide.html' | relative_url }}">記事設計ガイド</a></li>
-      <li><a href="{{ '/archive.html' | relative_url }}">資料室</a></li>
+      <li><a href="{{ '/factions.html' | relative_url }}">勢力</a></li>
+      <li><a href="{{ '/characters.html' | relative_url }}">人物</a></li>
+      <li><a href="{{ '/history.html' | relative_url }}">歴史</a></li>
     </ul>
   </footer>
 

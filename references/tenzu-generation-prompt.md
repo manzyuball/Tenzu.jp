@@ -9,8 +9,8 @@ Tenzu.jpは、情報複合体「天通」が2026年5月6日時点で公開して
 ## 入力
 
 - `title`: 記事名
-- `article_type`: `state`, `corporation`, `media`, `character`, `event`, `technology`, `place`, `concept`, `archive` のいずれか
-- `nav_section`: `world`, `timeline`, `factions`, `characters`, `geography`, `glossary`, `archive` のいずれか
+- `article_type`: `state`, `corporation`, `media`, `character`, `event`, `technology`, `hub` のいずれか
+- `nav_section`: `factions`, `characters`, `history` のいずれか
 - `context`: 既存記事との関係、時期、勢力、重要語
 
 ## 出力形式
@@ -32,10 +32,6 @@ related:
   - title: "関連項目"
     url: "/related.html"
     summary: "関係の短い説明。"
-external_links:
-  - title: "資料名"
-    url: "archive.html"
-    summary: "資料の短い説明。"
 ---
 ```
 
@@ -48,7 +44,7 @@ external_links:
 - 必要に応じて `hatnote.html`, `ambox.html`, `infobox.html` を使う。
 - `_data/article_sections.yml` の `required` 見出しを本文に含める。
 - 注釈と出典は `references.html` include に渡す。
-- 関連項目と外部リンクは `related-links.html` include に渡す。
+- 関連項目は `related-links.html` include に渡す。
 
 ## 文体
 

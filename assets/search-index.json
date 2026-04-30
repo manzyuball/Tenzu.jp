@@ -2,7 +2,7 @@
     {
         "title":  "天通辞典",
         "url":  "index.html",
-        "summary":  "天通が運営する公開資料網。政治、停戦線、企業、人物、用語、資料室を継続改稿する。",
+        "summary":  "天通が運営する公開資料網。勢力、人物、歴史を継続改稿する。",
         "tags":  [
                      "top",
                      "home",
@@ -12,53 +12,6 @@
         "nav_section":  "top",
         "aliases":  [
 
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "情勢総覧",
-        "url":  "world.html",
-        "summary":  "南北日本の制度、統治、物流、社会階層、企業支配、情報流通を横断して整理する総覧。旧社会秩序・旧経済構造の内容を統合。",
-        "tags":  [
-                     "section",
-                     "world",
-                     "情勢総覧",
-                     "南北情勢",
-                     "社会秩序",
-                     "経済構造",
-                     "物流",
-                     "企業支配",
-                     "統治"
-                 ],
-        "article_type":  "hub",
-        "nav_section":  "world",
-        "aliases":  [
-                        "南北情勢",
-                        "基幹資料総覧",
-                        "社会秩序",
-                        "経済構造"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "年表",
-        "url":  "timeline.html",
-        "summary":  "2026年5月6日までに記録された南北分裂、停戦線固定化、国境紛争期の主要事項。",
-        "tags":  [
-                     "section",
-                     "timeline",
-                     "history",
-                     "分断史"
-                 ],
-        "article_type":  "hub",
-        "nav_section":  "timeline",
-        "aliases":  [
-                        "主要局面",
-                        "分断史"
                     ],
         "related":  [
 
@@ -102,35 +55,23 @@
                     ]
     },
     {
-        "title":  "用語集",
-        "url":  "glossary.html",
-        "summary":  "政治ラベル、情報流通語、軍事・経済関連語を横断検索する用語集。",
+        "title":  "歴史",
+        "url":  "history.html",
+        "summary":  "分断、停戦線、制度再編、企業基盤形成に関する公開資料。",
         "tags":  [
                      "section",
-                     "glossary"
+                     "history",
+                     "歴史",
+                     "南北分断",
+                     "停戦線",
+                     "制度再編"
                  ],
         "article_type":  "hub",
-        "nav_section":  "glossary",
+        "nav_section":  "history",
         "aliases":  [
-
+                        "歴史記事",
+                        "歴史資料"
                     ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "資料室",
-        "url":  "archive.html",
-        "summary":  "地図注釈と外交記録を保存する改稿履歴対応の保管庫。",
-        "tags":  [
-                     "section",
-                     "archive"
-                 ],
-        "article_type":  "hub",
-        "nav_section":  "archive",
-        "aliases":  {
-
-                    },
         "related":  [
 
                     ]
@@ -141,49 +82,15 @@
         "summary":  "通信、重工業、防衛、AI、物流技術に関する公表資料。",
         "tags":  [
                      "detail",
-                     "world",
                      "technology",
-                     "技術"
+                     "技術",
+                     "history"
                  ],
         "article_type":  "detail",
-        "nav_section":  "world",
+        "nav_section":  "history",
         "aliases":  [
 
                     ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "南北分裂",
-        "url":  "timeline-north-south-schism.html",
-        "summary":  "フォッサマグナ境界線で分裂が固定化した局面。",
-        "tags":  [
-                     "detail",
-                     "timeline"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "timeline",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "国境紛争期",
-        "url":  "timeline-border-conflicts.html",
-        "summary":  "慢性的局地戦と情報戦が続いた時期。",
-        "tags":  [
-                     "detail",
-                     "timeline"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "timeline",
-        "aliases":  {
-
-                    },
         "related":  [
 
                     ]
@@ -409,74 +316,6 @@
                     ]
     },
     {
-        "title":  "用語 M-R",
-        "url":  "glossary-terms-m-r.html",
-        "summary":  "マジだよチャンネル、松代司令部、洩八などの用語集。",
-        "tags":  [
-                     "detail",
-                     "glossary"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "glossary",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "用語 S-Z",
-        "url":  "glossary-terms-s-z.html",
-        "summary":  "沙苗、従北、天網、ヴァイオレットなどの用語集。",
-        "tags":  [
-                     "detail",
-                     "glossary"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "glossary",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "地図注釈ノート",
-        "url":  "archive-map-notes.html",
-        "summary":  "戦略拠点と補給線の注釈メモ。",
-        "tags":  [
-                     "detail",
-                     "archive"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "archive",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "外交記録簿（改稿ログ）",
-        "url":  "archive-diplomatic-ledger.html",
-        "summary":  "外交イベントとページ改稿履歴を併記する台帳。",
-        "tags":  [
-                     "detail",
-                     "archive"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "archive",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    },
-    {
         "title":  "相川組",
         "url":  "faction-aikawa-gumi.html",
         "summary":  "佐渡島を拠点に日本海沿岸物流へ影響を持つ港湾系地下経済ネットワーク。",
@@ -495,69 +334,6 @@
                     },
         "related":  [
 
-                    ]
-    },
-    {
-        "title":  "改稿ポリシー",
-        "url":  "archive-edit-policy.html",
-        "summary":  "天通辞典における記事改稿、暫定記述、出典区分、静的運用の基本方針。",
-        "tags":  [
-                     "detail",
-                     "archive",
-                     "policy",
-                     "編集方針"
-                 ],
-        "article_type":  "archive",
-        "nav_section":  "archive",
-        "aliases":  [
-                        "編集方針",
-                        "改稿規則"
-                    ],
-        "related":  [
-                        "資料室",
-                        "記事設計ガイド"
-                    ]
-    },
-    {
-        "title":  "記事設計ガイド",
-        "url":  "archive-wikipedia-style-guide.html",
-        "summary":  "天通辞典の記事を静的百科事典ページとして整えるための書式ガイド。",
-        "tags":  [
-                     "detail",
-                     "archive",
-                     "style",
-                     "template"
-                 ],
-        "article_type":  "archive",
-        "nav_section":  "archive",
-        "aliases":  [
-                        "記事ガイド",
-                        "記事書式"
-                    ],
-        "related":  [
-                        "改稿ポリシー",
-                        "資料室"
-                    ]
-    },
-    {
-        "title":  "境界地誌",
-        "url":  "geography.html",
-        "summary":  "境界線、都市、補給線、港湾、戦略拠点に関する地誌。",
-        "tags":  [
-                     "section",
-                     "geography",
-                     "place",
-                     "境界線",
-                     "補給線"
-                 ],
-        "article_type":  "place",
-        "nav_section":  "geography",
-        "aliases":  [
-                        "停戦線地誌",
-                        "地域資料"
-                    ],
-        "related":  [
-                        "地図注釈ノート"
                     ]
     }
 ]

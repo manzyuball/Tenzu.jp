@@ -1,0 +1,68 @@
+---
+layout: default
+title: "歴史"
+description: "2026年5月6日時点で公表資料に現れる分断、停戦線、制度再編、企業基盤形成に関する記事群。"
+nav_section: history
+article_type: hub
+status: Public Draft
+updated_on: 2026-05-06
+aliases:
+  - 歴史記事
+  - 歴史資料
+related:
+  - title: "勢力"
+    url: "/factions.html"
+    summary: "歴史記事に現れる国家、企業、報道機関、地下経済組織。"
+  - title: "人物"
+    url: "/characters.html"
+    summary: "歴史記事に現れる主要人物。"
+---
+{% capture toc_body %}
+<ul>
+  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+  <li><a href="#収録範囲"><span class="tocnumber">2</span> <span class="toctext">収録範囲</span></a></li>
+  <li><a href="#関連項目"><span class="tocnumber">3</span> <span class="toctext">関連項目</span></a></li>
+</ul>
+{% endcapture %}
+<nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › 歴史</nav>
+<article class="mw-body">
+  <header>
+    <h1 class="firstHeading">歴史</h1>
+    <p class="meta">基本ID: history / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
+    <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
+    <p><b>歴史</b>は、2026年5月6日時点で公表資料に現れる分断、停戦線、制度再編、企業基盤形成に関する記事群である。</p>
+  </header>
+
+  <div class="mw-parser-output">
+    {% include toc.html body=toc_body %}
+
+    <section id="概要">
+      <h2><span class="mw-headline">概要</span></h2>
+      <p>本項は、政府発表、停戦監視資料、企業報告、報道資料、証言録に現れる歴史的経緯を扱う。公表時点で確認できる事項を対象とし、未確認の内部協議、未公表の軍事行動、将来の評価は収録しない。</p>
+      <p>記述では、南北分断、停戦線運用、政権制度、企業基盤、通信・物流・金融の再編を分けて扱う。複数資料で説明が異なる場合は、発表主体と資料区分を本文中で区別する。</p>
+    </section>
+
+    <section id="収録範囲">
+      <h2><span class="mw-headline">収録範囲</span></h2>
+      <ul>
+        <li>南北分断と停戦線の固定化に関する公表資料。</li>
+        <li>京都政権、東京政権、主要企業集団の制度形成に関する記録。</li>
+        <li>港湾、通信、金融、電力、報道基盤の再編に関する企業資料。</li>
+        <li>人物記事や勢力記事で繰り返し参照される確認済みの歴史的経緯。</li>
+      </ul>
+    </section>
+
+    <section id="関連項目">
+      <h2><span class="mw-headline">関連項目</span></h2>
+      <ul>
+        <li><a href="factions.html">勢力</a></li>
+        <li><a href="characters.html">人物</a></li>
+        <li><a href="faction-japan-kyoto-government.html">日本国（京都政権）</a></li>
+        <li><a href="faction-japan-tokyo-government.html">日本国（東京政権）</a></li>
+        <li><a href="faction-tenzu.html">天通</a></li>
+      </ul>
+    </section>
+
+    {% include related-links.html items=page.related %}
+  </div>
+</article>

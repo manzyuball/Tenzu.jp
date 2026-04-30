@@ -28,10 +28,6 @@ related:
   - title: "関連項目"
     url: "/related.html"
     summary: "関係の短い説明。"
-external_links:
-  - title: "資料名"
-    url: "archive.html"
-    summary: "資料の短い説明。"
 ---
 {% capture infobox_rows %}
 <tr><th class="infobox-header" colspan="2">概要</th></tr>
@@ -54,7 +50,7 @@ external_links:
     <p><b>記事名</b>は、...</p>
     <section><h2 id="概要"><span class="mw-headline">概要</span></h2></section>
     {% include references.html legend='本文に用いた出典区分は、' notes=notes sources=sources %}
-    {% include related-links.html items=page.related external=page.external_links %}
+    {% include related-links.html items=page.related %}
   </div>
 </article>
 ```
@@ -108,30 +104,6 @@ external_links:
 第一文例:
 
 `天網は、天通が運用する通信・本人確認・速報配信を束ねた情報基盤である。`
-
-### place
-
-地域、都市、施設、境界線上の拠点。必須見出しは「概要」「地理」「行政・管轄」「交通・補給」「戦略的位置」「社会・経済」。
-
-第一文例:
-
-`フォッサマグナ境界線は、分断後の日本国において南北勢力圏を隔てる地政学的境界である。`
-
-### concept
-
-用語、制度、思想、社会現象。必須見出しは「概要」「定義」「成立背景」「用法」「関連する制度・事件」「批判・論争」。
-
-第一文例:
-
-`従北は、京都政権下で北部政権への同調または協力を疑う政治ラベルとして用いられる語である。`
-
-### archive
-
-資料室、台帳、ログ、補助資料。必須見出しは「概要」「収録範囲」「資料区分」「利用上の注意」「関連項目」。
-
-第一文例:
-
-`外交記録簿は、分断日本をめぐる外交記録とTenzu.jp内の改稿履歴を対応させる資料である。`
 
 ## 編集チェックリスト
 

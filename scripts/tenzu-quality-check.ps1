@@ -70,7 +70,7 @@ foreach ($file in $htmlFiles) {
     Add-Failure "$relative contains likely mojibake text."
   }
 
-  if ($file.Name -ne 'archive-wikipedia-style-guide.html' -and $text -match '(?m)(\{\{(?:Infobox|Main|Reflist)|\[\[[^\]]+\]\]|^==[^=].*==\s*$)') {
+  if ($text -match '(?m)(\{\{(?:Infobox|Main|Reflist)|\[\[[^\]]+\]\]|^==[^=].*==\s*$)') {
     Add-Failure "$relative contains unconverted MediaWiki syntax."
   }
 
