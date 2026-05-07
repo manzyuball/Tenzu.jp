@@ -125,18 +125,19 @@
     {
         "title":  "日本国（東京政権）",
         "url":  "faction-japan-tokyo-government.html",
-        "summary":  "太子体制、監視社会、計画経済で成り立つ東日本側政府に関する資料。",
+        "summary":  "東京に中央執政院を置く東日本側政府の国号、歴史、統治、経済、軍事、対外関係を扱う記事。",
         "tags":  [
                      "detail",
                      "faction",
                      "state",
-                     "北日本",
-                     "東京政権"
+                     "東京政権",
+                     "東日本"
                  ],
         "article_type":  "state",
         "nav_section":  "factions",
         "aliases":  [
                         "東京政権",
+                        "東日本",
                         "東側日本国",
                         "日本国"
                     ],

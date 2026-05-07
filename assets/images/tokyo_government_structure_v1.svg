@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480" role="img" aria-labelledby="title desc">
+  <title id="title">東京政権の主要統治機関図</title>
+  <desc id="desc">最高指導者、労働党、中央執政院、人民協議院、内務保安院、人民国防軍、地方行政と職場組織の関係を示す模式図。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8f9fa; }
+      .box { fill: #fff; stroke: #a2a9b1; stroke-width: 2; rx: 8; }
+      .primary { fill: #eaecf0; stroke: #54595d; }
+      .line { stroke: #54595d; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 6 5; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; font-size: 18px; fill: #202122; text-anchor: middle; }
+      .small { font-size: 14px; fill: #54595d; }
+      .caption { font-size: 13px; fill: #54595d; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#54595d" />
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="720" height="480" />
+  <rect class="box primary" x="250" y="28" width="220" height="64" />
+  <text class="label" x="360" y="56">最高指導者</text>
+  <text class="label small" x="360" y="78">豊聡御子</text>
+
+  <rect class="box" x="70" y="135" width="180" height="70" />
+  <text class="label" x="160" y="164">労働党</text>
+  <text class="label small" x="160" y="187">中央委員会・地方組織</text>
+
+  <rect class="box" x="270" y="135" width="180" height="70" />
+  <text class="label" x="360" y="164">中央執政院</text>
+  <text class="label small" x="360" y="187">行政・生産・配給</text>
+
+  <rect class="box" x="470" y="135" width="180" height="70" />
+  <text class="label" x="560" y="164">人民協議院</text>
+  <text class="label small" x="560" y="187">法形式の承認</text>
+
+  <rect class="box" x="150" y="270" width="180" height="70" />
+  <text class="label" x="240" y="299">内務保安院</text>
+  <text class="label small" x="240" y="322">治安・住民管理</text>
+
+  <rect class="box" x="390" y="270" width="180" height="70" />
+  <text class="label" x="480" y="299">人民国防軍</text>
+  <text class="label small" x="480" y="322">軍務・動員</text>
+
+  <rect class="box" x="270" y="390" width="180" height="54" />
+  <text class="label" x="360" y="414">地方行政・職場</text>
+  <text class="label small" x="360" y="435">配給・教育・生産単位</text>
+
+  <path class="line" d="M360 92 V126" />
+  <path class="line" d="M325 96 C270 110 210 118 160 135" />
+  <path class="line" d="M395 96 C450 110 510 118 560 135" />
+  <path class="line" d="M160 205 C180 235 205 250 240 270" />
+  <path class="line" d="M360 205 V260" />
+  <path class="line" d="M560 205 C540 235 515 250 480 270" />
+  <path class="line dash" d="M240 340 C270 365 310 374 350 390" />
+  <path class="line dash" d="M480 340 C450 365 410 374 370 390" />
+  <path class="line" d="M360 205 V390" />
+
+  <text class="caption" x="360" y="468">模式図。上下関係と情報・命令系統を簡略化して示す。</text>
+</svg>
