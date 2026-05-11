@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天通辞典 編集室</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --base: #202122;
+      --muted: #54595d;
+      --subtle: #72777d;
+      --link: #36c;
+      --border: #a2a9b1;
+      --border-subtle: #c8ccd1;
+      --surface: #fff;
+      --surface-subtle: #f8f9fa;
+      --surface-alt: #eaecf0;
+      --accent: #36c;
+      --danger: #d33;
+    }
+    body {
+      margin: 0;
+      color: var(--base);
+      background: var(--surface);
+      font-family: sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.65;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+    button, input, textarea, select { font: inherit; }
+    button {
+      min-height: 34px;
+      padding: 6px 12px;
+      color: var(--base);
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+    button:hover, button:focus { background: var(--surface-alt); }
+    button.primary {
+      color: #fff;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    button.primary:hover, button.primary:focus { background: #254fb8; }
+    label { display: block; font-weight: 600; }
+    input[type="text"], textarea, select {
+      width: 100%;
+      min-height: 34px;
+      padding: 6px 8px;
+      color: var(--base);
+      background: #fff;
+      border: 1px solid var(--border);
+    }
+    textarea { min-height: 9rem; resize: vertical; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .editor-shell { min-height: 100vh; }
+    .editor-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: minmax(200px, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 10px 24px;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .brand { color: #000; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; }
+    .header-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .editor-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+      gap: 22px;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 22px 24px 40px;
+    }
+    .panel {
+      align-self: start;
+      padding: 14px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+    }
+    .panel h2, .panel h3 { margin: 0 0 10px; font-size: 1rem; }
+    .field { margin: 0 0 12px; }
+    .hint, .status, .small { color: var(--muted); font-size: 0.86rem; }
+    .status { margin: 8px 0 0; }
+    .toolbar {
+      position: sticky;
+      top: 56px;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      padding: 10px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+      border-bottom: 0;
+    }
+    .toolbar button { min-height: 30px; padding: 4px 9px; }
+    .article-stage {
+      min-height: 70vh;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid var(--border-subtle);
+    }
+    .editable-article { outline: none; }
+    .editable-article:focus { box-shadow: inset 0 0 0 2px var(--accent); }
+    .editable-article h1 {
+      margin: 0 0 12px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid var(--border);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.85rem;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+    .editable-article h2 {
+      clear: both;
+      margin: 1.35em 0 0.45em;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--border);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.48rem;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+    .editable-article h3 { margin: 0.9em 0 0.2em; font-size: 1.12rem; }
+    .editable-article p { margin: 0.5em 0 1em; }
+    .editable-article table { border-collapse: collapse; }
+    .editable-article th, .editable-article td { padding: 0.35em 0.5em; border: 1px solid var(--border); }
+    .editable-article .infobox {
+      float: right;
+      width: 22.5em;
+      max-width: 100%;
+      margin: 0.35em 0 1em 1.4em;
+      background: var(--surface-subtle);
+      font-size: 0.88em;
+    }
+    .editable-article .infobox caption, .editable-article .infobox th { background: var(--surface-alt); }
+    .editable-article .reference, .editable-article .reflist { font-size: 0.88em; }
+    .editable-article:empty::before {
+      content: "ここに本文を書き始めるか、左の『HTMLを開く』で既存ページを読み込んでください。";
+      color: var(--subtle);
+    }
+    .source-preview { margin-top: 14px; }
+    .source-preview summary { cursor: pointer; color: var(--link); }
+    .drop-zone {
+      padding: 12px;
+      border: 2px dashed var(--border-subtle);
+      background: #fff;
+      text-align: center;
+    }
+    .drop-zone.dragover { border-color: var(--accent); background: #f1f6ff; }
+    .warning { color: var(--danger); }
+    @media screen and (max-width: 900px) {
+      .editor-header, .editor-grid { grid-template-columns: 1fr; padding-right: 12px; padding-left: 12px; }
+      .header-actions { justify-content: flex-start; }
+      .toolbar { top: 102px; }
+      .article-stage { padding: 14px; }
+      .editable-article .infobox { float: none; width: 100%; margin: 1em 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-shell">
+    <header class="editor-header">
+      <a class="brand" href="index.html">天通辞典 編集室</a>
+      <div class="header-actions">
+        <button type="button" id="newPageButton">新規ページ</button>
+        <button type="button" id="downloadSourceButton" class="primary">Jekyll用HTMLを書き出し</button>
+        <button type="button" id="downloadStandaloneButton">単体HTMLを書き出し</button>
+      </div>
+    </header>
+
+    <main class="editor-grid">
+      <aside class="panel" aria-label="編集設定">
+        <h2>ページ設定</h2>
+        <div class="field">
+          <label for="fileInput">HTMLを開く</label>
+          <input id="fileInput" type="file" accept=".html,.htm,text/html">
+          <p class="hint">既存の `*.html` を選ぶと、本文を視覚編集できます。</p>
+        </div>
+        <div class="field drop-zone" id="dropZone">ここへHTMLファイルをドラッグ＆ドロップ</div>
+        <div class="field">
+          <label for="titleInput">タイトル</label>
+          <input id="titleInput" type="text" value="新規記事">
+        </div>
+        <div class="field">
+          <label for="descriptionInput">説明</label>
+          <textarea id="descriptionInput">概要文を入力します。</textarea>
+        </div>
+        <div class="field">
+          <label for="navInput">分類</label>
+          <select id="navInput">
+            <option value="top">トップ</option>
+            <option value="factions">勢力</option>
+            <option value="characters">人物</option>
+            <option value="history">歴史</option>
+            <option value="technology">技術</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="typeInput">記事種別</label>
+          <input id="typeInput" type="text" value="article">
+        </div>
+        <div class="field">
+          <label for="statusInput">公開状態</label>
+          <input id="statusInput" type="text" value="Public Draft">
+        </div>
+        <div class="field">
+          <label for="updatedInput">最終更新</label>
+          <input id="updatedInput" type="text" value="2026-05-11">
+        </div>
+        <div class="field">
+          <label for="filenameInput">書き出しファイル名</label>
+          <input id="filenameInput" type="text" value="new-article.html">
+        </div>
+        <p class="status" id="statusMessage" role="status">準備完了。変更はブラウザ内でのみ保持されます。</p>
+        <details class="source-preview">
+          <summary>現在のHTMLソースを確認</summary>
+          <textarea id="sourceOutput" readonly></textarea>
+        </details>
+      </aside>
+
+      <section aria-label="本文編集">
+        <div class="toolbar" aria-label="編集ツールバー">
+          <button type="button" data-command="formatBlock" data-value="h2">見出し</button>
+          <button type="button" data-command="formatBlock" data-value="h3">小見出し</button>
+          <button type="button" data-command="formatBlock" data-value="p">本文</button>
+          <button type="button" data-command="bold"><b>太字</b></button>
+          <button type="button" data-command="italic"><i>斜体</i></button>
+          <button type="button" data-command="insertUnorderedList">箇条書き</button>
+          <button type="button" data-command="insertOrderedList">番号</button>
+          <button type="button" id="linkButton">リンク</button>
+          <button type="button" id="sectionButton">節を追加</button>
+          <button type="button" id="referenceButton">脚注節</button>
+        </div>
+        <div class="article-stage">
+          <article id="editableArticle" class="editable-article" contenteditable="true" spellcheck="true">
+            <header>
+              <h1>新規記事</h1>
+              <p class="meta">基本ID: new-article / 最終更新: 2026-05-11 / 公開状態: Public Draft</p>
+              <p>ここに概要文を入力します。</p>
+            </header>
+            <section>
+              <h2 id="概要"><span class="mw-headline">概要</span></h2>
+              <p>本文を入力します。</p>
+            </section>
+          </article>
+        </div>
+        <p class="small">注意: GitHub Pagesの静的サイトではブラウザから直接リポジトリへ保存できません。書き出したHTMLをリポジトリの該当ファイルへ置き換えて反映します。</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const editableArticle = document.getElementById('editableArticle');
+      const fileInput = document.getElementById('fileInput');
+      const dropZone = document.getElementById('dropZone');
+      const titleInput = document.getElementById('titleInput');
+      const descriptionInput = document.getElementById('descriptionInput');
+      const navInput = document.getElementById('navInput');
+      const typeInput = document.getElementById('typeInput');
+      const statusInput = document.getElementById('statusInput');
+      const updatedInput = document.getElementById('updatedInput');
+      const filenameInput = document.getElementById('filenameInput');
+      const sourceOutput = document.getElementById('sourceOutput');
+      const statusMessage = document.getElementById('statusMessage');
+      const downloadSourceButton = document.getElementById('downloadSourceButton');
+      const downloadStandaloneButton = document.getElementById('downloadStandaloneButton');
+      const newPageButton = document.getElementById('newPageButton');
+      const linkButton = document.getElementById('linkButton');
+      const sectionButton = document.getElementById('sectionButton');
+      const referenceButton = document.getElementById('referenceButton');
+      let lastFrontMatter = {};
+
+      const escapeHtml = (value) => String(value ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;');
+
+      const slugify = (value) => String(value || 'new-article')
+        .trim()
+        .toLowerCase()
+        .replace(/[\s_]+/g, '-')
+        .replace(/[^a-z0-9\-ぁ-んァ-ヶ一-龠々ー]/g, '')
+        .replace(/-+/g, '-') || 'new-article';
+
+      const setStatus = (message, isWarning = false) => {
+        statusMessage.textContent = message;
+        statusMessage.classList.toggle('warning', isWarning);
+      };
+
+      const parseFrontMatter = (text) => {
+        const match = text.match(/^---\n([\s\S]*?)\n---\n?/);
+        const data = {};
+        if (!match) return { data, body: text };
+        match[1].split('\n').forEach((line) => {
+          const keyValue = line.match(/^([A-Za-z0-9_\-]+):\s*(.*)$/);
+          if (!keyValue) return;
+          const rawValue = keyValue[2].trim();
+          data[keyValue[1]] = rawValue.replace(/^['"]|['"]$/g, '');
+        });
+        return { data, body: text.slice(match[0].length) };
+      };
+
+      const getArticleHtml = (body) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(body, 'text/html');
+        const article = doc.querySelector('article');
+        const contentText = doc.getElementById('mw-content-text');
+        if (article) return article.outerHTML;
+        if (contentText) return contentText.innerHTML;
+        return body.trim() || '<header><h1>新規記事</h1><p>ここに概要文を入力します。</p></header>';
+      };
+
+      const syncTitleToArticle = () => {
+        const h1 = editableArticle.querySelector('h1');
+        if (h1) h1.textContent = titleInput.value || '新規記事';
+      };
+
+      const buildFrontMatter = () => {
+        const matter = {
+          layout: lastFrontMatter.layout || 'default',
+          title: titleInput.value || '新規記事',
+          description: descriptionInput.value || '',
+          nav_section: navInput.value || 'top',
+          article_type: typeInput.value || 'article',
+          status: statusInput.value || 'Public Draft',
+          updated_on: updatedInput.value || '2026-05-11',
+        };
+        return `---\nlayout: ${matter.layout}\ntitle: "${matter.title.replaceAll('"', '\\"')}"\ndescription: "${matter.description.replaceAll('"', '\\"').replaceAll('\n', ' ')}"\nnav_section: ${matter.nav_section}\narticle_type: ${matter.article_type}\nstatus: ${matter.status}\nupdated_on: ${matter.updated_on}\n---\n`;
+      };
+
+      const buildSource = () => `${buildFrontMatter()}${editableArticle.outerHTML}\n`;
+
+      const buildStandalone = () => `<!DOCTYPE html>\n<html lang="ja">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>${escapeHtml(titleInput.value || '天通辞典')}</title>\n<style>body{margin:0;color:#202122;background:#fff;font-family:sans-serif;font-size:.94rem;line-height:1.65}.page{max-width:1050px;margin:0 auto;padding:24px}header.site{border-bottom:1px solid #c8ccd1;padding:10px 24px}.brand{font-family:Georgia,'Times New Roman',serif;font-size:1.35rem;color:#000}a{color:#36c;text-decoration:none}a:hover{text-decoration:underline}h1{margin:0 0 12px;padding-bottom:7px;border-bottom:1px solid #a2a9b1;font-family:Georgia,'Times New Roman',serif;font-size:1.85rem;font-weight:400}h2{clear:both;margin:1.35em 0 .45em;padding-bottom:3px;border-bottom:1px solid #a2a9b1;font-family:Georgia,'Times New Roman',serif;font-size:1.48rem;font-weight:400}.meta{color:#54595d;font-size:.875rem}.infobox{float:right;width:22.5em;max-width:100%;margin:.35em 0 1em 1.4em;background:#f8f9fa;border:1px solid #a2a9b1;border-collapse:collapse;font-size:.88em}.infobox th,.infobox td{padding:.35em .5em;border:1px solid #a2a9b1}.infobox caption,.infobox th{background:#eaecf0}.reflist{border-top:1px solid #a2a9b1;font-size:.88em}@media(max-width:760px){.page{padding:14px}.infobox{float:none;width:100%;margin:1em 0}}</style>\n</head>\n<body>\n<header class="site"><a class="brand" href="index.html">天通辞典</a></header>\n<main class="page">\n${editableArticle.outerHTML}\n</main>\n</body>\n</html>\n`;
+
+      const refreshSource = () => {
+        sourceOutput.value = buildSource();
+        try {
+          window.localStorage.setItem('tenzu-editor-draft', buildSource());
+        } catch {
+          setStatus('下書きの自動保存は利用できませんが、書き出しは可能です。', true);
+        }
+      };
+
+      const download = (filename, text) => {
+        const blob = new Blob([text], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.href = url;
+        anchor.download = filename;
+        document.body.append(anchor);
+        anchor.click();
+        anchor.remove();
+        URL.revokeObjectURL(url);
+      };
+
+      const loadText = (text, fallbackName = 'new-article.html') => {
+        const parsed = parseFrontMatter(text);
+        lastFrontMatter = parsed.data;
+        titleInput.value = parsed.data.title || '新規記事';
+        descriptionInput.value = parsed.data.description || '';
+        navInput.value = parsed.data.nav_section || 'top';
+        typeInput.value = parsed.data.article_type || 'article';
+        statusInput.value = parsed.data.status || 'Public Draft';
+        updatedInput.value = parsed.data.updated_on || '2026-05-11';
+        filenameInput.value = fallbackName;
+        editableArticle.outerHTML;
+        editableArticle.innerHTML = getArticleHtml(parsed.body).replace(/^<article[^>]*>|<\/article>$/g, '');
+        syncTitleToArticle();
+        refreshSource();
+        setStatus(`${fallbackName} を読み込みました。本文をクリックして編集できます。`);
+      };
+
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files?.[0];
+        if (!file) return;
+        file.text().then((text) => loadText(text, file.name));
+      });
+
+      ['dragenter', 'dragover'].forEach((eventName) => {
+        dropZone.addEventListener(eventName, (event) => {
+          event.preventDefault();
+          dropZone.classList.add('dragover');
+        });
+      });
+      ['dragleave', 'drop'].forEach((eventName) => {
+        dropZone.addEventListener(eventName, (event) => {
+          event.preventDefault();
+          dropZone.classList.remove('dragover');
+        });
+      });
+      dropZone.addEventListener('drop', (event) => {
+        const file = event.dataTransfer.files?.[0];
+        if (!file) return;
+        file.text().then((text) => loadText(text, file.name));
+      });
+
+      document.querySelectorAll('[data-command]').forEach((button) => {
+        button.addEventListener('click', () => {
+          editableArticle.focus();
+          document.execCommand(button.dataset.command, false, button.dataset.value || null);
+          refreshSource();
+        });
+      });
+
+      linkButton.addEventListener('click', () => {
+        const url = window.prompt('リンク先URLまたはHTMLファイル名を入力してください', 'index.html');
+        if (!url) return;
+        editableArticle.focus();
+        document.execCommand('createLink', false, url);
+        refreshSource();
+      });
+
+      sectionButton.addEventListener('click', () => {
+        const title = window.prompt('追加する節の見出し', '新しい節');
+        if (!title) return;
+        editableArticle.insertAdjacentHTML('beforeend', `<section><h2 id="${escapeHtml(title)}"><span class="mw-headline">${escapeHtml(title)}</span></h2><p>本文を入力します。</p></section>`);
+        refreshSource();
+      });
+
+      referenceButton.addEventListener('click', () => {
+        editableArticle.insertAdjacentHTML('beforeend', '<section><h2 id="脚注"><span class="mw-headline">脚注</span></h2><div class="reflist"><ol class="references"><li id="cite_note-1"><span class="mw-cite-backlink">↑</span><span class="reference-text">出典を入力します。</span></li></ol></div></section>');
+        refreshSource();
+      });
+
+      titleInput.addEventListener('input', () => {
+        syncTitleToArticle();
+        filenameInput.value = `${slugify(titleInput.value)}.html`;
+        refreshSource();
+      });
+      [descriptionInput, navInput, typeInput, statusInput, updatedInput, filenameInput].forEach((input) => {
+        input.addEventListener('input', refreshSource);
+      });
+      editableArticle.addEventListener('input', refreshSource);
+
+      newPageButton.addEventListener('click', () => {
+        lastFrontMatter = {};
+        titleInput.value = '新規記事';
+        descriptionInput.value = '概要文を入力します。';
+        navInput.value = 'top';
+        typeInput.value = 'article';
+        statusInput.value = 'Public Draft';
+        updatedInput.value = '2026-05-11';
+        filenameInput.value = 'new-article.html';
+        editableArticle.innerHTML = '<header><h1>新規記事</h1><p class="meta">基本ID: new-article / 最終更新: 2026-05-11 / 公開状態: Public Draft</p><p>ここに概要文を入力します。</p></header><section><h2 id="概要"><span class="mw-headline">概要</span></h2><p>本文を入力します。</p></section>';
+        refreshSource();
+        setStatus('新規ページを作成しました。');
+      });
+
+      downloadSourceButton.addEventListener('click', () => {
+        refreshSource();
+        download(filenameInput.value || 'article.html', buildSource());
+        setStatus('Jekyll用HTMLを書き出しました。');
+      });
+
+      downloadStandaloneButton.addEventListener('click', () => {
+        const name = (filenameInput.value || 'article.html').replace(/\.html?$/i, '') + '-standalone.html';
+        download(name, buildStandalone());
+        setStatus('CSSを埋め込んだ単体HTMLを書き出しました。');
+      });
+
+      refreshSource();
+    })();
+  </script>
+</body>
+</html>
