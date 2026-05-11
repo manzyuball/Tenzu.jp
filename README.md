@@ -20,6 +20,7 @@
 - `assets/css/wiki.css`: 共通スタイル
 - `assets/app.js`: ナビゲーション、検索、ページ内目次
 - `assets/search-index.json`: クライアント内検索インデックス
+- `editor.html`: ブラウザだけで既存HTMLを読み込み、視覚編集し、Jekyll用HTMLまたはCSS埋め込み済み単体HTMLを書き出す編集室
 - `references/tenzu-generation-prompt.md`: Tenzu記事生成プロンプト
 - `references/templates-tenzu.md`: 記事テンプレート定義
 - `scripts/tenzu-quality-check.ps1`: 静的品質チェック
@@ -52,6 +53,15 @@ powershell -ExecutionPolicy Bypass -File scripts/tenzu-quality-check.ps1
 - `article_type` と `_data/article_sections.yml` の整合
 - 脚注IDの重複
 
+## 編集室の使い方
+
+`editor.html` をブラウザで開くと、既存の `*.html` を読み込んで本文をクリック編集できます。
+
+1. 「HTMLを開く」またはドラッグ＆ドロップで記事ファイルを読み込む。
+2. 見出し、太字、箇条書き、リンク、節追加などをツールバーから操作する。
+3. 通常公開用は「Jekyll用HTMLを書き出し」を使い、CSSや簡易レイアウトを含む配布用は「単体HTMLを書き出し」を使う。
+4. 書き出したファイルをリポジトリの同名ファイルへ置き換え、品質チェックを実行する。
+
 ## 運用メモ
 
-このサイトは静的ファイルだけで公開できる構成を維持します。サイバーセキュリティ上のリスクを増やす外部認証、投稿フォーム、管理API、データベース接続は、このリポジトリの通常運用には含めません。
+このサイトは静的ファイルだけで公開できる構成を維持します。サイバーセキュリティ上のリスクを増やす外部認証、投稿フォーム、管理API、データベース接続は、このリポジトリの通常運用には含めません。ブラウザ編集はローカルでHTMLを書き出す方式とし、公開反映はGitで管理します。
