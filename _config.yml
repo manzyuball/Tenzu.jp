@@ -9,4 +9,7 @@ kramdown:
   hard_wrap: false
 exclude:
   - README.md
-  - nanboku_nihon_senki.md
+  - docs/
+  - references/
+  - skills/
+  - scripts/
