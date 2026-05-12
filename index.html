@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="天通が運営する公開資料網。日本裂島記の公表時点に西日本側ネット空間で閲覧される百科事典風情報サイト。">
-<title>天通辞典 - Tenzu</title>
+<meta name="description" content="天通辞典のメインページ。南北日本戦記の世界における人物、勢力、軍事・安全保障記事への入口。">
+<title>メインページ - 天通辞典</title>
 <style>
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -118,6 +118,132 @@ ul, ol { margin: .45em 0 .85em 1.7em; }
   clear: both; margin-top: 22px; padding: 8px 10px; border: 1px solid var(--border);
   background: #f8f9fa; font-size: 13px;
 }
+
+/* ---------- Main page (Wikipedia-like portal) ---------- */
+#mw-article.main-page {
+  padding: 18px 22px 28px;
+}
+.main-page #firstHeading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.main-page .siteSub,
+.main-page .page-status {
+  display: none;
+}
+.mainpage-welcome {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 12px 18px;
+  background: #f8f9fa;
+  border: 1px solid var(--border);
+}
+.mainpage-welcome h2 {
+  margin: 0 0 2px;
+  padding: 0;
+  border: 0;
+  font-size: 1.55rem;
+  text-align: center;
+}
+.mainpage-welcome p {
+  margin: 0;
+  color: var(--text-muted);
+  text-align: center;
+}
+.mainpage-stats {
+  min-width: 205px;
+  padding-left: 14px;
+  border-left: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.mainpage-toplinks {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 13px;
+}
+.mainpage-toplinks a {
+  margin: 0 0.45em;
+  white-space: nowrap;
+}
+.mainpage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.mainpage-box {
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.mainpage-box h2 {
+  margin: 0;
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--border);
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.mainpage-box-body {
+  padding: 10px 12px 12px;
+}
+.mainpage-box-body p:last-child,
+.mainpage-box-body ul:last-child {
+  margin-bottom: 0;
+}
+.mainpage-featured h2 { background: #cef2e0; }
+.mainpage-news h2 { background: #cedff2; }
+.mainpage-categories h2 { background: #ddcef2; }
+.mainpage-guide h2 { background: #f2e0ce; }
+.mainpage-feature-list {
+  columns: 2 15em;
+}
+.mainpage-feature-list li {
+  break-inside: avoid;
+}
+.mainpage-search-panel {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: #f8f9fa;
+  text-align: center;
+}
+.mainpage-search-panel strong {
+  margin-right: 0.5em;
+}
+.mainpage-sister {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.mainpage-sister h2 {
+  margin: 0 0 6px;
+  padding: 0 0 4px;
+  border-bottom: 1px solid var(--border-light);
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.mainpage-sister ul {
+  columns: 3 13em;
+}
+@media (max-width: 980px) {
+  .mainpage-welcome { grid-template-columns: 1fr; }
+  .mainpage-stats { min-width: 0; padding-left: 0; border-left: 0; border-top: 1px solid var(--border-light); padding-top: 8px; }
+  .mainpage-grid { grid-template-columns: 1fr; }
+}
+
 #mw-right-aside {
   position: sticky; top: 66px; background: #fff; border: 1px solid var(--border-light); padding: 12px; font-size: 12px;
 }
@@ -155,8 +281,8 @@ footer {
   </a>
   <nav id="mw-head-nav" aria-label="ページ操作">
     <a class="mw-tab active" href="index.html">閲覧</a>
-    <a class="mw-tab" href="#sec-出典">出典</a>
-    <a class="mw-tab" href="#sec-関連項目">関連項目</a>
+    <a class="mw-tab" href="#mainpage-featured">おすすめ項目</a>
+    <a class="mw-tab" href="#mainpage-categories">カテゴリ</a>
   </nav>
   <form id="mw-search" onsubmit="runSearch(event)">
     <input id="mw-search-input" type="search" placeholder="Tenzu内を検索" aria-label="Tenzu内を検索">
@@ -170,71 +296,110 @@ footer {
 </nav>
 <main id="mw-content">
   <div class="content-wrapper">
-    <article id="mw-article">
-      <h1 id="firstHeading">天通辞典<span class="reading-ruby">（てんつうじてん）</span></h1>
+    <article id="mw-article" class="main-page">
+      <h1 id="firstHeading">メインページ</h1>
       <div class="siteSub">出典: 天通辞典</div>
-      <div class="page-status">公開資料基準: 公表時点 / 分類: 企業・団体</div>
+      <div class="page-status">公開資料基準: 公表時点 / 分類: メインページ</div>
 
-      <div class="infobox">
-        <div class="infobox-title">天通辞典</div>
-        <div class="infobox-subtitle">Tenzu / 公開資料網</div>
-        <table><tbody>
-          <tr class="infobox-section-header"><td colspan="2">基本情報</td></tr>
-          <tr><th>名称</th><td>天通辞典</td></tr>
-<tr><th>運営</th><td>天通</td></tr>
-<tr><th>種別</th><td>公開資料網</td></tr>
-<tr><th>対象</th><td>人物、国家・行政、企業・団体、軍事・安全保障</td></tr>
-<tr><th>基準時点</th><td>公表時点</td></tr>
-        </tbody></table>
+      <section class="mainpage-welcome" aria-labelledby="mainpage-welcome-title">
+        <div>
+          <h2 id="mainpage-welcome-title">天通辞典へようこそ</h2>
+          <p>天通辞典は、南北日本戦記の世界における人物・国家・企業・軍事情報を百科事典形式で整理する公開資料網です。</p>
+        </div>
+        <div class="mainpage-stats" aria-label="天通辞典の統計">
+          <b>現在の収録項目</b><br>
+          人物 5項目 / 勢力 7項目 / 歴史・軍事 1項目<br>
+          公開資料に基づく中立的記述を基本としています。
+        </div>
+      </section>
+
+      <nav class="mainpage-toplinks" aria-label="主要入口">
+        <a href="factions.html">国家・行政・企業団体</a>
+        <a href="characters.html">人物</a>
+        <a href="history.html">軍事・安全保障</a>
+        <a href="faction-tenzu.html">天通</a>
+        <a href="editor.html">編集室</a>
+      </nav>
+
+      <div class="mainpage-grid">
+        <section id="mainpage-featured" class="mainpage-box mainpage-featured" aria-labelledby="mainpage-featured-title">
+          <h2 id="mainpage-featured-title">秀逸な項目</h2>
+          <div class="mainpage-box-body">
+            <p><b><a href="faction-tenzu.html">天通</a></b>は、西日本側の通信・物流・資料網に強い影響を持つ企業体であり、天通辞典の運営主体としても扱われる。記事では公開資料に確認できる事業、行政との関係、批判・論争を分けて説明している。</p>
+            <ul class="mainpage-feature-list">
+              <li><a href="faction-yamazaki-kawashiro-industries.html">山崎川城工業</a></li>
+              <li><a href="faction-moriya-yasaka-group.html">守矢グループ</a></li>
+              <li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li>
+              <li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="mainpage-box mainpage-news" aria-labelledby="mainpage-news-title">
+          <h2 id="mainpage-news-title">新着・更新された項目</h2>
+          <div class="mainpage-box-body">
+            <ul>
+              <li><a href="character-hakurei-reimu.html">博麗霊夢</a> — 境界線周辺の宗教・治安認識に関わる人物。</li>
+              <li><a href="character-marisa.html">霧雨魔理沙</a> — 独立行動者としての記録を中心に整理。</li>
+              <li><a href="character-sanae.html">東風谷早苗</a> — 守矢系統の対外活動と関連する人物。</li>
+              <li><a href="character-yasaka-kanako.html">八坂神奈子</a>、<a href="character-toyosato-miko.html">豊聡耳神子</a>を人物項目に追加。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="mainpage-categories" class="mainpage-box mainpage-categories" aria-labelledby="mainpage-categories-title">
+          <h2 id="mainpage-categories-title">分野別入口</h2>
+          <div class="mainpage-box-body">
+            <table class="wikitable">
+              <tbody>
+                <tr><th><a href="factions.html">国家・行政</a></th><td>京都政府、東京政府、関連行政機構、地域統治。</td></tr>
+                <tr><th><a href="factions.html">企業・団体</a></th><td>天通、山崎川城工業、守矢グループ、相川組など。</td></tr>
+                <tr><th><a href="characters.html">人物</a></th><td>公開資料に現れる主要人物と所属・活動。</td></tr>
+                <tr><th><a href="history.html">軍事・安全保障</a></th><td>南北分断、境界線、装備、治安関連の基礎項目。</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="mainpage-box mainpage-guide" aria-labelledby="mainpage-guide-title">
+          <h2 id="mainpage-guide-title">天通辞典について</h2>
+          <div class="mainpage-box-body">
+            <p>本辞典は作中社会の公開資料としての体裁を採り、未確認の出来事や非公開組織の断定的記述を避ける。企業発表、行政資料、報道で確認できる範囲を区別し、宣伝文体にならないよう記述する。</p>
+            <ul>
+              <li><a href="docs/wikipedia-rework-plan.md">Wikipedia準拠リワーク計画</a></li>
+              <li><a href="references/templates-tenzu.md">記事テンプレート</a></li>
+              <li><a href="references/tenzu-generation-prompt.md">記事生成方針</a></li>
+            </ul>
+          </div>
+        </section>
       </div>
-      <p><b>天通辞典</b>は、天通が運営する公開資料網。日本裂島記の公表時点に西日本側ネット空間で閲覧される百科事典風情報サイト。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
-      <div id="toc"><div id="toc-title">目次 <span id="toc-toggle" onclick="toggleToc()">[非表示]</span></div><div id="toc-body"><ol><li><a href="#sec-概要"><span class="toc-number">1</span>概要</a></li><li><a href="#sec-収録分野"><span class="toc-number">2</span>収録分野</a></li><li><a href="#sec-編集方針"><span class="toc-number">3</span>編集方針</a></li><li><a href="#sec-組織構造"><span class="toc-number">4</span>組織構造</a></li><li><a href="#sec-主要事業"><span class="toc-number">5</span>主要事業</a></li><li><a href="#sec-行政との関係"><span class="toc-number">6</span>行政との関係</a></li><li><a href="#sec-技術-情報基盤"><span class="toc-number">7</span>技術・情報基盤</a></li><li><a href="#sec-社会的影響"><span class="toc-number">8</span>社会的影響</a></li><li><a href="#sec-批判-論争"><span class="toc-number">9</span>批判・論争</a></li><li><a href="#sec-注釈"><span class="toc-number">10</span>注釈</a></li><li><a href="#sec-出典"><span class="toc-number">11</span>出典</a></li><li><a href="#sec-関連項目"><span class="toc-number">12</span>関連項目</a></li></ol></div></div>
-      <table class="wikitable"><thead><tr><th>観点</th><th>記事での扱い</th></tr></thead><tbody><tr><td>事業領域</td><td>生活基盤、技術、通信、物流、地下経済などを組織ごとの活動として説明する。</td></tr><tr><td>行政との関係</td><td>発注、認可、共同事業、規制を通じた関係を扱う。</td></tr><tr><td>批判点</td><td>寡占、監督不足、政治との距離、地域社会への影響を扱う。</td></tr></tbody></table>
-      <h2 id="sec-概要">概要</h2>
-<p>天通辞典は、天通が運営する公開資料網である。分断下の日本列島に関する人物、行政機構、企業・団体、軍事・安全保障の情報を百科事典風に整理する。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
-<p>本サイトは中立的な百科事典形式を採るが、項目の粒度、語彙、参照される資料には西日本側の情報環境が反映されている。</p>
-<h2 id="sec-収録分野">収録分野</h2>
-<p>収録分野は人物、国家・行政、企業・団体、軍事・安全保障の四分野を基本とする。地理、技術、メディア、用語は独立分野とせず、関係する記事の本文内で補助的に扱う。<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></p>
-<h2 id="sec-編集方針">編集方針</h2>
-<p>記事は公表時点の公開情報として記述される。未発生の政治事件、未公表の武力衝突、失脚、事後評価、非公開組織に関する断定的記述は扱わない。<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></p>
-<h2 id="sec-組織構造">組織構造</h2>
-<p>組織構造は、持株会社、系列会社、関連団体、地域拠点、行政との窓口に分けて説明される。公開資料で確認できない出資関係や非公開部門は断定しない。<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup></p>
-<h2 id="sec-主要事業">主要事業</h2>
-<p>主要事業は、生活基盤、通信、物流、金融、装備調達、港湾、報道、資料網など、社会機能に直結する領域に分かれる。単なる業種分類ではなく、行政や住民がどの機能に依存しているかを軸に記述する。<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup></p>
-<h2 id="sec-行政との関係">行政との関係</h2>
-<p>行政との関係は、補助金、認可、委託、共同事業、災害対応、境界線周辺の安全保障契約に現れる。企業側は公共性と効率性を強調する一方、批判的報道では政策決定と企業利益の境界が曖昧になりやすい点が論じられる。<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup></p>
-<h2 id="sec-技術-情報基盤">技術・情報基盤</h2>
-<p>技術、メディア、用語、地理に関する説明は独立カテゴリにせず、組織の活動の一部として扱う。Octpath4.7、上海型無人機、天網、天網中継塔ネットワークなどは、河城工業や天通の事業、または軍事・安全保障記事内で説明する。<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup></p>
-<h2 id="sec-社会的影響">社会的影響</h2>
-<p>企業・団体は雇用、生活基盤、物流、情報流通、技術調達を通じて地域社会に影響を及ぼす。利便性や安定供給への評価と、寡占や監督不足への批判が併存する。<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup></p>
-<h2 id="sec-批判-論争">批判・論争</h2>
-<p>批判点は、価格決定の透明性、行政への影響、地方事業者の排除、個人情報や通信記録の扱い、下請企業への負担に集中する。記事では企業発表と批判的報道を並置し、どちらか一方の宣伝文体に寄せない。<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup></p>
-      <h2 id="sec-注釈">注釈</h2>
-      <ol class="references"><li>この記事は作中社会の公開資料としての体裁を採り、未発生事件や非公開組織の断定的記述を避けている。</li></ol>
-      <h2 id="sec-出典">出典</h2>
-      <ol class="references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 概要」公開資料整理、2026年。</span></li>
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 収録分野」公開資料整理、2026年。</span></li>
-<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 編集方針」公開資料整理、2026年。</span></li>
-<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 組織構造」公開資料整理、2026年。</span></li>
-<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 主要事業」公開資料整理、2026年。</span></li>
-<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 行政との関係」公開資料整理、2026年。</span></li>
-<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 技術・情報基盤」公開資料整理、2026年。</span></li>
-<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 社会的影響」公開資料整理、2026年。</span></li>
-<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text">天通辞典編集部「天通辞典 批判・論争」公開資料整理、2026年。</span></li></ol>
-      <h2 id="sec-関連項目">関連項目</h2>
-      <ul><li><a href="factions.html">国家・行政</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">軍事・安全保障</a></li></ul>
-      <div class="category-box"><strong>カテゴリ:</strong> <a href="factions.html">企業・団体</a> | <a href="index.html">メインページ</a> | <a href="index.html">日本裂島記</a></div>
+
+      <section class="mainpage-search-panel" aria-label="検索案内">
+        <strong>調べものを始める:</strong>
+        上部検索欄に人物名、勢力名、軍事用語を入力するか、<a href="assets/search-index.json">検索インデックス</a>から収録語を確認できます。
+      </section>
+
+      <section class="mainpage-sister" aria-labelledby="mainpage-sister-title">
+        <h2 id="mainpage-sister-title">関連プロジェクト</h2>
+        <ul>
+          <li><a href="nanboku_nihon_senki.md">南北日本戦記 原資料</a></li>
+          <li><a href="editor.html">天通辞典 編集室</a></li>
+          <li><a href="docs/wikipedia-style-gap-audit.md">Wikipedia風監査</a></li>
+        </ul>
+      </section>
+
+      <div class="category-box"><strong>カテゴリ:</strong> <a href="index.html">メインページ</a> | <a href="index.html">日本裂島記</a> | <a href="factions.html">公開資料網</a></div>
     </article>
     <aside id="mw-right-aside">
       <div class="right-aside-title">ページツール</div>
-      <div class="right-aside-section"><ul><li><a href="#firstHeading">先頭へ</a></li><li><a href="#toc">目次</a></li><li><a href="#sec-出典">出典</a></li></ul></div>
+      <div class="right-aside-section"><ul><li><a href="#firstHeading">先頭へ</a></li><li><a href="#mainpage-featured">秀逸な項目</a></li><li><a href="#mainpage-categories">分野別入口</a></li></ul></div>
       <div class="right-aside-title">この項目</div>
-      <div class="right-aside-section"><p>メインページ</p><p>Tenzu / 公開資料網</p></div>
+      <div class="right-aside-section"><p>メインページ</p><p>南北日本戦記 / 公開資料網</p></div>
     </aside>
   </div>
 </main>
 <footer>
-  <p>このページは天通辞典の単体HTML資料です。内容は公表時点の公開資料として記述されています。</p>
+  <p>このメインページは天通辞典の単体HTML資料です。内容は公表時点の公開資料として記述されています。</p>
   <p><a href="index.html">メインページ</a> | <a href="factions.html">国家・行政</a> | <a href="characters.html">人物</a> | <a href="history.html">軍事・安全保障</a></p>
 </footer>
 <script>
