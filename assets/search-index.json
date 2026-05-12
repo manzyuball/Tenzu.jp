@@ -1,339 +1,282 @@
 [
-    {
-        "title":  "天通辞典",
-        "url":  "index.html",
-        "summary":  "天通が運営する公開資料網。勢力、人物、歴史を継続改稿する。",
-        "tags":  [
-                     "top",
-                     "home",
-                     "tenzu"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "top",
-        "aliases":  [
-
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "勢力",
-        "url":  "factions.html",
-        "summary":  "国家、企業集団、報道機関、軍需企業、地下経済組織に関する公開資料の一覧。",
-        "tags":  [
-                     "section",
-                     "factions",
-                     "power",
-                     "勢力一覧"
-                 ],
-        "article_type":  "hub",
-        "nav_section":  "factions",
-        "aliases":  [
-                        "勢力一覧",
-                        "関係主体一覧"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "人物",
-        "url":  "characters.html",
-        "summary":  "2026年5月6日時点で公表資料に現れる主要人物の職務、所属、報道上の評価を収録。",
-        "tags":  [
-                     "section",
-                     "characters"
-                 ],
-        "article_type":  "hub",
-        "nav_section":  "characters",
-        "aliases":  [
-
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "歴史",
-        "url":  "history.html",
-        "summary":  "分断、停戦線、制度再編、企業基盤形成に関する公開資料。",
-        "tags":  [
-                     "section",
-                     "history",
-                     "歴史",
-                     "南北分断",
-                     "停戦線",
-                     "制度再編"
-                 ],
-        "article_type":  "hub",
-        "nav_section":  "history",
-        "aliases":  [
-                        "歴史記事",
-                        "歴史資料"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "技術水準",
-        "url":  "world-technology.html",
-        "summary":  "通信、重工業、防衛、AI、物流技術に関する公表資料。",
-        "tags":  [
-                     "detail",
-                     "technology",
-                     "技術",
-                     "history"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "history",
-        "aliases":  [
-
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "洩八グループ",
-        "url":  "faction-moriya-yasaka-group.html",
-        "summary":  "金融・電力・物流を束ね、西日本の基礎供給を支える準統治的財閥。",
-        "tags":  [
-                     "detail",
-                     "faction",
-                     "zaibatsu",
-                     "chaebol",
-                     "keiretsu",
-                     "conglomerate",
-                     "財閥",
-                     "三社体制",
-                     "公共圏",
-                     "諏訪財閥"
-                 ],
-        "article_type":  "corporation",
-        "nav_section":  "factions",
-        "aliases":  [
-                        "洩八",
-                        "諏訪財閥",
-                        "西日本生活基盤財閥"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "日本国（東京政権）",
-        "url":  "faction-japan-tokyo-government.html",
-        "summary":  "太子体制、監視社会、計画経済で成り立つ東日本側政府に関する資料。",
-        "tags":  [
-                     "detail",
-                     "faction",
-                     "state",
-                     "北日本",
-                     "東京政権"
-                 ],
-        "article_type":  "state",
-        "nav_section":  "factions",
-        "aliases":  [
-                        "東京政権",
-                        "東側日本国",
-                        "日本国"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "日本国（京都政権）",
-        "url":  "faction-japan-kyoto-government.html",
-        "summary":  "国際的に「日本」議席を継承する西日本側政府に関する資料。",
-        "tags":  [
-                     "detail",
-                     "faction",
-                     "state",
-                     "南日本",
-                     "京都政権"
-                 ],
-        "article_type":  "state",
-        "nav_section":  "factions",
-        "aliases":  [
-                        "南日本",
-                        "京都政権",
-                        "日本国"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "山崎川城工業",
-        "url":  "faction-yamazaki-kawashiro-industries.html",
-        "summary":  "防衛・宇宙・半導体・AIを束ねる技術複合体。",
-        "tags":  [
-                     "detail",
-                     "faction",
-                     "industry",
-                     "technology",
-                     "chaebol",
-                     "keiretsu",
-                     "conglomerate",
-                     "財閥",
-                     "三社体制",
-                     "軍需",
-                     "軍需複合体"
-                 ],
-        "article_type":  "corporation",
-        "nav_section":  "factions",
-        "aliases":  [
-                        "山崎川城",
-                        "山崎川城重工",
-                        "西日本技術同盟中核"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "天通",
-        "url":  "faction-tenzu.html",
-        "summary":  "通信、報道、SNS、EC、辞典運営を束ねる情報複合体。",
-        "tags":  [
-                     "detail",
-                     "tenzu",
-                     "media",
-                     "platform",
-                     "chaebol",
-                     "keiretsu",
-                     "conglomerate",
-                     "財閥",
-                     "三社体制",
-                     "公共圏",
-                     "天網"
-                 ],
-        "article_type":  "media",
-        "nav_section":  "factions",
-        "aliases":  [
-                        "天通ホールディングス",
-                        "天網",
-                        "天通辞典運営体"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "レイム",
-        "url":  "character-hakurei-reimu.html",
-        "summary":  "南日本将軍。平時無関心と戦闘時覚醒の二面性を持つ。",
-        "tags":  [
-                     "detail",
-                     "character"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "characters",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "マリサ",
-        "url":  "character-marisa.html",
-        "summary":  "北日本将軍。努力型の前線指揮官。",
-        "tags":  [
-                     "detail",
-                     "character"
-                 ],
-        "article_type":  "person",
-        "nav_section":  "characters",
-        "aliases":  [
-                        "霧雨マリサ",
-                        "北部前線の実務家"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "沙苗",
-        "url":  "character-sanae.html",
-        "summary":  "日本国（京都政権）の総理大臣。統一政策会議を主宰する政治家。",
-        "tags":  [
-                     "detail",
-                     "character",
-                     "person",
-                     "京都政権"
-                 ],
-        "article_type":  "person",
-        "nav_section":  "characters",
-        "aliases":  [
-                        "東風谷沙苗",
-                        "京都政権総理"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "弥栄",
-        "url":  "character-yasaka-kanako.html",
-        "summary":  "洩八グループ会長。生活基盤事業の再編と政財関係で知られる財界人。",
-        "tags":  [
-                     "detail",
-                     "character",
-                     "person",
-                     "財界"
-                 ],
-        "article_type":  "person",
-        "nav_section":  "characters",
-        "aliases":  [
-                        "八坂神奈子",
-                        "洩八会長",
-                        "諏訪財界の調整者"
-                    ],
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "御子",
-        "url":  "character-toyosato-miko.html",
-        "summary":  "北日本最高指導者。演説政治と情報集中を併用。",
-        "tags":  [
-                     "detail",
-                     "character"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "characters",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    },
-    {
-        "title":  "相川組",
-        "url":  "faction-aikawa-gumi.html",
-        "summary":  "佐渡島を拠点に日本海沿岸物流へ影響を持つ港湾系地下経済ネットワーク。",
-        "tags":  [
-                     "detail",
-                     "faction",
-                     "佐渡",
-                     "港湾",
-                     "密輸",
-                     "境界経済"
-                 ],
-        "article_type":  "detail",
-        "nav_section":  "factions",
-        "aliases":  {
-
-                    },
-        "related":  [
-
-                    ]
-    }
+  {
+    "title": "天通辞典",
+    "url": "index.html",
+    "summary": "天通が運営する公開資料網。日本裂島記の公表時点に西日本側ネット空間で閲覧される百科事典風情報サイト。",
+    "tags": [
+      "企業・団体",
+      "メインページ",
+      "Tenzu / 公開資料網",
+      "てんつうじてん"
+    ],
+    "article_type": "企業・団体",
+    "nav_section": "index",
+    "aliases": [],
+    "related": [
+      "国家・行政",
+      "人物",
+      "軍事・安全保障"
+    ]
+  },
+  {
+    "title": "日本国（京都政府）",
+    "url": "faction-japan-kyoto-government.html",
+    "summary": "京都に政府中枢を置く日本国。通称は西日本、政権呼称は京都政府。",
+    "tags": [
+      "国家・行政",
+      "国家・行政",
+      "西日本 / 京都政府",
+      "にほんこく きょうとせいふ"
+    ],
+    "article_type": "国家・行政",
+    "nav_section": "factions",
+    "aliases": [],
+    "related": [
+      "日本国（東京政府）",
+      "東風谷早苗",
+      "守矢グループ"
+    ]
+  },
+  {
+    "title": "日本国（東京政府）",
+    "url": "faction-japan-tokyo-government.html",
+    "summary": "東京に政府中枢を置く日本国。通称は東日本、政権呼称は東京政府。",
+    "tags": [
+      "国家・行政",
+      "国家・行政",
+      "東日本 / 東京政府",
+      "にほんこく とうきょうせいふ"
+    ],
+    "article_type": "国家・行政",
+    "nav_section": "factions",
+    "aliases": [],
+    "related": [
+      "日本国（京都政府）",
+      "豊聡耳神子",
+      "霧雨魔理沙"
+    ]
+  },
+  {
+    "title": "人物",
+    "url": "characters.html",
+    "summary": "公表時点の公開資料に現れる主要人物の一覧。",
+    "tags": [
+      "人物",
+      "一覧",
+      "人物一覧",
+      "じんぶつ"
+    ],
+    "article_type": "人物",
+    "nav_section": "characters",
+    "aliases": [],
+    "related": [
+      "博麗霊夢",
+      "霧雨魔理沙",
+      "東風谷早苗",
+      "八坂神奈子",
+      "豊聡耳神子"
+    ]
+  },
+  {
+    "title": "国家・行政・企業団体",
+    "url": "factions.html",
+    "summary": "国家、行政機構、企業、団体に関する公開資料の一覧。",
+    "tags": [
+      "国家・行政",
+      "一覧",
+      "収録項目一覧",
+      "こっか ぎょうせい きぎょうだんたい"
+    ],
+    "article_type": "国家・行政",
+    "nav_section": "factions",
+    "aliases": [],
+    "related": [
+      "日本国（京都政府）",
+      "日本国（東京政府）",
+      "守矢グループ",
+      "河城工業",
+      "天通"
+    ]
+  },
+  {
+    "title": "軍事・安全保障",
+    "url": "history.html",
+    "summary": "中央境界線、共同警備区、駐屯部隊、技術基盤など軍事・安全保障に関する公開資料。",
+    "tags": [
+      "軍事・安全保障",
+      "一覧",
+      "安全保障項目一覧",
+      "ぐんじ あんぜんほしょう"
+    ],
+    "article_type": "軍事・安全保障",
+    "nav_section": "history",
+    "aliases": [],
+    "related": [
+      "河城工業",
+      "天通",
+      "日本国（京都政府）"
+    ]
+  },
+  {
+    "title": "博麗霊夢",
+    "url": "character-hakurei-reimu.html",
+    "summary": "日本国（京都政府）側の自衛官。陸上自衛隊高級幹部として、中央境界線周辺の即応体制や部隊運用に関わる人物として知られる。",
+    "tags": [
+      "人物",
+      "人物",
+      "日本国（京都政府） / 陸上自衛隊高級幹部",
+      "はくれい れいむ"
+    ],
+    "article_type": "人物",
+    "nav_section": "characters",
+    "aliases": [],
+    "related": [
+      "人物",
+      "日本国（京都政府）"
+    ]
+  },
+  {
+    "title": "霧雨魔理沙",
+    "url": "character-marisa.html",
+    "summary": "日本国（東京政府）側の軍人。前線指揮、兵站再建、通信・補給網の運用で知られる。",
+    "tags": [
+      "人物",
+      "人物",
+      "日本国（東京政府） / 前線指揮官",
+      "きりさめ まりさ"
+    ],
+    "article_type": "人物",
+    "nav_section": "characters",
+    "aliases": [],
+    "related": [
+      "人物",
+      "日本国（東京政府）"
+    ]
+  },
+  {
+    "title": "東風谷早苗",
+    "url": "character-sanae.html",
+    "summary": "日本国（京都政府）の政治家。首相として統一政策、境界線政策、政財界調整に関与する。",
+    "tags": [
+      "人物",
+      "人物",
+      "日本国（京都政府） / 首相",
+      "こちや さなえ"
+    ],
+    "article_type": "人物",
+    "nav_section": "characters",
+    "aliases": [],
+    "related": [
+      "人物",
+      "日本国（京都政府）"
+    ]
+  },
+  {
+    "title": "八坂神奈子",
+    "url": "character-yasaka-kanako.html",
+    "summary": "守矢グループの会長。地方金融、電力、交通、保険を束ねる企業集団の経営者として知られる。",
+    "tags": [
+      "人物",
+      "人物",
+      "守矢グループ / 会長",
+      "やさか かなこ"
+    ],
+    "article_type": "人物",
+    "nav_section": "characters",
+    "aliases": [],
+    "related": [
+      "人物",
+      "守矢グループ"
+    ]
+  },
+  {
+    "title": "豊聡耳神子",
+    "url": "character-toyosato-miko.html",
+    "summary": "日本国（東京政府）の政治家。東京政府の指導層に属し、国家統合と生活保障を掲げる人物として扱われる。",
+    "tags": [
+      "人物",
+      "人物",
+      "日本国（東京政府） / 政治指導者",
+      "とよさとみみ の みこ"
+    ],
+    "article_type": "人物",
+    "nav_section": "characters",
+    "aliases": [],
+    "related": [
+      "人物",
+      "日本国（東京政府）"
+    ]
+  },
+  {
+    "title": "守矢グループ",
+    "url": "faction-moriya-yasaka-group.html",
+    "summary": "地方金融、電力、地域交通、農業流通、保険を中核とする生活基盤企業集団。",
+    "tags": [
+      "企業・団体",
+      "企業・団体",
+      "生活基盤企業集団",
+      "もりやグループ"
+    ],
+    "article_type": "企業・団体",
+    "nav_section": "factions",
+    "aliases": [],
+    "related": [
+      "国家・行政・企業団体",
+      "軍事・安全保障"
+    ]
+  },
+  {
+    "title": "河城工業",
+    "url": "faction-yamazaki-kawashiro-industries.html",
+    "summary": "防衛、宇宙、自動車、半導体、AIを束ねる技術複合企業。",
+    "tags": [
+      "企業・団体",
+      "企業・団体",
+      "技術複合企業",
+      "かわしろこうぎょう"
+    ],
+    "article_type": "企業・団体",
+    "nav_section": "factions",
+    "aliases": [],
+    "related": [
+      "国家・行政・企業団体",
+      "軍事・安全保障"
+    ]
+  },
+  {
+    "title": "天通",
+    "url": "faction-tenzu.html",
+    "summary": "通信、報道、SNS、EC、天通辞典、天網中継塔ネットワークを運営する情報複合体。",
+    "tags": [
+      "企業・団体",
+      "企業・団体",
+      "情報複合体",
+      "てんつう"
+    ],
+    "article_type": "企業・団体",
+    "nav_section": "factions",
+    "aliases": [],
+    "related": [
+      "国家・行政・企業団体",
+      "軍事・安全保障"
+    ]
+  },
+  {
+    "title": "佐渡島組",
+    "url": "faction-aikawa-gumi.html",
+    "summary": "佐渡島周辺の港湾、物流、地下経済に関与するとされる組織。",
+    "tags": [
+      "企業・団体",
+      "企業・団体",
+      "地下経済組織",
+      "さどしまぐみ"
+    ],
+    "article_type": "企業・団体",
+    "nav_section": "factions",
+    "aliases": [],
+    "related": [
+      "国家・行政・企業団体",
+      "軍事・安全保障"
+    ]
+  }
 ]

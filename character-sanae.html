@@ -1,98 +1,260 @@
----
-layout: default
-title: "沙苗"
-description: "日本国（京都政権）の政治家。総理大臣として統一政策会議と境界線政策を担当する人物。"
-nav_section: characters
-article_type: person
-status: Public Draft
-updated_on: 2026-05-06
-aliases:
-  - 東風谷沙苗
-  - 京都政権総理
----
-{% capture toc_body %}
-<ul>
-  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
-  <li><a href="#来歴"><span class="tocnumber">2</span> <span class="toctext">来歴</span></a></li>
-  <li><a href="#統一政策"><span class="tocnumber">3</span> <span class="toctext">統一政策</span></a></li>
-  <li><a href="#政治手法"><span class="tocnumber">4</span> <span class="toctext">政治手法</span></a></li>
-  <li><a href="#評価"><span class="tocnumber">5</span> <span class="toctext">評価</span></a></li>
-  <li><a href="#脚注"><span class="tocnumber">6</span> <span class="toctext">脚注</span></a></li>
-  <li><a href="#関連項目"><span class="tocnumber">7</span> <span class="toctext">関連項目</span></a></li>
-</ul>
-{% endcapture %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="日本国（京都政府）の政治家。首相として統一政策、境界線政策、政財界調整に関与する。">
+<title>東風谷早苗 - Tenzu</title>
+<style>
 
-<nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › <a href="characters.html">人物</a> › 沙苗</nav>
-<article class="mw-parser-output hentry" itemscope itemtype="https://schema.org/Person">
-  <header>
-    <h1 class="firstHeading" itemprop="name">沙苗</h1>
-    <p class="meta">基本ID: character-sanae / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
-    <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
-  </header>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #fff; --bg-sidebar: #f8f9fa; --bg-header: #fff; --bg-toc: #f8f9fa;
+  --bg-infobox: #f8f9fa; --border: #a2a9b1; --border-light: #eaecf0;
+  --link: #36c; --link-visited: #6b4ba1; --link-new: #d33;
+  --text: #202122; --text-muted: #54595d; --text-light: #72777d;
+  --wikibg: #eaecf0; --notice-bg: #eaf3fb; --notice-border: #36c;
+  --infobox-head: #c8d5e8; --infobox-section: #d8e2ee;
+}
+html { font-size: 14px; scroll-padding-top: 62px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text); background: var(--wikibg); line-height: 1.65;
+}
+a { color: var(--link); text-decoration: none; }
+a:visited { color: var(--link-visited); }
+a:hover, a:focus { text-decoration: underline; }
+#mw-head {
+  position: sticky; top: 0; z-index: 100; height: 50px; display: flex; align-items: stretch;
+  background: var(--bg-header); border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+#mw-logo {
+  display: flex; align-items: center; gap: 8px; min-width: 180px; padding: 0 16px;
+  border-right: 1px solid var(--border-light); text-decoration: none; flex-shrink: 0;
+}
+.wiki-sphere {
+  width: 36px; height: 36px; border-radius: 50%; position: relative; overflow: hidden; flex-shrink: 0;
+  background: radial-gradient(circle at 35% 35%, #4a90d9, #1a4a7a); border: 2px solid #2a5ca8;
+}
+.wiki-sphere::after {
+  content: ""; position: absolute; inset: 2px; border-radius: 50%;
+  background: repeating-linear-gradient(30deg, transparent, transparent 3px, rgba(255,255,255,.09) 3px, rgba(255,255,255,.09) 4px),
+              repeating-linear-gradient(-30deg, transparent, transparent 3px, rgba(255,255,255,.06) 3px, rgba(255,255,255,.06) 4px);
+}
+.wiki-sphere-letter {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 16px; color: #fff; z-index: 1;
+}
+#mw-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+#mw-logo-text strong { font-family: Georgia, "Times New Roman", serif; font-size: 16px; color: var(--text); }
+#mw-logo-text span { font-size: 10px; color: var(--text-light); letter-spacing: .05em; }
+#mw-head-nav { display: flex; align-items: center; padding: 0 8px; flex: 1; gap: 2px; }
+.mw-tab {
+  display: flex; align-items: center; height: 100%; padding: 0 12px; border-left: 1px solid transparent;
+  border-right: 1px solid transparent; color: var(--text-muted); font-size: 13px;
+}
+.mw-tab.active { color: var(--text); background: #fff; border-left-color: var(--border-light); border-right-color: var(--border-light); border-bottom: 2px solid var(--link); }
+#mw-search { display: flex; align-items: center; padding: 8px 14px; gap: 0; }
+#mw-search input { width: 230px; height: 32px; padding: 5px 9px; border: 1px solid var(--border); border-right: 0; font: inherit; background: #fff; }
+#mw-search button { height: 32px; padding: 0 12px; border: 1px solid var(--border); background: #f8f9fa; cursor: pointer; }
+#mw-sidebar {
+  position: fixed; top: 50px; left: 0; bottom: 0; width: 176px; overflow-y: auto;
+  background: var(--bg-sidebar); border-right: 1px solid var(--border-light); padding: 18px 12px;
+}
+.sidebar-section { margin-bottom: 20px; }
+.sidebar-header { color: var(--text-muted); font-size: 12px; border-bottom: 1px solid var(--border-light); margin-bottom: 6px; padding-bottom: 3px; }
+.sidebar-section ul { list-style: none; font-size: 13px; }
+.sidebar-section li { margin: 3px 0; }
+#mw-content { margin-left: 176px; padding: 16px 24px 38px; }
+.content-wrapper { max-width: 1180px; display: grid; grid-template-columns: minmax(0, 1fr) 218px; gap: 20px; align-items: start; }
+#mw-article {
+  background: var(--bg); border: 1px solid var(--border-light); padding: 24px 32px 34px; min-width: 0;
+}
+#firstHeading {
+  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif; font-weight: 400; font-size: 2.05rem;
+  line-height: 1.25; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 8px;
+}
+.reading-ruby { font-size: .55em; color: var(--text-muted); margin-left: .35em; }
+.siteSub, .page-status { color: var(--text-muted); font-size: 12px; margin: 4px 0; }
+.notice {
+  clear: both; margin: 14px 0; padding: 10px 12px; border: 1px solid var(--notice-border);
+  background: var(--notice-bg); font-size: 13px;
+}
+.infobox {
+  float: right; width: 310px; margin: 0 0 16px 22px; border: 1px solid var(--border);
+  background: var(--bg-infobox); font-size: 12px; border-collapse: collapse;
+}
+.infobox-title { background: var(--infobox-head); font-weight: 700; text-align: center; padding: 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
+.infobox-subtitle { text-align: center; padding: 5px; border-bottom: 1px solid var(--border-light); color: var(--text-muted); }
+.infobox table { width: 100%; border-collapse: collapse; }
+.infobox th, .infobox td { border-top: 1px solid var(--border-light); padding: 6px 7px; vertical-align: top; }
+.infobox th { width: 34%; text-align: left; background: #eaecf0; font-weight: 700; }
+.infobox-section-header td { background: var(--infobox-section); text-align: center; font-weight: 700; }
+p { margin: .6em 0 .9em; }
+h2 {
+  clear: both; margin: 1.35em 0 .55em; padding-bottom: 3px; border-bottom: 1px solid var(--border);
+  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif; font-weight: 400; font-size: 1.55rem;
+}
+h3 { margin: 1.05em 0 .35em; font-size: 1.15rem; }
+ul, ol { margin: .45em 0 .85em 1.7em; }
+.wikitable { border-collapse: collapse; margin: 1em 0; background: #fff; font-size: 13px; width: 100%; }
+.wikitable th, .wikitable td { border: 1px solid var(--border); padding: 7px 8px; vertical-align: top; }
+.wikitable th { background: #eaecf0; font-weight: 700; text-align: left; }
+#toc {
+  display: inline-block; min-width: 280px; max-width: 100%; margin: 14px 0 18px; padding: 0;
+  border: 1px solid var(--border); background: var(--bg-toc); font-size: 13px;
+}
+#toc-title { padding: 7px 10px; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-light); }
+#toc-toggle { color: var(--link); font-weight: 400; cursor: pointer; margin-left: 6px; }
+#toc-body { padding: 8px 14px; }
+#toc ol { margin: 0 0 0 1.4em; }
+#toc li { margin: 2px 0; }
+.toc-number { color: var(--text-muted); margin-right: 8px; }
+.reference { font-size: .8em; vertical-align: super; line-height: 0; }
+.references { font-size: 12px; columns: 2 24em; column-gap: 24px; }
+.references li { break-inside: avoid; margin-bottom: 6px; }
+.category-box {
+  clear: both; margin-top: 22px; padding: 8px 10px; border: 1px solid var(--border);
+  background: #f8f9fa; font-size: 13px;
+}
+#mw-right-aside {
+  position: sticky; top: 66px; background: #fff; border: 1px solid var(--border-light); padding: 12px; font-size: 12px;
+}
+.right-aside-title { font-weight: 700; border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-bottom: 8px; }
+.right-aside-section { margin-bottom: 13px; }
+.right-aside-section ul { margin-left: 1.3em; }
+footer {
+  margin-left: 176px; padding: 18px 24px 28px; color: var(--text-muted); font-size: 12px;
+}
+@media (max-width: 980px) {
+  #mw-sidebar, #mw-right-aside { display: none; }
+  #mw-content, footer { margin-left: 0; }
+  .content-wrapper { display: block; }
+  #mw-article { padding: 18px 16px 26px; border-left: 0; border-right: 0; }
+  .infobox { float: none; width: 100%; margin: 12px 0; }
+  #mw-search input { width: 150px; }
+}
+@media (max-width: 680px) {
+  #mw-head { height: auto; flex-wrap: wrap; }
+  #mw-logo { min-width: 150px; }
+  #mw-head-nav { order: 3; width: 100%; overflow-x: auto; height: 38px; }
+  #mw-search { margin-left: auto; }
+  #mw-search input { width: 120px; }
+  #mw-content { padding: 10px 0 28px; }
+  .references { columns: 1; }
+}
 
-  <table class="infobox">
-    <caption>沙苗</caption>
-    <tr><th class="infobox-label">所属</th><td class="infobox-data"><a href="faction-japan-kyoto-government.html">日本国（京都政権）</a></td></tr>
-    <tr><th class="infobox-label">職業</th><td class="infobox-data">政治家、元タレント</td></tr>
-    <tr><th class="infobox-label">主な肩書</th><td class="infobox-data">総理大臣、統一政策会議議長</td></tr>
-    <tr><th class="infobox-label">主な政策</th><td class="infobox-data">統一政策、境界線再編、情報動員政策</td></tr>
-  </table>
+</style>
+</head>
+<body>
+<header id="mw-head">
+  <a id="mw-logo" href="index.html" aria-label="Tenzu メインページ">
+    <span class="wiki-sphere" aria-hidden="true"><span class="wiki-sphere-letter">天</span></span>
+    <span id="mw-logo-text"><strong>Tenzu</strong><span>天通辞典</span></span>
+  </a>
+  <nav id="mw-head-nav" aria-label="ページ操作">
+    <a class="mw-tab active" href="character-sanae.html">閲覧</a>
+    <a class="mw-tab" href="#sec-出典">出典</a>
+    <a class="mw-tab" href="#sec-関連項目">関連項目</a>
+  </nav>
+  <form id="mw-search" onsubmit="runSearch(event)">
+    <input id="mw-search-input" type="search" placeholder="Tenzu内を検索" aria-label="Tenzu内を検索">
+    <button type="submit">検索</button>
+  </form>
+</header>
+<nav id="mw-sidebar" aria-label="サイドナビゲーション">
+  <div class="sidebar-section"><div class="sidebar-header">案内</div><ul><li><a href="index.html">メインページ</a></li><li><a href="factions.html">国家・行政</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">軍事・安全保障</a></li><li><a href="faction-tenzu.html">企業・団体</a></li></ul></div>
+  <div class="sidebar-section"><div class="sidebar-header">主要項目</div><ul><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li><li><a href="character-hakurei-reimu.html">博麗霊夢</a></li><li><a href="character-marisa.html">霧雨魔理沙</a></li><li><a href="character-sanae.html">東風谷早苗</a></li><li><a href="character-yasaka-kanako.html">八坂神奈子</a></li><li><a href="character-toyosato-miko.html">豊聡耳神子</a></li><li><a href="faction-moriya-yasaka-group.html">守矢グループ</a></li></ul></div>
+  <div class="sidebar-section"><div class="sidebar-header">関連項目</div><ul><li><a href="characters.html">人物</a></li><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li></ul></div>
+</nav>
+<main id="mw-content">
+  <div class="content-wrapper">
+    <article id="mw-article">
+      <h1 id="firstHeading">東風谷早苗<span class="reading-ruby">（こちや さなえ）</span></h1>
+      <div class="siteSub">出典: 天通辞典</div>
+      <div class="page-status">公開資料基準: 公表時点 / 分類: 人物</div>
 
-  <p><b>沙苗</b>は、日本国（京都政権）において総理大臣を務める政治家である。京都政府と北部政権の対立、境界線問題、統一政策会議に関与し、報道番組やSNSを通じた世論喚起でも知られる<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>。</p>
-  <p>政治家以前には大衆的人気を持つタレントとして活動していたとされる。この経歴は、短期間で支持を拡大する要因となった一方、政策決定の劇場化をめぐる批判にもつながっている<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup>。</p>
+      <div class="infobox">
+        <div class="infobox-title">東風谷早苗</div>
+        <div class="infobox-subtitle">日本国（京都政府） / 首相</div>
+        <table><tbody>
+          <tr class="infobox-section-header"><td colspan="2">基本情報</td></tr>
+          <tr><th>氏名</th><td>東風谷早苗</td></tr>
+<tr><th>所属</th><td>日本国（京都政府）</td></tr>
+<tr><th>役職</th><td>首相</td></tr>
+<tr><th>活動分野</th><td>政治・軍事・公共圏</td></tr>
+<tr><th>記事基準</th><td>公開資料で確認できる経歴</td></tr>
+        </tbody></table>
+      </div>
+      <p><b>東風谷早苗</b>は、日本国（京都政府）の政治家。首相として統一政策、境界線政策、政財界調整に関与する。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+      <div id="toc"><div id="toc-title">目次 <span id="toc-toggle" onclick="toggleToc()">[非表示]</span></div><div id="toc-body"><ol><li><a href="#sec-概要"><span class="toc-number">1</span>概要</a></li><li><a href="#sec-経歴"><span class="toc-number">2</span>経歴</a></li><li><a href="#sec-活動-役割"><span class="toc-number">3</span>活動・役割</a></li><li><a href="#sec-評価"><span class="toc-number">4</span>評価</a></li><li><a href="#sec-報道上の扱い"><span class="toc-number">5</span>報道上の扱い</a></li><li><a href="#sec-職務上の位置づけ"><span class="toc-number">6</span>職務上の位置づけ</a></li><li><a href="#sec-公的評価"><span class="toc-number">7</span>公的評価</a></li><li><a href="#sec-批判-論争"><span class="toc-number">8</span>批判・論争</a></li><li><a href="#sec-公開資料での制約"><span class="toc-number">9</span>公開資料での制約</a></li><li><a href="#sec-注釈"><span class="toc-number">10</span>注釈</a></li><li><a href="#sec-出典"><span class="toc-number">11</span>出典</a></li><li><a href="#sec-関連項目"><span class="toc-number">12</span>関連項目</a></li></ol></div></div>
+      <table class="wikitable"><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>扱い</td><td>公開資料で確認できる肩書き、職務、報道上の評価を中心に記述する。</td></tr><tr><td>除外</td><td>未発生の戦果、失脚、死亡、事件後評価は扱わない。</td></tr><tr><td>主な資料</td><td>政府発表、組織発表、報道、講演録、公開行事記録。</td></tr></tbody></table>
+      <h2 id="sec-概要">概要</h2>
+<p>東風谷早苗は、日本国（京都政府）の政治家。首相として統一政策、境界線政策、政財界調整に関与する。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+<h2 id="sec-経歴">経歴</h2>
+<p>公開資料で確認できる経歴は、所属組織での職務、報道された活動、式典・講演・政策発表などに限られる。私的経歴や未公表任務については、資料ごとの差が大きい。<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></p>
+<h2 id="sec-活動-役割">活動・役割</h2>
+<p>現在の役割は首相としての公的活動に集中する。境界線政策、組織運営、広報、現場対応などへの関与が資料上で確認される。<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></p>
+<h2 id="sec-評価">評価</h2>
+<p>評価は立場により分かれる。支持者は実務能力と象徴性を挙げ、批判的報道は組織内での影響力、説明責任、政権・企業との距離を論点とする。<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup></p>
+<h2 id="sec-報道上の扱い">報道上の扱い</h2>
+<p>人物記事では、公的発表だけでなく、新聞、ネットメディア、業界紙、週刊誌の扱いも整理する。ただし噂は断定せず、報道の出所と文脈を示す。<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup></p>
+<h2 id="sec-職務上の位置づけ">職務上の位置づけ</h2>
+<p>人物の位置づけは、肩書きだけでなく、どの制度や組織の中で行動しているかによって説明される。政治家であれば政策会議、選挙区、党内派閥、官庁との関係が重視される。軍人であれば担当区域、指揮系統、補給や通信への関与、境界線周辺での小規模対応が主な説明対象となる。企業経営者であれば、資本配分、地域事業、行政との協議、系列企業の再編が中心となる。<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup></p>
+<h2 id="sec-公的評価">公的評価</h2>
+<p>公的評価では、政府広報、組織発表、議会質疑、式典記録、業界紙の記述を区別する。称賛的な表現は、その発信主体が本人の所属組織なのか、第三者の報道機関なのかで意味が変わるため、記事本文では断定的な人物評を避ける。<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup></p>
+<h2 id="sec-批判-論争">批判・論争</h2>
+<p>批判や論争は、勤務姿勢、利益相反、報道対応、政策判断、組織内での影響力を中心に扱う。私生活や未確認の噂は、公開資料で社会的論点として扱われている場合を除き、記事の中心には置かない。<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup></p>
+<h2 id="sec-公開資料での制約">公開資料での制約</h2>
+<p>軍人や政治家については非公開任務、内部人事、未発表の作戦、将来の政治的帰結を扱わない。記事は公表時点で利用者が確認できる資料の範囲に限る。<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup></p>
+      <h2 id="sec-注釈">注釈</h2>
+      <ol class="references"><li>この記事は作中社会の公開資料としての体裁を採り、未発生事件や非公開組織の断定的記述を避けている。</li></ol>
+      <h2 id="sec-出典">出典</h2>
+      <ol class="references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 概要」公開資料整理、2026年。</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 経歴」公開資料整理、2026年。</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 活動・役割」公開資料整理、2026年。</span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 評価」公開資料整理、2026年。</span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 報道上の扱い」公開資料整理、2026年。</span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 職務上の位置づけ」公開資料整理、2026年。</span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 公的評価」公開資料整理、2026年。</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 批判・論争」公開資料整理、2026年。</span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text">天通辞典編集部「東風谷早苗 公開資料での制約」公開資料整理、2026年。</span></li></ol>
+      <h2 id="sec-関連項目">関連項目</h2>
+      <ul><li><a href="characters.html">人物</a></li><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li></ul>
+      <div class="category-box"><strong>カテゴリ:</strong> <a href="characters.html">人物</a> | <a href="index.html">日本裂島記</a></div>
+    </article>
+    <aside id="mw-right-aside">
+      <div class="right-aside-title">ページツール</div>
+      <div class="right-aside-section"><ul><li><a href="#firstHeading">先頭へ</a></li><li><a href="#toc">目次</a></li><li><a href="#sec-出典">出典</a></li></ul></div>
+      <div class="right-aside-title">この項目</div>
+      <div class="right-aside-section"><p>人物</p><p>日本国（京都政府） / 首相</p></div>
+    </aside>
+  </div>
+</main>
+<footer>
+  <p>このページは天通辞典の単体HTML資料です。内容は公表時点の公開資料として記述されています。</p>
+  <p><a href="index.html">メインページ</a> | <a href="factions.html">国家・行政</a> | <a href="characters.html">人物</a> | <a href="history.html">軍事・安全保障</a></p>
+</footer>
+<script>
 
-  {% include toc.html body=toc_body %}
+function toggleToc() {
+  const body = document.getElementById('toc-body');
+  const btn = document.getElementById('toc-toggle');
+  const hidden = body.style.display === 'none';
+  body.style.display = hidden ? 'block' : 'none';
+  btn.textContent = hidden ? '[非表示]' : '[表示]';
+}
+function runSearch(event) {
+  event.preventDefault();
+  const input = document.getElementById('mw-search-input');
+  const q = input.value.trim().toLowerCase();
+  if (!q) return;
+  const links = Array.from(document.querySelectorAll('a[href$=".html"]'));
+  const hit = links.find(a => a.textContent.toLowerCase().includes(q) || a.getAttribute('href').toLowerCase().includes(q));
+  if (hit) location.href = hit.getAttribute('href');
+}
 
-  <section>
-    <h2 id="概要"><span class="mw-headline">概要</span></h2>
-    <p>沙苗政権は、南北分断を管理対象として扱ってきた京都政権主流派に対し、統一方針の前倒しと境界線政策の再検討を掲げている。演説では統一、国民的熱意、境界線の再定義を繰り返し、SNSと報道番組を通じて支持を広げた<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup>。</p>
-    <p>一方で、軍事、外交、経済の調整を急ぎすぎているとの指摘があり、財界、官僚機構、軍事実務者からは費用負担と実施速度をめぐる懸念が示されている。</p>
-  </section>
-
-  <section>
-    <h2 id="来歴"><span class="mw-headline">来歴</span></h2>
-    <p>沙苗は、メディア出演と地域イベントを通じて知名度を高めた後、京都政権の統一政策を掲げる政治勢力に参加した。初期の選挙活動では、抽象的な安全保障論よりも「失われた北への道を取り戻す」という感情的な訴えを前面に出した<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup>。</p>
-    <p>政権中枢入り後は、統一政策会議を設置し、外交、情報、交通、金融を横断する政策パッケージを提示した。洩八グループなどの生活基盤企業との調整も進められているが、費用負担と実施速度をめぐって対立が残るとされる<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup>。</p>
-  </section>
-
-  <section>
-    <h2 id="統一政策"><span class="mw-headline">統一政策</span></h2>
-    <p>統一政策会議では、境界線交通、避難経路、港湾・通信・金融の非常時運用、北部向け広報の再編が議題として扱われている。政府発表では段階的な制度整備と説明されるが、野党と一部財界は、実施時期と費用試算が十分に示されていないと批判している。</p>
-    <p>沙苗の発言では、境界線は単なる軍事線ではなく、家族、物流、情報、記憶を分断する線として語られることが多い。この表現は支持者の動員には強く働く一方、軍事・外交実務者からは、現場の制約を見えにくくすると批判されている<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup>。</p>
-  </section>
-
-  <section>
-    <h2 id="政治手法"><span class="mw-headline">政治手法</span></h2>
-    <p>沙苗の政治手法は、分かりやすい言葉、短い映像、感情の共有を重視する点に特徴がある。これは支持拡大に有効だが、政策の複雑さを単純化しすぎるとの批判もある。</p>
-  </section>
-
-  <section>
-    <h2 id="評価"><span class="mw-headline">評価</span></h2>
-    <p>肯定的評価では、沙苗は停滞した統一議論を再び社会的争点にした人物とされる。長く管理対象化していた境界線問題を政治の中心へ戻した点は、批判者からも一定程度認められている。</p>
-    <p>否定的評価では、支持率、報道、自己演出に依存し、官僚制、財界、軍事機構との調整を軽視している点が挙げられる。2026年5月6日時点では、統一政策の実施可能性と費用負担が主要な論点となっている<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>。</p>
-  </section>
-
-  <section>
-    <h2 id="脚注"><span class="mw-headline">脚注</span></h2>
-    <div class="reflist">
-      <ol class="references">
-        <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span><span class="reference-text">京都政権官報、2024年9月12日号。</span></li>
-        <li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span><span class="reference-text">『南都評論』2025年1月号、18頁。</span></li>
-        <li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span><span class="reference-text">天通政治部『統一言説と世論動員』2025年、6頁。</span></li>
-        <li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span><span class="reference-text">西日本選挙研究会『沙苗現象の形成』2024年、22頁。</span></li>
-        <li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span><span class="reference-text">洩八経済研究所『統一政策と基盤投資試算』2024年、31頁。</span></li>
-        <li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span><span class="reference-text">南日本防衛省『境界線運用と政治言説』2025年、14頁。</span></li>
-        <li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span><span class="reference-text">蘇我川明『京都政権下の政財関係 増補版』洛中大学出版会、2026年、201頁。</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <section>
-    <h2 id="関連項目"><span class="mw-headline">関連項目</span></h2>
-    <ul>
-      <li><a href="character-yasaka-kanako.html">弥栄神奈子</a></li>
-      <li><a href="faction-japan-kyoto-government.html">日本国（京都政権）</a></li>
-      <li><a href="history.html">歴史</a></li>
-    </ul>
-  </section>
-</article>
+</script>
+</body>
+</html>

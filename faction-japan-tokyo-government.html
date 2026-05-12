@@ -1,294 +1,271 @@
----
-layout: default
-title: "日本国（東京政権）"
-description: "東京に中央執政院を置く日本国政府の体制・統治・経済・軍事を扱う記事。"
-nav_section: factions
-article_type: state
-status: Public Draft
-updated_on: 2026-04-25
-aliases:
-  - 東京政権
-  - 東側日本国
-  - 日本国
-related:
-  - title: "日本国（京都政権）"
-    url: "/faction-japan-kyoto-government.html"
-    summary: "停戦線を挟んで並立する競合政府。"
-  - title: "豊聡御子"
-    url: "/character-toyosato-miko.html"
-    summary: "東京政権の第二代最高指導者。"
-  - title: "歴史"
-    url: "/history.html"
-    summary: "東京政権の制度形成に関する公開資料。"
----
-{% capture infobox_rows %}
-<tr><th class="infobox-header" colspan="2">日本国（東京政権）国家概要</th></tr>
-<tr><th class="infobox-label">国名</th><td class="infobox-data">日本国</td></tr>
-<tr><th class="infobox-label">通称</th><td class="infobox-data">東京政権、東側日本国</td></tr>
-<tr><th class="infobox-label">首都</th><td class="infobox-data">東京都</td></tr>
-<tr><th class="infobox-label">最大都市</th><td class="infobox-data">東京都区部</td></tr>
-<tr><th class="infobox-label">政治体制</th><td class="infobox-data">一党制、最高指導者制、専制政治、常時動員体制</td></tr>
-<tr><th class="infobox-label">最高指導者</th><td class="infobox-data">豊聡御子</td></tr>
-<tr><th class="infobox-label">建国後世代</th><td class="infobox-data">第二代指導者</td></tr>
-<tr><th class="infobox-label">支配政党</th><td class="infobox-data">労働党</td></tr>
-<tr><th class="infobox-label">最高行政機関</th><td class="infobox-data">中央執政院</td></tr>
-<tr><th class="infobox-label">立法機関</th><td class="infobox-data">人民協議院</td></tr>
-<tr><th class="infobox-label">治安機関</th><td class="infobox-data">内務保安院</td></tr>
-<tr><th class="infobox-label">軍事組織</th><td class="infobox-data">人民国防軍</td></tr>
-<tr><th class="infobox-label">建国宣言</th><td class="infobox-data">1949年10月3日</td></tr>
-<tr><th class="infobox-label">実効支配地域</th><td class="infobox-data">北海道、東北、関東、中部東部の一部</td></tr>
-<tr><th class="infobox-label">通貨</th><td class="infobox-data">新円</td></tr>
-<tr><th class="infobox-label">主要同盟国</th><td class="infobox-data">ソビエト連邦、中華人民共和国</td></tr>
-<tr><th class="infobox-label">外国軍基地</th><td class="infobox-data">ソ連軍陸軍基地、ソ連海軍基地、ソ連航空軍基地</td></tr>
-<tr><th class="infobox-label">承認国</th><td class="infobox-data">17か国</td></tr>
-<tr><th class="infobox-label">国連代表権</th><td class="infobox-data">なし</td></tr>
-<tr><th class="infobox-label">インターネットTLD</th><td class="infobox-data">.jp-tk</td></tr>
-<tr><th class="infobox-label">国際電話番号</th><td class="infobox-data">+81-1</td></tr>
-<tr><th class="infobox-label">標準時</th><td class="infobox-data">東京標準時 UTC+9</td></tr>
-{% endcapture %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="東京に政府中枢を置く日本国。通称は東日本、政権呼称は東京政府。">
+<title>日本国（東京政府） - Tenzu</title>
+<style>
 
-{% capture toc_body %}
-<ul>
-  <li><a href="#概要"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
-  <li><a href="#主要統計"><span class="tocnumber">2</span> <span class="toctext">主要統計</span></a></li>
-  <li><a href="#国際指標"><span class="tocnumber">3</span> <span class="toctext">国際指標</span></a></li>
-  <li><a href="#国名"><span class="tocnumber">4</span> <span class="toctext">国名</span></a></li>
-  <li><a href="#歴史"><span class="tocnumber">5</span> <span class="toctext">歴史</span></a></li>
-  <li><a href="#政治"><span class="tocnumber">6</span> <span class="toctext">政治</span></a></li>
-  <li><a href="#冠位配給制度"><span class="tocnumber">7</span> <span class="toctext">冠位配給制度</span></a></li>
-  <li><a href="#治安・人権問題"><span class="tocnumber">8</span> <span class="toctext">治安・人権問題</span></a></li>
-  <li><a href="#軍事"><span class="tocnumber">9</span> <span class="toctext">軍事</span></a></li>
-  <li><a href="#経済"><span class="tocnumber">10</span> <span class="toctext">経済</span></a></li>
-  <li><a href="#通信とメディア"><span class="tocnumber">11</span> <span class="toctext">通信とメディア</span></a></li>
-  <li><a href="#京都政権との関係"><span class="tocnumber">12</span> <span class="toctext">京都政権との関係</span></a></li>
-  <li><a href="#批判・論争"><span class="tocnumber">13</span> <span class="toctext">批判・論争</span></a></li>
-  <li><a href="#注釈"><span class="tocnumber">14</span> <span class="toctext">注釈</span></a></li>
-  <li><a href="#出典"><span class="tocnumber">15</span> <span class="toctext">出典</span></a></li>
-  <li><a href="#関連項目"><span class="tocnumber">16</span> <span class="toctext">関連項目</span></a></li>
-</ul>
-{% endcapture %}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #fff; --bg-sidebar: #f8f9fa; --bg-header: #fff; --bg-toc: #f8f9fa;
+  --bg-infobox: #f8f9fa; --border: #a2a9b1; --border-light: #eaecf0;
+  --link: #36c; --link-visited: #6b4ba1; --link-new: #d33;
+  --text: #202122; --text-muted: #54595d; --text-light: #72777d;
+  --wikibg: #eaecf0; --notice-bg: #eaf3fb; --notice-border: #36c;
+  --infobox-head: #c8d5e8; --infobox-section: #d8e2ee;
+}
+html { font-size: 14px; scroll-padding-top: 62px; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  color: var(--text); background: var(--wikibg); line-height: 1.65;
+}
+a { color: var(--link); text-decoration: none; }
+a:visited { color: var(--link-visited); }
+a:hover, a:focus { text-decoration: underline; }
+#mw-head {
+  position: sticky; top: 0; z-index: 100; height: 50px; display: flex; align-items: stretch;
+  background: var(--bg-header); border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+#mw-logo {
+  display: flex; align-items: center; gap: 8px; min-width: 180px; padding: 0 16px;
+  border-right: 1px solid var(--border-light); text-decoration: none; flex-shrink: 0;
+}
+.wiki-sphere {
+  width: 36px; height: 36px; border-radius: 50%; position: relative; overflow: hidden; flex-shrink: 0;
+  background: radial-gradient(circle at 35% 35%, #4a90d9, #1a4a7a); border: 2px solid #2a5ca8;
+}
+.wiki-sphere::after {
+  content: ""; position: absolute; inset: 2px; border-radius: 50%;
+  background: repeating-linear-gradient(30deg, transparent, transparent 3px, rgba(255,255,255,.09) 3px, rgba(255,255,255,.09) 4px),
+              repeating-linear-gradient(-30deg, transparent, transparent 3px, rgba(255,255,255,.06) 3px, rgba(255,255,255,.06) 4px);
+}
+.wiki-sphere-letter {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 16px; color: #fff; z-index: 1;
+}
+#mw-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+#mw-logo-text strong { font-family: Georgia, "Times New Roman", serif; font-size: 16px; color: var(--text); }
+#mw-logo-text span { font-size: 10px; color: var(--text-light); letter-spacing: .05em; }
+#mw-head-nav { display: flex; align-items: center; padding: 0 8px; flex: 1; gap: 2px; }
+.mw-tab {
+  display: flex; align-items: center; height: 100%; padding: 0 12px; border-left: 1px solid transparent;
+  border-right: 1px solid transparent; color: var(--text-muted); font-size: 13px;
+}
+.mw-tab.active { color: var(--text); background: #fff; border-left-color: var(--border-light); border-right-color: var(--border-light); border-bottom: 2px solid var(--link); }
+#mw-search { display: flex; align-items: center; padding: 8px 14px; gap: 0; }
+#mw-search input { width: 230px; height: 32px; padding: 5px 9px; border: 1px solid var(--border); border-right: 0; font: inherit; background: #fff; }
+#mw-search button { height: 32px; padding: 0 12px; border: 1px solid var(--border); background: #f8f9fa; cursor: pointer; }
+#mw-sidebar {
+  position: fixed; top: 50px; left: 0; bottom: 0; width: 176px; overflow-y: auto;
+  background: var(--bg-sidebar); border-right: 1px solid var(--border-light); padding: 18px 12px;
+}
+.sidebar-section { margin-bottom: 20px; }
+.sidebar-header { color: var(--text-muted); font-size: 12px; border-bottom: 1px solid var(--border-light); margin-bottom: 6px; padding-bottom: 3px; }
+.sidebar-section ul { list-style: none; font-size: 13px; }
+.sidebar-section li { margin: 3px 0; }
+#mw-content { margin-left: 176px; padding: 16px 24px 38px; }
+.content-wrapper { max-width: 1180px; display: grid; grid-template-columns: minmax(0, 1fr) 218px; gap: 20px; align-items: start; }
+#mw-article {
+  background: var(--bg); border: 1px solid var(--border-light); padding: 24px 32px 34px; min-width: 0;
+}
+#firstHeading {
+  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif; font-weight: 400; font-size: 2.05rem;
+  line-height: 1.25; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 8px;
+}
+.reading-ruby { font-size: .55em; color: var(--text-muted); margin-left: .35em; }
+.siteSub, .page-status { color: var(--text-muted); font-size: 12px; margin: 4px 0; }
+.notice {
+  clear: both; margin: 14px 0; padding: 10px 12px; border: 1px solid var(--notice-border);
+  background: var(--notice-bg); font-size: 13px;
+}
+.infobox {
+  float: right; width: 310px; margin: 0 0 16px 22px; border: 1px solid var(--border);
+  background: var(--bg-infobox); font-size: 12px; border-collapse: collapse;
+}
+.infobox-title { background: var(--infobox-head); font-weight: 700; text-align: center; padding: 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
+.infobox-subtitle { text-align: center; padding: 5px; border-bottom: 1px solid var(--border-light); color: var(--text-muted); }
+.infobox table { width: 100%; border-collapse: collapse; }
+.infobox th, .infobox td { border-top: 1px solid var(--border-light); padding: 6px 7px; vertical-align: top; }
+.infobox th { width: 34%; text-align: left; background: #eaecf0; font-weight: 700; }
+.infobox-section-header td { background: var(--infobox-section); text-align: center; font-weight: 700; }
+p { margin: .6em 0 .9em; }
+h2 {
+  clear: both; margin: 1.35em 0 .55em; padding-bottom: 3px; border-bottom: 1px solid var(--border);
+  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif; font-weight: 400; font-size: 1.55rem;
+}
+h3 { margin: 1.05em 0 .35em; font-size: 1.15rem; }
+ul, ol { margin: .45em 0 .85em 1.7em; }
+.wikitable { border-collapse: collapse; margin: 1em 0; background: #fff; font-size: 13px; width: 100%; }
+.wikitable th, .wikitable td { border: 1px solid var(--border); padding: 7px 8px; vertical-align: top; }
+.wikitable th { background: #eaecf0; font-weight: 700; text-align: left; }
+#toc {
+  display: inline-block; min-width: 280px; max-width: 100%; margin: 14px 0 18px; padding: 0;
+  border: 1px solid var(--border); background: var(--bg-toc); font-size: 13px;
+}
+#toc-title { padding: 7px 10px; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-light); }
+#toc-toggle { color: var(--link); font-weight: 400; cursor: pointer; margin-left: 6px; }
+#toc-body { padding: 8px 14px; }
+#toc ol { margin: 0 0 0 1.4em; }
+#toc li { margin: 2px 0; }
+.toc-number { color: var(--text-muted); margin-right: 8px; }
+.reference { font-size: .8em; vertical-align: super; line-height: 0; }
+.references { font-size: 12px; columns: 2 24em; column-gap: 24px; }
+.references li { break-inside: avoid; margin-bottom: 6px; }
+.category-box {
+  clear: both; margin-top: 22px; padding: 8px 10px; border: 1px solid var(--border);
+  background: #f8f9fa; font-size: 13px;
+}
+#mw-right-aside {
+  position: sticky; top: 66px; background: #fff; border: 1px solid var(--border-light); padding: 12px; font-size: 12px;
+}
+.right-aside-title { font-weight: 700; border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-bottom: 8px; }
+.right-aside-section { margin-bottom: 13px; }
+.right-aside-section ul { margin-left: 1.3em; }
+footer {
+  margin-left: 176px; padding: 18px 24px 28px; color: var(--text-muted); font-size: 12px;
+}
+@media (max-width: 980px) {
+  #mw-sidebar, #mw-right-aside { display: none; }
+  #mw-content, footer { margin-left: 0; }
+  .content-wrapper { display: block; }
+  #mw-article { padding: 18px 16px 26px; border-left: 0; border-right: 0; }
+  .infobox { float: none; width: 100%; margin: 12px 0; }
+  #mw-search input { width: 150px; }
+}
+@media (max-width: 680px) {
+  #mw-head { height: auto; flex-wrap: wrap; }
+  #mw-logo { min-width: 150px; }
+  #mw-head-nav { order: 3; width: 100%; overflow-x: auto; height: 38px; }
+  #mw-search { margin-left: auto; }
+  #mw-search input { width: 120px; }
+  #mw-content { padding: 10px 0 28px; }
+  .references { columns: 1; }
+}
 
-<nav class="breadcrumbs" aria-label="パンくず"><a href="index.html">トップ</a> › <a href="factions.html">勢力</a> › 日本国（東京政権）</nav>
-<article class="mw-body">
-  <header>
-    <h1 class="firstHeading">日本国（東京政権）</h1>
-    <p class="meta">基本ID: faction-japan-tokyo-government / 最終更新: {{ page.updated_on }} / 公開状態: {{ page.status }}</p>
-    <p class="alias-list"><b>別名:</b> {% for alias in page.aliases %}{% unless forloop.first %}、{% endunless %}{{ alias }}{% endfor %}</p>
-    {% include hatnote.html text='この項目では、東京に中央執政院を置く日本国政府について扱う。京都に政府を置く体制については「<a href="faction-japan-kyoto-government.html">日本国（京都政権）</a>」を参照。' %}
-    {% include ambox.html kind="content" text='同国は正式国号を「日本国」としており、「東京政権」「東側日本国」などは外部資料上の便宜呼称である。統計は公表値と外部推計に差がある。' %}
-  </header>
-
-  <div class="mw-parser-output">
-    {% include infobox.html caption=page.title rows=infobox_rows %}
-
-    <p><b>日本国（東京政権）</b>は、1949年10月3日に東京で建国を宣言し、北海道、東北、関東および中部東部の一部を実効支配する政治体制である。京都政権と同じく「日本国」を名乗り、列島における唯一の正統政府であると主張している。</p>
-    <p>東京政権は、労働党を支配政党とし、中央執政院、人民協議院、人民国防軍、内務保安院を主要機関とする一党制国家である。最高指導者は豊聡御子であり、1980年代以降の国家再編、監視制度の統合、軍需経済の再編、対ソ関係修復を主導したとされる。</p>
-    <p>東京政権に関する統計は、中央執政院統計総局、労働党中央委員会、停戦監視委員会、東西実務連絡会議、天通調査部、外部研究機関、亡命者証言の間で差がある。特に人口、軍事動員数、冠位配給階級別人口、非公認市場規模、特殊兵器開発、ソ連軍基地関連支出については、東京政権公表値と外部推計の乖離が大きい。</p>
-
-    {% include toc.html body=toc_body %}
-
-    <section>
-      <h2 id="概要"><span class="mw-headline">概要</span></h2>
-      <p>豊聡御子は役職名ではなく個人名である。公式資料では「建国事業を継承し、国家再建を完成段階へ導いた指導者」とされ、学校教育、軍事宣誓、職場儀礼、国家放送、肖像掲示、記念日行事を通じて忠誠と畏敬が公的生活の中心に置かれている。</p>
-      <p>東京政権は、明治維新以降の国制を「西洋制度への過度な傾斜」と批判し、「伝統と革新」の統合を掲げる。選挙制度を採用せず、労働党の統一的統治を「人民の生活と国家目的を一致させる専制政治」と位置づける。</p>
-      <p>外部資料では、個人崇拝、広範な監視、軍事優先の計画経済、冠位配給制度、外国軍基地の存在を特徴とする閉鎖的な常時動員国家として扱われる。</p>
-    </section>
-
-    <section>
-      <h2 id="主要統計"><span class="mw-headline">主要統計</span></h2>
-      <table class="wikitable">
-        <thead><tr><th>指標</th><th>東京政権公表値</th><th>外部推計</th><th>備考</th></tr></thead>
-        <tbody>
-          <tr><td>人口</td><td>5,648万人</td><td>5,210万〜5,430万人</td><td>2025年、中央執政院統計総局・天通推計</td></tr>
-          <tr><td>名目GDP</td><td>1兆1,860億新円</td><td>8,900億〜1兆500億ドル相当</td><td>為替換算に幅あり</td></tr>
-          <tr><td>1人あたりGDP</td><td>非公表</td><td>16,800〜19,600ドル相当</td><td>東ドイツ後期水準に近いとされる</td></tr>
-          <tr><td>都市人口率</td><td>71.4%</td><td>68〜72%</td><td>東京・川崎・仙台・札幌圏に集中</td></tr>
-          <tr><td>軍事費対GDP比</td><td>8.9%</td><td>11〜15%</td><td>ソ連基地関連支出を含むかで差</td></tr>
-          <tr><td>人民国防軍兵力</td><td>92万人</td><td>86万〜118万人</td><td>予備役を除く</td></tr>
-          <tr><td>予備役・動員対象</td><td>540万人</td><td>480万〜650万人</td><td>職場動員隊を含む推計あり</td></tr>
-          <tr><td>冠位配給制度対象人口</td><td>5,540万人</td><td>5,100万人以上</td><td>ほぼ全住民が登録対象</td></tr>
-          <tr><td>非公認市場依存率</td><td>非公表</td><td>都市世帯の34〜47%</td><td>月1回以上の利用経験</td></tr>
-          <tr><td>平均寿命</td><td>77.8歳</td><td>74.1〜76.3歳</td><td>医療統計の地域差が大きい</td></tr>
-          <tr><td>識字率</td><td>99.2%</td><td>98%以上</td><td>教育水準は比較的高い</td></tr>
-          <tr><td>一般インターネット接続率</td><td>非公表</td><td>2%未満</td><td>研究・外交・軍需部門中心</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2 id="国際指標"><span class="mw-headline">国際指標</span></h2>
-      <table class="wikitable">
-        <thead><tr><th>指標</th><th>発表機関</th><th>年</th><th>順位・評価</th><th>備考</th></tr></thead>
-        <tbody>
-          <tr><td>民主制度指数</td><td>極東政治制度観測所</td><td>2025</td><td>168か国中166位</td><td>「閉鎖的権威主義体制」</td></tr>
-          <tr><td>報道自由度指数</td><td>国際報道自由連盟</td><td>2025</td><td>180地域中178位</td><td>国内報道は国家放送・党機関紙中心</td></tr>
-          <tr><td>情報接続自由度</td><td>東アジア通信監視機構</td><td>2025</td><td>163地域中160位</td><td>国外サイト接続は許可制</td></tr>
-          <tr><td>腐敗認識指数</td><td>国際透明性機構</td><td>2025</td><td>181地域中164位</td><td>非公認市場と軍需調達で高リスク</td></tr>
-          <tr><td>軍事化指数</td><td>北東アジア安全保障年鑑</td><td>2025</td><td>142地域中4位</td><td>常時動員・高軍事費</td></tr>
-          <tr><td>食料安定指数</td><td>環太平洋食糧評価会議</td><td>2025</td><td>121地域中88位</td><td>配給制度により飢餓は抑制、品質に問題</td></tr>
-          <tr><td>生活満足度調査</td><td>天通社会調査部</td><td>2024</td><td>回答不能率61.3%</td><td>停戦線越境聞き取り調査</td></tr>
-          <tr><td>人間開発推計</td><td>東方境界研究所</td><td>2025</td><td>中位上位相当</td><td>教育は高く、所得・自由指標が低い</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2 id="国名"><span class="mw-headline">国名</span></h2>
-      <h3>正式国名</h3>
-      <p>東京政権が公式に用いる国号は「日本国」である。憲法、中央執政院令、人民協議院決議、外交文書、通貨、旅券、国営放送では、いずれも「日本国」の表記が用いられる。</p>
-      <h3>京都政権における呼称</h3>
-      <p>京都政権側の公文書では、東京政権は「東京当局」「東側当局」「東京政権」と表記されることが多い。東西実務協議の定着以後、公的文書ではより中立的な呼称が選ばれる傾向にある。</p>
-      <h3>国際的呼称</h3>
-      <p>国際機関や外国政府資料では「Tokyo Government of Japan」「Eastern Japanese Government」などが用いられる。承認国では単に「Japan」と表記する場合がある。</p>
-    </section>
-
-    <section>
-      <h2 id="歴史"><span class="mw-headline">歴史</span></h2>
-      <h3>建国以前</h3>
-      <p>制度的原型は、1945年以後のソ連軍進駐と東部軍政にさかのぼる。北海道、東北、関東の一部で鉄道、港湾、通信、食糧配給、治安機構が軍政管理下に置かれた。</p>
-      <h3>建国</h3>
-      <p>1949年10月3日、東京で日本国の建国が宣言された。建国宣言では、伝統の再建、国土統一、勤労国家の建設、軍民一致などが掲げられた。</p>
-      <h3>列島戦争</h3>
-      <p>1950年から1953年にかけて東京政権と京都政権の間で列島戦争が発生し、停戦後は長野県域を含む複数地域で東西分断が固定化した。</p>
-      <h3>豊聡御子の指導体制</h3>
-      <p>1980年代以降、豊聡御子体制下で住民登録、配給、教育、軍務、通信監視の統合管理が進展した。1987年「国家生活登録統合法」、1991年「冠位配給令」、1998年「国民奉戴教育綱領」、2004年「情報通信保全令」が制度の転換点とされる。</p>
-    </section>
-
-    <section>
-      <h2 id="政治"><span class="mw-headline">政治</span></h2>
-      <h3>政治体制</h3>
-      <p>東京政権は労働党を支配政党とする一党制国家であり、選挙を実施しない。政策決定は豊聡御子、労働党中央部、中央執政院、人民国防軍、内務保安院の間で行われる。</p>
-      <h3>労働党</h3>
-      <p>労働党は唯一の合法政党で、中央委員会、地方委員会、職場支部、学校支部、軍内政治部門を通じて行政・教育・治安・生産に関与する。</p>
-      <h3>中央執政院</h3>
-      <p>中央執政院は最高行政機関であり、行政命令、生産指令、配給通達、動員令、治安指令を地方に伝達する超政府機関として機能する。</p>
-      <h3>人民協議院</h3>
-      <p>人民協議院は立法機関だが、構成員は選挙ではなく推薦・承認・任命で決定される。主な任務は国家方針を法形式へ整える承認手続きとされる。</p>
-    </section>
-
-    <section>
-      <h2 id="冠位配給制度"><span class="mw-headline">冠位配給制度</span></h2>
-      <p>冠位十二階を再解釈した配給・身分管理制度であり、配給、居住、教育、医療、移動許可、職業配置に接続される。</p>
-      <table class="wikitable">
-        <thead><tr><th>階級名</th><th>主な対象</th><th>配給上の特徴</th></tr></thead>
-        <tbody>
-          <tr><td>大徳</td><td>党中央・執政院最上層、軍最高幹部</td><td>肉類、医薬品、燃料、交通券、特別住宅、外貨品を優先配給</td></tr>
-          <tr><td>小徳</td><td>内務保安院幹部、軍高級将校、重点工業管理者</td><td>都市住宅、医療優先枠、家族用特別配給</td></tr>
-          <tr><td>大仁〜小信</td><td>研究者、技術者、都市労働者、地方労働者、一般農村住民</td><td>階級に応じて標準〜制限配給</td></tr>
-          <tr><td>大義〜小智</td><td>勤務評価下位世帯、監視対象世帯、処分歴世帯</td><td>肉類・油脂・医療・移動許可で強い制約</td></tr>
-        </tbody>
-      </table>
-      <p>2024年の越境世帯調査では、都市部の大礼・小礼相当世帯の月間肉類配給量は成人1人あたり平均1.8kg、大義・小義相当世帯で0.7kg、大智・小智相当世帯では0.2kg未満とされた。</p>
-    </section>
-
-    <section>
-      <h2 id="治安・人権問題"><span class="mw-headline">治安・人権問題</span></h2>
-      <h3>内務保安院</h3>
-      <p>内務保安院は治安、思想統制、防諜、通信監視、住民管理を担当し、労働党地方組織、人民国防軍政治部、学校、職場、住宅区組織と情報連携するとされる。</p>
-      <h3>移動制限</h3>
-      <p>都市間移動には移動証明が必要で、前線・港湾・基地周辺・停戦線近接地域では追加許可が課される。2025年の越境調査では、過去5年以内に移動許可を拒否された経験があるとする回答が43.6%だった。</p>
-    </section>
-
-    <section>
-      <h2 id="軍事"><span class="mw-headline">軍事</span></h2>
-      <h3>人民国防軍</h3>
-      <p>人民国防軍は陸上部隊、航空部隊、海防部隊、ミサイル部隊、政治部門、後方建設部門で構成される。2025年推計では現役兵力約98万人、総動員可能人口約590万人。</p>
-      <h3>ソ連軍三基地</h3>
-      <table class="wikitable">
-        <thead><tr><th>種別</th><th>通称</th><th>所在地域</th><th>任務</th><th>推定駐留規模</th></tr></thead>
-        <tbody>
-          <tr><td>ソ連陸軍基地</td><td>上川陸軍施設</td><td>北海道上川地方</td><td>寒冷地機甲訓練、兵站備蓄</td><td>6,000〜8,500人</td></tr>
-          <tr><td>ソ連海軍基地</td><td>室蘭海軍施設</td><td>北海道胆振地方</td><td>太平洋北部展開、艦艇補給、対潜監視</td><td>4,000〜6,000人</td></tr>
-          <tr><td>ソ連航空軍基地</td><td>三沢航空施設</td><td>東北北部</td><td>長距離航空監視、輸送、早期警戒</td><td>3,500〜5,500人</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h2 id="経済"><span class="mw-headline">経済</span></h2>
-      <h3>国営計画経済</h3>
-      <p>工場、商店、農業団体、物流機関、研究所、建設部門は国家・党・軍・行政機関の管理下に置かれる。重工業、軍需、鉄道、造船、通信機器、航空・ロケット関連が主要産業である。</p>
-      <h3>非公認市場</h3>
-      <p>民間商業は制度上認められないが、食料、衣料、医薬品、記録媒体などを扱う非公認市場が各地で機能する。2025年調査では都市部居住経験者の46.8%が月1回以上利用したと回答した。</p>
-    </section>
-
-    <section>
-      <h2 id="通信とメディア"><span class="mw-headline">通信とメディア</span></h2>
-      <h3>放送</h3>
-      <p>主要放送は東京中央放送、人民国防放送、労働党通信、教育文化放送。新聞は『労働日報』『人民行政報』『国防新聞』が中心で、国家または党関連組織の管理下にある。</p>
-      <h3>インターネット</h3>
-      <p>一般住民は国内閉域網「明庭網」を利用し、国外インターネットへの直接接続は原則不許可。国外接続は外交、軍需研究、対外貿易、情報機関、大学の一部に限定される。</p>
-      <h3>報道規制</h3>
-      <p>2025年版報道自由度指数で180地域中178位。独立メディア不在、外国放送受信処罰、通信記録監視、外国記者移動制限が指摘される。</p>
-    </section>
-
-    <section>
-      <h2 id="京都政権との関係"><span class="mw-headline">京都政権との関係</span></h2>
-      <p>双方は「日本国」を名乗り相互の正統性を認めないが、停戦線管理、漁業調整、医療搬送、遺体返還、失踪者照会、災害時連絡など限定的な実務協議を継続している。</p>
-    </section>
-
-    <section>
-      <h2 id="批判・論争"><span class="mw-headline">批判・論争</span></h2>
-      <h3>豊聡御子への個人崇拝</h3>
-      <p>忠誠儀礼が教育、軍務、配給、人事、住宅、移動許可に接続している点が、外部研究で継続的に批判される。</p>
-      <h3>選挙否定論</h3>
-      <p>選挙制度を「国家意思を分解する制度」として否定する教義は、政治参加排除と権力継承固定化の正当化論理と評価される。</p>
-      <h3>冠位配給制度と不平等</h3>
-      <p>国家への近さが生活水準を左右し、住宅・食料・医療・交通・教育で階層差が生じる点が論争点となる。</p>
-      <h3>外国軍基地</h3>
-      <p>自主独立を掲げつつソ連軍基地を受け入れる構造は、宣伝上の独立性と安全保障依存の矛盾として扱われる。</p>
-    </section>
-
-    <section>
-      <h2 id="注釈"><span class="mw-headline">注釈</span></h2>
-      <ol>
-        <li>東京政権は自国を「東側日本国」と呼称しない。本項の「東京政権」は外部資料上の便宜表記である。</li>
-        <li>豊聡御子は役職名ではなく個人名である。公式文書では「御子」と略記される場合がある。</li>
-        <li>労働党は国家機構と一体化した唯一合法政党として機能している。</li>
-        <li>東京政権では選挙は行われず、人民協議院構成員は推薦・承認・任命で決定される。</li>
-        <li>冠位配給制度は冠位十二階の名称を転用した独自の配給・身分管理制度である。</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2 id="出典"><span class="mw-headline">出典</span></h2>
-      <ol class="references">
-        <li>東方境界研究所『東京政権の統治構造 2025年版』、2025年。</li>
-        <li>極東政治制度観測所『民主制度指数 2025』、2026年1月。</li>
-        <li>天通社会調査部「東側地域出身者聞き取り調査 第4回集計」、2025年。</li>
-        <li>中央執政院統計総局『国家統計摘要 2025』、2026年。</li>
-        <li>労働党中央委員会『建国宣言と国家再建の原則』、2019年改訂版。</li>
-        <li>労働党中央党学校『優れた専制政治と西側愚民主義批判』、2022年。</li>
-        <li>中央執政院法制局『人民協議院組織法注解』、2024年。</li>
-        <li>天通経済面「越境世帯配給調査：冠位配給制度の生活差」、2024年11月18日。</li>
-        <li>国際人権監視会議『東アジア人権報告 2025』、2026年。</li>
-        <li>北東アジア安全保障年鑑編集部『北東アジア安全保障年鑑 2025』、2025年。</li>
-        <li>東アジア通信監視機構『情報接続自由度報告 2025』、2025年。</li>
-        <li>国際報道自由連盟『世界報道自由度指数 2025』、2025年。</li>
-        <li>停戦線人口観測会『東部地域人口移動と都市集積』、2025年。</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2 id="関連項目"><span class="mw-headline">関連項目</span></h2>
-      <ul>
-        <li><a href="faction-japan-kyoto-government.html">日本国（京都政権）</a></li>
-        <li>豊聡御子</li>
-        <li>労働党</li>
-        <li>中央執政院</li>
-        <li>人民協議院</li>
-        <li>内務保安院</li>
-        <li>人民国防軍</li>
-        <li>ソ連軍三基地</li>
-        <li>列島戦争</li>
-        <li>諏訪工業地帯</li>
-        <li>佐渡島米軍基地</li>
-        <li>川崎・横浜分断地帯</li>
-        <li>停戦線</li>
-        <li>天通</li>
-      </ul>
-    </section>
-
-    {% include related-links.html items=page.related external=page.external_links %}
+</style>
+</head>
+<body>
+<header id="mw-head">
+  <a id="mw-logo" href="index.html" aria-label="Tenzu メインページ">
+    <span class="wiki-sphere" aria-hidden="true"><span class="wiki-sphere-letter">天</span></span>
+    <span id="mw-logo-text"><strong>Tenzu</strong><span>天通辞典</span></span>
+  </a>
+  <nav id="mw-head-nav" aria-label="ページ操作">
+    <a class="mw-tab active" href="faction-japan-tokyo-government.html">閲覧</a>
+    <a class="mw-tab" href="#sec-出典">出典</a>
+    <a class="mw-tab" href="#sec-関連項目">関連項目</a>
+  </nav>
+  <form id="mw-search" onsubmit="runSearch(event)">
+    <input id="mw-search-input" type="search" placeholder="Tenzu内を検索" aria-label="Tenzu内を検索">
+    <button type="submit">検索</button>
+  </form>
+</header>
+<nav id="mw-sidebar" aria-label="サイドナビゲーション">
+  <div class="sidebar-section"><div class="sidebar-header">案内</div><ul><li><a href="index.html">メインページ</a></li><li><a href="factions.html">国家・行政</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">軍事・安全保障</a></li><li><a href="faction-tenzu.html">企業・団体</a></li></ul></div>
+  <div class="sidebar-section"><div class="sidebar-header">主要項目</div><ul><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li><li><a href="character-hakurei-reimu.html">博麗霊夢</a></li><li><a href="character-marisa.html">霧雨魔理沙</a></li><li><a href="character-sanae.html">東風谷早苗</a></li><li><a href="character-yasaka-kanako.html">八坂神奈子</a></li><li><a href="character-toyosato-miko.html">豊聡耳神子</a></li><li><a href="faction-moriya-yasaka-group.html">守矢グループ</a></li></ul></div>
+  <div class="sidebar-section"><div class="sidebar-header">関連項目</div><ul><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="character-toyosato-miko.html">豊聡耳神子</a></li><li><a href="character-marisa.html">霧雨魔理沙</a></li></ul></div>
+</nav>
+<main id="mw-content">
+  <div class="content-wrapper">
+    <article id="mw-article">
+      <h1 id="firstHeading">日本国（東京政府）<span class="reading-ruby">（にほんこく とうきょうせいふ）</span></h1>
+      <div class="siteSub">出典: 天通辞典</div>
+      <div class="page-status">公開資料基準: 公表時点 / 分類: 国家・行政</div>
+      <div class="notice">この記事では、東京に政府中枢を置く日本国について扱う。京都に政府中枢を置く日本国については「日本国（京都政府）」を参照。</div>
+      <div class="infobox">
+        <div class="infobox-title">日本国（東京政府）</div>
+        <div class="infobox-subtitle">東日本 / 東京政府</div>
+        <table><tbody>
+          <tr class="infobox-section-header"><td colspan="2">基本情報</td></tr>
+          <tr><th>正式名</th><td>日本国</td></tr>
+<tr><th>通称</th><td>東日本</td></tr>
+<tr><th>政権呼称</th><td>東京政府</td></tr>
+<tr><th>政府所在地</th><td>東京</td></tr>
+<tr><th>主要施設</th><td>松代地下司令部</td></tr>
+<tr><th>主要接触地帯</th><td>中央境界線、京浜境界区</td></tr>
+        </tbody></table>
+      </div>
+      <p><b>日本国（東京政府）</b>は、東京に政府中枢を置く日本国。通称は東日本、政権呼称は東京政府。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+      <div id="toc"><div id="toc-title">目次 <span id="toc-toggle" onclick="toggleToc()">[非表示]</span></div><div id="toc-body"><ol><li><a href="#sec-主要統計"><span class="toc-number">1</span>主要統計</a></li><li><a href="#sec-概要"><span class="toc-number">2</span>概要</a></li><li><a href="#sec-国号-呼称"><span class="toc-number">3</span>国号・呼称</a></li><li><a href="#sec-歴史"><span class="toc-number">4</span>歴史</a></li><li><a href="#sec-政治"><span class="toc-number">5</span>政治</a></li><li><a href="#sec-行政"><span class="toc-number">6</span>行政</a></li><li><a href="#sec-軍事"><span class="toc-number">7</span>軍事</a></li><li><a href="#sec-西日本との関係"><span class="toc-number">8</span>西日本との関係</a></li><li><a href="#sec-批判-論争"><span class="toc-number">9</span>批判・論争</a></li><li><a href="#sec-社会"><span class="toc-number">10</span>社会</a></li><li><a href="#sec-外交"><span class="toc-number">11</span>外交</a></li><li><a href="#sec-関連する地名-施設"><span class="toc-number">12</span>関連する地名・施設</a></li><li><a href="#sec-注釈"><span class="toc-number">13</span>注釈</a></li><li><a href="#sec-出典"><span class="toc-number">14</span>出典</a></li><li><a href="#sec-関連項目"><span class="toc-number">15</span>関連項目</a></li></ol></div></div>
+      <table class="wikitable"><thead><tr><th>指標</th><th>公開資料上の扱い</th><th>記事上の注記</th></tr></thead><tbody><tr><td>正式国号</td><td>日本国</td><td>京都政府側も同一国号を称するため、記事名では東京政府を併記する。</td></tr><tr><td>通称</td><td>東日本</td><td>東京政府、東日本、東側が文脈により使い分けられる。</td></tr><tr><td>主要施設</td><td>松代地下司令部、京浜境界区、中央境界線東側施設群</td><td>軍事・行政資料で扱いが分かれる。</td></tr><tr><td>主要制度</td><td>配給、労務、通信管理、国防動員</td><td>東京政府系資料は生活保障、外部資料は統制面を強調する。</td></tr></tbody></table>
+      <h2 id="sec-主要統計">主要統計</h2>
+<p>東京政府の人口、経済、軍事、通信に関する統計は、政府公表、外部推計、亡命者証言の間で差が大きい。天通辞典では、断定を避け、公開資料の出所を明示する。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+<h2 id="sec-概要">概要</h2>
+<p>日本国（東京政府）は、分断後の日本列島東部を実効支配する政府である。通称として東日本、政権呼称として東京政府、文脈により東側とも呼ばれる。<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></p>
+<p>中央執政機構、人民代表機関、国防組織、配給・労務制度を通じた統治が特徴とされる。</p>
+<h2 id="sec-国号-呼称">国号・呼称</h2>
+<p>正式名は日本国である。東京政府は自らを日本の正統政府と位置づけ、京都政府による代表権継承を認めない。<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></p>
+<h2 id="sec-歴史">歴史</h2>
+<p>東京政府の成立は、分断後の東部統治機構と軍事組織の再編に由来する。松代地下司令部は軍事指揮上の象徴的施設としてしばしば言及される。<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup></p>
+<h2 id="sec-政治">政治</h2>
+<p>豊聡耳神子は東京政府の最高指導層に属する政治家として扱われる。政府宣伝では生活保障、統一、国家防衛が強調される。<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup></p>
+<h2 id="sec-行政">行政</h2>
+<p>行政は中央集権的な制度を基礎とし、都市部、工業区、境界線周辺地域で異なる統治手法を採る。<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup></p>
+<h2 id="sec-軍事">軍事</h2>
+<p>中央境界線、京浜境界区、松代地下司令部は軍事・治安政策上の重点である。霧雨魔理沙は前線指揮と兵站再建に関わる人物として知られる。<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup></p>
+<h2 id="sec-西日本との関係">西日本との関係</h2>
+<p>京都政府との関係は、承認問題、境界線管理、捕虜・越境者対応、諏訪共同工業区の運用をめぐって緊張を含む。<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup></p>
+<h2 id="sec-批判-論争">批判・論争</h2>
+<p>東京政府については、報道統制、通信監視、移動制限、人権状況に関する批判がある。一方、東京政府系資料は生活保障と秩序維持を強調する。<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup></p>
+<h2 id="sec-社会">社会</h2>
+<p>社会制度は、都市部の配給、職場単位の登録、学校・地域組織、通信利用記録を通じて把握される。公的資料は安定供給と共同体維持を強調するが、外部報道では移動、発言、情報入手の制約が論点となる。<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup></p>
+<h2 id="sec-外交">外交</h2>
+<p>外交上の扱いは承認問題と安全保障秩序に左右される。国際機関、周辺国、在外邦人団体、軍事同盟の文書では、正式国号と便宜的呼称が併用される。<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup></p>
+<h2 id="sec-関連する地名-施設">関連する地名・施設</h2>
+<p>中央境界線、糸魚川境界区、白馬共同警備区、松代地下司令部、諏訪共同工業区、佐渡特別管理区、京浜境界区は、国家記事の中で補助的に説明される。独立した地理カテゴリは設けない。<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">[12]</a></sup></p>
+      <h2 id="sec-注釈">注釈</h2>
+      <ol class="references"><li>この記事は作中社会の公開資料としての体裁を採り、未発生事件や非公開組織の断定的記述を避けている。</li></ol>
+      <h2 id="sec-出典">出典</h2>
+      <ol class="references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 主要統計」公開資料整理、2026年。</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 概要」公開資料整理、2026年。</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 国号・呼称」公開資料整理、2026年。</span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 歴史」公開資料整理、2026年。</span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 政治」公開資料整理、2026年。</span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 行政」公開資料整理、2026年。</span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 軍事」公開資料整理、2026年。</span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 西日本との関係」公開資料整理、2026年。</span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 批判・論争」公開資料整理、2026年。</span></li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 社会」公開資料整理、2026年。</span></li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 外交」公開資料整理、2026年。</span></li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 関連する地名・施設」公開資料整理、2026年。</span></li></ol>
+      <h2 id="sec-関連項目">関連項目</h2>
+      <ul><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="character-toyosato-miko.html">豊聡耳神子</a></li><li><a href="character-marisa.html">霧雨魔理沙</a></li></ul>
+      <div class="category-box"><strong>カテゴリ:</strong> <a href="factions.html">国家・行政</a> | <a href="index.html">日本裂島記</a></div>
+    </article>
+    <aside id="mw-right-aside">
+      <div class="right-aside-title">ページツール</div>
+      <div class="right-aside-section"><ul><li><a href="#firstHeading">先頭へ</a></li><li><a href="#toc">目次</a></li><li><a href="#sec-出典">出典</a></li></ul></div>
+      <div class="right-aside-title">この項目</div>
+      <div class="right-aside-section"><p>国家・行政</p><p>東日本 / 東京政府</p></div>
+    </aside>
   </div>
-</article>
+</main>
+<footer>
+  <p>このページは天通辞典の単体HTML資料です。内容は公表時点の公開資料として記述されています。</p>
+  <p><a href="index.html">メインページ</a> | <a href="factions.html">国家・行政</a> | <a href="characters.html">人物</a> | <a href="history.html">軍事・安全保障</a></p>
+</footer>
+<script>
+
+function toggleToc() {
+  const body = document.getElementById('toc-body');
+  const btn = document.getElementById('toc-toggle');
+  const hidden = body.style.display === 'none';
+  body.style.display = hidden ? 'block' : 'none';
+  btn.textContent = hidden ? '[非表示]' : '[表示]';
+}
+function runSearch(event) {
+  event.preventDefault();
+  const input = document.getElementById('mw-search-input');
+  const q = input.value.trim().toLowerCase();
+  if (!q) return;
+  const links = Array.from(document.querySelectorAll('a[href$=".html"]'));
+  const hit = links.find(a => a.textContent.toLowerCase().includes(q) || a.getAttribute('href').toLowerCase().includes(q));
+  if (hit) location.href = hit.getAttribute('href');
+}
+
+</script>
+</body>
+</html>
