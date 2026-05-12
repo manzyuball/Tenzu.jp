@@ -1,271 +1,806 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="東京に政府中枢を置く日本国。通称は東日本、政権呼称は東京政府。">
-<title>日本国（東京政府） - Tenzu</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="東京に政府中枢を置く日本国。通称は東日本、政権呼称は東京政府。">
+  <title>日本国（東京政府） - Tenzu</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg: #fff; --bg-sidebar: #f8f9fa; --bg-header: #fff; --bg-toc: #f8f9fa;
-  --bg-infobox: #f8f9fa; --border: #a2a9b1; --border-light: #eaecf0;
-  --link: #36c; --link-visited: #6b4ba1; --link-new: #d33;
-  --text: #202122; --text-muted: #54595d; --text-light: #72777d;
-  --wikibg: #eaecf0; --notice-bg: #eaf3fb; --notice-border: #36c;
-  --infobox-head: #c8d5e8; --infobox-section: #d8e2ee;
-}
-html { font-size: 14px; scroll-padding-top: 62px; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
-  color: var(--text); background: var(--wikibg); line-height: 1.65;
-}
-a { color: var(--link); text-decoration: none; }
-a:visited { color: var(--link-visited); }
-a:hover, a:focus { text-decoration: underline; }
-#mw-head {
-  position: sticky; top: 0; z-index: 100; height: 50px; display: flex; align-items: stretch;
-  background: var(--bg-header); border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 1px 3px rgba(0,0,0,.08);
-}
-#mw-logo {
-  display: flex; align-items: center; gap: 8px; min-width: 180px; padding: 0 16px;
-  border-right: 1px solid var(--border-light); text-decoration: none; flex-shrink: 0;
-}
-.wiki-sphere {
-  width: 36px; height: 36px; border-radius: 50%; position: relative; overflow: hidden; flex-shrink: 0;
-  background: radial-gradient(circle at 35% 35%, #4a90d9, #1a4a7a); border: 2px solid #2a5ca8;
-}
-.wiki-sphere::after {
-  content: ""; position: absolute; inset: 2px; border-radius: 50%;
-  background: repeating-linear-gradient(30deg, transparent, transparent 3px, rgba(255,255,255,.09) 3px, rgba(255,255,255,.09) 4px),
-              repeating-linear-gradient(-30deg, transparent, transparent 3px, rgba(255,255,255,.06) 3px, rgba(255,255,255,.06) 4px);
-}
-.wiki-sphere-letter {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 16px; color: #fff; z-index: 1;
-}
-#mw-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-#mw-logo-text strong { font-family: Georgia, "Times New Roman", serif; font-size: 16px; color: var(--text); }
-#mw-logo-text span { font-size: 10px; color: var(--text-light); letter-spacing: .05em; }
-#mw-head-nav { display: flex; align-items: center; padding: 0 8px; flex: 1; gap: 2px; }
-.mw-tab {
-  display: flex; align-items: center; height: 100%; padding: 0 12px; border-left: 1px solid transparent;
-  border-right: 1px solid transparent; color: var(--text-muted); font-size: 13px;
-}
-.mw-tab.active { color: var(--text); background: #fff; border-left-color: var(--border-light); border-right-color: var(--border-light); border-bottom: 2px solid var(--link); }
-#mw-search { display: flex; align-items: center; padding: 8px 14px; gap: 0; }
-#mw-search input { width: 230px; height: 32px; padding: 5px 9px; border: 1px solid var(--border); border-right: 0; font: inherit; background: #fff; }
-#mw-search button { height: 32px; padding: 0 12px; border: 1px solid var(--border); background: #f8f9fa; cursor: pointer; }
-#mw-sidebar {
-  position: fixed; top: 50px; left: 0; bottom: 0; width: 176px; overflow-y: auto;
-  background: var(--bg-sidebar); border-right: 1px solid var(--border-light); padding: 18px 12px;
-}
-.sidebar-section { margin-bottom: 20px; }
-.sidebar-header { color: var(--text-muted); font-size: 12px; border-bottom: 1px solid var(--border-light); margin-bottom: 6px; padding-bottom: 3px; }
-.sidebar-section ul { list-style: none; font-size: 13px; }
-.sidebar-section li { margin: 3px 0; }
-#mw-content { margin-left: 176px; padding: 16px 24px 38px; }
-.content-wrapper { max-width: 1180px; display: grid; grid-template-columns: minmax(0, 1fr) 218px; gap: 20px; align-items: start; }
-#mw-article {
-  background: var(--bg); border: 1px solid var(--border-light); padding: 24px 32px 34px; min-width: 0;
-}
-#firstHeading {
-  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif; font-weight: 400; font-size: 2.05rem;
-  line-height: 1.25; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 8px;
-}
-.reading-ruby { font-size: .55em; color: var(--text-muted); margin-left: .35em; }
-.siteSub, .page-status { color: var(--text-muted); font-size: 12px; margin: 4px 0; }
-.notice {
-  clear: both; margin: 14px 0; padding: 10px 12px; border: 1px solid var(--notice-border);
-  background: var(--notice-bg); font-size: 13px;
-}
-.infobox {
-  float: right; width: 310px; margin: 0 0 16px 22px; border: 1px solid var(--border);
-  background: var(--bg-infobox); font-size: 12px; border-collapse: collapse;
-}
-.infobox-title { background: var(--infobox-head); font-weight: 700; text-align: center; padding: 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
-.infobox-subtitle { text-align: center; padding: 5px; border-bottom: 1px solid var(--border-light); color: var(--text-muted); }
-.infobox table { width: 100%; border-collapse: collapse; }
-.infobox th, .infobox td { border-top: 1px solid var(--border-light); padding: 6px 7px; vertical-align: top; }
-.infobox th { width: 34%; text-align: left; background: #eaecf0; font-weight: 700; }
-.infobox-section-header td { background: var(--infobox-section); text-align: center; font-weight: 700; }
-p { margin: .6em 0 .9em; }
-h2 {
-  clear: both; margin: 1.35em 0 .55em; padding-bottom: 3px; border-bottom: 1px solid var(--border);
-  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif; font-weight: 400; font-size: 1.55rem;
-}
-h3 { margin: 1.05em 0 .35em; font-size: 1.15rem; }
-ul, ol { margin: .45em 0 .85em 1.7em; }
-.wikitable { border-collapse: collapse; margin: 1em 0; background: #fff; font-size: 13px; width: 100%; }
-.wikitable th, .wikitable td { border: 1px solid var(--border); padding: 7px 8px; vertical-align: top; }
-.wikitable th { background: #eaecf0; font-weight: 700; text-align: left; }
-#toc {
-  display: inline-block; min-width: 280px; max-width: 100%; margin: 14px 0 18px; padding: 0;
-  border: 1px solid var(--border); background: var(--bg-toc); font-size: 13px;
-}
-#toc-title { padding: 7px 10px; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-light); }
-#toc-toggle { color: var(--link); font-weight: 400; cursor: pointer; margin-left: 6px; }
-#toc-body { padding: 8px 14px; }
-#toc ol { margin: 0 0 0 1.4em; }
-#toc li { margin: 2px 0; }
-.toc-number { color: var(--text-muted); margin-right: 8px; }
-.reference { font-size: .8em; vertical-align: super; line-height: 0; }
-.references { font-size: 12px; columns: 2 24em; column-gap: 24px; }
-.references li { break-inside: avoid; margin-bottom: 6px; }
-.category-box {
-  clear: both; margin-top: 22px; padding: 8px 10px; border: 1px solid var(--border);
-  background: #f8f9fa; font-size: 13px;
-}
-#mw-right-aside {
-  position: sticky; top: 66px; background: #fff; border: 1px solid var(--border-light); padding: 12px; font-size: 12px;
-}
-.right-aside-title { font-weight: 700; border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-bottom: 8px; }
-.right-aside-section { margin-bottom: 13px; }
-.right-aside-section ul { margin-left: 1.3em; }
-footer {
-  margin-left: 176px; padding: 18px 24px 28px; color: var(--text-muted); font-size: 12px;
-}
-@media (max-width: 980px) {
-  #mw-sidebar, #mw-right-aside { display: none; }
-  #mw-content, footer { margin-left: 0; }
-  .content-wrapper { display: block; }
-  #mw-article { padding: 18px 16px 26px; border-left: 0; border-right: 0; }
-  .infobox { float: none; width: 100%; margin: 12px 0; }
-  #mw-search input { width: 150px; }
-}
-@media (max-width: 680px) {
-  #mw-head { height: auto; flex-wrap: wrap; }
-  #mw-logo { min-width: 150px; }
-  #mw-head-nav { order: 3; width: 100%; overflow-x: auto; height: 38px; }
-  #mw-search { margin-left: auto; }
-  #mw-search input { width: 120px; }
-  #mw-content { padding: 10px 0 28px; }
-  .references { columns: 1; }
-}
+    :root {
+      --bg: #fff;
+      --bg-sidebar: #f8f9fa;
+      --bg-header: #fff;
+      --bg-toc: #f8f9fa;
+      --bg-infobox: #f8f9fa;
+      --border: #a2a9b1;
+      --border-light: #eaecf0;
+      --link: #36c;
+      --link-visited: #6b4ba1;
+      --link-new: #d33;
+      --text: #202122;
+      --text-muted: #54595d;
+      --text-light: #72777d;
+      --wikibg: #eaecf0;
+      --notice-bg: #eaf3fb;
+      --notice-border: #36c;
+      --infobox-head: #c8d5e8;
+      --infobox-section: #d8e2ee;
+    }
 
-</style>
+    html {
+      font-size: 14px;
+      scroll-padding-top: 62px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: var(--wikibg);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: var(--link-visited);
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
+    }
+
+    #mw-head {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 50px;
+      display: flex;
+      align-items: stretch;
+      background: var(--bg-header);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+    }
+
+    #mw-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 180px;
+      padding: 0 16px;
+      border-right: 1px solid var(--border-light);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .wiki-sphere {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: radial-gradient(circle at 35% 35%, #4a90d9, #1a4a7a);
+      border: 2px solid #2a5ca8;
+    }
+
+    .wiki-sphere::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: repeating-linear-gradient(30deg, transparent, transparent 3px, rgba(255, 255, 255, .09) 3px, rgba(255, 255, 255, .09) 4px),
+        repeating-linear-gradient(-30deg, transparent, transparent 3px, rgba(255, 255, 255, .06) 3px, rgba(255, 255, 255, .06) 4px);
+    }
+
+    .wiki-sphere-letter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      z-index: 1;
+    }
+
+    #mw-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    #mw-logo-text strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    #mw-logo-text span {
+      font-size: 10px;
+      color: var(--text-light);
+      letter-spacing: .05em;
+    }
+
+    #mw-head-nav {
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      flex: 1;
+      gap: 2px;
+    }
+
+    .mw-tab {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 12px;
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .mw-tab.active {
+      color: var(--text);
+      background: #fff;
+      border-left-color: var(--border-light);
+      border-right-color: var(--border-light);
+      border-bottom: 2px solid var(--link);
+    }
+
+    #mw-search {
+      display: flex;
+      align-items: center;
+      padding: 8px 14px;
+      gap: 0;
+    }
+
+    #mw-search input {
+      width: 230px;
+      height: 32px;
+      padding: 5px 9px;
+      border: 1px solid var(--border);
+      border-right: 0;
+      font: inherit;
+      background: #fff;
+    }
+
+    #mw-search button {
+      height: 32px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      background: #f8f9fa;
+      cursor: pointer;
+    }
+
+    #mw-sidebar {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      bottom: 0;
+      width: 176px;
+      overflow-y: auto;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border-light);
+      padding: 18px 12px;
+    }
+
+    .sidebar-section {
+      margin-bottom: 20px;
+    }
+
+    .sidebar-header {
+      color: var(--text-muted);
+      font-size: 12px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 6px;
+      padding-bottom: 3px;
+    }
+
+    .sidebar-section ul {
+      list-style: none;
+      font-size: 13px;
+    }
+
+    .sidebar-section li {
+      margin: 3px 0;
+    }
+
+    #mw-content {
+      margin-left: 176px;
+      padding: 16px 24px 38px;
+    }
+
+    .content-wrapper {
+      max-width: 1180px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 218px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    #mw-article {
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      padding: 24px 32px 34px;
+      min-width: 0;
+    }
+
+    #firstHeading {
+      font-family: Georgia, "Times New Roman", "Noto Serif JP", serif;
+      font-weight: 400;
+      font-size: 2.05rem;
+      line-height: 1.25;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+
+    .reading-ruby {
+      font-size: .55em;
+      color: var(--text-muted);
+      margin-left: .35em;
+    }
+
+    .siteSub,
+    .page-status {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin: 4px 0;
+    }
+
+    .notice {
+      clear: both;
+      margin: 14px 0;
+      padding: 10px 12px;
+      border: 1px solid var(--notice-border);
+      background: var(--notice-bg);
+      font-size: 13px;
+    }
+
+    .infobox {
+      float: right;
+      width: 310px;
+      margin: 0 0 16px 22px;
+      border: 1px solid var(--border);
+      background: var(--bg-infobox);
+      font-size: 12px;
+      border-collapse: collapse;
+    }
+
+    .infobox-title {
+      background: var(--infobox-head);
+      font-weight: 700;
+      text-align: center;
+      padding: 8px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .infobox-subtitle {
+      text-align: center;
+      padding: 5px;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text-muted);
+    }
+
+    .infobox table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .infobox th,
+    .infobox td {
+      border-top: 1px solid var(--border-light);
+      padding: 6px 7px;
+      vertical-align: top;
+    }
+
+    .infobox th {
+      width: 34%;
+      text-align: left;
+      background: #eaecf0;
+      font-weight: 700;
+    }
+
+    .infobox-section-header td {
+      background: var(--infobox-section);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    p {
+      margin: .6em 0 .9em;
+    }
+
+    h2 {
+      clear: both;
+      margin: 1.35em 0 .55em;
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--border);
+      font-family: Georgia, "Times New Roman", "Noto Serif JP", serif;
+      font-weight: 400;
+      font-size: 1.55rem;
+    }
+
+    h3 {
+      margin: 1.05em 0 .35em;
+      font-size: 1.15rem;
+    }
+
+    ul,
+    ol {
+      margin: .45em 0 .85em 1.7em;
+    }
+
+    .wikitable {
+      border-collapse: collapse;
+      margin: 1em 0;
+      background: #fff;
+      font-size: 13px;
+      width: 100%;
+    }
+
+    .wikitable th,
+    .wikitable td {
+      border: 1px solid var(--border);
+      padding: 7px 8px;
+      vertical-align: top;
+    }
+
+    .wikitable th {
+      background: #eaecf0;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    #toc {
+      display: inline-block;
+      min-width: 280px;
+      max-width: 100%;
+      margin: 14px 0 18px;
+      padding: 0;
+      border: 1px solid var(--border);
+      background: var(--bg-toc);
+      font-size: 13px;
+    }
+
+    #toc-title {
+      padding: 7px 10px;
+      font-weight: 700;
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    #toc-toggle {
+      color: var(--link);
+      font-weight: 400;
+      cursor: pointer;
+      margin-left: 6px;
+    }
+
+    #toc-body {
+      padding: 8px 14px;
+    }
+
+    #toc ol {
+      margin: 0 0 0 1.4em;
+    }
+
+    #toc li {
+      margin: 2px 0;
+    }
+
+    .toc-number {
+      color: var(--text-muted);
+      margin-right: 8px;
+    }
+
+    .reference {
+      font-size: .8em;
+      vertical-align: super;
+      line-height: 0;
+    }
+
+    .references {
+      font-size: 12px;
+      columns: 2 24em;
+      column-gap: 24px;
+    }
+
+    .references li {
+      break-inside: avoid;
+      margin-bottom: 6px;
+    }
+
+    .category-box {
+      clear: both;
+      margin-top: 22px;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      background: #f8f9fa;
+      font-size: 13px;
+    }
+
+    #mw-right-aside {
+      position: sticky;
+      top: 66px;
+      background: #fff;
+      border: 1px solid var(--border-light);
+      padding: 12px;
+      font-size: 12px;
+    }
+
+    .right-aside-title {
+      font-weight: 700;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .right-aside-section {
+      margin-bottom: 13px;
+    }
+
+    .right-aside-section ul {
+      margin-left: 1.3em;
+    }
+
+    footer {
+      margin-left: 176px;
+      padding: 18px 24px 28px;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+
+      #mw-sidebar,
+      #mw-right-aside {
+        display: none;
+      }
+
+      #mw-content,
+      footer {
+        margin-left: 0;
+      }
+
+      .content-wrapper {
+        display: block;
+      }
+
+      #mw-article {
+        padding: 18px 16px 26px;
+        border-left: 0;
+        border-right: 0;
+      }
+
+      .infobox {
+        float: none;
+        width: 100%;
+        margin: 12px 0;
+      }
+
+      #mw-search input {
+        width: 150px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      #mw-head {
+        height: auto;
+        flex-wrap: wrap;
+      }
+
+      #mw-logo {
+        min-width: 150px;
+      }
+
+      #mw-head-nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        height: 38px;
+      }
+
+      #mw-search {
+        margin-left: auto;
+      }
+
+      #mw-search input {
+        width: 120px;
+      }
+
+      #mw-content {
+        padding: 10px 0 28px;
+      }
+
+      .references {
+        columns: 1;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header id="mw-head">
-  <a id="mw-logo" href="index.html" aria-label="Tenzu メインページ">
-    <span class="wiki-sphere" aria-hidden="true"><span class="wiki-sphere-letter">天</span></span>
-    <span id="mw-logo-text"><strong>Tenzu</strong><span>天通辞典</span></span>
-  </a>
-  <nav id="mw-head-nav" aria-label="ページ操作">
-    <a class="mw-tab active" href="faction-japan-tokyo-government.html">閲覧</a>
-    <a class="mw-tab" href="#sec-出典">出典</a>
-    <a class="mw-tab" href="#sec-関連項目">関連項目</a>
+  <header id="mw-head">
+    <a id="mw-logo" href="index.html" aria-label="Tenzu メインページ">
+      <span class="wiki-sphere" aria-hidden="true"><span class="wiki-sphere-letter">天</span></span>
+      <span id="mw-logo-text"><strong>Tenzu</strong><span>天通辞典</span></span>
+    </a>
+    <nav id="mw-head-nav" aria-label="ページ操作">
+      <a class="mw-tab active" href="faction-japan-tokyo-government.html">閲覧</a>
+      <a class="mw-tab" href="#sec-出典">出典</a>
+      <a class="mw-tab" href="#sec-関連項目">関連項目</a>
+    </nav>
+    <form id="mw-search" onsubmit="runSearch(event)">
+      <input id="mw-search-input" type="search" placeholder="Tenzu内を検索" aria-label="Tenzu内を検索">
+      <button type="submit">検索</button>
+    </form>
+  </header>
+  <nav id="mw-sidebar" aria-label="サイドナビゲーション">
+    <div class="sidebar-section">
+      <div class="sidebar-header">案内</div>
+      <ul>
+        <li><a href="index.html">メインページ</a></li>
+        <li><a href="factions.html">国家・行政</a></li>
+        <li><a href="characters.html">人物</a></li>
+        <li><a href="history.html">軍事・安全保障</a></li>
+        <li><a href="faction-tenzu.html">企業・団体</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-header">主要項目</div>
+      <ul>
+        <li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li>
+        <li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li>
+        <li><a href="character-hakurei-reimu.html">博麗霊夢</a></li>
+        <li><a href="character-marisa.html">霧雨魔理沙</a></li>
+        <li><a href="character-sanae.html">東風谷早苗</a></li>
+        <li><a href="character-yasaka-kanako.html">八坂神奈子</a></li>
+        <li><a href="character-toyosato-miko.html">豊聡耳神子</a></li>
+        <li><a href="faction-moriya-yasaka-group.html">守矢グループ</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-header">関連項目</div>
+      <ul>
+        <li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li>
+        <li><a href="character-toyosato-miko.html">豊聡耳神子</a></li>
+        <li><a href="character-marisa.html">霧雨魔理沙</a></li>
+      </ul>
+    </div>
   </nav>
-  <form id="mw-search" onsubmit="runSearch(event)">
-    <input id="mw-search-input" type="search" placeholder="Tenzu内を検索" aria-label="Tenzu内を検索">
-    <button type="submit">検索</button>
-  </form>
-</header>
-<nav id="mw-sidebar" aria-label="サイドナビゲーション">
-  <div class="sidebar-section"><div class="sidebar-header">案内</div><ul><li><a href="index.html">メインページ</a></li><li><a href="factions.html">国家・行政</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">軍事・安全保障</a></li><li><a href="faction-tenzu.html">企業・団体</a></li></ul></div>
-  <div class="sidebar-section"><div class="sidebar-header">主要項目</div><ul><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li><li><a href="character-hakurei-reimu.html">博麗霊夢</a></li><li><a href="character-marisa.html">霧雨魔理沙</a></li><li><a href="character-sanae.html">東風谷早苗</a></li><li><a href="character-yasaka-kanako.html">八坂神奈子</a></li><li><a href="character-toyosato-miko.html">豊聡耳神子</a></li><li><a href="faction-moriya-yasaka-group.html">守矢グループ</a></li></ul></div>
-  <div class="sidebar-section"><div class="sidebar-header">関連項目</div><ul><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="character-toyosato-miko.html">豊聡耳神子</a></li><li><a href="character-marisa.html">霧雨魔理沙</a></li></ul></div>
-</nav>
-<main id="mw-content">
-  <div class="content-wrapper">
-    <article id="mw-article">
-      <h1 id="firstHeading">日本国（東京政府）<span class="reading-ruby">（にほんこく とうきょうせいふ）</span></h1>
-      <div class="siteSub">出典: 天通辞典</div>
-      <div class="page-status">公開資料基準: 公表時点 / 分類: 国家・行政</div>
-      <div class="notice">この記事では、東京に政府中枢を置く日本国について扱う。京都に政府中枢を置く日本国については「日本国（京都政府）」を参照。</div>
-      <div class="infobox">
-        <div class="infobox-title">日本国（東京政府）</div>
-        <div class="infobox-subtitle">東日本 / 東京政府</div>
-        <table><tbody>
-          <tr class="infobox-section-header"><td colspan="2">基本情報</td></tr>
-          <tr><th>正式名</th><td>日本国</td></tr>
-<tr><th>通称</th><td>東日本</td></tr>
-<tr><th>政権呼称</th><td>東京政府</td></tr>
-<tr><th>政府所在地</th><td>東京</td></tr>
-<tr><th>主要施設</th><td>松代地下司令部</td></tr>
-<tr><th>主要接触地帯</th><td>中央境界線、京浜境界区</td></tr>
-        </tbody></table>
-      </div>
-      <p><b>日本国（東京政府）</b>は、東京に政府中枢を置く日本国。通称は東日本、政権呼称は東京政府。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
-      <div id="toc"><div id="toc-title">目次 <span id="toc-toggle" onclick="toggleToc()">[非表示]</span></div><div id="toc-body"><ol><li><a href="#sec-主要統計"><span class="toc-number">1</span>主要統計</a></li><li><a href="#sec-概要"><span class="toc-number">2</span>概要</a></li><li><a href="#sec-国号-呼称"><span class="toc-number">3</span>国号・呼称</a></li><li><a href="#sec-歴史"><span class="toc-number">4</span>歴史</a></li><li><a href="#sec-政治"><span class="toc-number">5</span>政治</a></li><li><a href="#sec-行政"><span class="toc-number">6</span>行政</a></li><li><a href="#sec-軍事"><span class="toc-number">7</span>軍事</a></li><li><a href="#sec-西日本との関係"><span class="toc-number">8</span>西日本との関係</a></li><li><a href="#sec-批判-論争"><span class="toc-number">9</span>批判・論争</a></li><li><a href="#sec-社会"><span class="toc-number">10</span>社会</a></li><li><a href="#sec-外交"><span class="toc-number">11</span>外交</a></li><li><a href="#sec-関連する地名-施設"><span class="toc-number">12</span>関連する地名・施設</a></li><li><a href="#sec-注釈"><span class="toc-number">13</span>注釈</a></li><li><a href="#sec-出典"><span class="toc-number">14</span>出典</a></li><li><a href="#sec-関連項目"><span class="toc-number">15</span>関連項目</a></li></ol></div></div>
-      <table class="wikitable"><thead><tr><th>指標</th><th>公開資料上の扱い</th><th>記事上の注記</th></tr></thead><tbody><tr><td>正式国号</td><td>日本国</td><td>京都政府側も同一国号を称するため、記事名では東京政府を併記する。</td></tr><tr><td>通称</td><td>東日本</td><td>東京政府、東日本、東側が文脈により使い分けられる。</td></tr><tr><td>主要施設</td><td>松代地下司令部、京浜境界区、中央境界線東側施設群</td><td>軍事・行政資料で扱いが分かれる。</td></tr><tr><td>主要制度</td><td>配給、労務、通信管理、国防動員</td><td>東京政府系資料は生活保障、外部資料は統制面を強調する。</td></tr></tbody></table>
-      <h2 id="sec-主要統計">主要統計</h2>
-<p>東京政府の人口、経済、軍事、通信に関する統計は、政府公表、外部推計、亡命者証言の間で差が大きい。天通辞典では、断定を避け、公開資料の出所を明示する。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
-<h2 id="sec-概要">概要</h2>
-<p>日本国（東京政府）は、分断後の日本列島東部を実効支配する政府である。通称として東日本、政権呼称として東京政府、文脈により東側とも呼ばれる。<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></p>
-<p>中央執政機構、人民代表機関、国防組織、配給・労務制度を通じた統治が特徴とされる。</p>
-<h2 id="sec-国号-呼称">国号・呼称</h2>
-<p>正式名は日本国である。東京政府は自らを日本の正統政府と位置づけ、京都政府による代表権継承を認めない。<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></p>
-<h2 id="sec-歴史">歴史</h2>
-<p>東京政府の成立は、分断後の東部統治機構と軍事組織の再編に由来する。松代地下司令部は軍事指揮上の象徴的施設としてしばしば言及される。<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">[4]</a></sup></p>
-<h2 id="sec-政治">政治</h2>
-<p>豊聡耳神子は東京政府の最高指導層に属する政治家として扱われる。政府宣伝では生活保障、統一、国家防衛が強調される。<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">[5]</a></sup></p>
-<h2 id="sec-行政">行政</h2>
-<p>行政は中央集権的な制度を基礎とし、都市部、工業区、境界線周辺地域で異なる統治手法を採る。<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">[6]</a></sup></p>
-<h2 id="sec-軍事">軍事</h2>
-<p>中央境界線、京浜境界区、松代地下司令部は軍事・治安政策上の重点である。霧雨魔理沙は前線指揮と兵站再建に関わる人物として知られる。<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup></p>
-<h2 id="sec-西日本との関係">西日本との関係</h2>
-<p>京都政府との関係は、承認問題、境界線管理、捕虜・越境者対応、諏訪共同工業区の運用をめぐって緊張を含む。<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup></p>
-<h2 id="sec-批判-論争">批判・論争</h2>
-<p>東京政府については、報道統制、通信監視、移動制限、人権状況に関する批判がある。一方、東京政府系資料は生活保障と秩序維持を強調する。<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup></p>
-<h2 id="sec-社会">社会</h2>
-<p>社会制度は、都市部の配給、職場単位の登録、学校・地域組織、通信利用記録を通じて把握される。公的資料は安定供給と共同体維持を強調するが、外部報道では移動、発言、情報入手の制約が論点となる。<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup></p>
-<h2 id="sec-外交">外交</h2>
-<p>外交上の扱いは承認問題と安全保障秩序に左右される。国際機関、周辺国、在外邦人団体、軍事同盟の文書では、正式国号と便宜的呼称が併用される。<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">[11]</a></sup></p>
-<h2 id="sec-関連する地名-施設">関連する地名・施設</h2>
-<p>中央境界線、糸魚川境界区、白馬共同警備区、松代地下司令部、諏訪共同工業区、佐渡特別管理区、京浜境界区は、国家記事の中で補助的に説明される。独立した地理カテゴリは設けない。<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">[12]</a></sup></p>
-      <h2 id="sec-注釈">注釈</h2>
-      <ol class="references"><li>この記事は作中社会の公開資料としての体裁を採り、未発生事件や非公開組織の断定的記述を避けている。</li></ol>
-      <h2 id="sec-出典">出典</h2>
-      <ol class="references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 主要統計」公開資料整理、2026年。</span></li>
-<li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 概要」公開資料整理、2026年。</span></li>
-<li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 国号・呼称」公開資料整理、2026年。</span></li>
-<li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 歴史」公開資料整理、2026年。</span></li>
-<li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 政治」公開資料整理、2026年。</span></li>
-<li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 行政」公開資料整理、2026年。</span></li>
-<li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 軍事」公開資料整理、2026年。</span></li>
-<li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 西日本との関係」公開資料整理、2026年。</span></li>
-<li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 批判・論争」公開資料整理、2026年。</span></li>
-<li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 社会」公開資料整理、2026年。</span></li>
-<li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 外交」公開資料整理、2026年。</span></li>
-<li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span> <span class="reference-text">天通辞典編集部「日本国（東京政府） 関連する地名・施設」公開資料整理、2026年。</span></li></ol>
-      <h2 id="sec-関連項目">関連項目</h2>
-      <ul><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="character-toyosato-miko.html">豊聡耳神子</a></li><li><a href="character-marisa.html">霧雨魔理沙</a></li></ul>
-      <div class="category-box"><strong>カテゴリ:</strong> <a href="factions.html">国家・行政</a> | <a href="index.html">日本裂島記</a></div>
-    </article>
-    <aside id="mw-right-aside">
-      <div class="right-aside-title">ページツール</div>
-      <div class="right-aside-section"><ul><li><a href="#firstHeading">先頭へ</a></li><li><a href="#toc">目次</a></li><li><a href="#sec-出典">出典</a></li></ul></div>
-      <div class="right-aside-title">この項目</div>
-      <div class="right-aside-section"><p>国家・行政</p><p>東日本 / 東京政府</p></div>
-    </aside>
-  </div>
-</main>
-<footer>
-  <p>このページは天通辞典の単体HTML資料です。内容は公表時点の公開資料として記述されています。</p>
-  <p><a href="index.html">メインページ</a> | <a href="factions.html">国家・行政</a> | <a href="characters.html">人物</a> | <a href="history.html">軍事・安全保障</a></p>
-</footer>
-<script>
+  <main id="mw-content">
+    <div class="content-wrapper">
+      <article id="mw-article">
+        <h1 id="firstHeading">日本国（東京政府）<span class="reading-ruby">（にほんこく とうきょうせいふ）</span></h1>
+        <div class="siteSub">出典: 天通辞典</div>
+        <div class="page-status">公開資料基準: 公表時点 / 分類: 国家・行政</div>
+        <div class="notice">この記事では、東京に政府中枢を置く日本国について扱う。京都に政府中枢を置く日本国については「日本国（京都政府）」を参照。</div>
+        <div class="infobox">
+          <div class="infobox-title">日本国（東京政府）</div>
+          <div class="infobox-subtitle">東日本 / 東京政府</div>
+          <table>
+            <tbody>
+              <tr class="infobox-section-header">
+                <td colspan="2">基本情報</td>
+              </tr>
+              <tr>
+                <th>正式名</th>
+                <td>日本国</td>
+              </tr>
+              <tr>
+                <th>通称</th>
+                <td>東日本</td>
+              </tr>
+              <tr>
+                <th>政権呼称</th>
+                <td>東京政府</td>
+              </tr>
+              <tr>
+                <th>政府所在地</th>
+                <td>東京</td>
+              </tr>
+              <tr>
+                <th>主要施設</th>
+                <td>松代地下司令部</td>
+              </tr>
+              <tr>
+                <th>主要接触地帯</th>
+                <td>中央境界線、京浜境界区</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p><b>日本国（東京政府）</b>は、東京に政府中枢を置く日本国。通称は東日本、政権呼称は東京政府。<sup id="cite_ref-1" class="reference"><a
+              href="#cite_note-1">[1]</a></sup></p>
+        <div id="toc">
+          <div id="toc-title">目次 <span id="toc-toggle" onclick="toggleToc()">[非表示]</span></div>
+          <div id="toc-body">
+            <ol>
+              <li><a href="#sec-主要統計"><span class="toc-number">1</span>主要統計</a></li>
+              <li><a href="#sec-概要"><span class="toc-number">2</span>概要</a></li>
+              <li><a href="#sec-国号-呼称"><span class="toc-number">3</span>国号・呼称</a></li>
+              <li><a href="#sec-歴史"><span class="toc-number">4</span>歴史</a></li>
+              <li><a href="#sec-政治"><span class="toc-number">5</span>政治</a></li>
+              <li><a href="#sec-行政"><span class="toc-number">6</span>行政</a></li>
+              <li><a href="#sec-軍事"><span class="toc-number">7</span>軍事</a></li>
+              <li><a href="#sec-西日本との関係"><span class="toc-number">8</span>西日本との関係</a></li>
+              <li><a href="#sec-批判-論争"><span class="toc-number">9</span>批判・論争</a></li>
+              <li><a href="#sec-社会"><span class="toc-number">10</span>社会</a></li>
+              <li><a href="#sec-外交"><span class="toc-number">11</span>外交</a></li>
+              <li><a href="#sec-関連する地名-施設"><span class="toc-number">12</span>関連する地名・施設</a></li>
+              <li><a href="#sec-注釈"><span class="toc-number">13</span>注釈</a></li>
+              <li><a href="#sec-出典"><span class="toc-number">14</span>出典</a></li>
+              <li><a href="#sec-関連項目"><span class="toc-number">15</span>関連項目</a></li>
+            </ol>
+          </div>
+        </div>
+        <table class="wikitable">
+          <thead>
+            <tr>
+              <th>指標</th>
+              <th>公開資料上の扱い</th>
+              <th>記事上の注記</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>正式国号</td>
+              <td>日本国</td>
+              <td>京都政府側も同一国号を称するため、記事名では東京政府を併記する。</td>
+            </tr>
+            <tr>
+              <td>通称</td>
+              <td>東日本</td>
+              <td>東京政府、東日本、東側が文脈により使い分けられる。</td>
+            </tr>
+            <tr>
+              <td>主要施設</td>
+              <td>松代地下司令部、京浜境界区、中央境界線東側施設群</td>
+              <td>軍事・行政資料で扱いが分かれる。</td>
+            </tr>
+            <tr>
+              <td>主要制度</td>
+              <td>配給、労務、通信管理、国防動員</td>
+              <td>東京政府系資料は生活保障、外部資料は統制面を強調する。</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="sec-主要統計">主要統計</h2>
+        <p>東京政府の人口、経済、軍事、通信に関する統計は、政府公表、外部推計、亡命者証言の間で差が大きい。天通辞典では、断定を避け、公開資料の出所を明示する。<sup id="cite_ref-1"
+            class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+        <h2 id="sec-概要">概要</h2>
+        <p>日本国（東京政府）は、分断後の日本列島東部を実効支配する政府である。通称として東日本、政権呼称として東京政府、文脈により東側とも呼ばれる。<sup id="cite_ref-2"
+            class="reference"><a href="#cite_note-2">[2]</a></sup></p>
+        <p>中央執政機構、人民代表機関、国防組織、配給・労務制度を通じた統治が特徴とされる。</p>
+        <h2 id="sec-国号-呼称">国号・呼称</h2>
+        <p>正式名は日本国である。東京政府は自らを日本の正統政府と位置づけ、京都政府による代表権継承を認めない。<sup id="cite_ref-3" class="reference"><a
+              href="#cite_note-3">[3]</a></sup></p>
+        <h2 id="sec-歴史">歴史</h2>
+        <p>東京政府の成立は、分断後の東部統治機構と軍事組織の再編に由来する。松代地下司令部は軍事指揮上の象徴的施設としてしばしば言及される。<sup id="cite_ref-4" class="reference"><a
+              href="#cite_note-4">[4]</a></sup></p>
+        <h2 id="sec-政治">政治</h2>
+        <p>豊聡耳神子は東京政府の最高指導層に属する政治家として扱われる。政府宣伝では生活保障、統一、国家防衛が強調される。<sup id="cite_ref-5" class="reference"><a
+              href="#cite_note-5">[5]</a></sup></p>
+        <h2 id="sec-行政">行政</h2>
+        <p>行政は中央集権的な制度を基礎とし、都市部、工業区、境界線周辺地域で異なる統治手法を採る。<sup id="cite_ref-6" class="reference"><a
+              href="#cite_note-6">[6]</a></sup></p>
+        <h2 id="sec-軍事">軍事</h2>
+        <p>中央境界線、京浜境界区、松代地下司令部は軍事・治安政策上の重点である。霧雨魔理沙は前線指揮と兵站再建に関わる人物として知られる。<sup id="cite_ref-7" class="reference"><a
+              href="#cite_note-7">[7]</a></sup></p>
+        <h2 id="sec-西日本との関係">西日本との関係</h2>
+        <p>京都政府との関係は、承認問題、境界線管理、捕虜・越境者対応、諏訪共同工業区の運用をめぐって緊張を含む。<sup id="cite_ref-8" class="reference"><a
+              href="#cite_note-8">[8]</a></sup></p>
+        <h2 id="sec-批判-論争">批判・論争</h2>
+        <p>東京政府については、報道統制、通信監視、移動制限、人権状況に関する批判がある。一方、東京政府系資料は生活保障と秩序維持を強調する。<sup id="cite_ref-9" class="reference"><a
+              href="#cite_note-9">[9]</a></sup></p>
+        <h2 id="sec-社会">社会</h2>
+        <p>社会制度は、都市部の配給、職場単位の登録、学校・地域組織、通信利用記録を通じて把握される。公的資料は安定供給と共同体維持を強調するが、外部報道では移動、発言、情報入手の制約が論点となる。<sup
+            id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup></p>
+        <h2 id="sec-外交">外交</h2>
+        <p>外交上の扱いは承認問題と安全保障秩序に左右される。国際機関、周辺国、在外邦人団体、軍事同盟の文書では、正式国号と便宜的呼称が併用される。<sup id="cite_ref-11"
+            class="reference"><a href="#cite_note-11">[11]</a></sup></p>
+        <h2 id="sec-関連する地名-施設">関連する地名・施設</h2>
+        <p>中央境界線、糸魚川境界区、白馬共同警備区、松代地下司令部、諏訪共同工業区、佐渡特別管理区、京浜境界区は、国家記事の中で補助的に説明される。独立した地理カテゴリは設けない。<sup id="cite_ref-12"
+            class="reference"><a href="#cite_note-12">[12]</a></sup></p>
+        <h2 id="sec-注釈">注釈</h2>
+        <ol class="references">
+          <li>この記事は作中社会の公開資料としての体裁を採り、未発生事件や非公開組織の断定的記述を避けている。</li>
+        </ol>
+        <h2 id="sec-出典">出典</h2>
+        <ol class="references">
+          <li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 主要統計」公開資料整理、2026年。</span></li>
+          <li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 概要」公開資料整理、2026年。</span></li>
+          <li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 国号・呼称」公開資料整理、2026年。</span></li>
+          <li id="cite_note-4"><span class="mw-cite-backlink"><a href="#cite_ref-4">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 歴史」公開資料整理、2026年。</span></li>
+          <li id="cite_note-5"><span class="mw-cite-backlink"><a href="#cite_ref-5">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 政治」公開資料整理、2026年。</span></li>
+          <li id="cite_note-6"><span class="mw-cite-backlink"><a href="#cite_ref-6">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 行政」公開資料整理、2026年。</span></li>
+          <li id="cite_note-7"><span class="mw-cite-backlink"><a href="#cite_ref-7">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 軍事」公開資料整理、2026年。</span></li>
+          <li id="cite_note-8"><span class="mw-cite-backlink"><a href="#cite_ref-8">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 西日本との関係」公開資料整理、2026年。</span></li>
+          <li id="cite_note-9"><span class="mw-cite-backlink"><a href="#cite_ref-9">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 批判・論争」公開資料整理、2026年。</span></li>
+          <li id="cite_note-10"><span class="mw-cite-backlink"><a href="#cite_ref-10">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 社会」公開資料整理、2026年。</span></li>
+          <li id="cite_note-11"><span class="mw-cite-backlink"><a href="#cite_ref-11">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 外交」公開資料整理、2026年。</span></li>
+          <li id="cite_note-12"><span class="mw-cite-backlink"><a href="#cite_ref-12">↑</a></span> <span
+              class="reference-text">天通辞典編集部「日本国（東京政府） 関連する地名・施設」公開資料整理、2026年。</span></li>
+        </ol>
+        <h2 id="sec-関連項目">関連項目</h2>
+        <ul>
+          <li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li>
+          <li><a href="character-toyosato-miko.html">豊聡耳神子</a></li>
+          <li><a href="character-marisa.html">霧雨魔理沙</a></li>
+        </ul>
+        <div class="category-box"><strong>カテゴリ:</strong> <a href="factions.html">国家・行政</a> | <a
+            href="index.html">日本裂島記</a></div>
+      </article>
+      <aside id="mw-right-aside">
+        <div class="right-aside-title">ページツール</div>
+        <div class="right-aside-section">
+          <ul>
+            <li><a href="#firstHeading">先頭へ</a></li>
+            <li><a href="#toc">目次</a></li>
+            <li><a href="#sec-出典">出典</a></li>
+          </ul>
+        </div>
+        <div class="right-aside-title">この項目</div>
+        <div class="right-aside-section">
+          <p>国家・行政</p>
+          <p>東日本 / 東京政府</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <footer>
+    <p>このページは天通辞典の単体HTML資料です。内容は公表時点の公開資料として記述されています。</p>
+    <p><a href="index.html">メインページ</a> | <a href="factions.html">国家・行政</a> | <a href="characters.html">人物</a> | <a
+        href="history.html">軍事・安全保障</a></p>
+  </footer>
+  <script>
 
-function toggleToc() {
-  const body = document.getElementById('toc-body');
-  const btn = document.getElementById('toc-toggle');
-  const hidden = body.style.display === 'none';
-  body.style.display = hidden ? 'block' : 'none';
-  btn.textContent = hidden ? '[非表示]' : '[表示]';
-}
-function runSearch(event) {
-  event.preventDefault();
-  const input = document.getElementById('mw-search-input');
-  const q = input.value.trim().toLowerCase();
-  if (!q) return;
-  const links = Array.from(document.querySelectorAll('a[href$=".html"]'));
-  const hit = links.find(a => a.textContent.toLowerCase().includes(q) || a.getAttribute('href').toLowerCase().includes(q));
-  if (hit) location.href = hit.getAttribute('href');
-}
+    function toggleToc() {
+      const body = document.getElementById('toc-body');
+      const btn = document.getElementById('toc-toggle');
+      const hidden = body.style.display === 'none';
+      body.style.display = hidden ? 'block' : 'none';
+      btn.textContent = hidden ? '[非表示]' : '[表示]';
+    }
+    function runSearch(event) {
+      event.preventDefault();
+      const input = document.getElementById('mw-search-input');
+      const q = input.value.trim().toLowerCase();
+      if (!q) return;
+      const links = Array.from(document.querySelectorAll('a[href$=".html"]'));
+      const hit = links.find(a => a.textContent.toLowerCase().includes(q) || a.getAttribute('href').toLowerCase().includes(q));
+      if (hit) location.href = hit.getAttribute('href');
+    }
 
-</script>
+  </script>
 </body>
+
 </html>
