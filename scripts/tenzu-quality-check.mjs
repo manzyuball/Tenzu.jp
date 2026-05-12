@@ -23,8 +23,10 @@ const forbiddenPatterns = [
 ];
 const mojibakePattern = /(繝|縺|譛|蜊|蝓|髢|螟|謾|隕|邨|荳|逕|譁|豁ｴ|莠){3,}/;
 const hrefPattern = /href\s*=\s*"([^"#?]+?\.html)(?:[?#][^"]*)?"/g;
-const requiredStandalone = [
-  '<style>',
+const baseStandalone = [
+  '<style>'
+];
+const articleStandalone = [
   '<script>',
   'id="mw-head"',
   'id="mw-sidebar"',
@@ -36,6 +38,15 @@ const requiredStandalone = [
   'id="sec-出典"',
   'id="sec-関連項目"'
 ];
+const mainPageStandalone = [
+  'id="mw-head"',
+  'id="mw-sidebar"',
+  'id="mw-content"',
+  'id="mw-right-aside"',
+  'class="main-page"',
+  'カテゴリ:'
+];
+const utilityPages = new Set(['404.html']);
 
 function addFailure(message) {
   failures.push(message);
@@ -57,9 +68,14 @@ for (const file of htmlFiles) {
   if (!/^\s*<!DOCTYPE html>\s*<html\s+lang="ja"/is.test(text)) {
     addFailure(`${file.name} is not a standalone Japanese HTML document.`);
   }
-  for (const required of requiredStandalone) {
+  const requiredElements = utilityPages.has(file.name)
+    ? baseStandalone
+    : file.name === 'index.html'
+      ? [...baseStandalone, ...mainPageStandalone]
+      : [...baseStandalone, ...articleStandalone];
+  for (const required of requiredElements) {
     if (!text.includes(required)) {
-      addFailure(`${file.name} is missing Wikipedia-style standalone element: ${required}`);
+      addFailure(`${file.name} is missing required standalone element: ${required}`);
     }
   }
   if (mojibakePattern.test(text)) {
