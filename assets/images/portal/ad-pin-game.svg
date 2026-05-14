@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="260" viewBox="0 0 640 260" role="img" aria-labelledby="title desc">
+  <title id="title">ピン抜きゲーム広告風画像</title>
+  <desc id="desc">城の部屋、ピン、王冠をかぶった人物、宝箱を描いたスマホゲーム広告風イラスト。</desc>
+  <defs>
+    <linearGradient id="gameBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ebfbff"/>
+      <stop offset="1" stop-color="#ffe7b6"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="260" fill="url(#gameBg)"/>
+  <rect x="44" y="34" width="552" height="190" rx="14" fill="#fff8dc" stroke="#c8a45b" stroke-width="8"/>
+  <path d="M310 42v176M120 112h400" stroke="#c8a45b" stroke-width="7"/>
+  <path d="M109 110h192" stroke="#5d6f91" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="300" cy="110" r="18" fill="#5d6f91"/>
+  <path d="M399 62l18 26 22-26 22 26 18-26v46h-80Z" fill="#f2c94c" stroke="#9a6b00" stroke-width="5"/>
+  <circle cx="438" cy="138" r="34" fill="#ffd9ad" stroke="#9a6b00" stroke-width="5"/>
+  <path d="M402 177h76l18 45H384Z" fill="#3f7db7"/>
+  <path d="M156 151h86v54h-86Z" fill="#c0712b" stroke="#704018" stroke-width="6"/>
+  <path d="M151 146h96" stroke="#ffdd67" stroke-width="10" stroke-linecap="round"/>
+  <path d="M199 151v54" stroke="#704018" stroke-width="5"/>
+  <path d="M301 123c12 33 33 48 62 55" fill="none" stroke="#d33424" stroke-width="12" stroke-linecap="round" stroke-dasharray="8 14"/>
+</svg>

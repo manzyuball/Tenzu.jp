@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="260" viewBox="0 0 640 260" role="img" aria-labelledby="title desc">
+  <title id="title">自然派サポート広告風画像</title>
+  <desc id="desc">緑の葉、透明なグラス、サプリメント瓶を配置した健康食品広告風イラスト。</desc>
+  <defs>
+    <linearGradient id="greenBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffbd8"/>
+      <stop offset="1" stop-color="#dff4df"/>
+    </linearGradient>
+    <linearGradient id="drink" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#b8e2c2" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="260" fill="url(#greenBg)"/>
+  <path d="M80 180c94-98 151-101 224-87-42 62-112 90-224 87Z" fill="#64b86a" opacity="0.82"/>
+  <path d="M336 202c42-84 91-117 183-116-25 79-92 123-183 116Z" fill="#8bcf7e" opacity="0.82"/>
+  <path d="M128 166c53-22 102-46 151-67M365 188c39-25 82-56 134-91" stroke="#2e7d32" stroke-width="5" opacity="0.45"/>
+  <path d="M246 60h86l-15 156h-56Z" fill="url(#drink)" stroke="#7ab58b" stroke-width="6"/>
+  <ellipse cx="289" cy="60" rx="43" ry="13" fill="#ffffff" stroke="#7ab58b" stroke-width="6"/>
+  <path d="M270 125c18 12 36 12 56 0" fill="none" stroke="#4fa563" stroke-width="7" stroke-linecap="round"/>
+  <rect x="410" y="92" width="86" height="116" rx="12" fill="#ffffff" stroke="#72a85f" stroke-width="6"/>
+  <path d="M430 78h46v22h-46Z" fill="#72a85f"/>
+  <path d="M431 133h45M428 160h50" stroke="#f0a000" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="174" cy="204" r="18" fill="#fff" opacity="0.65"/>
+  <circle cx="539" cy="80" r="24" fill="#fff" opacity="0.48"/>
+</svg>
