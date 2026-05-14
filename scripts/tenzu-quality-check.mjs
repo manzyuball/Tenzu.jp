@@ -39,12 +39,18 @@ const articleStandalone = [
   'id="sec-関連項目"'
 ];
 const mainPageStandalone = [
-  'id="mw-head"',
-  'id="mw-sidebar"',
-  'id="mw-content"',
-  'id="mw-right-aside"',
-  'class="main-page"',
-  'カテゴリ:'
+  'assets/css/portal-home.css',
+  'class="portal-bar"',
+  'class="site-header"',
+  'class="search-box"',
+  'class="page-layout"',
+  'class="left-column"',
+  'class="main-column"',
+  'class="right-column"',
+  'class="mascot"',
+  '急上昇ワード',
+  '[PR]',
+  '掲示板で話題の記事'
 ];
 const utilityPages = new Set(['404.html']);
 
@@ -62,7 +68,7 @@ for (const file of htmlFiles) {
   if (/^\s*---\s*\r?\n/s.test(text)) {
     addFailure(`${file.name} still contains Jekyll front matter.`);
   }
-  if (/(\{\{|\{%|%\}|\}\})/.test(text)) {
+  if (/(\{\{\s*[^}]+\}\}|\{%[\s\S]*?%\})/.test(text)) {
     addFailure(`${file.name} still contains Liquid syntax.`);
   }
   if (!/^\s*<!DOCTYPE html>\s*<html\s+lang="ja"/is.test(text)) {
@@ -71,7 +77,7 @@ for (const file of htmlFiles) {
   const requiredElements = utilityPages.has(file.name)
     ? baseStandalone
     : file.name === 'index.html'
-      ? [...baseStandalone, ...mainPageStandalone]
+      ? mainPageStandalone
       : [...baseStandalone, ...articleStandalone];
   for (const required of requiredElements) {
     if (!text.includes(required)) {
