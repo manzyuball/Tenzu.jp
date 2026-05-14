@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="260" viewBox="0 0 640 260" role="img" aria-labelledby="title desc">
+  <title id="title">髪のボリューム広告風画像</title>
+  <desc id="desc">洗面台の前で髪を気にする人物と商品ボトルの広告風イラスト。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff7d2"/>
+      <stop offset="0.58" stop-color="#e8f3ff"/>
+      <stop offset="1" stop-color="#d5e8f5"/>
+    </linearGradient>
+    <radialGradient id="skin" cx="45%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#ffe0bf"/>
+      <stop offset="1" stop-color="#e6b38b"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="260" fill="url(#bg)"/>
+  <rect x="0" y="188" width="640" height="72" fill="#ffffff" opacity="0.72"/>
+  <circle cx="190" cy="104" r="58" fill="url(#skin)"/>
+  <path d="M129 102c7-60 54-82 106-58 22 10 36 29 39 57-36-15-82-22-145 1Z" fill="#3b2f2f"/>
+  <path d="M125 133c22 32 103 42 136 4 10 46 48 55 56 111H74c8-55 43-67 51-115Z" fill="#6c94b8"/>
+  <path d="M318 72h86v148h-86Z" fill="#ffffff" stroke="#7bb577" stroke-width="6"/>
+  <path d="M335 94h52v72h-52Z" fill="#cfeecb"/>
+  <path d="M330 196h64" stroke="#7bb577" stroke-width="8" stroke-linecap="round"/>
+  <rect x="432" y="52" width="150" height="156" rx="8" fill="#ffffff" opacity="0.86"/>
+  <path d="M454 84h106M454 116h88M454 148h118" stroke="#d60000" stroke-width="10" stroke-linecap="round"/>
+</svg>

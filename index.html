@@ -3,15 +3,267 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="天通辞典のメインページ。人物、国家・行政、企業・団体、軍事・安全保障記事への入口。">
+<meta name="description" content="天通辞典のメインページ。単語、人物、組織、出来事、地域、作品を検索できるネット百科サービスです。">
 <title>メインページ - 天通辞典</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--bg:#fff;--side:#f8f9fa;--border:#a2a9b1;--light:#eaecf0;--link:#36c;--text:#202122;--muted:#54595d;--wiki:#eaecf0}html{font-size:14px}body{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--wiki);line-height:1.65}a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}#mw-head{position:sticky;top:0;z-index:10;height:50px;display:flex;background:#fff;border-bottom:1px solid var(--light);box-shadow:0 1px 3px #0001}#mw-logo{display:flex;align-items:center;gap:8px;min-width:180px;padding:0 16px;border-right:1px solid var(--light);text-decoration:none}.wiki-sphere{width:36px;height:36px;border-radius:50%;position:relative;overflow:hidden;background:radial-gradient(circle at 35% 35%,#4a90d9,#1a4a7a);border:2px solid #2a5ca8}.wiki-sphere::after{content:"";position:absolute;inset:2px;border-radius:50%;background:repeating-linear-gradient(30deg,transparent,transparent 3px,#fff2 3px,#fff2 4px),repeating-linear-gradient(-30deg,transparent,transparent 3px,#fff1 3px,#fff1 4px)}.wiki-sphere-letter{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:Georgia,serif;font-weight:700;color:white}#mw-logo-text{display:flex;flex-direction:column;line-height:1.1}#mw-logo-text strong{font-family:Georgia,serif;font-size:16px;color:var(--text)}#mw-logo-text span{font-size:10px;color:#72777d;letter-spacing:.05em}#mw-head-nav{display:flex;align-items:center;padding:0 8px;flex:1}.mw-tab{display:flex;align-items:center;height:100%;padding:0 12px;color:var(--muted);font-size:13px}.mw-tab.active{color:var(--text);border-bottom:2px solid var(--link)}#mw-search{display:flex;align-items:center;padding:8px 14px}#mw-search input{width:230px;height:32px;padding:5px 9px;border:1px solid var(--border);border-right:0}#mw-search button{height:32px;padding:0 12px;border:1px solid var(--border);background:var(--side)}#mw-sidebar{position:fixed;top:50px;left:0;bottom:0;width:176px;overflow:auto;background:var(--side);border-right:1px solid var(--light);padding:18px 12px}.sidebar-section{margin-bottom:20px}.sidebar-header{color:var(--muted);font-size:12px;border-bottom:1px solid var(--light);margin-bottom:6px;padding-bottom:3px}.sidebar-section ul{list-style:none;font-size:13px}.sidebar-section li{margin:3px 0}#mw-content{margin-left:176px;padding:16px 24px 38px}.content-wrapper{max-width:1180px;display:grid;grid-template-columns:minmax(0,1fr)218px;gap:20px}#mw-article{background:#fff;border:1px solid var(--light);padding:18px 22px 28px}#firstHeading{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}.siteSub,.page-status{display:none}.mainpage-welcome{display:grid;grid-template-columns:minmax(0,1fr)auto;gap:14px;align-items:center;margin-bottom:14px;padding:12px 18px;background:var(--side);border:1px solid var(--border)}.mainpage-welcome h2{font-size:1.55rem;text-align:center}.mainpage-welcome p{text-align:center;color:var(--muted)}.mainpage-stats{min-width:205px;padding-left:14px;border-left:1px solid var(--light);color:var(--muted);font-size:12px}.mainpage-toplinks{text-align:center;margin:0 0 16px;font-size:13px}.mainpage-toplinks a{margin:0 .45em}.mainpage-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mainpage-box{border:1px solid var(--border);background:#fff}.mainpage-box h2{padding:5px 10px;border-bottom:1px solid var(--border);font-size:1rem}.mainpage-box-body{padding:10px 12px 12px}.mainpage-featured h2{background:#cef2e0}.mainpage-news h2{background:#cedff2}.mainpage-categories h2{background:#ddcef2}.mainpage-guide h2{background:#f2e0ce}.wikitable{border-collapse:collapse;margin:1em 0;background:#fff;font-size:13px;width:100%}.wikitable th,.wikitable td{border:1px solid var(--border);padding:7px 8px;vertical-align:top}.wikitable th{background:#eaecf0;text-align:left}.mainpage-search-panel,.mainpage-sister,.category-box{margin-top:12px;padding:10px 12px;border:1px solid var(--border);background:#fff}.mainpage-search-panel{background:var(--side);text-align:center}#mw-right-aside{position:sticky;top:66px;background:#fff;border:1px solid var(--light);padding:12px;font-size:12px}.right-aside-title{font-weight:700;border-bottom:1px solid var(--light);padding-bottom:5px;margin-bottom:8px}.right-aside-section{margin-bottom:13px}.right-aside-section ul{margin-left:1.3em}footer{margin-left:176px;padding:18px 24px 28px;color:var(--muted);font-size:12px}@media(max-width:980px){#mw-sidebar,#mw-right-aside{display:none}#mw-content,footer{margin-left:0}.content-wrapper{display:block}.mainpage-welcome,.mainpage-grid{grid-template-columns:1fr}.mainpage-stats{border-left:0;border-top:1px solid var(--light);padding-left:0;padding-top:8px}#mw-search input{width:150px}}@media(max-width:680px){#mw-head{height:auto;flex-wrap:wrap}#mw-head-nav{order:3;width:100%;height:38px;overflow:auto}#mw-search{margin-left:auto}#mw-search input{width:120px}#mw-content{padding:10px 0 28px}}
-</style>
+<link rel="stylesheet" href="assets/css/portal-home.css">
 </head>
 <body>
-<header id="mw-head"><a id="mw-logo" href="index.html" aria-label="Tenzu メインページ"><span class="wiki-sphere" aria-hidden="true"><span class="wiki-sphere-letter">天</span></span><span id="mw-logo-text"><strong>Tenzu</strong><span>天通辞典</span></span></a><nav id="mw-head-nav" aria-label="ページ操作"><a class="mw-tab active" href="index.html">閲覧</a><a class="mw-tab" href="#mainpage-featured">おすすめ項目</a><a class="mw-tab" href="#mainpage-categories">カテゴリ</a></nav><form id="mw-search" onsubmit="runSearch(event)"><input id="mw-search-input" type="search" placeholder="Tenzu内を検索" aria-label="Tenzu内を検索"><button type="submit">検索</button></form></header>
-<nav id="mw-sidebar" aria-label="サイドナビゲーション"><div class="sidebar-section"><div class="sidebar-header">案内</div><ul><li><a href="index.html">メインページ</a></li><li><a href="factions.html">国家・行政</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">軍事・安全保障</a></li><li><a href="faction-tenzu.html">企業・団体</a></li></ul></div><div class="sidebar-section"><div class="sidebar-header">主要項目</div><ul><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li><li><a href="character-hakurei-reimu.html">博麗霊夢</a></li><li><a href="character-marisa.html">霧雨魔理沙</a></li><li><a href="character-sanae.html">東風谷早苗</a></li><li><a href="character-yasaka-kanako.html">八坂神奈子</a></li><li><a href="character-toyosato-miko.html">豊聡耳神子</a></li><li><a href="faction-moreya-group.html">洩八グループ</a></li></ul></div><div class="sidebar-section"><div class="sidebar-header">関連項目</div><ul><li><a href="factions.html">国家・行政</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">軍事・安全保障</a></li></ul></div></nav>
-<main id="mw-content"><div class="content-wrapper"><article id="mw-article" class="main-page"><h1 id="firstHeading">メインページ</h1><div class="siteSub">出典: 天通辞典</div><div class="page-status">公開資料基準: 公表時点 / 分類: メインページ</div><section class="mainpage-welcome" aria-labelledby="mainpage-welcome-title"><div><h2 id="mainpage-welcome-title">天通辞典へようこそ</h2><p>天通辞典は、人物・国家・行政機構・企業団体・軍事安全保障に関する公開資料を百科事典形式で整理する資料網です。</p></div><div class="mainpage-stats" aria-label="天通辞典の統計"><b>現在の収録項目</b><br>人物 5項目 / 勢力 7項目 / 歴史・軍事 1項目<br>中立的な観点と検証可能性を基本方針としています。</div></section><nav class="mainpage-toplinks" aria-label="主要入口"><a href="factions.html">国家・行政・企業団体</a><a href="characters.html">人物</a><a href="history.html">軍事・安全保障</a><a href="faction-tenzu.html">天通</a></nav><div class="mainpage-grid"><section id="mainpage-featured" class="mainpage-box mainpage-featured" aria-labelledby="mainpage-featured-title"><h2 id="mainpage-featured-title">秀逸な項目</h2><div class="mainpage-box-body"><p><b><a href="faction-tenzu.html">天通</a></b>は、西日本側の通信・報道・資料網に強い影響を持つ企業体であり、天通辞典の運営主体でもある。記事では、公開資料で確認できる事業、行政との関係、社会的影響、批判・論争を分けて説明している。</p><ul><li><a href="faction-yamazaki-kawashiro-industries.html">山崎川城工業</a></li><li><a href="faction-moreya-group.html">洩八グループ</a></li><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li></ul></div></section><section class="mainpage-box mainpage-news" aria-labelledby="mainpage-news-title"><h2 id="mainpage-news-title">新着・更新された項目</h2><div class="mainpage-box-body"><ul><li><a href="character-hakurei-reimu.html">博麗霊夢</a> — 境界線周辺の治安認識に関わる人物。</li><li><a href="character-marisa.html">霧雨魔理沙</a> — 独立行動者としての記録を中心に整理。</li><li><a href="character-sanae.html">東風谷早苗</a> — 洩八系統の対外活動と関連する人物。</li><li><a href="character-yasaka-kanako.html">八坂神奈子</a>、<a href="character-toyosato-miko.html">豊聡耳神子</a>を人物項目に追加。</li></ul></div></section><section id="mainpage-categories" class="mainpage-box mainpage-categories" aria-labelledby="mainpage-categories-title"><h2 id="mainpage-categories-title">分野別入口</h2><div class="mainpage-box-body"><table class="wikitable"><tbody><tr><th><a href="factions.html">国家・行政</a></th><td>京都政府、東京政府、関連行政機構、地域統治。</td></tr><tr><th><a href="factions.html">企業・団体</a></th><td>天通、山崎川城工業、洩八グループ、相川組など。</td></tr><tr><th><a href="characters.html">人物</a></th><td>公開資料に現れる主要人物と所属・活動。</td></tr><tr><th><a href="history.html">軍事・安全保障</a></th><td>南北分断、境界線、装備、治安関連の基礎項目。</td></tr></tbody></table></div></section><section class="mainpage-box mainpage-guide" aria-labelledby="mainpage-guide-title"><h2 id="mainpage-guide-title">基本方針</h2><div class="mainpage-box-body"><p>天通辞典は百科事典です。記事は公開資料に基づき、中立的な観点、検証可能性、独自研究の回避、礼節ある合意形成を基本として記述されます。</p><ul><li>記事は対象を定義し、来歴、制度、事業、影響、評価を整理します。</li><li>行政資料、企業資料、報道資料、研究資料、証言資料、推計資料を区別します。</li><li>評価と事実を分け、確認できない噂や推測を本文の根拠にしません。</li></ul></div></section></div><section class="mainpage-search-panel" aria-label="検索案内"><strong>調べものを始める:</strong> 上部検索欄に人物名、勢力名、軍事用語を入力するか、<a href="assets/search-index.json">検索インデックス</a>から収録語を確認できます。</section><section class="mainpage-sister" aria-labelledby="mainpage-sister-title"><h2 id="mainpage-sister-title">主要ポータル</h2><ul><li><a href="factions.html">国家・行政・企業団体</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">軍事・安全保障</a></li></ul></section><div class="category-box"><strong>カテゴリ:</strong> <a href="index.html">メインページ</a> | <a href="factions.html">公開資料網</a> | <a href="factions.html">天通辞典の基本方針</a></div></article><aside id="mw-right-aside"><div class="right-aside-title">ページツール</div><div class="right-aside-section"><ul><li><a href="#firstHeading">先頭へ</a></li><li><a href="#mainpage-featured">秀逸な項目</a></li><li><a href="#mainpage-categories">分野別入口</a></li></ul></div><div class="right-aside-title">この項目</div><div class="right-aside-section"><p>メインページ</p><p>公開資料網 / 基本方針</p></div></aside></div></main><footer><p>本文は公表時点の公開資料に基づき、中立的な観点から記述されています。</p><p><a href="index.html">メインページ</a> | <a href="factions.html">国家・行政</a> | <a href="characters.html">人物</a> | <a href="history.html">軍事・安全保障</a></p></footer><script>function runSearch(event){event.preventDefault();const input=document.getElementById('mw-search-input');const q=input.value.trim().toLowerCase();if(!q)return;const links=Array.from(document.querySelectorAll('a[href$=".html"]'));const hit=links.find(a=>a.textContent.toLowerCase().includes(q)||a.getAttribute('href').toLowerCase().includes(q));if(hit)location.href=hit.getAttribute('href')}</script>
+<nav class="portal-bar" aria-label="天通ポータル">
+  <a href="index.html">天通ポータル</a>
+  <a href="#news">ニュース</a>
+  <a href="index.html">辞典</a>
+  <a href="#">動画</a>
+  <a href="#">生放送</a>
+  <a href="#">ゲーム</a>
+  <a href="#">占い</a>
+  <a href="#">ショッピング</a>
+  <a href="#">もっと見る</a>
+</nav>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="brand" aria-label="Tenzu.jp 天通辞典">
+      <span class="brand-main">Tenzu.jp</span>
+      <span class="brand-sub">天通辞典</span>
+      <span class="brand-copy">みんなでつくるネット百科事典</span>
+    </div>
+    <form class="search-box" role="search" onsubmit="runSearch(event)">
+      <label for="mw-search-input">天通辞典を検索</label>
+      <select aria-label="検索カテゴリ">
+        <option>すべて</option>
+        <option>単語記事</option>
+        <option>人物</option>
+        <option>組織・団体</option>
+        <option>出来事</option>
+        <option>地域</option>
+        <option>作品</option>
+        <option>掲示板</option>
+      </select>
+      <input id="mw-search-input" type="search" placeholder="天通辞典を検索" autocomplete="off">
+      <button type="submit">検索</button>
+    </form>
+  </div>
+  <nav class="article-nav" aria-label="記事分類">
+    <div class="article-nav-inner">
+      <a href="index.html">単語記事</a>
+      <a href="characters.html">人物</a>
+      <a href="factions.html">組織・団体</a>
+      <a href="history.html">出来事</a>
+      <a href="#categories">地域</a>
+      <a href="#categories">作品</a>
+      <a href="#news">ニュース</a>
+      <a href="#bbs">掲示板</a>
+    </div>
+  </nav>
+</header>
+
+<div class="page-layout">
+  <aside class="left-column" aria-label="メニュー">
+    <section class="box">
+      <h2 class="box-title">メニュー</h2>
+      <div class="box-body">
+        <ul>
+          <li><a href="index.html">メインページ</a></li>
+          <li><a href="#updates">最近の更新</a></li>
+          <li><a href="#new-pages">新しい記事</a></li>
+          <li><a href="#">おまかせ表示</a></li>
+          <li><a href="#categories">カテゴリ一覧</a></li>
+          <li><a href="#">記事リクエスト</a></li>
+          <li><a href="#">編集ガイド</a></li>
+          <li><a href="#">ヘルプ</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="box">
+      <h2 class="box-title">記事の種類</h2>
+      <div class="box-body">
+        <ul>
+          <li><a href="index.html">単語記事</a></li>
+          <li><a href="characters.html">人物記事</a></li>
+          <li><a href="factions.html">組織・団体</a></li>
+          <li><a href="history.html">出来事</a></li>
+          <li><a href="#categories">地域</a></li>
+          <li><a href="#categories">作品</a></li>
+          <li><a href="#categories">資料・統計</a></li>
+          <li><a href="#news">ニュース記事</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="box">
+      <h2 class="box-title">参加・支援</h2>
+      <div class="box-body">
+        <ul>
+          <li><a href="#">編集したい方へ</a></li>
+          <li><a href="#">出典の付け方</a></li>
+          <li><a href="#">記事名の付け方</a></li>
+          <li><a href="#">削除依頼</a></li>
+          <li><a href="#">荒らし報告</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </section>
+  </aside>
+
+  <main class="main-column">
+    <section class="welcome-box" aria-labelledby="welcome-title">
+      <div>
+        <h1 id="welcome-title">天通辞典へようこそ</h1>
+        <p>天通辞典は、単語・人物・組織・出来事・地域・作品などについて、意味や関連情報をまとめる辞典・百科サービスです。記事は利用者の編集、公開資料、報道記録などをもとに随時更新されます。</p>
+        <p class="random-article-wrap"><a class="random-article-button" href="#new-pages">ランダムな記事</a></p>
+      </div>
+      <figure class="mascot">
+        <img src="assets/images/portal/tenzu-bird-mascot.svg" alt="虫眼鏡を持って本を読む白い鳥のマスコット">
+        <figcaption>調べもの案内係</figcaption>
+      </figure>
+    </section>
+
+    <section id="news" class="box">
+      <h2 class="box-title">最新ニュース</h2>
+      <div class="box-body">
+        <div class="news-tabs"><span>総合</span><span>国内</span><span>経済</span><span>エンタメ</span><span>スポーツ</span><span>IT</span><span>地域</span><span>ライフ</span></div>
+        <ul class="news-list">
+          <li>中日、延長戦でサヨナラ負け　監督「切り替えるしかない」</li>
+          <li>人気俳優の近影に反響　「雰囲気変わった？」</li>
+          <li>岐阜県の道の駅で行列　限定ソフトが話題に</li>
+          <li>元アイドル、結婚報告に祝福の声</li>
+          <li>「冷凍うどん」人気ランキング　意外な1位は</li>
+          <li>都内で突然の雷雨　帰宅時間帯に影響</li>
+          <li>議員の過去投稿が再拡散　SNSで賛否</li>
+          <li>YouTuberの謝罪動画にコメント殺到</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <section class="box">
+        <h2 class="box-title">注目の記事</h2>
+        <div class="box-body">
+          <ul class="link-list">
+            <li><a href="#">タクシードライバー</a> — 映画史上の重要作としての評価とネット上での扱い。</li>
+            <li><a href="#">岐阜の例の看板</a> — 地域ネタとして広がった画像と編集履歴。</li>
+            <li><a href="#">プロリダマン</a> — 表記揺れが多いネットミーム記事。</li>
+          </ul>
+        </div>
+      </section>
+      <section id="updates" class="box">
+        <h2 class="box-title">最近更新された記事</h2>
+        <div class="box-body">
+          <ul class="link-list">
+            <li><a href="character-hakurei-reimu.html">博麗霊夢</a></li>
+            <li><a href="character-marisa.html">霧雨魔理沙</a></li>
+            <li><a href="character-sanae.html">東風谷早苗</a></li>
+            <li><a href="character-yasaka-kanako.html">八坂神奈子</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="new-pages" class="box">
+        <h2 class="box-title">新規作成記事</h2>
+        <div class="box-body">
+          <ul class="link-list">
+            <li><a href="#">強い海老リンク</a></li>
+            <li><a href="#">米だけ炊いて寝た人</a></li>
+            <li><a href="#">例の謝罪文</a></li>
+            <li><a href="#">泣き崩れる嫁</a></li>
+          </ul>
+        </div>
+      </section>
+      <section id="categories" class="box">
+        <h2 class="box-title">人気カテゴリ</h2>
+        <div class="box-body">
+          <div class="category-grid">
+            <a href="characters.html">人物</a>
+            <a href="factions.html">組織・団体</a>
+            <a href="history.html">出来事</a>
+            <a href="#">地域</a>
+            <a href="#">作品</a>
+            <a href="#">ネット俗語</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <aside class="right-column" aria-label="補助情報">
+    <section class="box">
+      <h2 class="box-title">急上昇ワード</h2>
+      <div class="box-body">
+        <ol class="word-list">
+          <li><a href="#">エショワが消された写真</a></li>
+          <li><a href="#">プロリダマン</a></li>
+          <li><a href="#">タクシードライバー</a></li>
+          <li><a href="#">鹿さんやりますねぇ！</a></li>
+          <li><a href="#">強い海老リンク</a></li>
+          <li><a href="#">岐阜の例の看板</a></li>
+          <li><a href="#">泣き崩れる嫁</a></li>
+          <li><a href="#">フロリダマン</a></li>
+          <li><a href="#">米だけ炊いて寝た人</a></li>
+          <li><a href="#">例の謝罪文</a></li>
+        </ol>
+      </div>
+    </section>
+    <section class="ad-box ad-box-loud">
+      <span class="ad-label">[PR]</span>
+      <p class="ad-copy">えっ…頭頂部、見られてるかも!?</p>
+      <img class="ad-visual" src="assets/images/portal/ad-hair-volume.svg" alt="髪のボリューム広告風の人物と商品画像">
+      <p><strong>鏡を見るのが怖い人へ。</strong> 3分診断であなたの見た目年齢をチェック。</p>
+      <a class="ad-cta" href="#">無料で診断する</a>
+    </section>
+    <section class="ad-box ad-box-game">
+      <span class="ad-label">[広告]</span>
+      <p class="ad-copy">このピン、抜けたらIQ160!?</p>
+      <img class="ad-visual" src="assets/images/portal/ad-pin-game.svg" alt="ピンを抜くゲーム広告風の王様と宝箱の画像">
+      <p>王様を助けて宝箱ゲット。失敗してもなぜかクセになる。</p>
+      <a class="ad-cta red" href="#">今すぐ無料でプレイ</a>
+    </section>
+    <section id="bbs" class="box">
+      <h2 class="box-title">掲示板で話題の記事</h2>
+      <div class="box-body">
+        <ul class="bbs-list">
+          <li><a href="#">鹿さんやりますねぇ！</a><small>214件のコメント</small></li>
+          <li><a href="#">例の謝罪文</a><small>188件のコメント</small></li>
+          <li><a href="#">岐阜の例の看板</a><small>132件のコメント</small></li>
+          <li><a href="#">プロリダマン</a><small>98件のコメント</small></li>
+          <li><a href="#">強い海老リンク</a><small>76件のコメント</small></li>
+        </ul>
+      </div>
+    </section>
+    <section class="ad-box ad-box-diet">
+      <span class="ad-label">[PR]</span>
+      <p class="ad-copy">そのポッコリ、放置して大丈夫？</p>
+      <img class="ad-visual" src="assets/images/portal/ad-natural-support.svg" alt="自然派サポート習慣広告風の飲料とサプリメント画像">
+      <p>話題の自然派サポート習慣。今だけモニター価格でお試し。</p>
+      <a class="ad-cta" href="#">初回限定 980円</a>
+    </section>
+    <section class="box">
+      <h2 class="box-title">新着記事</h2>
+      <div class="box-body">
+        <ul>
+          <li><a href="#">駅前の青いベンチ</a></li>
+          <li><a href="#">謎の白い箱</a></li>
+          <li><a href="#">午後三時のチャイム</a></li>
+        </ul>
+      </div>
+    </section>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p>天通辞典は、利用者の編集と公開情報をもとに構成される静的な百科サービスです。投稿フォーム、閲覧ログ、リアルタイム表示は提供していません。</p>
+    <p><a href="index.html">メインページ</a> | <a href="#">利用規約</a> | <a href="#">ヘルプ</a> | <a href="#">運営情報</a></p>
+  </div>
+</footer>
+
+<script>
+function runSearch(event) {
+  event.preventDefault();
+  const input = document.getElementById('mw-search-input');
+  const q = input.value.trim().toLowerCase();
+  if (!q) return;
+  const links = Array.from(document.querySelectorAll('a[href$=".html"]'));
+  const hit = links.find((a) => a.textContent.toLowerCase().includes(q) || a.getAttribute('href').toLowerCase().includes(q));
+  if (hit) location.href = hit.getAttribute('href');
+}
+</script>
 </body>
 </html>

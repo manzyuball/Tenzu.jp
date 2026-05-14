@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="180" viewBox="0 0 220 180" role="img" aria-labelledby="title desc">
+  <title id="title">天通辞典の白い鳥マスコット</title>
+  <desc id="desc">赤い帽子をかぶり、本を読みながら虫眼鏡を持つ白い丸い鳥。</desc>
+  <defs>
+    <radialGradient id="body" cx="38%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.62" stop-color="#fbfbfb"/>
+      <stop offset="1" stop-color="#e7e7e7"/>
+    </radialGradient>
+    <linearGradient id="book" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff7d3"/>
+      <stop offset="0.48" stop-color="#fff7d3"/>
+      <stop offset="0.5" stop-color="#caa84e"/>
+      <stop offset="0.52" stop-color="#fff7d3"/>
+      <stop offset="1" stop-color="#fff7d3"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="2" flood-color="#000" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <ellipse cx="108" cy="164" rx="56" ry="8" fill="#000" opacity="0.09"/>
+  <g filter="url(#softShadow)">
+    <path d="M40 97c-22 0-33-15-23-28 8-11 23-10 34 0" fill="#fbfbfb" stroke="#cfcfcf" stroke-width="4"/>
+    <path d="M56 84c0-40 27-70 66-70 37 0 63 28 63 69 0 43-28 75-67 75-38 0-62-31-62-74Z" fill="url(#body)" stroke="#bdbdbd" stroke-width="4"/>
+    <path d="M54 95c-23 1-35-13-28-28 5-12 22-14 34-5" fill="#ffffff" stroke="#cfcfcf" stroke-width="4"/>
+    <circle cx="102" cy="74" r="5" fill="#222"/>
+    <circle cx="139" cy="74" r="5" fill="#222"/>
+    <path d="M114 86l12 13 13-13Z" fill="#e2a000"/>
+    <path d="M80 26c7-14 37-17 62-6l4 38H75Z" fill="#d60000" stroke="#8e0010" stroke-width="4"/>
+    <path d="M65 57c25-11 63-11 92 0" fill="none" stroke="#8e0010" stroke-width="7" stroke-linecap="round"/>
+    <path d="M72 127h82v38H72Z" fill="url(#book)" stroke="#b79a4d" stroke-width="4"/>
+    <path d="M113 128v36" stroke="#b79a4d" stroke-width="2"/>
+    <circle cx="176" cy="103" r="25" fill="none" stroke="#555" stroke-width="7"/>
+    <path d="M193 122l24 24" stroke="#555" stroke-width="8" stroke-linecap="round"/>
+  </g>
+</svg>
