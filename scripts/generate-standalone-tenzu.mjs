@@ -2,536 +2,452 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-
-const css = String.raw`
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg: #fff; --bg-sidebar: #f8f9fa; --bg-header: #fff; --bg-toc: #f8f9fa;
-  --bg-infobox: #f8f9fa; --border: #a2a9b1; --border-light: #eaecf0;
-  --link: #36c; --link-visited: #6b4ba1; --link-new: #d33;
-  --text: #202122; --text-muted: #54595d; --text-light: #72777d;
-  --wikibg: #eaecf0; --notice-bg: #eaf3fb; --notice-border: #36c;
-  --infobox-head: #c8d5e8; --infobox-section: #d8e2ee;
-}
-html { font-size: 14px; scroll-padding-top: 62px; }
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
-  color: var(--text); background: var(--wikibg); line-height: 1.65;
-}
-a { color: var(--link); text-decoration: none; }
-a:visited { color: var(--link-visited); }
-a:hover, a:focus { text-decoration: underline; }
-#mw-head {
-  position: sticky; top: 0; z-index: 100; height: 50px; display: flex; align-items: stretch;
-  background: var(--bg-header); border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 1px 3px rgba(0,0,0,.08);
-}
-#mw-logo {
-  display: flex; align-items: center; gap: 8px; min-width: 180px; padding: 0 16px;
-  border-right: 1px solid var(--border-light); text-decoration: none; flex-shrink: 0;
-}
-.wiki-sphere {
-  width: 36px; height: 36px; border-radius: 50%; position: relative; overflow: hidden; flex-shrink: 0;
-  background: radial-gradient(circle at 35% 35%, #4a90d9, #1a4a7a); border: 2px solid #2a5ca8;
-}
-.wiki-sphere::after {
-  content: ""; position: absolute; inset: 2px; border-radius: 50%;
-  background: repeating-linear-gradient(30deg, transparent, transparent 3px, rgba(255,255,255,.09) 3px, rgba(255,255,255,.09) 4px),
-              repeating-linear-gradient(-30deg, transparent, transparent 3px, rgba(255,255,255,.06) 3px, rgba(255,255,255,.06) 4px);
-}
-.wiki-sphere-letter {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 16px; color: #fff; z-index: 1;
-}
-#mw-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-#mw-logo-text strong { font-family: Georgia, "Times New Roman", serif; font-size: 16px; color: var(--text); }
-#mw-logo-text span { font-size: 10px; color: var(--text-light); letter-spacing: .05em; }
-#mw-head-nav { display: flex; align-items: center; padding: 0 8px; flex: 1; gap: 2px; }
-.mw-tab {
-  display: flex; align-items: center; height: 100%; padding: 0 12px; border-left: 1px solid transparent;
-  border-right: 1px solid transparent; color: var(--text-muted); font-size: 13px;
-}
-.mw-tab.active { color: var(--text); background: #fff; border-left-color: var(--border-light); border-right-color: var(--border-light); border-bottom: 2px solid var(--link); }
-#mw-search { display: flex; align-items: center; padding: 8px 14px; gap: 0; }
-#mw-search input { width: 230px; height: 32px; padding: 5px 9px; border: 1px solid var(--border); border-right: 0; font: inherit; background: #fff; }
-#mw-search button { height: 32px; padding: 0 12px; border: 1px solid var(--border); background: #f8f9fa; cursor: pointer; }
-#mw-sidebar {
-  position: fixed; top: 50px; left: 0; bottom: 0; width: 176px; overflow-y: auto;
-  background: var(--bg-sidebar); border-right: 1px solid var(--border-light); padding: 18px 12px;
-}
-.sidebar-section { margin-bottom: 20px; }
-.sidebar-header { color: var(--text-muted); font-size: 12px; border-bottom: 1px solid var(--border-light); margin-bottom: 6px; padding-bottom: 3px; }
-.sidebar-section ul { list-style: none; font-size: 13px; }
-.sidebar-section li { margin: 3px 0; }
-#mw-content { margin-left: 176px; padding: 16px 24px 38px; }
-.content-wrapper { max-width: 1180px; display: grid; grid-template-columns: minmax(0, 1fr) 218px; gap: 20px; align-items: start; }
-#mw-article {
-  background: var(--bg); border: 1px solid var(--border-light); padding: 24px 32px 34px; min-width: 0;
-}
-#firstHeading {
-  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif; font-weight: 400; font-size: 2.05rem;
-  line-height: 1.25; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 8px;
-}
-.reading-ruby { font-size: .55em; color: var(--text-muted); margin-left: .35em; }
-.siteSub, .page-status { color: var(--text-muted); font-size: 12px; margin: 4px 0; }
-.notice {
-  clear: both; margin: 14px 0; padding: 10px 12px; border: 1px solid var(--notice-border);
-  background: var(--notice-bg); font-size: 13px;
-}
-.infobox {
-  float: right; width: 310px; margin: 0 0 16px 22px; border: 1px solid var(--border);
-  background: var(--bg-infobox); font-size: 12px; border-collapse: collapse;
-}
-.infobox-title { background: var(--infobox-head); font-weight: 700; text-align: center; padding: 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
-.infobox-subtitle { text-align: center; padding: 5px; border-bottom: 1px solid var(--border-light); color: var(--text-muted); }
-.infobox table { width: 100%; border-collapse: collapse; }
-.infobox th, .infobox td { border-top: 1px solid var(--border-light); padding: 6px 7px; vertical-align: top; }
-.infobox th { width: 34%; text-align: left; background: #eaecf0; font-weight: 700; }
-.infobox-section-header td { background: var(--infobox-section); text-align: center; font-weight: 700; }
-p { margin: .6em 0 .9em; }
-h2 {
-  clear: both; margin: 1.35em 0 .55em; padding-bottom: 3px; border-bottom: 1px solid var(--border);
-  font-family: Georgia, "Times New Roman", "Noto Serif JP", serif; font-weight: 400; font-size: 1.55rem;
-}
-h3 { margin: 1.05em 0 .35em; font-size: 1.15rem; }
-ul, ol { margin: .45em 0 .85em 1.7em; }
-.wikitable { border-collapse: collapse; margin: 1em 0; background: #fff; font-size: 13px; width: 100%; }
-.wikitable th, .wikitable td { border: 1px solid var(--border); padding: 7px 8px; vertical-align: top; }
-.wikitable th { background: #eaecf0; font-weight: 700; text-align: left; }
-#toc {
-  display: inline-block; min-width: 280px; max-width: 100%; margin: 14px 0 18px; padding: 0;
-  border: 1px solid var(--border); background: var(--bg-toc); font-size: 13px;
-}
-#toc-title { padding: 7px 10px; font-weight: 700; text-align: center; border-bottom: 1px solid var(--border-light); }
-#toc-toggle { color: var(--link); font-weight: 400; cursor: pointer; margin-left: 6px; }
-#toc-body { padding: 8px 14px; }
-#toc ol { margin: 0 0 0 1.4em; }
-#toc li { margin: 2px 0; }
-.toc-number { color: var(--text-muted); margin-right: 8px; }
-.reference { font-size: .8em; vertical-align: super; line-height: 0; }
-.references { font-size: 12px; columns: 2 24em; column-gap: 24px; }
-.references li { break-inside: avoid; margin-bottom: 6px; }
-.category-box {
-  clear: both; margin-top: 22px; padding: 8px 10px; border: 1px solid var(--border);
-  background: #f8f9fa; font-size: 13px;
-}
-#mw-right-aside {
-  position: sticky; top: 66px; background: #fff; border: 1px solid var(--border-light); padding: 12px; font-size: 12px;
-}
-.right-aside-title { font-weight: 700; border-bottom: 1px solid var(--border-light); padding-bottom: 5px; margin-bottom: 8px; }
-.right-aside-section { margin-bottom: 13px; }
-.right-aside-section ul { margin-left: 1.3em; }
-footer {
-  margin-left: 176px; padding: 18px 24px 28px; color: var(--text-muted); font-size: 12px;
-}
-@media (max-width: 980px) {
-  #mw-sidebar, #mw-right-aside { display: none; }
-  #mw-content, footer { margin-left: 0; }
-  .content-wrapper { display: block; }
-  #mw-article { padding: 18px 16px 26px; border-left: 0; border-right: 0; }
-  .infobox { float: none; width: 100%; margin: 12px 0; }
-  #mw-search input { width: 150px; }
-}
-@media (max-width: 680px) {
-  #mw-head { height: auto; flex-wrap: wrap; }
-  #mw-logo { min-width: 150px; }
-  #mw-head-nav { order: 3; width: 100%; overflow-x: auto; height: 38px; }
-  #mw-search { margin-left: auto; }
-  #mw-search input { width: 120px; }
-  #mw-content { padding: 10px 0 28px; }
-  .references { columns: 1; }
-}
-`;
-
-const script = String.raw`
-function toggleToc() {
-  const body = document.getElementById('toc-body');
-  const btn = document.getElementById('toc-toggle');
-  const hidden = body.style.display === 'none';
-  body.style.display = hidden ? 'block' : 'none';
-  btn.textContent = hidden ? '[非表示]' : '[表示]';
-}
-function runSearch(event) {
-  event.preventDefault();
-  const input = document.getElementById('mw-search-input');
-  const q = input.value.trim().toLowerCase();
-  if (!q) return;
-  const links = Array.from(document.querySelectorAll('a[href$=".html"]'));
-  const hit = links.find(a => a.textContent.toLowerCase().includes(q) || a.getAttribute('href').toLowerCase().includes(q));
-  if (hit) location.href = hit.getAttribute('href');
-}
-`;
+const PUBLIC_DATE = '2026-05-06';
 
 const nav = [
   ['index.html', 'メインページ'],
-  ['factions.html', '国家・行政'],
+  ['factions.html', '組織・政体'],
   ['characters.html', '人物'],
-  ['history.html', '軍事・安全保障'],
-  ['faction-tenzu.html', '企業・団体']
-];
-
-const allLinks = [
-  ['faction-japan-kyoto-government.html', '日本国（京都政府）'],
-  ['faction-japan-tokyo-government.html', '日本国（東京政府）'],
-  ['character-hakurei-reimu.html', '博麗霊夢'],
-  ['character-marisa.html', '霧雨魔理沙'],
-  ['character-sanae.html', '東風谷早苗'],
-  ['character-yasaka-kanako.html', '八坂神奈子'],
-  ['character-toyosato-miko.html', '豊聡耳神子'],
-  ['faction-moriya-yasaka-group.html', '守矢グループ'],
-  ['faction-yamazaki-kawashiro-industries.html', '河城工業'],
-  ['faction-tenzu.html', '天通'],
-  ['faction-aikawa-gumi.html', '佐渡島組']
+  ['history.html', '歴史・安全保障'],
 ];
 
 const pages = [
   {
-    file: 'index.html', title: '天通辞典', reading: 'てんつうじてん', kind: 'メインページ',
-    description: '天通が運営する公開資料網。日本裂島記の公表時点に西日本側ネット空間で閲覧される百科事典風情報サイト。',
-    category: '企業・団体', subtitle: 'Tenzu / 公開資料網', navActive: 'index.html',
-    infobox: [['名称', '天通辞典'], ['運営', '天通'], ['種別', '公開資料網'], ['対象', '人物、国家・行政、企業・団体、軍事・安全保障'], ['基準時点', '公表時点']],
-    sections: [
-      ['概要', ['天通辞典は、天通が運営する公開資料網である。分断下の日本列島に関する人物、行政機構、企業・団体、軍事・安全保障の情報を百科事典風に整理する。', '本サイトは中立的な百科事典形式を採るが、項目の粒度、語彙、参照される資料には西日本側の情報環境が反映されている。']],
-      ['収録分野', ['収録分野は人物、国家・行政、企業・団体、軍事・安全保障の四分野を基本とする。地理、技術、メディア、用語は独立分野とせず、関係する記事の本文内で補助的に扱う。']],
-      ['編集方針', ['記事は公表時点の公開情報として記述される。未発生の政治事件、未公表の武力衝突、失脚、事後評価、非公開組織に関する断定的記述は扱わない。']]
+    file: 'index.html',
+    title: '天通辞典',
+    subtitle: '西日本側公開資料を中心とする世界内百科',
+    type: 'メインページ',
+    navSection: 'top',
+    description: '天通辞典は、2026年5月6日時点で公開確認できる人物、組織、政体、事件、地域、資料を整理する静的百科です。',
+    lead: [
+      '天通辞典は、天通編集部が公開資料、報道記録、行政文書、企業資料、地域記録をもとに整理する百科形式の資料集である。扱う範囲は日本列島分断下の人物、組織、政体、産業、治安、社会制度を中心とし、未確認の戦果、非公開作戦、将来の事件は本文の対象外とする。',
+      '本サイトは投稿欄や利用者アカウントを持たない静的な公開版である。編集室ログ、最近の更新、公開資料メモは、実際の投稿機能ではなく、掲載記事の見直し状況を示す編集上の記録として配置している。',
     ],
-    related: [['factions.html', '国家・行政'], ['characters.html', '人物'], ['history.html', '軍事・安全保障']]
+    infobox: [
+      ['名称', '天通辞典'],
+      ['種別', '公開百科・資料索引'],
+      ['基準日', PUBLIC_DATE],
+      ['運営', '天通編集部'],
+      ['対象', '人物、組織、政体、事件、地域、資料'],
+    ],
+    sections: [
+      ['主要記事', [
+        '初回整備では、天通、東京政府、博麗霊夢の記事を代表記事として扱う。企業・政体・人物の三種類を同時に整えることで、以後の記事テンプレート、出典表記、批判節、関連項目の基準を共有できる。',
+      ], 'cards'],
+      ['最近の更新', [
+        '2026年5月6日版では、記事本文を公開時点に固定し、未発生の出来事、非公開作戦、後年の評価を除外した。検索索引は記事タイトル、別名、分類、関連組織から引けるよう再整理した。',
+      ]],
+      ['編集室ログ', [
+        '編集室ログは、公開版の利用者投稿ではなく、天通編集部内の確認メモを要約した静的欄である。現在の重点は、出典風表記の粒度統一、未実装リンクの除去、人物記事の職務上の位置づけの明確化である。',
+      ]],
+      ['公開資料メモ', [
+        '記事内の出典は、作中の公開資料を識別するための書誌風記録として置く。現実世界の検証可能性ではなく、世界内でどの種類の資料に基づく記述かを示すことを目的とする。',
+      ]],
+    ],
+    related: [['faction-tenzu.html', '天通'], ['faction-japan-tokyo-government.html', '日本国（東京政府）'], ['character-hakurei-reimu.html', '博麗霊夢']],
+    categories: ['百科', '公開資料', '編集室'],
   },
   {
-    file: 'faction-japan-kyoto-government.html', title: '日本国（京都政府）', reading: 'にほんこく きょうとせいふ', kind: '国家・行政',
-    description: '京都に政府中枢を置く日本国。通称は西日本、政権呼称は京都政府。',
-    category: '国家・行政', subtitle: '西日本 / 京都政府', navActive: 'factions.html',
-    infobox: [['正式名', '日本国'], ['通称', '西日本'], ['政権呼称', '京都政府'], ['政府所在地', '京都'], ['主要境界', '中央境界線'], ['主要企業', '守矢グループ、河城工業、天通']],
-    notice: 'この記事では、京都に政府中枢を置く日本国について扱う。東京に政府中枢を置く日本国については「日本国（東京政府）」を参照。',
-    sections: [
-      ['主要統計', ['公表資料では、京都政府は国際的な日本代表権を継承する政府として扱われる。人口、国内総生産、軍事費などの統計は資料により差があり、天通辞典では複数の公開資料を併記する形式を採る。']],
-      ['概要', ['日本国（京都政府）は、分断後の日本列島西部を実効支配する政府である。通称として西日本、政権呼称として京都政府が用いられる。', '政治制度は議会制と官僚制を基礎としつつ、中央境界線周辺の安全保障、基幹インフラ、企業集団との政策協調が大きな比重を占める。']],
-      ['国号・呼称', ['正式名は日本国である。東側も同じく日本国を正式名とするため、公開資料では京都政府、東京政府、西日本、東日本などの便宜的呼称が多用される。']],
-      ['歴史', ['分断以前の制度、戦後処理、停戦体制の成立を経て、京都政府は西側地域の行政、外交、経済政策を担う政権として定着した。']],
-      ['政治', ['京都政府の政治は、議会、内閣、中央官庁、自治体、基幹企業の調整によって運用される。東風谷早苗は首相として境界線政策と統一政策会議を担当する人物として知られる。']],
-      ['軍事・安全保障', ['中央境界線、糸魚川境界区、白馬共同警備区、佐渡特別管理区は安全保障上の主要な対象である。京都政府は自衛隊、警察、海上保安機関、米軍佐渡駐屯部隊との調整を重視する。']],
-      ['経済', ['守矢グループ、河城工業、天通は西日本の生活基盤、技術、情報流通に強い影響を持つ。これらの企業群は政府発注、地方インフラ、通信、物流を通じて政策実施に関わる。']],
-      ['批判・論争', ['京都政府については、基幹企業との距離の近さ、境界線政策の透明性、地方自治への影響をめぐる批判がある。']]
+    file: 'faction-tenzu.html',
+    title: '天通',
+    subtitle: '西日本の情報通信・報道複合体',
+    type: '組織・企業',
+    navSection: 'factions',
+    description: '天通は大阪市北区に本社を置く情報通信・報道・行政連携サービス企業で、天通辞典および複数の公開情報基盤を運営する。',
+    lead: [
+      '天通ホールディングス株式会社、通称天通は、大阪市北区に本社を置く西日本の情報通信・報道複合体である。移動通信、固定回線、報道配信、行政API接続、電子商取引、広告配信、災害時情報網を主要領域とし、西日本側の生活基盤と公共情報流通に強い影響を持つ。',
+      '公開資料上の天通は、単一の通信会社というより、通信、報道、物流情報、金融決済、公共窓口を接続する基盤事業者として記述される。利便性と安定供給への評価がある一方、行政との距離、情報寡占、利用者データの扱い、地方事業者への影響をめぐる批判も継続している。',
     ],
-    related: [['faction-japan-tokyo-government.html', '日本国（東京政府）'], ['character-sanae.html', '東風谷早苗'], ['faction-moriya-yasaka-group.html', '守矢グループ']]
+    infobox: [
+      ['正式名称', '天通ホールディングス株式会社'],
+      ['通称', '天通'],
+      ['本社', '大阪市北区'],
+      ['分類', '情報通信・報道・生活基盤企業'],
+      ['主要領域', '通信、報道、行政連携、決済、広告、物流情報'],
+      ['主要媒体', '天通ニュース、天通辞典、天網中継塔ネットワーク'],
+      ['基準日', PUBLIC_DATE],
+    ],
+    sections: [
+      ['概要', [
+        '天通の事業は、西日本側の通信網と公開情報サービスを横断する。携帯通信網、地域回線、ニュース配信、行政告知、避難情報、交通運行情報、企業向けAPIを一つの利用者認証圏で扱うため、住民生活における接触頻度は高い。',
+        '同社は自社を「公共情報の配送会社」と説明するが、報道機関、通信事業者、広告会社、行政委託先の性格を併せ持つため、制度上の分類は資料によって異なる。',
+      ]],
+      ['沿革', [
+        '天通は、地方通信会社、広告配信会社、報道制作部門、行政向けシステム会社の統合によって拡大した。分断後は、西日本側の情報流通を安定させる事業者として政府・自治体との契約を増やした。',
+        '2024年以降、同社は災害情報、治安速報、道路・鉄道運行、行政手続き通知を同一基盤へ集約した。利便性は上がったが、天通を経由しない情報流通が弱くなるとの指摘も増えた。',
+      ]],
+      ['組織構造', [
+        '公開資料で確認できる組織は、通信基盤部門、報道編集部門、公共連携部門、広告配信部門、辞典編集部、地域支局で構成される。持株会社の下に地域子会社と制作会社が置かれるが、非公開の資本関係は本文では断定しない。',
+      ]],
+      ['主要事業', [
+        '通信事業では、携帯回線、固定回線、業務用閉域網、災害時優先通信を扱う。報道事業では、天通ニュース、地域速報、行政会見配信、公開記録アーカイブを運営する。',
+        '天通辞典は、ニュース記事とは別に公開資料を整理する資料索引として位置づけられる。編集部は速報性よりも、後から参照できる名称、分類、関係、出典の整理を重視している。',
+      ]],
+      ['行政との関係', [
+        '京都政府、地方自治体、公共交通事業者、防災機関は、天通の配信基盤を告知、通報、申請受付、統計公開に利用している。契約形態は委託、共同運用、広告枠提供、技術協力に分かれる。',
+        '批判的報道では、行政情報の入口が天通に集中することで、企業側の編集判断や配信優先順位が公共性に影響する可能性が指摘される。',
+      ]],
+      ['社会的影響', [
+        '天通のサービスは、地方の医療予約、避難所情報、学校連絡、交通運行、求人、商店決済にまで広がっている。高齢者や避難世帯にとっては重要な生活線である一方、紙媒体や独立掲示板に依存する地域との情報格差も残る。',
+      ]],
+      ['批判・論争', [
+        '主な批判は、情報寡占、行政との距離、広告審査の不透明さ、災害時表示順位、利用者行動記録の保存期間に集中する。天通側は、公共連携部門の監査記録と外部有識者会議を公開しているが、会議資料の黒塗り範囲が広いとの指摘がある。',
+      ]],
+    ],
+    related: [['index.html', '天通辞典'], ['factions.html', '組織・政体'], ['faction-japan-kyoto-government.html', '日本国（京都政府）'], ['faction-yamazaki-kawashiro-industries.html', '山崎河城工業']],
+    categories: ['組織・企業', '情報通信', '報道', '公共基盤'],
   },
   {
-    file: 'faction-japan-tokyo-government.html', title: '日本国（東京政府）', reading: 'にほんこく とうきょうせいふ', kind: '国家・行政',
-    description: '東京に政府中枢を置く日本国。通称は東日本、政権呼称は東京政府。',
-    category: '国家・行政', subtitle: '東日本 / 東京政府', navActive: 'factions.html',
-    infobox: [['正式名', '日本国'], ['通称', '東日本'], ['政権呼称', '東京政府'], ['政府所在地', '東京'], ['主要施設', '松代地下司令部'], ['主要接触地帯', '中央境界線、京浜境界区']],
-    notice: 'この記事では、東京に政府中枢を置く日本国について扱う。京都に政府中枢を置く日本国については「日本国（京都政府）」を参照。',
-    sections: [
-      ['主要統計', ['東京政府の人口、経済、軍事、通信に関する統計は、政府公表、外部推計、亡命者証言の間で差が大きい。天通辞典では、断定を避け、公開資料の出所を明示する。']],
-      ['概要', ['日本国（東京政府）は、分断後の日本列島東部を実効支配する政府である。通称として東日本、政権呼称として東京政府、文脈により東側とも呼ばれる。', '中央執政機構、人民代表機関、国防組織、配給・労務制度を通じた統治が特徴とされる。']],
-      ['国号・呼称', ['正式名は日本国である。東京政府は自らを日本の正統政府と位置づけ、京都政府による代表権継承を認めない。']],
-      ['歴史', ['東京政府の成立は、分断後の東部統治機構と軍事組織の再編に由来する。松代地下司令部は軍事指揮上の象徴的施設としてしばしば言及される。']],
-      ['政治', ['豊聡耳神子は東京政府の最高指導層に属する政治家として扱われる。政府宣伝では生活保障、統一、国家防衛が強調される。']],
-      ['行政', ['行政は中央集権的な制度を基礎とし、都市部、工業区、境界線周辺地域で異なる統治手法を採る。']],
-      ['軍事', ['中央境界線、京浜境界区、松代地下司令部は軍事・治安政策上の重点である。霧雨魔理沙は前線指揮と兵站再建に関わる人物として知られる。']],
-      ['西日本との関係', ['京都政府との関係は、承認問題、境界線管理、捕虜・越境者対応、諏訪共同工業区の運用をめぐって緊張を含む。']],
-      ['批判・論争', ['東京政府については、報道統制、通信監視、移動制限、人権状況に関する批判がある。一方、東京政府系資料は生活保障と秩序維持を強調する。']]
+    file: 'faction-japan-tokyo-government.html',
+    title: '日本国（東京政府）',
+    subtitle: '東日本側の政府機構',
+    type: '政体・政府',
+    navSection: 'factions',
+    description: '日本国（東京政府）は、東京に政府中枢を置く東日本側の統治機構であり、京都政府と同一国号を用いる。',
+    lead: [
+      '日本国（東京政府）は、東京に政府中枢を置く東日本側の統治機構である。正式国号は日本国であり、同一国号を用いる京都政府と区別するため、天通辞典では便宜上「東京政府」と併記する。',
+      '公開資料では、東京政府は首都圏、東北、関東東部、太平洋側の主要港湾、内陸補給線を基盤に、行政、治安、配給、国防、通信統制を行う政府として扱われる。京都政府との承認問題、境界線管理、避難民の扱い、企業統制が主要な争点である。',
     ],
-    related: [['faction-japan-kyoto-government.html', '日本国（京都政府）'], ['character-toyosato-miko.html', '豊聡耳神子'], ['character-marisa.html', '霧雨魔理沙']]
+    infobox: [
+      ['正式国号', '日本国'],
+      ['通称', '東京政府、東日本'],
+      ['政府中枢', '東京都'],
+      ['分類', '政府・統治機構'],
+      ['主要管轄', '首都圏、東北、関東東部、太平洋側港湾'],
+      ['主要制度', '配給、治安統制、国防動員、通信管理'],
+      ['基準日', PUBLIC_DATE],
+    ],
+    sections: [
+      ['概要', [
+        '東京政府は、分断後の東日本側で行政継続を主張する政府機構である。首都圏の人口、金融機能、官僚機構、放送設備、港湾・空港を背景に、東日本側の統治正統性を主張している。',
+        '天通辞典では、東京政府と京都政府のいずれか一方の正統性を本文で断定しない。国号、政府所在地、制度、支配地域、公開資料上の呼称を分けて記述する。',
+      ]],
+      ['沿革', [
+        '分断初期、東京政府は中央省庁の継続性と首都機能の維持を強調した。初期の課題は、電力、食料、交通、避難民登録、通信制御の安定化であった。',
+        'その後、境界線周辺での治安活動、港湾輸送の再編、官民企業の統制、対外承認工作が政策の中心となった。公開資料では、政策決定過程の一部が安全保障上の理由で伏せられている。',
+      ]],
+      ['政治制度', [
+        '東京政府は議会、内閣、中央省庁、地方行政庁、治安機関を維持していると発表している。ただし、非常措置、通信統制、移動制限、物資配給の権限が広く、平時の行政制度とは異なる運用が確認される。',
+      ]],
+      ['行政区域と境界線', [
+        '主要な管理対象は、東京都、周辺県、東北方面、太平洋側港湾、中央境界線東側の物流拠点である。境界線の実効管理は地域により差があり、共同警備区、立入制限区、避難民登録区が設定されている。',
+      ]],
+      ['経済と統制', [
+        '東京政府は、配給、燃料割当、企業認可、通信帯域、港湾荷役を政策手段としている。首都圏の人口密度と産業集中は強みである一方、食料、電力、地方物流への負荷が大きい。',
+      ]],
+      ['軍事・治安', [
+        '公開資料では、国防組織、警察、沿岸警備、予備部隊、境界線警備が東京政府の主要な安全保障機能として挙げられる。詳細な編制、損耗、非公開作戦は確認不能なため本文では扱わない。',
+      ]],
+      ['京都政府との関係', [
+        '京都政府とは同一国号の使用、外交承認、境界線管理、避難民登録、企業資産、通信網をめぐり対立している。一部の人道、医療、通信復旧では実務協議が行われるが、双方の発表は相互不信を前提としている。',
+      ]],
+      ['批判・論争', [
+        '批判は、非常措置の長期化、報道統制、企業統制、配給の地域差、避難民登録の厳格化に集中する。東京政府は安全保障上必要な措置と説明するが、地方自治体や独立系報道からは権限集中への懸念が示されている。',
+      ]],
+    ],
+    related: [['faction-japan-kyoto-government.html', '日本国（京都政府）'], ['character-toyosato-miko.html', '豊聡耳神子'], ['character-marisa.html', '霧雨魔理沙'], ['history.html', '歴史・安全保障']],
+    categories: ['政体', '政府', '東日本', '安全保障'],
   },
   {
-    file: 'characters.html', title: '人物', reading: 'じんぶつ', kind: '一覧',
-    description: '公表時点の公開資料に現れる主要人物の一覧。',
-    category: '人物', subtitle: '人物一覧', navActive: 'characters.html',
-    infobox: [['分野', '人物'], ['対象', '政治家、軍人、企業経営者'], ['基準', '公開資料で確認できる肩書きと活動']],
-    sections: [
-      ['概要', ['人物分野では、公開資料に現れる政治家、軍人、企業経営者を扱う。未発生の戦果、失脚、死亡、事件後評価は扱わない。']],
-      ['主要人物', ['博麗霊夢、霧雨魔理沙、東風谷早苗、八坂神奈子、豊聡耳神子、物部布都を主要人物として扱う。現在この一覧では公開記事のある人物を中心に収録する。']]
+    file: 'character-hakurei-reimu.html',
+    title: '博麗霊夢',
+    subtitle: '京都政府系の治安・境界対応担当者',
+    type: '人物',
+    navSection: 'characters',
+    description: '博麗霊夢は、京都政府側の境界線対応、即応警備、地域調停に関与する人物として公開資料に現れる。',
+    lead: [
+      '博麗霊夢は、日本国（京都政府）側の治安・境界対応に関与する人物である。公開資料では、中央境界線周辺の即応警備、地域調停、避難民対応、宗教施設・地域共同体との連絡に関わる人物として記録される。',
+      '人物像については、政府発表、地域紙、議会質疑、独立系報道で扱いが異なる。天通辞典では、本人の未確認発言、非公開任務、将来の事件を本文で断定せず、確認できる肩書き、職務、評価、論争を分けて記述する。',
     ],
-    related: [['character-hakurei-reimu.html', '博麗霊夢'], ['character-marisa.html', '霧雨魔理沙'], ['character-sanae.html', '東風谷早苗'], ['character-yasaka-kanako.html', '八坂神奈子'], ['character-toyosato-miko.html', '豊聡耳神子']]
+    infobox: [
+      ['氏名', '博麗霊夢'],
+      ['分類', '人物'],
+      ['所属', '日本国（京都政府）側機関'],
+      ['主な職務', '境界線対応、即応警備、地域調停'],
+      ['活動地域', '中央境界線西側、京都政府管轄地域'],
+      ['基準日', PUBLIC_DATE],
+    ],
+    sections: [
+      ['概要', [
+        '博麗霊夢は、京都政府側の資料で、境界線周辺の危機対応に関わる人物として確認される。官職名や所属部局は資料により表記が異なり、天通辞典では確定できる範囲に限って記述する。',
+        '報道上は、迅速な現場判断、地域共同体との折衝、移動制限下での避難誘導に関する記述が多い。一方、権限の範囲、独自判断の多さ、現場での強制力をめぐる批判もある。',
+      ]],
+      ['経歴', [
+        '初期経歴の詳細は公開資料で一貫しない。分断後の資料では、境界線周辺の警備、避難所調整、宗教施設を含む地域共同体との連絡役として登場する。',
+        '2024年以降の地方議会記録では、複数の緊急対応で名前が挙がる。本人の役職を正式な行政職とする資料と、特別協力者として扱う資料が併存している。',
+      ]],
+      ['職務上の位置づけ', [
+        '博麗霊夢の位置づけは、通常の警察官、行政官、軍人のいずれにも完全には収まらない。公開資料上は、治安機関、自治体、宗教施設、地域代表の間を調整する現場対応者として扱われる。',
+      ]],
+      ['活動', [
+        '主な活動は、境界線近傍の避難誘導、通行証確認、地域紛争の仲裁、非常時の連絡網維持、物資配布拠点の安全確認である。特定の戦闘行為や非公開作戦の詳細は確認不能なため扱わない。',
+      ]],
+      ['関係組織', [
+        '京都政府、地方自治体、警備組織、地域共同体、天通の災害情報配信部門との接点がある。天通ニュースでは現場対応者として扱われることが多いが、政府資料では制度名を伏せた記述も見られる。',
+      ]],
+      ['報道上の評価', [
+        '肯定的評価では、即応性、地域住民への説明、行政手続きに乗りにくい問題の処理が挙げられる。批判的評価では、権限の根拠が見えにくいこと、現場判断が制度上の手続きより先行しやすいことが問題視される。',
+      ]],
+      ['批判・論争', [
+        '論争は、境界線周辺での通行制限、避難民への聞き取り、独立系報道への対応、地域団体との距離に集中する。京都政府側は安全確保と迅速対応を理由に挙げるが、第三者監査の不足を指摘する声もある。',
+      ]],
+    ],
+    related: [['characters.html', '人物'], ['faction-japan-kyoto-government.html', '日本国（京都政府）'], ['history.html', '歴史・安全保障'], ['faction-tenzu.html', '天通']],
+    categories: ['人物', '治安', '京都政府', '境界線'],
   },
-  {
-    file: 'factions.html', title: '国家・行政・企業団体', reading: 'こっか ぎょうせい きぎょうだんたい', kind: '一覧',
-    description: '国家、行政機構、企業、団体に関する公開資料の一覧。',
-    category: '国家・行政', subtitle: '収録項目一覧', navActive: 'factions.html',
-    infobox: [['分野', '国家・行政 / 企業・団体'], ['対象', '政府、企業集団、情報企業、地下経済組織'], ['基準', '公開資料で確認できる制度と活動']],
-    sections: [
-      ['概要', ['この一覧では、京都政府、東京政府、守矢グループ、河城工業、天通、佐渡島組など、政治・経済・情報流通に関わる主要項目を収録する。']],
-      ['国家・行政', ['日本国（京都政府）と日本国（東京政府）は、ともに日本国を正式名とする競合政権である。']],
-      ['企業・団体', ['守矢グループは生活基盤、河城工業は防衛・技術、天通は通信・報道・資料網、佐渡島組は佐渡島周辺の地下経済に関わる。']]
-    ],
-    related: [['faction-japan-kyoto-government.html', '日本国（京都政府）'], ['faction-japan-tokyo-government.html', '日本国（東京政府）'], ['faction-moriya-yasaka-group.html', '守矢グループ'], ['faction-yamazaki-kawashiro-industries.html', '河城工業'], ['faction-tenzu.html', '天通']]
-  },
-  {
-    file: 'history.html', title: '軍事・安全保障', reading: 'ぐんじ あんぜんほしょう', kind: '一覧',
-    description: '中央境界線、共同警備区、駐屯部隊、技術基盤など軍事・安全保障に関する公開資料。',
-    category: '軍事・安全保障', subtitle: '安全保障項目一覧', navActive: 'history.html',
-    infobox: [['分野', '軍事・安全保障'], ['主要語', '中央境界線、糸魚川境界区、白馬共同警備区'], ['対象', '公開資料で確認できる制度、部隊、施設']],
-    sections: [
-      ['概要', ['軍事・安全保障分野では、中央境界線、共同警備区、駐屯部隊、指揮施設、監視網、無人機などを扱う。独立用語集ではなく、関係記事本文内で説明する。']],
-      ['主要地点', ['糸魚川境界区は中央境界線上の主要接触地帯であり、軍事呼称では糸魚川正面とされる。白馬共同警備区は日本国側の最前線共同警備区域である。松代地下司令部は東京政府側の地下要塞司令部として知られる。']],
-      ['技術基盤', ['Octpath4.7、上海型無人機、天網、天網中継塔ネットワークは、河城工業や天通の記事内で扱う。']]
-    ],
-    related: [['faction-yamazaki-kawashiro-industries.html', '河城工業'], ['faction-tenzu.html', '天通'], ['faction-japan-kyoto-government.html', '日本国（京都政府）']]
-  }
 ];
 
-const people = [
-  ['character-hakurei-reimu.html', '博麗霊夢', 'はくれい れいむ', '日本国（京都政府）側の自衛官。陸上自衛隊高級幹部として、中央境界線周辺の即応体制や部隊運用に関わる人物として知られる。', '人物', '日本国（京都政府）', '陸上自衛隊高級幹部'],
-  ['character-marisa.html', '霧雨魔理沙', 'きりさめ まりさ', '日本国（東京政府）側の軍人。前線指揮、兵站再建、通信・補給網の運用で知られる。', '人物', '日本国（東京政府）', '前線指揮官'],
-  ['character-sanae.html', '東風谷早苗', 'こちや さなえ', '日本国（京都政府）の政治家。首相として統一政策、境界線政策、政財界調整に関与する。', '人物', '日本国（京都政府）', '首相'],
-  ['character-yasaka-kanako.html', '八坂神奈子', 'やさか かなこ', '守矢グループの会長。地方金融、電力、交通、保険を束ねる企業集団の経営者として知られる。', '人物', '守矢グループ', '会長'],
-  ['character-toyosato-miko.html', '豊聡耳神子', 'とよさとみみ の みこ', '日本国（東京政府）の政治家。東京政府の指導層に属し、国家統合と生活保障を掲げる人物として扱われる。', '人物', '日本国（東京政府）', '政治指導者']
+const stubs = [
+  ['characters.html', '人物', '人物記事の一覧', '公開資料に現れる人物を、所属、職務、報道上の扱い、関係組織から整理する一覧である。', [['character-hakurei-reimu.html', '博麗霊夢'], ['character-marisa.html', '霧雨魔理沙'], ['character-sanae.html', '東風谷早苗'], ['character-yasaka-kanako.html', '八坂神奈子'], ['character-toyosato-miko.html', '豊聡耳神子']]],
+  ['factions.html', '組織・政体', '組織・政体記事の一覧', '政府、企業、地域組織、治安組織を公開資料の範囲で整理する一覧である。', [['faction-tenzu.html', '天通'], ['faction-japan-tokyo-government.html', '日本国（東京政府）'], ['faction-japan-kyoto-government.html', '日本国（京都政府）'], ['faction-moriya-yasaka-group.html', '守矢八坂グループ'], ['faction-yamazaki-kawashiro-industries.html', '山崎河城工業'], ['faction-aikawa-gumi.html', '相川組']]],
+  ['history.html', '歴史・安全保障', '歴史・安全保障記事の一覧', '分断後の制度、境界線、安全保障、避難、物流、通信復旧に関する記事を整理する一覧である。', [['faction-japan-tokyo-government.html', '日本国（東京政府）'], ['faction-japan-kyoto-government.html', '日本国（京都政府）'], ['faction-tenzu.html', '天通']]],
+  ['faction-japan-kyoto-government.html', '日本国（京都政府）', '西日本側の政府機構', '京都に政府中枢を置く西日本側の統治機構。天通辞典では東京政府と区別するため京都政府と併記する。', [['faction-japan-tokyo-government.html', '日本国（東京政府）'], ['faction-tenzu.html', '天通'], ['character-hakurei-reimu.html', '博麗霊夢']]],
+  ['character-marisa.html', '霧雨魔理沙', '東京政府側の前線指揮関係者', '東京政府側資料に現れる前線指揮・補給線運用に関わる人物。公開資料では通信、補給、治安対応との接点が確認される。', [['characters.html', '人物'], ['faction-japan-tokyo-government.html', '日本国（東京政府）']]],
+  ['character-sanae.html', '東風谷早苗', '京都政府側の政治関係者', '京都政府側の政治・地域調整に関わる人物。公的発表、議会記録、地域報道の間で扱いに差がある。', [['characters.html', '人物'], ['faction-japan-kyoto-government.html', '日本国（京都政府）']]],
+  ['character-yasaka-kanako.html', '八坂神奈子', '洩八グループの経営関係者', '地方資源、電力、交通、保守事業に関わる洩八グループの経営関係者。', [['characters.html', '人物'], ['faction-moreya-group.html', '洩八グループ']]],
+  ['character-toyosato-miko.html', '豊聡耳神子', '東京政府側の政治指導層', '東京政府側の政治指導層に属し、国家統合、生活保障、行政統制に関与する人物として扱われる。', [['characters.html', '人物'], ['faction-japan-tokyo-government.html', '日本国（東京政府）']]],
+  ['faction-moriya-yasaka-group.html', '守矢八坂グループ', '旧称・関連名称', '洩八グループの旧称または関連名称として公開資料に残る呼称。主要記事は洩八グループを参照する。', [['faction-moreya-group.html', '洩八グループ'], ['character-yasaka-kanako.html', '八坂神奈子']]],
+  ['faction-yamazaki-kawashiro-industries.html', '山崎河城工業', '技術・防衛複合企業', '防衛、宇宙、自動車、無人機、AIを扱う技術複合企業。公開資料では政府調達との関係が注目される。', [['factions.html', '組織・政体'], ['faction-tenzu.html', '天通']]],
+  ['faction-aikawa-gumi.html', '相川組', '港湾・物流周辺組織', '港湾、物流、地域地下経済に関与するとされる組織。公開資料上の確認範囲に限定して扱う。', [['factions.html', '組織・政体'], ['history.html', '歴史・安全保障']]],
 ];
 
-for (const [file, title, reading, desc, category, org, role] of people) {
+for (const [file, title, subtitle, description, related] of stubs) {
+  if (pages.some(page => page.file === file)) continue;
   pages.push({
-    file, title, reading, kind: '人物', description: desc, category, subtitle: `${org} / ${role}`, navActive: 'characters.html',
-    infobox: [['氏名', title], ['所属', org], ['役職', role], ['活動分野', '政治・軍事・公共圏'], ['記事基準', '公開資料で確認できる経歴']],
+    file,
+    title,
+    subtitle,
+    type: file.startsWith('character') ? '人物' : file === 'history.html' ? '歴史・安全保障' : '組織・政体',
+    navSection: file === 'characters.html' || file.startsWith('character') ? 'characters' : file === 'history.html' ? 'history' : 'factions',
+    description,
+    lead: [description],
+    infobox: [['名称', title], ['分類', subtitle], ['基準日', PUBLIC_DATE]],
     sections: [
-      ['概要', [`${title}は、${desc}`]],
-      ['経歴', [`公開資料で確認できる経歴は、所属組織での職務、報道された活動、式典・講演・政策発表などに限られる。私的経歴や未公表任務については、資料ごとの差が大きい。`]],
-      ['活動・役割', [`現在の役割は${role}としての公的活動に集中する。境界線政策、組織運営、広報、現場対応などへの関与が資料上で確認される。`]],
-      ['評価', [`評価は立場により分かれる。支持者は実務能力と象徴性を挙げ、批判的報道は組織内での影響力、説明責任、政権・企業との距離を論点とする。`]]
+      ['概要', [description]],
+      ['掲載方針', ['本文は公開資料で確認できる範囲に限定し、未確認の作戦、将来の出来事、断定できない人物評価を扱わない。']],
+      ['関連資料', ['今後の改稿では、出典表記、批判・論争、関係組織、地域別の影響を代表記事の形式に合わせて拡張する。']],
     ],
-    related: [['characters.html', '人物'], [org.includes('東京') ? 'faction-japan-tokyo-government.html' : org.includes('守矢') ? 'faction-moriya-yasaka-group.html' : 'faction-japan-kyoto-government.html', org]]
-  });
-}
-
-const orgs = [
-  ['faction-moriya-yasaka-group.html', '守矢グループ', 'もりやグループ', '地方金融、電力、地域交通、農業流通、保険を中核とする生活基盤企業集団。', '企業・団体', '生活基盤企業集団', [['正式表記', '守矢グループ'], ['批判的呼称', '守矢財閥'], ['主要分野', '金融、電力、交通、農業流通、保険']]],
-  ['faction-yamazaki-kawashiro-industries.html', '河城工業', 'かわしろこうぎょう', '防衛、宇宙、自動車、半導体、AIを束ねる技術複合企業。', '企業・団体', '技術複合企業', [['正式表記', '河城工業'], ['主要分野', '防衛、半導体、AI、無人機'], ['関連技術', 'Octpath4.7、上海型無人機']]],
-  ['faction-tenzu.html', '天通', 'てんつう', '通信、報道、SNS、EC、天通辞典、天網中継塔ネットワークを運営する情報複合体。', '企業・団体', '情報複合体', [['正式表記', '天通'], ['主要事業', '通信、報道、資料網、EC'], ['関連網', '天網、天網中継塔ネットワーク']]],
-  ['faction-aikawa-gumi.html', '佐渡島組', 'さどしまぐみ', '佐渡島周辺の港湾、物流、地下経済に関与するとされる組織。', '企業・団体', '地下経済組織', [['正式表記', '佐渡島組'], ['活動地域', '佐渡特別管理区、日本海沿岸'], ['関連主体', '米軍佐渡駐屯部隊']]]
-];
-
-for (const [file, title, reading, desc, category, subtitle, info] of orgs) {
-  pages.push({
-    file, title, reading, kind: category, description: desc, category, subtitle, navActive: 'factions.html',
-    infobox: info,
-    sections: [
-      ['概要', [`${title}は、${desc}`]],
-      ['沿革', ['分断後の制度再編、地方インフラ更新、境界線周辺の安全保障需要を背景に、現在の組織形態が形成された。']],
-      ['活動・役割', ['活動は公開資料、企業発表、行政資料、報道により確認される範囲に限られる。技術、メディア、物流、地域統治に関する情報は、独立分野ではなく当該組織の活動として扱う。']],
-      ['評価', ['社会的評価は利便性、雇用、技術力への評価と、寡占、監督不足、政治との近さへの批判が併存する。']]
-    ],
-    related: [['factions.html', '国家・行政・企業団体'], ['history.html', '軍事・安全保障']]
+    related,
+    categories: [subtitle, '公開資料'],
   });
 }
 
 pages.push({
-  file: '404.html', title: 'ページが見つかりません', reading: '404', kind: '案内',
-  description: '要求されたページは存在しない。',
-  category: '案内', subtitle: '404', navActive: 'index.html',
+  file: '404.html',
+  title: 'ページが見つかりません',
+  subtitle: '404',
+  type: '案内',
+  navSection: 'top',
+  description: '指定されたページは存在しないか、公開版から整理されました。',
+  lead: ['指定されたページは存在しないか、公開版から整理されました。メインページ、人物、組織・政体、歴史・安全保障の一覧から目的の記事を探してください。'],
   infobox: [['状態', '404'], ['案内', 'メインページへ戻る']],
-  sections: [['概要', ['要求されたページは存在しないか、単体HTML化の過程で公開導線から外されています。']]], related: [['index.html', 'メインページ']]
+  sections: [['案内', ['URLを確認するか、検索欄から記事名、組織名、人物名で検索してください。']]],
+  related: [['index.html', 'メインページ'], ['factions.html', '組織・政体'], ['characters.html', '人物'], ['history.html', '歴史・安全保障']],
+  categories: ['案内'],
 });
 
-function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 }
 
 function slug(value) {
-  return `sec-${value.replace(/[^\p{Letter}\p{Number}]+/gu, '-').replace(/^-|-$/g, '') || 'section'}`;
+  return String(value).normalize('NFKC').replace(/[^\p{Letter}\p{Number}]+/gu, '-').replace(/^-|-$/g, '') || 'section';
 }
 
-function ref(n) {
-  return `<sup id="cite_ref-${n}" class="reference"><a href="#cite_note-${n}">[${n}]</a></sup>`;
+function links(items) {
+  return items.map(([href, label]) => `<li><a href="${esc(href)}">${esc(label)}</a></li>`).join('');
 }
 
-function toc(sections) {
-  return `<div id="toc"><div id="toc-title">目次 <span id="toc-toggle" onclick="toggleToc()">[非表示]</span></div><div id="toc-body"><ol>${sections.map((s, i) => `<li><a href="#${slug(s[0])}"><span class="toc-number">${i + 1}</span>${escapeHtml(s[0])}</a></li>`).join('')}</ol></div></div>`;
+function referenceList(page) {
+  const refs = [
+    `${page.title}編集部「${page.title} 公開資料整理票」天通辞典編集室、2026年。`,
+    `天通ニュース資料部「${page.type}記事確認メモ」2026年5月6日閲覧版。`,
+    `公開会見・地域紙・行政告知の照合記録、天通辞典内部整理番号 ${page.file.replace('.html', '').toUpperCase()}-2026。`,
+  ];
+  return `<ol class="references">${refs.map((ref, i) => `<li id="cite_note-${i + 1}"><span class="mw-cite-backlink"><a href="#cite_ref-${i + 1}">^</a></span> <span class="reference-text">${esc(ref)}</span></li>`).join('')}</ol>`;
 }
 
-function wikitable(headers, rows) {
-  return `<table class="wikitable"><thead><tr>${headers.map(header => `<th>${escapeHtml(header)}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
-}
-
-function pageLinks(items) {
-  return items.map(([href, label]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join('');
-}
-
-function enrichPages() {
-  const byFile = Object.fromEntries(pages.map(page => [page.file, page]));
-
-  for (const file of ['faction-japan-kyoto-government.html', 'faction-japan-tokyo-government.html']) {
-    const page = byFile[file];
-    if (!page) continue;
-    page.extraHtml = [
-      wikitable(
-        ['指標', '公開資料上の扱い', '記事上の注記'],
-        file.includes('kyoto')
-          ? [
-              ['正式国号', '日本国', '東京政府側も同一国号を称するため、記事名では京都政府を併記する。'],
-              ['通称', '西日本', '地域名としての西日本と、政権を指す西日本が文脈により併用される。'],
-              ['主要接触地帯', '中央境界線、糸魚川境界区、白馬共同警備区、京浜境界区', '軍事資料では糸魚川正面などの呼称も用いられる。'],
-              ['主要基盤企業', '守矢グループ、河城工業、天通', '生活基盤、技術、情報流通を分担する企業群として記述される。']
-            ]
-          : [
-              ['正式国号', '日本国', '京都政府側も同一国号を称するため、記事名では東京政府を併記する。'],
-              ['通称', '東日本', '東京政府、東日本、東側が文脈により使い分けられる。'],
-              ['主要施設', '松代地下司令部、京浜境界区、中央境界線東側施設群', '軍事・行政資料で扱いが分かれる。'],
-              ['主要制度', '配給、労務、通信管理、国防動員', '東京政府系資料は生活保障、外部資料は統制面を強調する。']
-            ]
-      )
-    ];
-    page.sections.push(
-      ['社会', ['社会制度は、都市部の配給、職場単位の登録、学校・地域組織、通信利用記録を通じて把握される。公的資料は安定供給と共同体維持を強調するが、外部報道では移動、発言、情報入手の制約が論点となる。']],
-      ['外交', ['外交上の扱いは承認問題と安全保障秩序に左右される。国際機関、周辺国、在外邦人団体、軍事同盟の文書では、正式国号と便宜的呼称が併用される。']],
-      ['関連する地名・施設', ['中央境界線、糸魚川境界区、白馬共同警備区、松代地下司令部、諏訪共同工業区、佐渡特別管理区、京浜境界区は、国家記事の中で補助的に説明される。独立した地理カテゴリは設けない。']]
-    );
-  }
-
-  for (const page of pages.filter(page => page.category === '人物')) {
-    page.extraHtml = [
-      wikitable(
-        ['項目', '内容'],
-        [
-          ['扱い', '公開資料で確認できる肩書き、職務、報道上の評価を中心に記述する。'],
-          ['除外', '未発生の戦果、失脚、死亡、事件後評価は扱わない。'],
-          ['主な資料', '政府発表、組織発表、報道、講演録、公開行事記録。']
-        ]
-      )
-    ];
-    page.sections.push(
-      ['報道上の扱い', ['人物記事では、公的発表だけでなく、新聞、ネットメディア、業界紙、週刊誌の扱いも整理する。ただし噂は断定せず、報道の出所と文脈を示す。']],
-      ['職務上の位置づけ', ['人物の位置づけは、肩書きだけでなく、どの制度や組織の中で行動しているかによって説明される。政治家であれば政策会議、選挙区、党内派閥、官庁との関係が重視される。軍人であれば担当区域、指揮系統、補給や通信への関与、境界線周辺での小規模対応が主な説明対象となる。企業経営者であれば、資本配分、地域事業、行政との協議、系列企業の再編が中心となる。']],
-      ['公的評価', ['公的評価では、政府広報、組織発表、議会質疑、式典記録、業界紙の記述を区別する。称賛的な表現は、その発信主体が本人の所属組織なのか、第三者の報道機関なのかで意味が変わるため、記事本文では断定的な人物評を避ける。']],
-      ['批判・論争', ['批判や論争は、勤務姿勢、利益相反、報道対応、政策判断、組織内での影響力を中心に扱う。私生活や未確認の噂は、公開資料で社会的論点として扱われている場合を除き、記事の中心には置かない。']],
-      ['公開資料での制約', ['軍人や政治家については非公開任務、内部人事、未発表の作戦、将来の政治的帰結を扱わない。記事は公表時点で利用者が確認できる資料の範囲に限る。']]
-    );
-  }
-
-  for (const page of pages.filter(page => page.category === '企業・団体')) {
-    page.extraHtml = [
-      wikitable(
-        ['観点', '記事での扱い'],
-        [
-          ['事業領域', '生活基盤、技術、通信、物流、地下経済などを組織ごとの活動として説明する。'],
-          ['行政との関係', '発注、認可、共同事業、規制を通じた関係を扱う。'],
-          ['批判点', '寡占、監督不足、政治との距離、地域社会への影響を扱う。']
-        ]
-      )
-    ];
-    page.sections.push(
-      ['組織構造', ['組織構造は、持株会社、系列会社、関連団体、地域拠点、行政との窓口に分けて説明される。公開資料で確認できない出資関係や非公開部門は断定しない。']],
-      ['主要事業', ['主要事業は、生活基盤、通信、物流、金融、装備調達、港湾、報道、資料網など、社会機能に直結する領域に分かれる。単なる業種分類ではなく、行政や住民がどの機能に依存しているかを軸に記述する。']],
-      ['行政との関係', ['行政との関係は、補助金、認可、委託、共同事業、災害対応、境界線周辺の安全保障契約に現れる。企業側は公共性と効率性を強調する一方、批判的報道では政策決定と企業利益の境界が曖昧になりやすい点が論じられる。']],
-      ['技術・情報基盤', ['技術、メディア、用語、地理に関する説明は独立カテゴリにせず、組織の活動の一部として扱う。Octpath4.7、上海型無人機、天網、天網中継塔ネットワークなどは、河城工業や天通の事業、または軍事・安全保障記事内で説明する。']],
-      ['社会的影響', ['企業・団体は雇用、生活基盤、物流、情報流通、技術調達を通じて地域社会に影響を及ぼす。利便性や安定供給への評価と、寡占や監督不足への批判が併存する。']],
-      ['批判・論争', ['批判点は、価格決定の透明性、行政への影響、地方事業者の排除、個人情報や通信記録の扱い、下請企業への負担に集中する。記事では企業発表と批判的報道を並置し、どちらか一方の宣伝文体に寄せない。']]
-    );
-  }
-}
-
-enrichPages();
+const css = `
+*,*::before,*::after{box-sizing:border-box}
+:root{--text:#202122;--muted:#54595d;--subtle:#72777d;--link:#36c;--visited:#6b4ba1;--border:#a2a9b1;--soft:#eaecf0;--panel:#f8f9fa;--page:#fff;--paper:#fff}
+html{font-size:15px;scroll-padding-top:64px}
+body{margin:0;color:var(--text);background:#f5f6f7;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;line-height:1.72}
+a{color:var(--link);text-decoration:none}a:visited{color:var(--visited)}a:hover,a:focus{text-decoration:underline}
+.site-header{position:sticky;top:0;z-index:50;display:grid;grid-template-columns:220px minmax(260px,620px) 1fr;gap:16px;align-items:center;min-height:58px;padding:9px 22px;background:#fff;border-bottom:1px solid #c8ccd1}
+.brand{display:flex;gap:10px;align-items:center;color:#111}.brand:visited{color:#111}.mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid #a2a9b1;border-radius:50%;font-family:Georgia,serif;font-weight:700}.wordmark{font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;line-height:1}.tagline{display:block;color:var(--muted);font-size:.72rem}
+.search{position:relative;display:grid;grid-template-columns:1fr auto;border:1px solid var(--border);background:#fff}.search input{min-width:0;border:0;padding:7px 10px;font:inherit}.search button{border:0;border-left:1px solid var(--border);background:var(--panel);padding:0 12px;cursor:pointer}.search-results{position:absolute;top:100%;left:0;right:0;z-index:60;display:none;margin:1px 0 0;padding:0;list-style:none;background:#fff;border:1px solid var(--border);box-shadow:0 4px 12px #0002}.search-results.show{display:block}.search-results a{display:block;padding:8px 10px}.search-results small{color:var(--muted)}
+.top-nav{display:flex;justify-content:flex-end;gap:14px;white-space:nowrap;font-size:.92rem}
+.layout{display:grid;grid-template-columns:210px minmax(0,1fr) 245px;gap:22px;max-width:1460px;margin:0 auto;padding:18px 22px 36px}.sidebar,.page-tools{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 92px);overflow:auto;font-size:.9rem}.portal{margin-bottom:16px;padding:12px;background:#fff;border:1px solid #c8ccd1}.portal h2{margin:0 0 8px;padding-bottom:4px;border-bottom:1px solid var(--soft);font-size:.95rem;font-family:inherit;font-weight:700}.portal ul{margin:0;padding:0;list-style:none}.portal li{margin:3px 0}
+main{min-width:0;background:#fff;border:1px solid #c8ccd1;padding:26px 34px 38px}.site-sub,.content-sub,.meta{color:var(--muted);font-size:.88rem}
+h1{margin:0 0 8px;padding-bottom:7px;border-bottom:1px solid var(--border);font-family:Georgia,"Times New Roman","Yu Mincho",serif;font-size:2rem;font-weight:400;line-height:1.25}h2{clear:both;margin:1.45em 0 .55em;padding-bottom:3px;border-bottom:1px solid var(--border);font-family:Georgia,"Times New Roman","Yu Mincho",serif;font-size:1.48rem;font-weight:400}h3{margin:1em 0 .25em;font-size:1.08rem}p{margin:.55em 0 1em}
+.infobox{float:right;width:320px;max-width:100%;margin:.2em 0 1em 1.35em;border:1px solid var(--border);background:var(--panel);border-collapse:collapse;font-size:.88rem}.infobox caption{padding:8px;background:var(--soft);font-weight:700}.infobox th,.infobox td{padding:6px 8px;border:1px solid var(--border);vertical-align:top}.infobox th{width:35%;background:var(--soft);text-align:left}
+.toc{display:inline-block;min-width:260px;max-width:100%;margin:12px 0 18px;padding:8px 14px;background:var(--panel);border:1px solid var(--border);font-size:.9rem}.toc-title{text-align:center;font-weight:700}.toc ol{margin:.35em 0 0 1.4em;padding:0}.toc li{margin:2px 0}
+.wikitable{width:100%;border-collapse:collapse;margin:1em 0;background:#fff;font-size:.92rem}.wikitable th,.wikitable td{border:1px solid var(--border);padding:7px 8px;vertical-align:top}.wikitable th{background:var(--soft);text-align:left}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:1em 0}.card{display:block;padding:11px 12px;background:var(--panel);border:1px solid #c8ccd1}.card strong{display:block;color:var(--link)}.note-box{margin:1em 0;padding:10px 12px;border:1px solid #a2a9b1;background:#f8f9fa}
+.references{font-size:.86rem}.references li{margin-bottom:.35em}.catlinks{clear:both;margin-top:22px;padding:8px 10px;background:var(--panel);border:1px solid var(--border);font-size:.9rem}.footer{max-width:1460px;margin:0 auto;padding:16px 22px 34px;color:var(--muted);font-size:.84rem}
+@media(max-width:1120px){.layout{grid-template-columns:1fr}.sidebar,.page-tools{position:static;max-height:none}.site-header{grid-template-columns:1fr}.top-nav{justify-content:flex-start;overflow:auto}main{padding:20px 16px}.infobox{float:none;width:100%;margin:1em 0}}
+`;
 
 function render(page) {
-  const sections = page.sections.map((section, i) => {
-    const [heading, paras] = section;
-    return `<h2 id="${slug(heading)}">${escapeHtml(heading)}</h2>\n${paras.map((p, j) => `<p>${escapeHtml(p)}${j === 0 ? ref(i + 1) : ''}</p>`).join('\n')}`;
+  const contentSections = page.sections.map(([heading, paragraphs, kind], index) => {
+    const id = slug(heading);
+    const body = kind === 'cards'
+      ? `<div class="card-grid">${page.related.map(([href, label]) => `<a class="card" href="${esc(href)}"><strong>${esc(label)}</strong><span>${esc(pages.find(p => p.file === href)?.description || '関連資料')}</span></a>`).join('')}</div>`
+      : paragraphs.map((paragraph, i) => `<p>${esc(paragraph)}${i === 0 && index < 3 ? `<sup id="cite_ref-${index + 1}" class="reference"><a href="#cite_note-${index + 1}">[${index + 1}]</a></sup>` : ''}</p>`).join('\n');
+    return `<h2 id="${id}">${esc(heading)}</h2>\n${body}`;
   }).join('\n');
-  const references = page.sections.map((section, i) => `<li id="cite_note-${i + 1}"><span class="mw-cite-backlink"><a href="#cite_ref-${i + 1}">↑</a></span> <span class="reference-text">天通辞典編集部「${escapeHtml(page.title)} ${escapeHtml(section[0])}」公開資料整理、2026年。</span></li>`).join('\n');
-  const categories = [page.category, page.kind, '日本裂島記'].filter((v, i, a) => a.indexOf(v) === i);
+
+  const toc = `<nav class="toc" aria-label="目次"><div class="toc-title">目次</div><ol>${page.sections.concat([['注釈'], ['出典'], ['関連項目']]).map(([heading], i) => `<li><a href="#${slug(heading)}">${i + 1} ${esc(heading)}</a></li>`).join('')}</ol></nav>`;
   return `<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="${escapeHtml(page.description)}">
-<title>${escapeHtml(page.title)} - Tenzu</title>
-<style>
-${css}
-</style>
+<meta name="description" content="${esc(page.description)}">
+<title>${esc(page.title)} - 天通辞典</title>
+<style>${css}</style>
 </head>
 <body>
-<header id="mw-head">
-  <a id="mw-logo" href="index.html" aria-label="Tenzu メインページ">
-    <span class="wiki-sphere" aria-hidden="true"><span class="wiki-sphere-letter">天</span></span>
-    <span id="mw-logo-text"><strong>Tenzu</strong><span>天通辞典</span></span>
-  </a>
-  <nav id="mw-head-nav" aria-label="ページ操作">
-    <a class="mw-tab active" href="${page.file}">閲覧</a>
-    <a class="mw-tab" href="#sec-出典">出典</a>
-    <a class="mw-tab" href="#sec-関連項目">関連項目</a>
-  </nav>
-  <form id="mw-search" onsubmit="runSearch(event)">
-    <input id="mw-search-input" type="search" placeholder="Tenzu内を検索" aria-label="Tenzu内を検索">
-    <button type="submit">検索</button>
-  </form>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="天通辞典 メインページ"><span class="mark">天</span><span><span class="wordmark">天通辞典</span><span class="tagline">世界内公開百科</span></span></a>
+  <form class="search" id="searchform" role="search"><input id="searchInput" type="search" placeholder="天通辞典を検索" aria-label="天通辞典を検索"><button type="submit">検索</button><ul id="searchResults" class="search-results" aria-live="polite"></ul></form>
+  <nav class="top-nav" aria-label="主要分類">${nav.map(([href, label]) => `<a href="${href}">${label}</a>`).join('')}</nav>
 </header>
-<nav id="mw-sidebar" aria-label="サイドナビゲーション">
-  <div class="sidebar-section"><div class="sidebar-header">案内</div><ul>${pageLinks(nav)}</ul></div>
-  <div class="sidebar-section"><div class="sidebar-header">主要項目</div><ul>${pageLinks(allLinks.slice(0, 8))}</ul></div>
-  <div class="sidebar-section"><div class="sidebar-header">関連項目</div><ul>${pageLinks(page.related || [])}</ul></div>
-</nav>
-<main id="mw-content">
-  <div class="content-wrapper">
-    <article id="mw-article">
-      <h1 id="firstHeading">${escapeHtml(page.title)}<span class="reading-ruby">（${escapeHtml(page.reading)}）</span></h1>
-      <div class="siteSub">出典: 天通辞典</div>
-      <div class="page-status">公開資料基準: 公表時点 / 分類: ${escapeHtml(page.category)}</div>
-      ${page.notice ? `<div class="notice">${escapeHtml(page.notice)}</div>` : ''}
-      <div class="infobox">
-        <div class="infobox-title">${escapeHtml(page.title)}</div>
-        <div class="infobox-subtitle">${escapeHtml(page.subtitle)}</div>
-        <table><tbody>
-          <tr class="infobox-section-header"><td colspan="2">基本情報</td></tr>
-          ${page.infobox.map(([k, v]) => `<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`).join('\n')}
-        </tbody></table>
-      </div>
-      <p><b>${escapeHtml(page.title)}</b>は、${escapeHtml(page.description)}${ref(1)}</p>
-      ${toc([...page.sections, ['注釈', []], ['出典', []], ['関連項目', []]])}
-      ${(page.extraHtml || []).join('\n')}
-      ${sections}
-      <h2 id="sec-注釈">注釈</h2>
-      <ol class="references"><li>この記事は作中社会の公開資料としての体裁を採り、未発生事件や非公開組織の断定的記述を避けている。</li></ol>
-      <h2 id="sec-出典">出典</h2>
-      <ol class="references">${references}</ol>
-      <h2 id="sec-関連項目">関連項目</h2>
-      <ul>${pageLinks(page.related || [])}</ul>
-      <div class="category-box"><strong>カテゴリ:</strong> ${categories.map(c => `<a href="${categoryHref(c)}">${escapeHtml(c)}</a>`).join(' | ')}</div>
-    </article>
-    <aside id="mw-right-aside">
-      <div class="right-aside-title">ページツール</div>
-      <div class="right-aside-section"><ul><li><a href="#firstHeading">先頭へ</a></li><li><a href="#toc">目次</a></li><li><a href="#sec-出典">出典</a></li></ul></div>
-      <div class="right-aside-title">この項目</div>
-      <div class="right-aside-section"><p>${escapeHtml(page.kind)}</p><p>${escapeHtml(page.subtitle)}</p></div>
-    </aside>
-  </div>
-</main>
-<footer>
-  <p>このページは天通辞典の単体HTML資料です。内容は公表時点の公開資料として記述されています。</p>
-  <p><a href="index.html">メインページ</a> | <a href="factions.html">国家・行政</a> | <a href="characters.html">人物</a> | <a href="history.html">軍事・安全保障</a></p>
-</footer>
+<div class="layout">
+  <aside class="sidebar" aria-label="メニュー">
+    <section class="portal"><h2>案内</h2><ul>${links(nav)}</ul></section>
+    <section class="portal"><h2>代表記事</h2><ul>${links([['faction-tenzu.html','天通'],['faction-japan-tokyo-government.html','日本国（東京政府）'],['character-hakurei-reimu.html','博麗霊夢']])}</ul></section>
+    <section class="portal"><h2>編集室</h2><ul><li><a href="editor.html">ローカル編集室</a></li><li><a href="index.html#編集室ログ">編集室ログ</a></li><li><a href="index.html#公開資料メモ">公開資料メモ</a></li></ul></section>
+  </aside>
+  <main id="content">
+    <div class="site-sub">天通辞典からの公開資料</div>
+    <h1>${esc(page.title)}</h1>
+    <div class="content-sub">${esc(page.subtitle)} / 種別: ${esc(page.type)} / 基準日: ${PUBLIC_DATE}</div>
+    <table class="infobox"><caption>${esc(page.title)}</caption><tbody>${page.infobox.map(([k, v]) => `<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</tbody></table>
+    ${page.lead.map(paragraph => `<p>${esc(paragraph)}</p>`).join('\n')}
+    ${toc}
+    ${contentSections}
+    <h2 id="注釈">注釈</h2>
+    <div class="note-box">本文は${PUBLIC_DATE}時点の公開資料として整理し、未確認の作戦、将来の出来事、後年の総括を除外している。</div>
+    <h2 id="出典">出典</h2>
+    ${referenceList(page)}
+    <h2 id="関連項目">関連項目</h2>
+    <ul>${links(page.related)}</ul>
+    <div class="catlinks"><strong>カテゴリ:</strong> ${(page.categories || []).map(category => `<a href="${page.navSection === 'characters' ? 'characters.html' : page.navSection === 'history' ? 'history.html' : page.navSection === 'top' ? 'index.html' : 'factions.html'}">${esc(category)}</a>`).join(' | ')}</div>
+  </main>
+  <aside class="page-tools" aria-label="ページツール">
+    <section class="portal"><h2>ページツール</h2><ul><li><a href="#content">先頭へ</a></li><li><a href="#出典">出典</a></li><li><a href="#関連項目">関連項目</a></li><li><a href="https://github.com/manzyuball/Tenzu.jp/blob/main/${esc(page.file)}">ソース表示</a></li></ul></section>
+    <section class="portal"><h2>この項目</h2><p class="meta">${esc(page.description)}</p></section>
+  </aside>
+</div>
+<footer class="footer">最終更新 ${PUBLIC_DATE}。公開版は静的HTMLとして配布され、利用者認証、投稿受付、サーバー保存機能は使用しない。</footer>
 <script>
-${script}
+(() => {
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+  const form = document.getElementById('searchform');
+  if (!input || !results || !form) return;
+  let index = [];
+  const escHtml = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
+  fetch('assets/search-index.json').then(res => res.ok ? res.json() : []).then(data => { index = Array.isArray(data) ? data : []; }).catch(() => { index = []; });
+  const find = query => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return index.filter(item => [item.title,item.summary,item.article_type,item.nav_section,...(item.aliases||[]),...(item.tags||[]),...(item.related||[])].join(' ').toLowerCase().includes(q)).slice(0,10);
+  };
+  const render = items => {
+    results.innerHTML = items.length ? items.map(item => '<li><a href="'+escHtml(item.url)+'"><strong>'+escHtml(item.title)+'</strong><br><small>'+escHtml(item.summary)+'</small></a></li>').join('') : '<li><a href="index.html">該当する項目がありません</a></li>';
+    results.classList.add('show');
+  };
+  input.addEventListener('input', () => { const items = find(input.value); if (!input.value.trim()) { results.classList.remove('show'); results.innerHTML = ''; return; } render(items); });
+  form.addEventListener('submit', event => { event.preventDefault(); const target = find(input.value)[0]; if (target) location.href = target.url; });
+  document.addEventListener('click', event => { if (!form.contains(event.target)) results.classList.remove('show'); });
+})();
 </script>
 </body>
 </html>
 `;
 }
 
-function categoryHref(category) {
-  if (category === '人物') return 'characters.html';
-  if (category === '軍事・安全保障') return 'history.html';
-  if (category === '企業・団体') return 'factions.html';
-  if (category === '国家・行政') return 'factions.html';
-  return 'index.html';
+function renderEditor() {
+  return `<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ローカル編集室 - 天通辞典</title>
+<style>${css}.editor-layout{max-width:1280px;margin:0 auto;padding:22px;display:grid;grid-template-columns:320px 1fr;gap:18px}.editor-panel,.editor-stage{background:#fff;border:1px solid #c8ccd1;padding:14px}.editor-stage textarea{width:100%;min-height:58vh;font:14px/1.6 ui-monospace,Consolas,monospace}.editor-panel input,.editor-panel textarea,.editor-panel select{width:100%;margin:.25em 0 1em;padding:7px;border:1px solid #a2a9b1}.editor-actions{display:flex;gap:8px;flex-wrap:wrap}.editor-actions button{padding:7px 10px;border:1px solid #a2a9b1;background:#f8f9fa;cursor:pointer}@media(max-width:900px){.editor-layout{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<header class="site-header"><a class="brand" href="index.html"><span class="mark">天</span><span><span class="wordmark">天通辞典</span><span class="tagline">ローカル編集室</span></span></a><nav class="top-nav">${nav.map(([href,label]) => `<a href="${href}">${label}</a>`).join('')}</nav></header>
+<main class="editor-layout">
+  <section class="editor-panel">
+    <h1>ローカル編集室</h1>
+    <p class="meta">この画面はブラウザ内でHTML下書きを作るための補助画面です。公開サイトへ投稿、保存、送信は行いません。</p>
+    <label>ファイル名<input id="filename" value="new-article.html"></label>
+    <label>タイトル<input id="title" value="新規記事"></label>
+    <label>分類<select id="kind"><option>人物</option><option>組織・政体</option><option>歴史・安全保障</option><option>資料</option></select></label>
+    <label>要約<textarea id="summary">公開資料で確認できる範囲を記述する。</textarea></label>
+    <div class="editor-actions"><button id="template">雛形を作成</button><button id="download">HTMLを書き出し</button></div>
+    <p id="status" class="meta">準備完了。作業内容はこのブラウザ内だけで扱われます。</p>
+  </section>
+  <section class="editor-stage">
+    <textarea id="source"></textarea>
+  </section>
+</main>
+<script>
+(() => {
+  const source = document.getElementById('source');
+  const title = document.getElementById('title');
+  const kind = document.getElementById('kind');
+  const summary = document.getElementById('summary');
+  const filename = document.getElementById('filename');
+  const status = document.getElementById('status');
+  const make = () => '<article>\\n<h1>'+title.value+'</h1>\\n<p class="meta">種別: '+kind.value+' / 基準日: ${PUBLIC_DATE}</p>\\n<table class="infobox"><caption>'+title.value+'</caption><tbody><tr><th>分類</th><td>'+kind.value+'</td></tr><tr><th>基準日</th><td>${PUBLIC_DATE}</td></tr></tbody></table>\\n<p>'+summary.value+'</p>\\n<h2>概要</h2>\\n<p>公開資料で確認できる内容を記述する。</p>\\n<h2>批判・論争</h2>\\n<p>確認できる批判、反論、留保を分けて記述する。</p>\\n<h2>出典</h2>\\n<ol class="references"><li>天通辞典編集室「公開資料整理票」2026年。</li></ol>\\n</article>\\n';
+  document.getElementById('template').addEventListener('click', () => { source.value = make(); status.textContent = '雛形を作成しました。'; });
+  document.getElementById('download').addEventListener('click', () => { const blob = new Blob([source.value || make()], {type:'text/html;charset=utf-8'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = filename.value || 'article.html'; a.click(); URL.revokeObjectURL(a.href); status.textContent = 'HTMLを書き出しました。'; });
+  source.value = make();
+})();
+</script>
+</body>
+</html>
+`;
 }
 
 for (const page of pages) {
-  fs.writeFileSync(path.join(root, page.file), render(page).replace(/[ \t]+$/gm, ''), 'utf8');
+  fs.writeFileSync(path.join(root, page.file), page.file === 'editor.html' ? renderEditor() : render(page).replace(/[ \t]+$/gm, ''), 'utf8');
 }
 
-const removed = path.join(root, 'world-technology.html');
-if (fs.existsSync(removed)) fs.unlinkSync(removed);
+fs.writeFileSync(path.join(root, 'editor.html'), renderEditor().replace(/[ \t]+$/gm, ''), 'utf8');
 
-const searchIndex = pages.filter(page => page.file !== '404.html').map(page => ({
-  title: page.title,
-  url: page.file,
-  summary: page.description,
-  tags: [page.category, page.kind, page.subtitle, page.reading].filter(Boolean),
-  article_type: page.category,
-  nav_section: page.navActive.replace('.html', ''),
-  aliases: [],
-  related: (page.related || []).map(([, label]) => label)
-}));
+const searchIndex = pages
+  .filter(page => page.file !== '404.html')
+  .map(page => ({
+    title: page.title,
+    url: page.file,
+    summary: page.description,
+    tags: [page.subtitle, page.type, ...(page.categories || [])],
+    article_type: page.type,
+    nav_section: page.navSection,
+    aliases: page.title.includes('（') ? [page.title.replace(/（.*?）/g, '')] : [],
+    related: page.related.map(([, label]) => label),
+  }));
+if (fs.existsSync(path.join(root, 'faction-moreya-group.html'))) {
+  searchIndex.push({
+    title: '洩八グループ',
+    url: 'faction-moreya-group.html',
+    summary: '地方金融、電力、地域交通、農業流通、保険、自治体インフラ運営などを中核とする生活基盤企業集団。',
+    tags: ['生活基盤企業集団', '企業・団体', '西日本', '守矢グループ', 'Moreya'],
+    article_type: '組織・企業',
+    nav_section: 'factions',
+    aliases: ['守矢グループ', 'もりやグループ', 'Moreya Group'],
+    related: ['八坂神奈子', '日本国（京都政府）', '天通'],
+  });
+}
 fs.writeFileSync(path.join(root, 'assets', 'search-index.json'), `${JSON.stringify(searchIndex, null, 2)}\n`, 'utf8');
 
-console.log(`Generated ${pages.length} standalone HTML pages.`);
+fs.writeFileSync(path.join(root, '_config.yml'), `title: "天通辞典"\ndescription: "2026年5月6日時点の公開資料を整理する世界内百科"\nlang: ja\nurl: "https://manzyuball.github.io"\nbaseurl: "/Tenzu.jp"\nexclude:\n  - README.md\n  - nanboku_nihon_senki.md\n`, 'utf8');
+
+fs.writeFileSync(path.join(root, 'README.md'), `# Tenzu.jp\n\nTenzu.jp は、2026年5月6日時点の公開資料を整理する世界内百科です。公開版は静的HTMLだけで構成し、利用者認証、投稿受付、サーバー保存、外部管理APIは使いません。\n\n## 運用方針\n\n- 既存URLを維持する。\n- 本文は公開資料として書き、作者視点の設定説明や未来の出来事を入れない。\n- 代表記事は、定義、infobox、概要、沿革、構造、活動、関係、批判・論争、注釈、出典、関連項目、カテゴリを持つ。\n- 掲示板感や編集参加感は、静的な編集室ログ、公開資料メモ、最近の更新として表現する。\n\n## 生成\n\n単体HTMLの正本は \`scripts/generate-standalone-tenzu.mjs\` です。通常は次を実行します。\n\n\`\`\`powershell\n& \"C:\\\\Users\\\\kaner\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\node\\\\bin\\\\node.exe\" scripts/generate-standalone-tenzu.mjs\n\`\`\`\n\n## 品質確認\n\n\`\`\`powershell\npowershell -ExecutionPolicy Bypass -File scripts/tenzu-quality-check.ps1\n\`\`\`\n\n検査内容は、文字化け、内部リンク、検索索引、代表記事の必須節、未実装リンク、静的サイト方針の逸脱です。\n`, 'utf8');
+
+console.log(`Generated ${pages.length} pages and search index.`);

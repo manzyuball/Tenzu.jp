@@ -7,7 +7,12 @@ $ErrorActionPreference = 'Stop'
 $root = Resolve-Path (Join-Path $PSScriptRoot '..')
 Push-Location $root
 try {
-  node scripts/tenzu-quality-check.mjs
+  $bundledNode = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe'
+  if (Test-Path $bundledNode) {
+    & $bundledNode scripts/tenzu-quality-check.mjs
+  } else {
+    node scripts/tenzu-quality-check.mjs
+  }
   if ($LASTEXITCODE -ne 0) {
     exit $LASTEXITCODE
   }

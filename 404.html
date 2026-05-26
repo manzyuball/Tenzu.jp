@@ -1,56 +1,88 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="要求されたページは存在しない。">
-  <title>ページが見つかりません - Tenzu</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      color: #202122;
-      background: #f8f9fa;
-      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.65;
-    }
-    main {
-      width: min(100%, 560px);
-      padding: 28px;
-      background: #fff;
-      border: 1px solid #a2a9b1;
-    }
-    h1 {
-      margin: 0 0 12px;
-      font-size: 1.6rem;
-      line-height: 1.3;
-    }
-    p { margin: 0 0 1em; }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-      margin-top: 18px;
-    }
-    a { color: #36c; text-decoration: none; }
-    a:hover, a:focus { text-decoration: underline; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="指定されたページは存在しないか、公開版から整理されました。">
+<title>ページが見つかりません - 天通辞典</title>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{--text:#202122;--muted:#54595d;--subtle:#72777d;--link:#36c;--visited:#6b4ba1;--border:#a2a9b1;--soft:#eaecf0;--panel:#f8f9fa;--page:#fff;--paper:#fff}
+html{font-size:15px;scroll-padding-top:64px}
+body{margin:0;color:var(--text);background:#f5f6f7;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;line-height:1.72}
+a{color:var(--link);text-decoration:none}a:visited{color:var(--visited)}a:hover,a:focus{text-decoration:underline}
+.site-header{position:sticky;top:0;z-index:50;display:grid;grid-template-columns:220px minmax(260px,620px) 1fr;gap:16px;align-items:center;min-height:58px;padding:9px 22px;background:#fff;border-bottom:1px solid #c8ccd1}
+.brand{display:flex;gap:10px;align-items:center;color:#111}.brand:visited{color:#111}.mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid #a2a9b1;border-radius:50%;font-family:Georgia,serif;font-weight:700}.wordmark{font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;line-height:1}.tagline{display:block;color:var(--muted);font-size:.72rem}
+.search{position:relative;display:grid;grid-template-columns:1fr auto;border:1px solid var(--border);background:#fff}.search input{min-width:0;border:0;padding:7px 10px;font:inherit}.search button{border:0;border-left:1px solid var(--border);background:var(--panel);padding:0 12px;cursor:pointer}.search-results{position:absolute;top:100%;left:0;right:0;z-index:60;display:none;margin:1px 0 0;padding:0;list-style:none;background:#fff;border:1px solid var(--border);box-shadow:0 4px 12px #0002}.search-results.show{display:block}.search-results a{display:block;padding:8px 10px}.search-results small{color:var(--muted)}
+.top-nav{display:flex;justify-content:flex-end;gap:14px;white-space:nowrap;font-size:.92rem}
+.layout{display:grid;grid-template-columns:210px minmax(0,1fr) 245px;gap:22px;max-width:1460px;margin:0 auto;padding:18px 22px 36px}.sidebar,.page-tools{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 92px);overflow:auto;font-size:.9rem}.portal{margin-bottom:16px;padding:12px;background:#fff;border:1px solid #c8ccd1}.portal h2{margin:0 0 8px;padding-bottom:4px;border-bottom:1px solid var(--soft);font-size:.95rem;font-family:inherit;font-weight:700}.portal ul{margin:0;padding:0;list-style:none}.portal li{margin:3px 0}
+main{min-width:0;background:#fff;border:1px solid #c8ccd1;padding:26px 34px 38px}.site-sub,.content-sub,.meta{color:var(--muted);font-size:.88rem}
+h1{margin:0 0 8px;padding-bottom:7px;border-bottom:1px solid var(--border);font-family:Georgia,"Times New Roman","Yu Mincho",serif;font-size:2rem;font-weight:400;line-height:1.25}h2{clear:both;margin:1.45em 0 .55em;padding-bottom:3px;border-bottom:1px solid var(--border);font-family:Georgia,"Times New Roman","Yu Mincho",serif;font-size:1.48rem;font-weight:400}h3{margin:1em 0 .25em;font-size:1.08rem}p{margin:.55em 0 1em}
+.infobox{float:right;width:320px;max-width:100%;margin:.2em 0 1em 1.35em;border:1px solid var(--border);background:var(--panel);border-collapse:collapse;font-size:.88rem}.infobox caption{padding:8px;background:var(--soft);font-weight:700}.infobox th,.infobox td{padding:6px 8px;border:1px solid var(--border);vertical-align:top}.infobox th{width:35%;background:var(--soft);text-align:left}
+.toc{display:inline-block;min-width:260px;max-width:100%;margin:12px 0 18px;padding:8px 14px;background:var(--panel);border:1px solid var(--border);font-size:.9rem}.toc-title{text-align:center;font-weight:700}.toc ol{margin:.35em 0 0 1.4em;padding:0}.toc li{margin:2px 0}
+.wikitable{width:100%;border-collapse:collapse;margin:1em 0;background:#fff;font-size:.92rem}.wikitable th,.wikitable td{border:1px solid var(--border);padding:7px 8px;vertical-align:top}.wikitable th{background:var(--soft);text-align:left}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:1em 0}.card{display:block;padding:11px 12px;background:var(--panel);border:1px solid #c8ccd1}.card strong{display:block;color:var(--link)}.note-box{margin:1em 0;padding:10px 12px;border:1px solid #a2a9b1;background:#f8f9fa}
+.references{font-size:.86rem}.references li{margin-bottom:.35em}.catlinks{clear:both;margin-top:22px;padding:8px 10px;background:var(--panel);border:1px solid var(--border);font-size:.9rem}.footer{max-width:1460px;margin:0 auto;padding:16px 22px 34px;color:var(--muted);font-size:.84rem}
+@media(max-width:1120px){.layout{grid-template-columns:1fr}.sidebar,.page-tools{position:static;max-height:none}.site-header{grid-template-columns:1fr}.top-nav{justify-content:flex-start;overflow:auto}main{padding:20px 16px}.infobox{float:none;width:100%;margin:1em 0}}
+</style>
 </head>
 <body>
-  <main>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="天通辞典 メインページ"><span class="mark">天</span><span><span class="wordmark">天通辞典</span><span class="tagline">世界内公開百科</span></span></a>
+  <form class="search" id="searchform" role="search"><input id="searchInput" type="search" placeholder="天通辞典を検索" aria-label="天通辞典を検索"><button type="submit">検索</button><ul id="searchResults" class="search-results" aria-live="polite"></ul></form>
+  <nav class="top-nav" aria-label="主要分類"><a href="index.html">メインページ</a><a href="factions.html">組織・政体</a><a href="characters.html">人物</a><a href="history.html">歴史・安全保障</a></nav>
+</header>
+<div class="layout">
+  <aside class="sidebar" aria-label="メニュー">
+    <section class="portal"><h2>案内</h2><ul><li><a href="index.html">メインページ</a></li><li><a href="factions.html">組織・政体</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">歴史・安全保障</a></li></ul></section>
+    <section class="portal"><h2>代表記事</h2><ul><li><a href="faction-tenzu.html">天通</a></li><li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li><li><a href="character-hakurei-reimu.html">博麗霊夢</a></li></ul></section>
+    <section class="portal"><h2>編集室</h2><ul><li><a href="editor.html">ローカル編集室</a></li><li><a href="index.html#編集室ログ">編集室ログ</a></li><li><a href="index.html#公開資料メモ">公開資料メモ</a></li></ul></section>
+  </aside>
+  <main id="content">
+    <div class="site-sub">天通辞典からの公開資料</div>
     <h1>ページが見つかりません</h1>
-    <p>指定されたURLのページは存在しないか、移動した可能性があります。</p>
-    <p>下記の入口から目的の項目を探してください。</p>
-    <nav aria-label="主要ページ">
-      <a href="index.html">メインページ</a>
-      <a href="factions.html">国家・行政・企業団体</a>
-      <a href="characters.html">人物</a>
-      <a href="history.html">軍事・安全保障</a>
-    </nav>
+    <div class="content-sub">404 / 種別: 案内 / 基準日: 2026-05-06</div>
+    <table class="infobox"><caption>ページが見つかりません</caption><tbody><tr><th>状態</th><td>404</td></tr><tr><th>案内</th><td>メインページへ戻る</td></tr></tbody></table>
+    <p>指定されたページは存在しないか、公開版から整理されました。メインページ、人物、組織・政体、歴史・安全保障の一覧から目的の記事を探してください。</p>
+    <nav class="toc" aria-label="目次"><div class="toc-title">目次</div><ol><li><a href="#案内">1 案内</a></li><li><a href="#注釈">2 注釈</a></li><li><a href="#出典">3 出典</a></li><li><a href="#関連項目">4 関連項目</a></li></ol></nav>
+    <h2 id="案内">案内</h2>
+<p>URLを確認するか、検索欄から記事名、組織名、人物名で検索してください。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
+    <h2 id="注釈">注釈</h2>
+    <div class="note-box">本文は2026-05-06時点の公開資料として整理し、未確認の作戦、将来の出来事、後年の総括を除外している。</div>
+    <h2 id="出典">出典</h2>
+    <ol class="references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">^</a></span> <span class="reference-text">ページが見つかりません編集部「ページが見つかりません 公開資料整理票」天通辞典編集室、2026年。</span></li><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">^</a></span> <span class="reference-text">天通ニュース資料部「案内記事確認メモ」2026年5月6日閲覧版。</span></li><li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">^</a></span> <span class="reference-text">公開会見・地域紙・行政告知の照合記録、天通辞典内部整理番号 404-2026。</span></li></ol>
+    <h2 id="関連項目">関連項目</h2>
+    <ul><li><a href="index.html">メインページ</a></li><li><a href="factions.html">組織・政体</a></li><li><a href="characters.html">人物</a></li><li><a href="history.html">歴史・安全保障</a></li></ul>
+    <div class="catlinks"><strong>カテゴリ:</strong> <a href="index.html">案内</a></div>
   </main>
+  <aside class="page-tools" aria-label="ページツール">
+    <section class="portal"><h2>ページツール</h2><ul><li><a href="#content">先頭へ</a></li><li><a href="#出典">出典</a></li><li><a href="#関連項目">関連項目</a></li><li><a href="https://github.com/manzyuball/Tenzu.jp/blob/main/404.html">ソース表示</a></li></ul></section>
+    <section class="portal"><h2>この項目</h2><p class="meta">指定されたページは存在しないか、公開版から整理されました。</p></section>
+  </aside>
+</div>
+<footer class="footer">最終更新 2026-05-06。公開版は静的HTMLとして配布され、利用者認証、投稿受付、サーバー保存機能は使用しない。</footer>
+<script>
+(() => {
+  const input = document.getElementById('searchInput');
+  const results = document.getElementById('searchResults');
+  const form = document.getElementById('searchform');
+  if (!input || !results || !form) return;
+  let index = [];
+  const escHtml = value => String(value ?? '').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
+  fetch('assets/search-index.json').then(res => res.ok ? res.json() : []).then(data => { index = Array.isArray(data) ? data : []; }).catch(() => { index = []; });
+  const find = query => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return index.filter(item => [item.title,item.summary,item.article_type,item.nav_section,...(item.aliases||[]),...(item.tags||[]),...(item.related||[])].join(' ').toLowerCase().includes(q)).slice(0,10);
+  };
+  const render = items => {
+    results.innerHTML = items.length ? items.map(item => '<li><a href="'+escHtml(item.url)+'"><strong>'+escHtml(item.title)+'</strong><br><small>'+escHtml(item.summary)+'</small></a></li>').join('') : '<li><a href="index.html">該当する項目がありません</a></li>';
+    results.classList.add('show');
+  };
+  input.addEventListener('input', () => { const items = find(input.value); if (!input.value.trim()) { results.classList.remove('show'); results.innerHTML = ''; return; } render(items); });
+  form.addEventListener('submit', event => { event.preventDefault(); const target = find(input.value)[0]; if (target) location.href = target.url; });
+  document.addEventListener('click', event => { if (!form.contains(event.target)) results.classList.remove('show'); });
+})();
+</script>
 </body>
 </html>

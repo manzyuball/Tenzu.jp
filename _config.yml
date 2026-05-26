@@ -1,15 +1,8 @@
 title: "天通辞典"
-description: "天通が運用する公開資料網"
+description: "2026年5月6日時点の公開資料を整理する世界内百科"
 lang: ja
 url: "https://manzyuball.github.io"
 baseurl: "/Tenzu.jp"
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
 exclude:
   - README.md
-  - docs/
-  - references/
-  - skills/
-  - scripts/
+  - nanboku_nihon_senki.md
