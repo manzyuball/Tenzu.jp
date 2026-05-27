@@ -7,30 +7,26 @@
 <title>組織・政体 - 天通辞典</title>
 <style>
 *,*::before,*::after{box-sizing:border-box}
-:root{--text:#202122;--muted:#54595d;--subtle:#72777d;--link:#0645ad;--visited:#6b4ba1;--border:#a2a9b1;--soft:#eaecf0;--panel:#f8f9fa;--paper:#fff;--blue:#36c;--cream:#fffef8}
-html{font-size:15px;scroll-padding-top:96px}
-body{margin:0;color:var(--text);background:#eef1f5;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;line-height:1.72}
+:root{--text:#202122;--muted:#54595d;--subtle:#72777d;--link:#36c;--visited:#6b4ba1;--border:#a2a9b1;--soft:#eaecf0;--panel:#f8f9fa;--page:#fff;--paper:#fff}
+html{font-size:15px;scroll-padding-top:64px}
+body{margin:0;color:var(--text);background:#f5f6f7;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;line-height:1.72}
 a{color:var(--link);text-decoration:none}a:visited{color:var(--visited)}a:hover,a:focus{text-decoration:underline}
-.portal-bar{display:flex;gap:14px;align-items:center;min-height:31px;padding:0 18px;background:#f8f9fa;border-bottom:1px solid #c8ccd1;font-size:.82rem;white-space:nowrap;overflow:auto}.portal-bar strong{color:#202122}.portal-bar a{color:#36c}
-.site-header{position:sticky;top:0;z-index:50;display:grid;grid-template-columns:245px minmax(280px,680px) 1fr;gap:18px;align-items:center;min-height:62px;padding:10px 22px;background:#fff;border-bottom:1px solid #a2a9b1;box-shadow:0 1px 0 #fff inset}
-.brand{display:flex;gap:10px;align-items:center;color:#111}.brand:visited{color:#111}.mark{display:grid;place-items:center;width:40px;height:40px;border:1px solid #a2a9b1;border-radius:2px;background:#fff;font-family:Georgia,serif;font-weight:700}.wordmark{font-family:Georgia,"Times New Roman",serif;font-size:1.42rem;line-height:1}.tagline{display:block;color:var(--muted);font-size:.72rem}
-.search{position:relative;display:grid;grid-template-columns:1fr auto;border:1px solid #72777d;background:#fff}.search input{min-width:0;border:0;padding:8px 10px;font:inherit}.search button{border:0;border-left:1px solid #72777d;background:#f8f9fa;padding:0 14px;cursor:pointer}.search-results{position:absolute;top:100%;left:0;right:0;z-index:60;display:none;margin:1px 0 0;padding:0;list-style:none;background:#fff;border:1px solid var(--border);box-shadow:0 4px 12px #0002}.search-results.show{display:block}.search-results a{display:block;padding:8px 10px}.search-results small{color:var(--muted)}
-.top-nav{display:flex;justify-content:flex-end;gap:2px;white-space:nowrap;font-size:.9rem}.top-nav a{padding:7px 10px;border:1px solid transparent}.top-nav a:hover{background:#f8f9fa;border-color:#eaecf0;text-decoration:none}
-.layout{display:grid;grid-template-columns:218px minmax(0,1fr) 286px;gap:18px;max-width:1540px;margin:0 auto;padding:16px 22px 36px}.sidebar,.page-tools{position:sticky;top:112px;align-self:start;max-height:calc(100vh - 128px);overflow:auto;font-size:.88rem}
-.portal{margin-bottom:12px;padding:10px 12px;background:#fff;border:1px solid #c8ccd1}.portal h2{margin:0 0 8px;padding-bottom:4px;border-bottom:1px solid var(--soft);font-size:.92rem;font-family:inherit;font-weight:700}.portal ul{margin:0;padding:0;list-style:none}.portal li{margin:3px 0}.portal p{margin:.35em 0;color:var(--muted)}
-main{min-width:0;background:#fff;border:1px solid #a2a9b1;padding:0 0 34px}.article-tabs{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #a2a9b1;background:linear-gradient(#fff,#f8f9fa);font-size:.88rem}.article-tabs nav{display:flex;gap:0}.article-tabs a,.article-tabs span{display:block;padding:8px 12px;border-right:1px solid #eaecf0}.article-tabs .active{background:#fff;border-bottom:2px solid #fff;color:#202122;font-weight:700}.article-inner{padding:22px 34px 0}.site-sub,.content-sub,.meta{color:var(--muted);font-size:.88rem}.content-sub{margin-bottom:10px}
-h1{margin:0 0 8px;padding-bottom:7px;border-bottom:1px solid var(--border);font-family:Georgia,"Times New Roman","Yu Mincho",serif;font-size:2rem;font-weight:400;line-height:1.25}.article-kicker{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0 12px}.chip{display:inline-block;padding:2px 7px;background:#f8f9fa;border:1px solid #c8ccd1;color:#54595d;font-size:.78rem}
-h2{clear:both;margin:1.45em 0 .55em;padding-bottom:3px;border-bottom:1px solid var(--border);font-family:Georgia,"Times New Roman","Yu Mincho",serif;font-size:1.48rem;font-weight:400}h3{margin:1em 0 .25em;font-size:1.08rem}p{margin:.55em 0 1em}
-.infobox{float:right;width:325px;max-width:100%;margin:.2em 0 1em 1.35em;border:1px solid var(--border);background:var(--panel);border-collapse:collapse;font-size:.86rem}.infobox caption{padding:8px;background:#d8e8ff;border-bottom:1px solid var(--border);font-weight:700}.infobox th,.infobox td{padding:6px 8px;border:1px solid var(--border);vertical-align:top}.infobox th{width:35%;background:var(--soft);text-align:left}
-.toc{display:inline-block;min-width:270px;max-width:100%;margin:12px 0 18px;padding:8px 14px;background:var(--panel);border:1px solid var(--border);font-size:.9rem}.toc-title{text-align:center;font-weight:700}.toc ol{margin:.35em 0 0 1.4em;padding:0}.toc li{margin:2px 0}
+.site-header{position:sticky;top:0;z-index:50;display:grid;grid-template-columns:220px minmax(260px,620px) 1fr;gap:16px;align-items:center;min-height:58px;padding:9px 22px;background:#fff;border-bottom:1px solid #c8ccd1}
+.brand{display:flex;gap:10px;align-items:center;color:#111}.brand:visited{color:#111}.mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid #a2a9b1;border-radius:50%;font-family:Georgia,serif;font-weight:700}.wordmark{font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;line-height:1}.tagline{display:block;color:var(--muted);font-size:.72rem}
+.search{position:relative;display:grid;grid-template-columns:1fr auto;border:1px solid var(--border);background:#fff}.search input{min-width:0;border:0;padding:7px 10px;font:inherit}.search button{border:0;border-left:1px solid var(--border);background:var(--panel);padding:0 12px;cursor:pointer}.search-results{position:absolute;top:100%;left:0;right:0;z-index:60;display:none;margin:1px 0 0;padding:0;list-style:none;background:#fff;border:1px solid var(--border);box-shadow:0 4px 12px #0002}.search-results.show{display:block}.search-results a{display:block;padding:8px 10px}.search-results small{color:var(--muted)}
+.top-nav{display:flex;justify-content:flex-end;gap:14px;white-space:nowrap;font-size:.92rem}
+.layout{display:grid;grid-template-columns:210px minmax(0,1fr) 245px;gap:22px;max-width:1460px;margin:0 auto;padding:18px 22px 36px}.sidebar,.page-tools{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 92px);overflow:auto;font-size:.9rem}.portal{margin-bottom:16px;padding:12px;background:#fff;border:1px solid #c8ccd1}.portal h2{margin:0 0 8px;padding-bottom:4px;border-bottom:1px solid var(--soft);font-size:.95rem;font-family:inherit;font-weight:700}.portal ul{margin:0;padding:0;list-style:none}.portal li{margin:3px 0}
+main{min-width:0;background:#fff;border:1px solid #c8ccd1;padding:26px 34px 38px}.site-sub,.content-sub,.meta{color:var(--muted);font-size:.88rem}
+h1{margin:0 0 8px;padding-bottom:7px;border-bottom:1px solid var(--border);font-family:Georgia,"Times New Roman","Yu Mincho",serif;font-size:2rem;font-weight:400;line-height:1.25}h2{clear:both;margin:1.45em 0 .55em;padding-bottom:3px;border-bottom:1px solid var(--border);font-family:Georgia,"Times New Roman","Yu Mincho",serif;font-size:1.48rem;font-weight:400}h3{margin:1em 0 .25em;font-size:1.08rem}p{margin:.55em 0 1em}
+.infobox{float:right;width:320px;max-width:100%;margin:.2em 0 1em 1.35em;border:1px solid var(--border);background:var(--panel);border-collapse:collapse;font-size:.88rem}.infobox caption{padding:8px;background:var(--soft);font-weight:700}.infobox th,.infobox td{padding:6px 8px;border:1px solid var(--border);vertical-align:top}.infobox th{width:35%;background:var(--soft);text-align:left}
+.toc{display:inline-block;min-width:260px;max-width:100%;margin:12px 0 18px;padding:8px 14px;background:var(--panel);border:1px solid var(--border);font-size:.9rem}.toc-title{text-align:center;font-weight:700}.toc ol{margin:.35em 0 0 1.4em;padding:0}.toc li{margin:2px 0}
 .wikitable{width:100%;border-collapse:collapse;margin:1em 0;background:#fff;font-size:.92rem}.wikitable th,.wikitable td{border:1px solid var(--border);padding:7px 8px;vertical-align:top}.wikitable th{background:var(--soft);text-align:left}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:1em 0}.card{display:block;padding:11px 12px;background:#fff;border:1px solid #a2a9b1;border-left:4px solid #36c}.card strong{display:block;color:var(--link)}.card span{color:#54595d;font-size:.88rem}.note-box{margin:1em 0;padding:10px 12px;border:1px solid #a2a9b1;background:#fffef8}
-.references{font-size:.86rem}.references li{margin-bottom:.35em}.catlinks{clear:both;margin-top:22px;padding:8px 10px;background:var(--panel);border:1px solid var(--border);font-size:.9rem}.thread-box{clear:both;margin-top:18px;border:1px solid #c8ccd1;background:#fff}.thread-box h2{margin:0;padding:8px 10px;border:0;background:#f8f9fa;font-family:inherit;font-size:.95rem;font-weight:700}.thread-box ol{margin:0;padding:8px 12px 10px 2.2em}.thread-box li{margin:.35em 0}.footer{max-width:1540px;margin:0 auto;padding:16px 22px 34px;color:var(--muted);font-size:.84rem}
-@media(max-width:1120px){.layout{grid-template-columns:1fr}.sidebar,.page-tools{position:static;max-height:none}.site-header{grid-template-columns:1fr}.top-nav{justify-content:flex-start;overflow:auto}main{padding:0}.article-inner{padding:18px 14px}.infobox{float:none;width:100%;margin:1em 0}.portal-bar{padding:0 12px}}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:1em 0}.card{display:block;padding:11px 12px;background:var(--panel);border:1px solid #c8ccd1}.card strong{display:block;color:var(--link)}.note-box{margin:1em 0;padding:10px 12px;border:1px solid #a2a9b1;background:#f8f9fa}
+.references{font-size:.86rem}.references li{margin-bottom:.35em}.catlinks{clear:both;margin-top:22px;padding:8px 10px;background:var(--panel);border:1px solid var(--border);font-size:.9rem}.footer{max-width:1460px;margin:0 auto;padding:16px 22px 34px;color:var(--muted);font-size:.84rem}
+@media(max-width:1120px){.layout{grid-template-columns:1fr}.sidebar,.page-tools{position:static;max-height:none}.site-header{grid-template-columns:1fr}.top-nav{justify-content:flex-start;overflow:auto}main{padding:20px 16px}.infobox{float:none;width:100%;margin:1em 0}}
 </style>
 </head>
 <body>
-<div class="portal-bar"><strong>天通ポータル</strong><a href="index.html">辞典</a><a href="index.html#最近の更新">最近の更新</a><a href="index.html#編集室ログ">編集室ログ</a><a href="factions.html">組織</a><a href="characters.html">人物</a><a href="history.html">歴史</a></div>
 <header class="site-header">
   <a class="brand" href="index.html" aria-label="天通辞典 メインページ"><span class="mark">天</span><span><span class="wordmark">天通辞典</span><span class="tagline">世界内公開百科</span></span></a>
   <form class="search" id="searchform" role="search"><input id="searchInput" type="search" placeholder="天通辞典を検索" aria-label="天通辞典を検索"><button type="submit">検索</button><ul id="searchResults" class="search-results" aria-live="polite"></ul></form>
@@ -43,30 +39,25 @@ h2{clear:both;margin:1.45em 0 .55em;padding-bottom:3px;border-bottom:1px solid v
     <section class="portal"><h2>編集室</h2><ul><li><a href="editor.html">ローカル編集室</a></li><li><a href="index.html#編集室ログ">編集室ログ</a></li><li><a href="index.html#公開資料メモ">公開資料メモ</a></li></ul></section>
   </aside>
   <main id="content">
-    <div class="article-tabs"><nav aria-label="記事タブ"><span class="active">記事</span><a href="#出典">出典</a><a href="#関連項目">関連項目</a><a href="#編集室メモ">編集室メモ</a></nav><nav aria-label="操作"><span>閲覧</span><a href="https://github.com/manzyuball/Tenzu.jp/blob/main/factions.html">ソース</a></nav></div>
-    <div class="article-inner">
-      <div class="site-sub">天通辞典からの公開資料</div>
-      <h1>組織・政体</h1>
-      <div class="article-kicker"><span class="chip">組織・政体</span><span class="chip">基準日 2026-05-06</span><span class="chip">組織・政体記事の一覧</span><span class="chip">公開資料</span></div>
-      <div class="content-sub">組織・政体記事の一覧</div>
-      <table class="infobox"><caption>組織・政体</caption><tbody><tr><th>名称</th><td>組織・政体</td></tr><tr><th>分類</th><td>組織・政体記事の一覧</td></tr><tr><th>基準日</th><td>2026-05-06</td></tr></tbody></table>
-      <p>政府、企業、地域組織、治安組織を公開資料の範囲で整理する一覧である。</p>
-      <nav class="toc" aria-label="目次"><div class="toc-title">目次</div><ol><li><a href="#概要">1 概要</a></li><li><a href="#掲載方針">2 掲載方針</a></li><li><a href="#関連資料">3 関連資料</a></li><li><a href="#注釈">4 注釈</a></li><li><a href="#出典">5 出典</a></li><li><a href="#関連項目">6 関連項目</a></li></ol></nav>
-      <h2 id="概要">概要</h2>
+    <div class="site-sub">天通辞典からの公開資料</div>
+    <h1>組織・政体</h1>
+    <div class="content-sub">組織・政体記事の一覧 / 種別: 組織・政体 / 基準日: 2026-05-06</div>
+    <table class="infobox"><caption>組織・政体</caption><tbody><tr><th>名称</th><td>組織・政体</td></tr><tr><th>分類</th><td>組織・政体記事の一覧</td></tr><tr><th>基準日</th><td>2026-05-06</td></tr></tbody></table>
+    <p>政府、企業、地域組織、治安組織を公開資料の範囲で整理する一覧である。</p>
+    <nav class="toc" aria-label="目次"><div class="toc-title">目次</div><ol><li><a href="#概要">1 概要</a></li><li><a href="#掲載方針">2 掲載方針</a></li><li><a href="#関連資料">3 関連資料</a></li><li><a href="#注釈">4 注釈</a></li><li><a href="#出典">5 出典</a></li><li><a href="#関連項目">6 関連項目</a></li></ol></nav>
+    <h2 id="概要">概要</h2>
 <p>政府、企業、地域組織、治安組織を公開資料の範囲で整理する一覧である。<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup></p>
 <h2 id="掲載方針">掲載方針</h2>
 <p>本文は公開資料で確認できる範囲に限定し、未確認の作戦、将来の出来事、断定できない人物評価を扱わない。<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></p>
 <h2 id="関連資料">関連資料</h2>
 <p>今後の改稿では、出典表記、批判・論争、関係組織、地域別の影響を代表記事の形式に合わせて拡張する。<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup></p>
-      <h2 id="注釈">注釈</h2>
-      <div class="note-box">本文は2026-05-06時点の公開資料として整理し、未確認の作戦、将来の出来事、後年の総括を除外している。</div>
-      <h2 id="出典">出典</h2>
-      <ol class="references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">^</a></span> <span class="reference-text">組織・政体編集部「組織・政体 公開資料整理票」天通辞典編集室、2026年。</span></li><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">^</a></span> <span class="reference-text">天通ニュース資料部「組織・政体記事確認メモ」2026年5月6日閲覧版。</span></li><li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">^</a></span> <span class="reference-text">公開会見・地域紙・行政告知の照合記録、天通辞典内部整理番号 FACTIONS-2026。</span></li></ol>
-      <h2 id="関連項目">関連項目</h2>
-      <ul><li><a href="faction-tenzu.html">天通</a></li><li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="faction-moriya-yasaka-group.html">守矢八坂グループ</a></li><li><a href="faction-yamazaki-kawashiro-industries.html">山崎河城工業</a></li><li><a href="faction-aikawa-gumi.html">相川組</a></li></ul>
-      <div class="catlinks"><strong>カテゴリ:</strong> <a href="factions.html">組織・政体記事の一覧</a> | <a href="factions.html">公開資料</a></div>
-      <section class="thread-box" id="編集室メモ"><h2>編集室メモ</h2><ol><li>公開資料の確認範囲を2026-05-06時点に固定。</li><li>本文評価と出典風記録を分離。</li><li>未確認情報は本文へ入れず、次回確認対象として扱う。</li></ol></section>
-    </div>
+    <h2 id="注釈">注釈</h2>
+    <div class="note-box">本文は2026-05-06時点の公開資料として整理し、未確認の作戦、将来の出来事、後年の総括を除外している。</div>
+    <h2 id="出典">出典</h2>
+    <ol class="references"><li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">^</a></span> <span class="reference-text">組織・政体編集部「組織・政体 公開資料整理票」天通辞典編集室、2026年。</span></li><li id="cite_note-2"><span class="mw-cite-backlink"><a href="#cite_ref-2">^</a></span> <span class="reference-text">天通ニュース資料部「組織・政体記事確認メモ」2026年5月6日閲覧版。</span></li><li id="cite_note-3"><span class="mw-cite-backlink"><a href="#cite_ref-3">^</a></span> <span class="reference-text">公開会見・地域紙・行政告知の照合記録、天通辞典内部整理番号 FACTIONS-2026。</span></li></ol>
+    <h2 id="関連項目">関連項目</h2>
+    <ul><li><a href="faction-tenzu.html">天通</a></li><li><a href="faction-japan-tokyo-government.html">日本国（東京政府）</a></li><li><a href="faction-japan-kyoto-government.html">日本国（京都政府）</a></li><li><a href="faction-moriya-yasaka-group.html">守矢八坂グループ</a></li><li><a href="faction-yamazaki-kawashiro-industries.html">山崎河城工業</a></li><li><a href="faction-aikawa-gumi.html">相川組</a></li></ul>
+    <div class="catlinks"><strong>カテゴリ:</strong> <a href="factions.html">組織・政体記事の一覧</a> | <a href="factions.html">公開資料</a></div>
   </main>
   <aside class="page-tools" aria-label="ページツール">
     <section class="portal"><h2>ページツール</h2><ul><li><a href="#content">先頭へ</a></li><li><a href="#出典">出典</a></li><li><a href="#関連項目">関連項目</a></li><li><a href="https://github.com/manzyuball/Tenzu.jp/blob/main/factions.html">ソース表示</a></li></ul></section>
