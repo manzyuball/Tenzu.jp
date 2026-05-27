@@ -1,26 +1,54 @@
-# Tenzu.jp
+# Tenzu.jp 設定Wiki
 
-Tenzu.jp は、2026年5月6日時点の公開資料を整理する世界内百科です。公開版は静的HTMLだけで構成し、利用者認証、投稿受付、サーバー保存、外部管理APIは使いません。
+分断後日本の公開資料を管理する、GitHub Pages / Jekyll ベースの静的Wiki風サイトです。
 
-## 運用方針
+## 構成方針
 
-- 既存URLを維持する。
-- 本文は公開資料として書き、作者視点の設定説明や未来の出来事を入れない。
-- 代表記事は、定義、infobox、概要、沿革、構造、活動、関係、批判・論争、注釈、出典、関連項目、カテゴリを持つ。
-- 掲示板感や編集参加感は、静的な編集室ログ、公開資料メモ、最近の更新として表現する。
+- 技術方式: GitHub Pages互換の Jekyll + HTML/CSS/JavaScript
+- デザイン: Vector 2022風の静的Wiki UI
+- 運用: 1ページ1ファイル。外部DB、ログイン、投稿、閲覧ログなどの動的機能は使わない
+- 記事品質: front matter、出典区分、関連項目、検索インデックス、品質チェックを揃える
 
-## 生成
+## 主要ファイル
 
-単体HTMLの正本は `scripts/generate-standalone-tenzu.mjs` です。通常は次を実行します。
+- `index.html`: トップページ
+- `*.html`: 各Wikiページ
+- `_layouts/default.html`: 共通レイアウト
+- `_includes/`: hatnote、ambox、infobox、脚注、関連項目などの部品
+- `_data/article_sections.yml`: 記事種別ごとの必須見出しとinfobox項目
+- `_data/reference_types.yml`: 出典区分
+- `assets/css/wiki.css`: 共通スタイル
+- `assets/app.js`: ナビゲーション、検索、ページ内目次
+- `assets/search-index.json`: クライアント内検索インデックス
+- `scripts/tenzu-quality-check.ps1`: 静的品質チェック
 
-```powershell
-& "C:\\Users\\kaner\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe" scripts/generate-standalone-tenzu.mjs
-```
+## 記事追加手順
 
-## 品質確認
+1. 既存の記事構成に合わせて本文を作る。
+2. front matterに `layout`, `title`, `description`, `nav_section`, `article_type`, `status`, `updated_on` を入れる。
+3. 必要なincludeを使い、infobox、注釈、出典、関連項目を整える。
+4. `assets/search-index.json` に記事を追加する。
+5. 品質チェックを実行する。
+
+## 品質チェック
+
+PowerShellで以下を実行します。
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/tenzu-quality-check.ps1
 ```
 
-検査内容は、文字化け、内部リンク、検索索引、代表記事の必須節、未実装リンク、静的サイト方針の逸脱です。
+主なチェック項目:
+
+- UTF-8 BOMなし
+- front matterの存在
+- 文字化けの疑い
+- 未変換のMediaWiki記法
+- 内部リンク切れ
+- 検索インデックス漏れ
+- `article_type` と `_data/article_sections.yml` の整合
+- 脚注IDの重複
+
+## 運用メモ
+
+このサイトは静的ファイルだけで公開できる構成を維持します。サイバーセキュリティ上のリスクを増やす外部認証、投稿フォーム、管理API、データベース接続は、このリポジトリの通常運用には含めません。公開反映はGitで管理します。

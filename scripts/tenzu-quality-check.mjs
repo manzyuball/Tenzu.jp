@@ -3,18 +3,40 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const failures = [];
-const publicDate = '2026-05-06';
 
 const htmlFiles = fs.readdirSync(root)
   .filter(name => name.endsWith('.html'))
   .map(name => ({ name, filePath: path.join(root, name) }));
-const existing = new Set(htmlFiles.map(file => file.name));
 
-const requiredRepresentativePages = [
-  'index.html',
-  'faction-tenzu.html',
-  'faction-japan-tokyo-government.html',
-  'character-hakurei-reimu.html',
+const existingNames = new Set(htmlFiles.map(file => file.name));
+const forbiddenPatterns = [
+  '紫機関',
+  '西日本非常戒厳令',
+  '七十二時間政変',
+  '本編',
+  '伏線',
+  '後に重要',
+  'やがて',
+  '予感',
+  '日本人民共和国',
+  '南北日本戦記'
+];
+const mojibakePattern = /(繝|縺|譛|蜊|蝓|髢|螟|謾|隕|邨|荳|逕|譁|豁ｴ|莠){3,}/;
+const hrefPattern = /href\s*=\s*"([^"#?]+?\.html)(?:[?#][^"]*)?"/g;
+const baseStandalone = [
+  '<style>'
+];
+const articleStandalone = [
+  '<script>',
+  'id="mw-head"',
+  'id="mw-sidebar"',
+  'id="mw-content"',
+  'id="mw-right-aside"',
+  'class="infobox"',
+  'id="toc"',
+  'カテゴリ:',
+  'id="sec-出典"',
+  'id="sec-関連項目"'
 ];
 const mainPageStandalone = [
   'assets/css/portal-home.css',
@@ -32,27 +54,7 @@ const mainPageStandalone = [
 ];
 const utilityPages = new Set(['404.html']);
 
-const requiredSections = [
-  '概要',
-  '批判・論争',
-  '注釈',
-  '出典',
-  '関連項目',
-  'カテゴリ',
-];
-
-const mojibakePattern = /(繝|縺|譁|螟|荳|蜈|髢|鬆|蟆|郢|邵|陜|闔|隴){3,}/;
-const hrefPattern = /href="([^"#?]+?\.html)(?:[?#][^"]*)?"/g;
-const forbidden = [
-  'ログイン',
-  '投稿フォーム',
-  'データベース接続',
-  '本編後',
-  '作者',
-  '設定資料集',
-];
-
-function fail(message) {
+function addFailure(message) {
   failures.push(message);
 }
 
@@ -61,93 +63,88 @@ for (const file of htmlFiles) {
   const text = bytes.toString('utf8');
 
   if (bytes.length >= 3 && bytes[0] === 0xef && bytes[1] === 0xbb && bytes[2] === 0xbf) {
-    fail(`${file.name} has a UTF-8 BOM.`);
+    addFailure(`${file.name} has a UTF-8 BOM.`);
   }
-  if (!text.startsWith('<!DOCTYPE html>')) {
-    fail(`${file.name} is not standalone HTML.`);
+  if (/^\s*---\s*\r?\n/s.test(text)) {
+    addFailure(`${file.name} still contains Jekyll front matter.`);
   }
-  if (!text.includes('<html lang="ja">')) {
-    fail(`${file.name} is missing lang="ja".`);
+  if (/(\{\{\s*[^}]+\}\}|\{%[\s\S]*?%\})/.test(text)) {
+    addFailure(`${file.name} still contains Liquid syntax.`);
+  }
+  if (!/^\s*<!DOCTYPE html>\s*<html\s+lang="ja"/is.test(text)) {
+    addFailure(`${file.name} is not a standalone Japanese HTML document.`);
+  }
+  const requiredElements = utilityPages.has(file.name)
+    ? baseStandalone
+    : file.name === 'index.html'
+      ? mainPageStandalone
+      : [...baseStandalone, ...articleStandalone];
+  for (const required of requiredElements) {
+    if (!text.includes(required)) {
+      addFailure(`${file.name} is missing required standalone element: ${required}`);
+    }
   }
   if (mojibakePattern.test(text)) {
-    fail(`${file.name} contains likely mojibake.`);
+    addFailure(`${file.name} contains likely mojibake text.`);
   }
-  if (text.includes('href="#"')) {
-    fail(`${file.name} contains placeholder href="#".`);
+  if (/(\{\{(?:Infobox|Main|Reflist)|\[\[[^\]]+\]\]|^==[^=].*==\s*$)/m.test(text)) {
+    addFailure(`${file.name} contains unconverted MediaWiki syntax.`);
+  }
+  for (const pattern of forbiddenPatterns) {
+    if (text.includes(pattern)) {
+      addFailure(`${file.name} contains forbidden public-facing term or future reference: ${pattern}`);
+    }
   }
   for (const match of text.matchAll(hrefPattern)) {
-    const target = path.basename(match[1]);
-    if (!existing.has(target)) {
-      fail(`${file.name} links to missing page: ${match[1]}`);
+    const href = match[1];
+    if (/^(https?:|mailto:|javascript:)/.test(href)) continue;
+    const target = path.basename(href);
+    if (!existingNames.has(target)) {
+      addFailure(`${file.name} links to missing page: ${href}`);
     }
-  }
-  for (const term of forbidden) {
-    if (text.includes(term)) {
-      fail(`${file.name} contains forbidden or risky wording: ${term}`);
-    }
-  }
-}
-
-for (const name of requiredRepresentativePages) {
-  if (!existing.has(name)) {
-    fail(`${name} is missing.`);
-    continue;
-  }
-  const text = fs.readFileSync(path.join(root, name), 'utf8');
-  if (!text.includes(publicDate)) {
-    fail(`${name} does not mention the public baseline date ${publicDate}.`);
-  }
-  const sectionsForPage = name === 'index.html'
-    ? ['主要記事', '最近の更新', '編集室ログ', '公開資料メモ', '注釈', '出典', '関連項目', 'カテゴリ']
-    : requiredSections;
-  for (const section of sectionsForPage) {
-    if (!text.includes(section)) {
-      fail(`${name} is missing representative section/content: ${section}`);
-    }
-  }
-  if (!text.includes('class="infobox"')) {
-    fail(`${name} is missing an infobox.`);
   }
 }
 
 const searchIndexPath = path.join(root, 'assets', 'search-index.json');
 try {
   const searchText = fs.readFileSync(searchIndexPath, 'utf8');
-  if (mojibakePattern.test(searchText)) {
-    fail('assets/search-index.json contains likely mojibake.');
-  }
-  const items = JSON.parse(searchText);
-  const indexed = new Set();
-  for (const item of items) {
-    for (const key of ['title', 'url', 'summary', 'tags', 'article_type', 'nav_section', 'aliases', 'related']) {
-      if (!Object.hasOwn(item, key)) {
-        fail(`search index item ${item.title ?? '(unknown)'} is missing ${key}.`);
+  const searchIndex = JSON.parse(searchText);
+  const indexedUrls = new Set();
+  for (const item of searchIndex) {
+    if (item.url) {
+      indexedUrls.add(item.url);
+      if (!existingNames.has(item.url)) {
+        addFailure(`assets/search-index.json links to missing page: ${item.url}`);
       }
     }
-    if (item.url) {
-      indexed.add(item.url);
-      if (!existing.has(item.url)) {
-        fail(`search index links to missing page: ${item.url}`);
+    for (const key of ['title', 'url', 'summary', 'tags', 'article_type', 'nav_section', 'aliases', 'related']) {
+      if (!Object.prototype.hasOwnProperty.call(item, key)) {
+        addFailure(`assets/search-index.json item '${item.title}' is missing key: ${key}`);
       }
     }
   }
   for (const file of htmlFiles) {
-    if (file.name !== '404.html' && file.name !== 'editor.html' && !indexed.has(file.name)) {
-      fail(`${file.name} is missing from search index.`);
+    if (file.name !== '404.html' && !indexedUrls.has(file.name)) {
+      addFailure(`${file.name} is missing from assets/search-index.json.`);
     }
   }
-} catch (error) {
-  fail(`assets/search-index.json is invalid: ${error.message}`);
-}
-
-for (const file of ['README.md', '_config.yml', 'scripts/generate-standalone-tenzu.mjs']) {
-  const text = fs.readFileSync(path.join(root, file), 'utf8');
-  if (mojibakePattern.test(text)) {
-    fail(`${file} contains likely mojibake.`);
+  for (const pattern of forbiddenPatterns) {
+    if (searchText.includes(pattern)) {
+      addFailure(`assets/search-index.json contains forbidden public-facing term or future reference: ${pattern}`);
+    }
   }
+  if (mojibakePattern.test(searchText)) {
+    addFailure('assets/search-index.json contains likely mojibake text.');
+  }
+} catch (error) {
+  addFailure(`assets/search-index.json is not valid JSON: ${error.message}`);
 }
 
-if (failures.length) {
+if (fs.existsSync(path.join(root, 'world-technology.html'))) {
+  addFailure('world-technology.html should not remain as an independent public technology page.');
+}
+
+if (failures.length > 0) {
   console.error('Tenzu quality check failed:');
   for (const failure of failures) console.error(` - ${failure}`);
   process.exit(1);
