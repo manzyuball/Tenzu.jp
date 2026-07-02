@@ -1,0 +1,545 @@
+/* Tenzu.jp article experience layer: portal noise + encyclopedia article shell */
+:root {
+  --tenzu-portal-blue: #1b3f8b;
+  --tenzu-portal-line: #d5d5d5;
+  --tenzu-portal-panel: #fff;
+  --tenzu-portal-muted: #666;
+  --tenzu-ad-yellow: #fff8d8;
+}
+
+body {
+  background: #f1f1f1;
+}
+
+.tenzu-portal-bar {
+  position: sticky;
+  top: 0;
+  z-index: 130;
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 25px;
+  padding: 3px 10px;
+  background: #f8f8f8;
+  border-bottom: 1px solid var(--tenzu-portal-line);
+  color: #555;
+  font-size: 12px;
+}
+
+.tenzu-portal-bar a {
+  color: #0645ad;
+}
+
+.tenzu-portal-bar a:not(:last-child)::after {
+  content: "｜";
+  margin-left: 0.35rem;
+  color: #999;
+}
+
+body.tenzu-enhanced #mw-head {
+  top: 25px;
+}
+
+body.tenzu-enhanced #mw-sidebar {
+  top: 75px;
+}
+
+.tenzu-category-strip {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin: 0 0 12px;
+  padding: 5px 9px;
+  background: #eef3fb;
+  border: 1px solid #d9e1f0;
+  font-size: 13px;
+}
+
+.tenzu-category-strip a:not(:last-child)::after {
+  content: "｜";
+  margin-left: 0.45rem;
+  color: #96a1b6;
+}
+
+.tenzu-breadcrumbs {
+  display: flex;
+  gap: 0.35em;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 4px 0 7px;
+  color: #72777d;
+  font-size: 12px;
+}
+
+.tenzu-breadcrumbs a {
+  color: #36c;
+}
+
+.tenzu-breadcrumbs span:last-child {
+  color: #54595d;
+}
+
+.tenzu-article-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: end;
+  margin: 8px 0 12px;
+  border-bottom: 1px solid #a2a9b1;
+  font-size: 13px;
+}
+
+.tenzu-article-tabs ul {
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tenzu-article-tabs a {
+  display: block;
+  padding: 5px 10px;
+  background: linear-gradient(#fff, #f3f6fb);
+  border: 1px solid #a2a9b1;
+  border-bottom: 0;
+}
+
+.tenzu-article-tabs .active a {
+  color: #202122;
+  background: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tenzu-page-kind {
+  align-self: center;
+  color: #72777d;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.tenzu-notice-box {
+  clear: both;
+  margin: 12px 0 14px;
+  padding: 10px 12px 10px 14px;
+  background: #fff8d8;
+  border: 1px solid #d8c56c;
+  border-left: 10px solid #f0a000;
+  font-size: 13px;
+}
+
+.tenzu-notice-box strong {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.tenzu-notice-box ul {
+  margin: 4px 0 0 1.4em;
+}
+
+.tenzu-ad-box {
+  position: relative;
+  margin: 0 0 12px;
+  padding: 9px;
+  overflow: hidden;
+  background: var(--tenzu-ad-yellow);
+  border: 1px solid #e6d78d;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.tenzu-ad-label {
+  display: inline-block;
+  margin-bottom: 4px;
+  padding: 0 4px;
+  color: #777;
+  background: #fff;
+  border: 1px solid #bbb;
+  font-size: 11px;
+}
+
+.tenzu-ad-copy {
+  margin: 2px 0 6px;
+  color: #d60000;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.tenzu-ad-visual {
+  display: block;
+  width: 100%;
+  max-height: 120px;
+  object-fit: cover;
+  margin: 6px 0;
+  background: #fff;
+  border: 1px solid #eedb91;
+}
+
+.tenzu-ad-cta {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 4px 9px;
+  color: #fff !important;
+  background: #2b8a3e;
+  border-radius: 2px;
+  box-shadow: 0 2px 0 #185a29;
+  font-weight: 700;
+}
+
+.tenzu-trend-list {
+  margin: 0 0 12px;
+  padding: 8px 9px 8px 28px;
+  background: #fff;
+  border: 1px solid #eaecf0;
+  font-size: 12px;
+}
+
+.tenzu-trend-list li {
+  margin: 3px 0;
+}
+
+.tenzu-article-search-results {
+  position: absolute;
+  top: calc(100% + 2px);
+  right: 0;
+  z-index: 160;
+  display: none;
+  width: min(360px, 92vw);
+  max-height: 260px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #a2a9b1;
+  box-shadow: 0 3px 8px rgba(0,0,0,.18);
+  font-size: 12px;
+}
+
+.tenzu-article-search-results.show {
+  display: block;
+}
+
+.tenzu-article-search-results li {
+  margin: 0;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.tenzu-article-search-results li:last-child {
+  border-bottom: 0;
+}
+
+.tenzu-article-search-results a,
+.tenzu-article-search-results span {
+  display: block;
+  padding: 8px 10px;
+}
+
+.tenzu-article-search-results a:hover,
+.tenzu-article-search-results a:focus {
+  background: #f3f6fb;
+  text-decoration: none;
+}
+
+.tenzu-article-search-results strong {
+  display: block;
+  color: #202122;
+}
+
+.tenzu-article-search-results small {
+  display: block;
+  color: #54595d;
+}
+
+.tenzu-page-info-mini,
+.tenzu-page-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 12px;
+}
+
+.tenzu-page-info-mini {
+  margin: 0 0 12px;
+}
+
+.tenzu-page-info-mini th,
+.tenzu-page-info-mini td,
+.tenzu-page-info-table th,
+.tenzu-page-info-table td {
+  padding: 5px 7px;
+  vertical-align: top;
+  border: 1px solid #eaecf0;
+}
+
+.tenzu-page-info-mini th,
+.tenzu-page-info-table th {
+  width: 7em;
+  color: #54595d;
+  background: #f8f9fa;
+  font-weight: 700;
+  text-align: left;
+}
+
+.tenzu-page-info-panel {
+  clear: both;
+  margin: 24px 0 12px;
+  background: #fff;
+  border: 1px solid #a2a9b1;
+}
+
+.tenzu-page-info-panel h2 {
+  margin: 0;
+  padding: 7px 10px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #a2a9b1;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tenzu-edit-panel {
+  clear: both;
+  margin: 24px 0 12px;
+  padding: 0;
+  background: #f8f9fa;
+  border: 1px solid #a2a9b1;
+  border-left: 10px solid #36c;
+  font-size: 13px;
+}
+
+.tenzu-edit-panel h2 {
+  margin: 0;
+  padding: 7px 10px;
+  background: #eaecf0;
+  border-bottom: 1px solid #a2a9b1;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tenzu-edit-panel p {
+  margin: 0;
+  padding: 9px 10px 4px;
+}
+
+.tenzu-edit-panel ul {
+  margin: 0 0 0 1.5em;
+  padding: 4px 10px 10px;
+}
+
+.tenzu-edit-panel li {
+  margin: 3px 0;
+}
+
+.tenzu-discussion-log {
+  clear: both;
+  margin: 24px 0 12px;
+  color: #202122;
+  background: #fff;
+  border: 1px solid #a2a9b1;
+  font-size: 13px;
+}
+
+.tenzu-discussion-log h2 {
+  margin: 0;
+  padding: 7px 10px;
+  background: #f1f3f6;
+  border-bottom: 1px solid #a2a9b1;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tenzu-discussion-log h2:not(:first-child) {
+  border-top: 1px solid #a2a9b1;
+}
+
+.tenzu-log-note {
+  margin: 0;
+  padding: 8px 10px;
+  color: #54595d;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.tenzu-talk-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tenzu-talk-list li {
+  display: grid;
+  grid-template-columns: 10em minmax(0, 1fr);
+  gap: 8px;
+  margin: 0;
+  padding: 8px 10px;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.tenzu-talk-list li:last-child {
+  border-bottom: 0;
+}
+
+.tenzu-talk-list strong {
+  color: #0645ad;
+}
+
+.tenzu-talk-list span {
+  color: #202122;
+}
+
+.tenzu-history-table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.tenzu-history-table th,
+.tenzu-history-table td {
+  padding: 7px 8px;
+  vertical-align: top;
+  border: 1px solid #eaecf0;
+}
+
+.tenzu-history-table th {
+  background: #f8f9fa;
+  text-align: left;
+}
+
+.tenzu-history-table td:first-child {
+  width: 7.5em;
+  white-space: nowrap;
+}
+
+.tenzu-history-table td:nth-child(2) {
+  width: 9em;
+  color: #0645ad;
+  white-space: nowrap;
+}
+
+.tenzu-bbs {
+  clear: both;
+  margin: 26px 0 10px;
+  background: #fff;
+  border: 1px solid #a2a9b1;
+}
+
+.tenzu-kind-character .tenzu-bbs {
+  border-top: 3px solid #c43b55;
+}
+
+.tenzu-kind-organization .tenzu-bbs {
+  border-top: 3px solid #1b3f8b;
+}
+
+.tenzu-kind-history .tenzu-bbs {
+  border-top: 3px solid #7b5b21;
+}
+
+.tenzu-kind-directory .tenzu-bbs {
+  border-top: 3px solid #72777d;
+}
+
+.tenzu-bbs h2 {
+  margin: 0;
+  padding: 7px 10px;
+  background: #eaedf4;
+  border-bottom: 1px solid #a2a9b1;
+  font-family: sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tenzu-bbs-note {
+  margin: 0;
+  padding: 8px 10px;
+  color: #54595d;
+  border-bottom: 1px solid #eaecf0;
+  font-size: 13px;
+}
+
+.tenzu-comment {
+  display: grid;
+  grid-template-columns: 3em minmax(0, 1fr);
+  gap: 8px;
+  padding: 9px 10px;
+  border-bottom: 1px solid #eaecf0;
+  font-size: 13px;
+}
+
+.tenzu-comment:last-child {
+  border-bottom: 0;
+}
+
+.tenzu-comment-no {
+  color: #777;
+  font-weight: 700;
+}
+
+.tenzu-comment-name {
+  color: #0645ad;
+  font-weight: 700;
+}
+
+.tenzu-comment-name::after {
+  content: " 2026/05/06 22:1" counter(comment);
+  margin-left: 0.45em;
+  color: #777;
+  font-weight: 400;
+}
+
+.tenzu-bbs {
+  counter-reset: comment;
+}
+
+.tenzu-comment {
+  counter-increment: comment;
+}
+
+.tenzu-comment p {
+  margin: 3px 0 0;
+}
+
+#mw-right-aside .tenzu-ad-box,
+.vector-page-tools .tenzu-ad-box {
+  margin-top: 10px;
+}
+
+#mw-right-aside .tenzu-page-info-mini,
+.vector-page-tools .tenzu-page-info-mini {
+  margin-top: 8px;
+}
+
+@media (max-width: 980px) {
+  .tenzu-portal-bar {
+    position: static;
+    justify-content: flex-start;
+  }
+
+  body.tenzu-enhanced #mw-head,
+  body.tenzu-enhanced #mw-sidebar {
+    top: auto;
+  }
+
+  .tenzu-article-tabs {
+    overflow-x: auto;
+  }
+
+  .tenzu-comment {
+    grid-template-columns: 2.4em minmax(0, 1fr);
+  }
+
+  .tenzu-talk-list li {
+    grid-template-columns: 1fr;
+  }
+
+  .tenzu-history-table {
+    display: block;
+    overflow-x: auto;
+  }
+}

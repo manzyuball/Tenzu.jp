@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="天通辞典のメインページ。単語、人物、組織、出来事、地域、作品を検索できるネット百科サービスです。">
+<meta name="description" content="天通辞典のメインページ。日本裂島記の東西分断、国家、人物、企業、軍事・安全保障を整理する公開資料網です。">
 <title>メインページ - 天通辞典</title>
 <link rel="stylesheet" href="assets/css/portal-home.css">
 </head>
@@ -17,7 +17,7 @@
   <a href="#">ゲーム</a>
   <a href="#">占い</a>
   <a href="#">ショッピング</a>
-  <a href="#">もっと見る</a>
+  <a href="editing-guide.html">ヘルプ</a>
 </nav>
 
 <header class="site-header">
@@ -25,33 +25,33 @@
     <div class="brand" aria-label="Tenzu.jp 天通辞典">
       <span class="brand-main">Tenzu.jp</span>
       <span class="brand-sub">天通辞典</span>
-      <span class="brand-copy">みんなでつくるネット百科事典</span>
+      <span class="brand-copy">日本裂島記 公開資料網</span>
     </div>
     <form class="search-box" role="search" onsubmit="runSearch(event)">
       <label for="mw-search-input">天通辞典を検索</label>
       <select aria-label="検索カテゴリ">
         <option>すべて</option>
-        <option>単語記事</option>
         <option>人物</option>
-        <option>組織・団体</option>
-        <option>出来事</option>
-        <option>地域</option>
-        <option>作品</option>
-        <option>掲示板</option>
+        <option>国家・行政</option>
+        <option>企業・団体</option>
+        <option>軍事・安全保障</option>
+        <option>ネット俗語</option>
+        <option>運用文書</option>
       </select>
-      <input id="mw-search-input" type="search" placeholder="天通辞典を検索" autocomplete="off">
+      <input id="mw-search-input" type="search" placeholder="日本裂島記、ヤタガラス計画、京都政権..." autocomplete="off">
       <button type="submit">検索</button>
     </form>
+    <ul id="portal-search-results" class="portal-search-results" aria-live="polite"></ul>
   </div>
   <nav class="article-nav" aria-label="記事分類">
     <div class="article-nav-inner">
-      <a href="index.html">単語記事</a>
+      <a href="source-settings.html">設定確認</a>
       <a href="characters.html">人物</a>
-      <a href="factions.html">組織・団体</a>
-      <a href="history.html">出来事</a>
-      <a href="#categories">地域</a>
-      <a href="#categories">作品</a>
-      <a href="#news">ニュース</a>
+      <a href="factions.html">国家・行政</a>
+      <a href="factions.html#sec-企業-団体">企業・団体</a>
+      <a href="history.html">軍事・安全保障</a>
+      <a href="category-list.html">カテゴリ一覧</a>
+      <a href="category-net-slang.html">ネット俗語</a>
       <a href="#bbs">掲示板</a>
     </div>
   </nav>
@@ -64,41 +64,39 @@
       <div class="box-body">
         <ul>
           <li><a href="index.html">メインページ</a></li>
+          <li><a href="source-settings.html">設定確認</a></li>
           <li><a href="#updates">最近の更新</a></li>
           <li><a href="#new-pages">新しい記事</a></li>
-          <li><a href="#">おまかせ表示</a></li>
-          <li><a href="#categories">カテゴリ一覧</a></li>
-          <li><a href="#">記事リクエスト</a></li>
-          <li><a href="#">編集ガイド</a></li>
-          <li><a href="#">ヘルプ</a></li>
+          <li><a href="category-list.html">カテゴリ一覧</a></li>
+          <li><a href="editing-guide.html#sec-編集したい方へ">記事リクエスト</a></li>
+          <li><a href="editing-guide.html">編集ガイド</a></li>
+          <li><a href="editing-guide.html#sec-お問い合わせ">お問い合わせ</a></li>
         </ul>
       </div>
     </section>
     <section class="box">
-      <h2 class="box-title">記事の種類</h2>
+      <h2 class="box-title">基本分類</h2>
       <div class="box-body">
         <ul>
-          <li><a href="index.html">単語記事</a></li>
-          <li><a href="characters.html">人物記事</a></li>
-          <li><a href="factions.html">組織・団体</a></li>
-          <li><a href="history.html">出来事</a></li>
-          <li><a href="#categories">地域</a></li>
-          <li><a href="#categories">作品</a></li>
-          <li><a href="#categories">資料・統計</a></li>
-          <li><a href="#news">ニュース記事</a></li>
+          <li><a href="characters.html">人物</a></li>
+          <li><a href="factions.html">国家・行政</a></li>
+          <li><a href="factions.html#sec-企業-団体">企業・団体</a></li>
+          <li><a href="history.html">軍事・安全保障</a></li>
+          <li><a href="category-net-slang.html">ネット俗語</a></li>
         </ul>
       </div>
     </section>
     <section class="box">
-      <h2 class="box-title">参加・支援</h2>
+      <h2 class="box-title">主要項目</h2>
       <div class="box-body">
         <ul>
-          <li><a href="#">編集したい方へ</a></li>
-          <li><a href="#">出典の付け方</a></li>
-          <li><a href="#">記事名の付け方</a></li>
-          <li><a href="#">削除依頼</a></li>
-          <li><a href="#">荒らし報告</a></li>
-          <li><a href="#">お問い合わせ</a></li>
+          <li><a href="faction-japan-kyoto-government.html">日本国（京都政権）</a></li>
+          <li><a href="faction-japan-tokyo-government.html">日本国（東京政権）</a></li>
+          <li><a href="character-sanae.html">東風谷早苗</a></li>
+          <li><a href="character-toyosato-miko.html">豊聡耳神子</a></li>
+          <li><a href="faction-moreya-group.html">守矢財閥</a></li>
+          <li><a href="faction-yamazaki-kawashiro-industries.html">河城工業</a></li>
+          <li><a href="faction-tenzu.html">天通</a></li>
         </ul>
       </div>
     </section>
@@ -107,9 +105,17 @@
   <main class="main-column">
     <section class="welcome-box" aria-labelledby="welcome-title">
       <div>
+        <span class="source-kicker">最新版情報源反映版</span>
         <h1 id="welcome-title">天通辞典へようこそ</h1>
-        <p>天通辞典は、単語・人物・組織・出来事・地域・作品などについて、意味や関連情報をまとめる辞典・百科サービスです。記事は利用者の編集、公開資料、報道記録などをもとに随時更新されます。</p>
-        <p class="random-article-wrap"><a class="random-article-button" href="#new-pages">ランダムな記事</a></p>
+        <p>天通辞典は、分断下の日本列島に関する人物、国家・行政、企業・団体、軍事・安全保障の公開資料を整理する資料網です。現在は『日本裂島記』の東西分断、早苗政権、神子政権、ヤタガラス計画、天通の資料網方針を重点整備しています。</p>
+        <p>公開記事では、発生済み・公表済みの資料として自然に読める範囲を優先します。全体構成、後続展開、未確定要素は <a href="source-settings.html">設定確認</a> でまとめて確認できます。</p>
+        <div class="source-status">
+          <span>タイトル: 日本裂島記</span>
+          <span>基準: 統合版メモ</span>
+          <span>分類: 4分類へ整理</span>
+          <span>図版: 関係図を反映</span>
+        </div>
+        <p class="random-article-wrap"><a class="random-article-button" href="source-settings.html" data-random-article>ランダムな記事</a><span class="random-article-note">検索索引から項目をひとつ表示</span></p>
       </div>
       <figure class="mascot">
         <img src="assets/images/portal/tenzu-bird-mascot.svg" alt="虫眼鏡を持って本を読む白い鳥のマスコット">
@@ -117,19 +123,31 @@
       </figure>
     </section>
 
+    <section class="box" aria-labelledby="world-title">
+      <h2 id="world-title" class="box-title">日本裂島記 主要入口</h2>
+      <div class="box-body">
+        <div class="world-summary">
+          <a href="faction-japan-kyoto-government.html"><strong>西日本</strong><small>京都を中枢とする日本国。東風谷早苗が第10代日本国大統領として登場する。</small></a>
+          <a href="faction-japan-tokyo-government.html"><strong>東日本</strong><small>東京を中枢とする神子政権。国防軍、松代地下司令部、権威主義体制を扱う。</small></a>
+          <a href="history.html"><strong>ヤタガラス計画</strong><small>核融合炉、人工太陽、長期滞空監視航空船、軍事転用可能技術の中心項目。</small></a>
+          <a href="source-settings.html"><strong>設定確認</strong><small>添付メモと関係図から、人物配置・事件線・未確定部分を一覧確認。</small></a>
+        </div>
+      </div>
+    </section>
+
     <section id="news" class="box">
       <h2 class="box-title">最新ニュース</h2>
       <div class="box-body">
-        <div class="news-tabs"><span>総合</span><span>国内</span><span>経済</span><span>エンタメ</span><span>スポーツ</span><span>IT</span><span>地域</span><span>ライフ</span></div>
+        <div class="news-tabs"><span>総合</span><span>国内</span><span>政治</span><span>経済</span><span>安全保障</span><span>IT</span><span>地域</span><span>資料網</span></div>
         <ul class="news-list">
-          <li>中日、延長戦でサヨナラ負け　監督「切り替えるしかない」</li>
-          <li>人気俳優の近影に反響　「雰囲気変わった？」</li>
-          <li>岐阜県の道の駅で行列　限定ソフトが話題に</li>
-          <li>元アイドル、結婚報告に祝福の声</li>
-          <li>「冷凍うどん」人気ランキング　意外な1位は</li>
-          <li>都内で突然の雷雨　帰宅時間帯に影響</li>
-          <li>議員の過去投稿が再拡散　SNSで賛否</li>
-          <li>YouTuberの謝罪動画にコメント殺到</li>
+          <li>東風谷早苗氏、第10代日本国大統領として登場　京都政権の統一政策に注目</li>
+          <li>ヤタガラス計画、核融合炉と長期滞空監視航空船をめぐり安全保障上の論点に</li>
+          <li>守矢財閥、河城工業、天通の三社関係を検索索引へ反映</li>
+          <li>松代地下司令部、東京政権側の軍事指揮施設として説明を追加</li>
+          <li>諏訪・岐阜・土岐の技術拠点を軍事・安全保障の導線へ統合</li>
+          <li>京都、大阪、福岡、関門海峡を後続展開の確認項目として整理</li>
+          <li>外部勢力として米軍、ソビエト、朝鮮半島参照を設定確認へ追加</li>
+          <li>天通辞典、公開記事と編集確認ページの役割分担を更新</li>
         </ul>
       </div>
     </section>
@@ -139,32 +157,54 @@
         <h2 class="box-title">注目の記事</h2>
         <div class="box-body">
           <ul class="link-list">
-            <li><a href="#">タクシードライバー</a> — 映画史上の重要作としての評価とネット上での扱い。</li>
-            <li><a href="#">岐阜の例の看板</a> — 地域ネタとして広がった画像と編集履歴。</li>
-            <li><a href="#">プロリダマン</a> — 表記揺れが多いネットミーム記事。</li>
+            <li><a href="source-settings.html">日本裂島記 設定確認</a> - 最新メモと手書き関係図の反映状況。</li>
+            <li><a href="faction-japan-kyoto-government.html">日本国（京都政権）</a> - 西日本、早苗政権、京都正統性、守矢財閥との関係。</li>
+            <li><a href="faction-japan-tokyo-government.html">日本国（東京政権）</a> - 神子政権、国防軍、松代地下司令部、東京の権威構造。</li>
+            <li><a href="history.html">軍事・安全保障</a> - フォッサマグナ境界線、岐阜核融合研究所、鏑矢、関門海峡決戦。</li>
           </ul>
         </div>
       </section>
       <section id="updates" class="box">
-        <h2 class="box-title">最近更新された記事</h2>
+        <h2 class="box-title">最近の更新</h2>
         <div class="box-body">
-          <ul class="link-list">
-            <li><a href="character-hakurei-reimu.html">博麗霊夢</a></li>
-            <li><a href="character-marisa.html">霧雨魔理沙</a></li>
-            <li><a href="character-sanae.html">東風谷早苗</a></li>
-            <li><a href="character-yasaka-kanako.html">八坂神奈子</a></li>
+          <ul class="recent-change-list">
+            <li>
+              <span class="change-time">07/02 18:40</span>
+              <a href="source-settings.html">設定確認</a>
+              <span class="change-user">資料反映班</span>
+              <small>統合版メモと添付関係図を確認ページへ反映</small>
+            </li>
+            <li>
+              <span class="change-time">07/02 18:32</span>
+              <a href="index.html">メインページ</a>
+              <span class="change-user">UI整備班</span>
+              <small>日本裂島記の4分類入口へ再構成</small>
+            </li>
+            <li>
+              <span class="change-time">07/02 18:21</span>
+              <a href="assets/search-index.json">検索索引</a>
+              <span class="change-user">資料掘り部</span>
+              <small>ヤタガラス計画、鏑矢、守矢財閥を検索語へ追加</small>
+            </li>
+            <li>
+              <span class="change-time">07/02 18:10</span>
+              <a href="category-list.html">カテゴリ一覧</a>
+              <span class="change-user">編集好きさん</span>
+              <small>人物、国家・行政、企業・団体、軍事・安全保障を基本分類化</small>
+            </li>
           </ul>
+          <p class="change-more"><a href="source-settings.html#sec-反映状況">反映状況を見る</a></p>
         </div>
       </section>
       <section id="new-pages" class="box">
-        <h2 class="box-title">新規作成記事</h2>
+        <h2 class="box-title">新規・重点整備</h2>
         <div class="box-body">
-          <ul class="link-list">
-            <li><a href="#">強い海老リンク</a></li>
-            <li><a href="#">米だけ炊いて寝た人</a></li>
-            <li><a href="#">例の謝罪文</a></li>
-            <li><a href="#">泣き崩れる嫁</a></li>
-          </ul>
+          <div class="canon-grid">
+            <div class="canon-card"><h3>語り手</h3><p>八雲紫に相当する声は記事本文では露骨に出さず、記録調の外側に置く。</p></div>
+            <div class="canon-card"><h3>国家対立</h3><p>早苗政権は核融合による明るい未来、神子政権は国家存続上の脅威として見る。</p></div>
+            <div class="canon-card"><h3>企業構造</h3><p>守矢財閥、河城工業、天通がエネルギー、技術、情報流通を分担する。</p></div>
+            <div class="canon-card"><h3>戦争構造</h3><p>戦争は統一の手段ではなく、冷戦構造を再固定化する装置として扱う。</p></div>
+          </div>
         </div>
       </section>
       <section id="categories" class="box">
@@ -172,11 +212,11 @@
         <div class="box-body">
           <div class="category-grid">
             <a href="characters.html">人物</a>
-            <a href="factions.html">組織・団体</a>
-            <a href="history.html">出来事</a>
-            <a href="#">地域</a>
-            <a href="#">作品</a>
-            <a href="#">ネット俗語</a>
+            <a href="factions.html">国家・行政</a>
+            <a href="factions.html#sec-企業-団体">企業・団体</a>
+            <a href="history.html">軍事・安全保障</a>
+            <a href="source-settings.html">設定確認</a>
+            <a href="category-net-slang.html">ネット俗語</a>
           </div>
         </div>
       </section>
@@ -188,17 +228,26 @@
       <h2 class="box-title">急上昇ワード</h2>
       <div class="box-body">
         <ol class="word-list">
-          <li><a href="#">エショワが消された写真</a></li>
-          <li><a href="#">プロリダマン</a></li>
-          <li><a href="#">タクシードライバー</a></li>
-          <li><a href="#">鹿さんやりますねぇ！</a></li>
-          <li><a href="#">強い海老リンク</a></li>
-          <li><a href="#">岐阜の例の看板</a></li>
-          <li><a href="#">泣き崩れる嫁</a></li>
-          <li><a href="#">フロリダマン</a></li>
-          <li><a href="#">米だけ炊いて寝た人</a></li>
-          <li><a href="#">例の謝罪文</a></li>
+          <li><a href="source-settings.html#sec-現行骨格">日本裂島記</a></li>
+          <li><a href="history.html#sec-技術基盤">ヤタガラス計画</a></li>
+          <li><a href="character-sanae.html">東風谷早苗大統領</a></li>
+          <li><a href="faction-japan-tokyo-government.html">神子政権</a></li>
+          <li><a href="faction-moriya-yasaka-group.html">守矢財閥</a></li>
+          <li><a href="faction-yamazaki-kawashiro-industries.html">河城工業</a></li>
+          <li><a href="faction-tenzu.html">天通辞典</a></li>
+          <li><a href="history.html">鏑矢</a></li>
+          <li><a href="source-settings.html#sec-地理">フォッサマグナ境界線</a></li>
+          <li><a href="source-settings.html#sec-事件線">関門海峡決戦</a></li>
         </ol>
+      </div>
+    </section>
+    <section class="box">
+      <h2 class="box-title">関係図</h2>
+      <div class="box-body">
+        <a href="source-settings.html#sec-添付図">
+          <img class="source-map-thumb" src="assets/images/japan-rettouki-source-map.png" alt="日本裂島記の手書き関係図">
+        </a>
+        <p>早苗政権、神子政権、守矢財閥、河城工業、天通、浅間研究所の接続を確認できます。</p>
       </div>
     </section>
     <section class="ad-box ad-box-loud">
@@ -208,22 +257,26 @@
       <p><strong>鏡を見るのが怖い人へ。</strong> 3分診断であなたの見た目年齢をチェック。</p>
       <a class="ad-cta" href="#">無料で診断する</a>
     </section>
-    <section class="ad-box ad-box-game">
-      <span class="ad-label">[広告]</span>
-      <p class="ad-copy">このピン、抜けたらIQ160!?</p>
-      <img class="ad-visual" src="assets/images/portal/ad-pin-game.svg" alt="ピンを抜くゲーム広告風の王様と宝箱の画像">
-      <p>王様を助けて宝箱ゲット。失敗してもなぜかクセになる。</p>
-      <a class="ad-cta red" href="#">今すぐ無料でプレイ</a>
+    <section class="box">
+      <h2 class="box-title">簡易年表</h2>
+      <div class="box-body">
+        <ul class="timeline-mini">
+          <li><time>未定</time><span>日本列島の東西分断、京都政権と東京政権の成立。</span></li>
+          <li><time>2025</time><span>東風谷早苗が第10代日本国大統領として登場。</span></li>
+          <li><time>2025以降</time><span>ヤタガラス計画が進展し、核融合と監視航空船が焦点化。</span></li>
+          <li><time>未定</time><span>正体不明機撃墜、岐阜核融合研究所、京都大阪方面、福岡遷都を整理対象化。</span></li>
+        </ul>
+      </div>
     </section>
     <section id="bbs" class="box">
       <h2 class="box-title">掲示板で話題の記事</h2>
       <div class="box-body">
         <ul class="bbs-list">
-          <li><a href="#">鹿さんやりますねぇ！</a><small>214件のコメント</small></li>
-          <li><a href="#">例の謝罪文</a><small>188件のコメント</small></li>
-          <li><a href="#">岐阜の例の看板</a><small>132件のコメント</small></li>
-          <li><a href="#">プロリダマン</a><small>98件のコメント</small></li>
-          <li><a href="#">強い海老リンク</a><small>76件のコメント</small></li>
+          <li><a href="source-settings.html">設定確認</a><small>318件のコメント / 公開記事に出す範囲を相談中</small></li>
+          <li><a href="faction-tenzu.html#tenzu-bbs">天通</a><small>214件のコメント / 資料網の中立性を巡って継続議論</small></li>
+          <li><a href="history.html#tenzu-bbs">軍事・安全保障</a><small>132件のコメント / 年表と通称整理の相談</small></li>
+          <li><a href="faction-japan-kyoto-government.html#tenzu-bbs">日本国（京都政権）</a><small>98件のコメント / 政権呼称を巡る議論</small></li>
+          <li><a href="faction-japan-tokyo-government.html#tenzu-bbs">日本国（東京政権）</a><small>76件のコメント / 政策節の出典確認</small></li>
         </ul>
       </div>
     </section>
@@ -234,36 +287,131 @@
       <p>話題の自然派サポート習慣。今だけモニター価格でお試し。</p>
       <a class="ad-cta" href="#">初回限定 980円</a>
     </section>
-    <section class="box">
-      <h2 class="box-title">新着記事</h2>
-      <div class="box-body">
-        <ul>
-          <li><a href="#">駅前の青いベンチ</a></li>
-          <li><a href="#">謎の白い箱</a></li>
-          <li><a href="#">午後三時のチャイム</a></li>
-        </ul>
-      </div>
-    </section>
   </aside>
 </div>
 
 <footer class="footer">
   <div class="footer-inner">
     <p>天通辞典は、利用者の編集と公開情報をもとに構成される静的な百科サービスです。投稿フォーム、閲覧ログ、リアルタイム表示は提供していません。</p>
-    <p><a href="index.html">メインページ</a> | <a href="#">利用規約</a> | <a href="#">ヘルプ</a> | <a href="#">運営情報</a></p>
+    <p><a href="index.html">メインページ</a> | <a href="source-settings.html">設定確認</a> | <a href="editing-guide.html">利用規約</a> | <a href="editing-guide.html#sec-お問い合わせ">運営情報</a></p>
   </div>
 </footer>
 
 <script>
+let portalSearchIndex = [];
+let portalSearchMatches = [];
+
+fetch('assets/search-index.json')
+  .then((response) => response.ok ? response.json() : [])
+  .then((data) => {
+    portalSearchIndex = Array.isArray(data) ? data : [];
+    updateRandomArticleButton();
+  })
+  .catch(() => {
+    portalSearchIndex = [];
+  });
+
+function portalSearchText(item) {
+  return [
+    item.title,
+    item.summary,
+    item.article_type,
+    item.nav_section,
+    ...(Array.isArray(item.tags) ? item.tags : []),
+    ...(Array.isArray(item.aliases) ? item.aliases : []),
+    ...(Array.isArray(item.related) ? item.related : []),
+  ].filter(Boolean).join(' ').toLowerCase();
+}
+
+function findPortalMatches(query) {
+  const q = query.trim().toLowerCase();
+  if (!q) return [];
+  return portalSearchIndex.filter((item) => portalSearchText(item).includes(q)).slice(0, 8);
+}
+
+function getRandomArticlePool() {
+  return portalSearchIndex.filter((item) => (
+    item.url &&
+    item.url !== 'index.html' &&
+    item.article_type !== 'メインページ'
+  ));
+}
+
+function updateRandomArticleButton() {
+  const randomButton = document.querySelector('[data-random-article]');
+  if (!randomButton) return;
+  const pool = getRandomArticlePool();
+  if (!pool.length) return;
+  randomButton.setAttribute('title', `${pool.length}件の収録項目からランダム表示`);
+}
+
+function openRandomArticle(event) {
+  event.preventDefault();
+  const pool = getRandomArticlePool();
+  if (!pool.length) {
+    location.href = 'source-settings.html';
+    return;
+  }
+  const target = pool[Math.floor(Math.random() * pool.length)];
+  location.href = target.url;
+}
+
+function escapePortalHtml(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function renderPortalSearchResults(matches) {
+  const results = document.getElementById('portal-search-results');
+  if (!results) return;
+  portalSearchMatches = matches;
+  if (!matches.length) {
+    results.innerHTML = '<li><span>一致する記事がありません</span></li>';
+    results.classList.add('show');
+    return;
+  }
+  results.innerHTML = matches.map((item) => (
+    `<li><a href="${escapePortalHtml(item.url)}"><strong>${escapePortalHtml(item.title)}</strong><small>${escapePortalHtml(item.summary)}</small></a></li>`
+  )).join('');
+  results.classList.add('show');
+}
+
 function runSearch(event) {
   event.preventDefault();
   const input = document.getElementById('mw-search-input');
   const q = input.value.trim().toLowerCase();
   if (!q) return;
-  const links = Array.from(document.querySelectorAll('a[href$=".html"]'));
-  const hit = links.find((a) => a.textContent.toLowerCase().includes(q) || a.getAttribute('href').toLowerCase().includes(q));
-  if (hit) location.href = hit.getAttribute('href');
+  const matches = portalSearchMatches.length ? portalSearchMatches : findPortalMatches(q);
+  const exact = matches.find((item) => String(item.title || '').toLowerCase() === q);
+  const target = exact || matches[0];
+  if (target?.url) location.href = target.url;
 }
+
+document.getElementById('mw-search-input')?.addEventListener('input', (event) => {
+  const q = event.target.value.trim();
+  const results = document.getElementById('portal-search-results');
+  if (!q) {
+    portalSearchMatches = [];
+    results?.classList.remove('show');
+    if (results) results.innerHTML = '';
+    return;
+  }
+  renderPortalSearchResults(findPortalMatches(q));
+});
+
+document.querySelector('[data-random-article]')?.addEventListener('click', openRandomArticle);
+
+document.addEventListener('click', (event) => {
+  const results = document.getElementById('portal-search-results');
+  const input = document.getElementById('mw-search-input');
+  if (results && !results.contains(event.target) && event.target !== input) {
+    results.classList.remove('show');
+  }
+});
 </script>
 </body>
 </html>
