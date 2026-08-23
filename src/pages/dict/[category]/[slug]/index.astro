@@ -1,0 +1,149 @@
+---
+import DictLayout from "../../../../layouts/DictLayout.astro";
+import {
+  dictBacklinks,
+  dictEntrySlug,
+  dictIndexMap,
+  dictUrl,
+  newsUrl,
+  publishedDict,
+  publishedNews,
+  relatedNews,
+} from "../../../../lib/collections";
+import { formatWorldDate } from "../../../../lib/dates";
+import { CATEGORY_LABEL } from "../../../../lib/labels";
+import { maybeToc, renderMarkdown } from "../../../../lib/markdown";
+import { withBase } from "../../../../lib/paths";
+import { linkPlainText } from "../../../../lib/wiki";
+
+export async function getStaticPaths() {
+  const dict = await publishedDict();
+  return dict.map((entry) => ({
+    params: { category: entry.data.category, slug: dictEntrySlug(entry) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const slug = dictEntrySlug(entry);
+const dict = await publishedDict();
+const news = await publishedNews();
+const index = dictIndexMap(dict);
+const html = renderMarkdown(entry.body, index, slug);
+const toc = maybeToc(entry.body);
+const href = dictUrl(entry);
+const related = (entry.data.related ?? []).map((rel) => {
+  const found = index.get(rel);
+  return found
+    ? { html: `<a href="${withBase(`/dict/${found.category}/${found.slug}/`)}">${found.title}</a>` }
+    : { html: `<span class="undefined-link" title="この項目はまだ執筆されていません">${rel}</span>` };
+});
+const reports = relatedNews(news, slug);
+const backlinks = dictBacklinks(dict, slug);
+const catLabel = CATEGORY_LABEL[entry.data.category];
+---
+<DictLayout
+  title={entry.data.title}
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { href: "/dict/", label: "天通辞典" },
+    { href: `/dict/${entry.data.category}/`, label: catLabel },
+    { label: entry.data.title },
+  ]}
+  articleHref={href}
+  historyHref={`${href}history/`}
+  contactHref={`${href}contact/`}
+  tab="item"
+>
+  <article data-pagefind-body data-pagefind-filter="kind:dict">
+    <h1 class="firstHeading" data-pagefind-meta="title">{entry.data.title}</h1>
+    {entry.data.visibility === "restricted" && entry.data.notice && (
+      <div class="notice">{entry.data.notice}</div>
+    )}
+    {(entry.data.image || (entry.data.infobox && entry.data.infobox.length > 0)) && (
+      <div class="infobox">
+        <table>
+          <caption>{entry.data.title}</caption>
+          {entry.data.image && (
+            <tr>
+              <td colspan="2" class="infobox-photo">
+                <img src={withBase(entry.data.image)} alt={entry.data.title} />
+                {entry.data.image_caption && <div class="infobox-cap">{entry.data.image_caption}</div>}
+              </td>
+            </tr>
+          )}
+          {(entry.data.infobox ?? []).map((row) => (
+            <tr>
+              <th>{row.label}</th>
+              <td set:html={linkPlainText(row.value, index, slug)} />
+            </tr>
+          ))}
+        </table>
+      </div>
+    )}
+    {toc.length > 0 && (
+      <div class="toc">
+        <div class="toc-title">目次</div>
+        <ol>
+          {toc.map((item) => (
+            <li><a href={`#${item.id}`}>{item.text}</a></li>
+          ))}
+        </ol>
+      </div>
+    )}
+    <div class="article-body" set:html={html} />
+    {related.length > 0 && (
+      <>
+        <h2>関連項目</h2>
+        <ul class="related-list">
+          {related.map((item) => (
+            <li set:html={item.html} />
+          ))}
+        </ul>
+      </>
+    )}
+    {reports.length > 0 && (
+      <>
+        <h2>関連報道</h2>
+        <ul>
+          {reports.map((item) => (
+            <li>
+              {formatWorldDate(item.data.world_pub_date)}　<a href={newsUrl(item)}>{item.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+    {backlinks.length > 0 && (
+      <>
+        <h2>この項目を参照している項目</h2>
+        <ul class="related-list">
+          {backlinks.map((item) => (
+            <li><a href={dictUrl(item)}>{item.data.title}</a></li>
+          ))}
+        </ul>
+      </>
+    )}
+    {entry.data.sources && entry.data.sources.length > 0 && (
+      <>
+        <h2>出典</h2>
+        <ol class="sources">
+          {entry.data.sources.map((row) => (
+            <li>{row}</li>
+          ))}
+        </ol>
+      </>
+    )}
+    <div class="catlinks">
+      カテゴリ: <a href={withBase(`/dict/${entry.data.category}/`)}>{catLabel}</a>
+    </div>
+    {entry.data.density === "stub" && (
+      <div class="stub">この項目は記述が不十分です。天通編集部は情報提供を歓迎します。</div>
+    )}
+    <div class="article-foot">
+      最終更新：{formatWorldDate(entry.data.world_update_date)}　｜　編集責任：天通 公開情報部
+      <br />
+      <a href="#top">このページの先頭へ</a>
+    </div>
+  </article>
+</DictLayout>

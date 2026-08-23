@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" font-family="Yu Gothic, Meiryo, MS PGothic, sans-serif">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="12" y="22" font-size="14" font-weight="bold" fill="#111">2004年 名目GDP（ドル建て換算）</text>
+<text x="12" y="38" font-size="10" fill="#555">天通経済部『世界経済年報』2005年版　1ドル＝108円</text>
+<text x="110" y="74.7288" font-size="11" text-anchor="end" fill="#222">西日本</text>
+<rect x="118" y="55.980000000000004" width="498.0" height="26.0" fill="#9b1c1c"/>
+<text x="622.0" y="74.7288" font-size="10" fill="#222">1位  13.42兆ドル</text>
+<text x="110" y="116.7288" font-size="11" text-anchor="end" fill="#222">アメリカ合衆国</text>
+<rect x="118" y="97.98" width="482.4" height="26.0" fill="#3d4f6f"/>
+<text x="606.4143070044709" y="116.7288" font-size="10" fill="#222">2位  13.00兆ドル</text>
+<text x="110" y="158.72879999999998" font-size="11" text-anchor="end" fill="#222">ソビエト連邦</text>
+<rect x="118" y="139.98" width="167.0" height="26.0" fill="#3d4f6f"/>
+<text x="290.98956780923993" y="158.72879999999998" font-size="10" fill="#222">3位  4.50兆ドル</text>
+<text x="110" y="200.72879999999998" font-size="11" text-anchor="end" fill="#222">ドイツ連邦共和国</text>
+<rect x="118" y="181.98" width="102.4" height="26.0" fill="#3d4f6f"/>
+<text x="226.42026825633383" y="200.72879999999998" font-size="10" fill="#222">4位  2.76兆ドル</text>
+<text x="110" y="242.72879999999998" font-size="11" text-anchor="end" fill="#222">東日本</text>
+<rect x="118" y="223.98" width="93.5" height="26.0" fill="#8c1515"/>
+<text x="217.51415797317435" y="242.72879999999998" font-size="10" fill="#222">5位  2.52兆ドル</text>
+<text x="110" y="284.72880000000004" font-size="11" text-anchor="end" fill="#222">イギリス</text>
+<rect x="118" y="265.98" width="78.3" height="26.0" fill="#3d4f6f"/>
+<text x="202.29955290611028" y="284.72880000000004" font-size="10" fill="#222">6位  2.11兆ドル</text>
+<text x="110" y="326.72880000000004" font-size="11" text-anchor="end" fill="#222">フランス</text>
+<rect x="118" y="307.98" width="76.1" height="26.0" fill="#3d4f6f"/>
+<text x="200.07302533532044" y="326.72880000000004" font-size="10" fill="#222">7位  2.05兆ドル</text>
+<text x="110" y="368.72880000000004" font-size="11" text-anchor="end" fill="#222">中華人民共和国</text>
+<rect x="118" y="349.98" width="67.9" height="26.0" fill="#3d4f6f"/>
+<text x="191.9090909090909" y="368.72880000000004" font-size="10" fill="#222">8位  1.83兆ドル</text>
+<text x="12" y="412" font-size="9" fill="#777">推計。政府の単一国際比較表ではない。</text>
+</svg>

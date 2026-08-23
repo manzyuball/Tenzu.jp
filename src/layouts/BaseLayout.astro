@@ -1,0 +1,92 @@
+---
+import "../styles/global.css";
+import { COPYRIGHT, SITE_NAME, WORLD_DATE_LABEL } from "../site.config";
+import { corpEntrySlug, publishedCorp } from "../lib/collections";
+import { withBase } from "../lib/paths";
+
+interface Props {
+  title: string;
+  kind?: "portal" | "news" | "dict" | "corp" | "search";
+  breadcrumb?: { href?: string; label: string }[];
+}
+
+const { title, kind, breadcrumb = [] } = Astro.props;
+const pageTitle = title === SITE_NAME ? SITE_NAME : `${title}｜${SITE_NAME}`;
+const corpPages = await publishedCorp();
+---
+<html lang="ja" class="size-m">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=950" />
+    <title>{pageTitle}</title>
+    <meta name="description" content="天通のニュース、天通辞典、会社案内" />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="page" id="top">
+      <div class="topbar">
+        <span>{WORLD_DATE_LABEL}</span>
+        <span class="topbar-tools">
+          <span class="size-tools top-size">
+            文字サイズ
+            <button type="button" onclick="tenzuSetSize('s')">小</button>
+            <button type="button" onclick="tenzuSetSize('m')">中</button>
+            <button type="button" onclick="tenzuSetSize('l')">大</button>
+          </span>
+          <span class="dead">携帯版</span>
+          <a href={withBase("/sitemap/")}>サイトマップ</a>
+          <span class="dead">RSS（準備中）</span>
+        </span>
+      </div>
+      <div class="brandrow">
+        <a href={withBase("/")} class="mark" aria-label={SITE_NAME}>天</a>
+        <a href={withBase("/")} class="brand-name">
+          天通.jp
+          <small>Tenzu.jp　ニュース・天通辞典・会社案内</small>
+        </a>
+        <form class="search-form" action={withBase("/search/")} method="get">
+          <input type="text" name="q" maxlength="80" size="24" aria-label="サイト内検索" />
+          <button type="submit">検索</button>
+        </form>
+      </div>
+      <nav class="nav" aria-label="主要">
+        <a href={withBase("/")} class={kind === "portal" ? "is-current" : undefined}>トップ</a>
+        <a href={withBase("/news/")} class={kind === "news" ? "is-current" : undefined}>ニュース</a>
+        <a href={withBase("/dict/")} class={kind === "dict" ? "is-current" : undefined}>天通辞典</a>
+        <a href={withBase("/corp/")} class={kind === "corp" ? "is-current" : undefined}>会社案内</a>
+      </nav>
+      {breadcrumb.length > 0 && (
+        <div class="breadcrumb">
+          {breadcrumb.map((item, i) => (
+            <>
+              {i > 0 && <span> › </span>}
+              {item.href ? <a href={withBase(item.href)}>{item.label}</a> : <span>{item.label}</span>}
+            </>
+          ))}
+        </div>
+      )}
+      <slot />
+      <footer class="site-footer">
+        <div class="foot-links">
+          <a href={withBase("/corp/")}>会社案内</a>
+          {corpPages.map((page) => (
+            <>
+              {" - "}
+              <a href={withBase(`/corp/${corpEntrySlug(page)}/`)}>{page.data.title}</a>
+            </>
+          ))}
+        </div>
+        <div>{COPYRIGHT}</div>
+        <div class="ie">このページの内容は2005年12月4日現在のものです。　推奨環境：Internet Explorer 6.0以上</div>
+      </footer>
+    </div>
+    <script is:inline>
+      function tenzuSetSize(size) {
+        var el = document.documentElement;
+        el.classList.remove("size-s", "size-m", "size-l");
+        el.classList.add("size-" + size);
+      }
+      window.tenzuSetSize = tenzuSetSize;
+    </script>
+  </body>
+</html>

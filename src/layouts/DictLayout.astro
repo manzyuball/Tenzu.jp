@@ -1,0 +1,84 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { withBase } from "../lib/paths";
+
+interface Crumb { href?: string; label: string; }
+interface Props {
+  title: string;
+  breadcrumb: Crumb[];
+  articleHref?: string;
+  historyHref?: string;
+  contactHref?: string;
+  tab?: "item" | "history" | "contact" | "none";
+}
+
+const {
+  title,
+  breadcrumb,
+  articleHref = "/dict/",
+  historyHref,
+  contactHref,
+  tab = "none",
+} = Astro.props;
+---
+<BaseLayout title={title} kind="dict" breadcrumb={breadcrumb}>
+  <div class="dict-wrap">
+    <aside class="dict-side">
+      <a class="dict-logo" href={withBase("/dict/")}>天通<br />辞典</a>
+      <p class="dict-tag">天通編集部が執筆・管理</p>
+      <div class="portlet">
+        <div class="pBody">
+          <form action={withBase("/search/")} method="get">
+            <input type="hidden" name="scope" value="dict" />
+            <input type="text" name="q" maxlength="80" size="12" aria-label="辞典内検索" />
+            <div class="side-search"><button type="submit">検索</button></div>
+          </form>
+        </div>
+      </div>
+      <div class="portlet">
+        <div class="side-h">案内</div>
+        <div class="pBody">
+          <ul>
+            <li><a href={withBase("/dict/")}>メインページ</a></li>
+            <li><a href={withBase("/dict/#categories")}>カテゴリ一覧</a></li>
+            <li><a href={withBase("/dict/#new")}>新着項目</a></li>
+            <li><a href={withBase("/dict/#recent")}>最近の更新</a></li>
+            <li><a href={withBase("/corp/toiawase/")}>情報提供のお願い</a></li>
+          </ul>
+        </div>
+      </div>
+      {tab !== "none" && historyHref && contactHref && (
+        <div class="portlet">
+          <div class="side-h">この項目</div>
+          <div class="pBody">
+            <ul>
+              <li><a href={withBase(articleHref)}>項目</a></li>
+              <li><a href={withBase(historyHref)}>更新履歴</a></li>
+              <li><a href={withBase(contactHref)}>情報提供</a></li>
+            </ul>
+          </div>
+        </div>
+      )}
+      <div class="portlet">
+        <div class="side-h">表示</div>
+        <div class="pBody">
+          <div class="size-tools">
+            <button type="button" onclick="tenzuSetSize('l')">大</button>
+            <button type="button" onclick="tenzuSetSize('m')">中</button>
+            <button type="button" onclick="tenzuSetSize('s')">小</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <div class="dict-main">
+      {tab !== "none" && historyHref && contactHref && (
+        <div class="tabs">
+          <a href={withBase(articleHref)} class={tab === "item" ? "is-on" : undefined}>項目</a>
+          <a href={withBase(historyHref)} class={tab === "history" ? "is-on" : undefined}>更新履歴</a>
+          <a href={withBase(contactHref)} class={tab === "contact" ? "is-on" : undefined}>情報提供</a>
+        </div>
+      )}
+      <slot />
+    </div>
+  </div>
+</BaseLayout>

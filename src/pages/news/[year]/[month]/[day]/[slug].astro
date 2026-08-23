@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../../../../../layouts/BaseLayout.astro";
+import {
+  dictEntrySlug,
+  dictIndexMap,
+  dictUrl,
+  newsEntrySlug,
+  newsUrl,
+  publishedDict,
+  publishedNews,
+} from "../../../../../lib/collections";
+import { datePath, formatMdDate, formatNewsBarDate } from "../../../../../lib/dates";
+import { renderMarkdown } from "../../../../../lib/markdown";
+import { withBase } from "../../../../../lib/paths";
+
+export async function getStaticPaths() {
+  const news = await publishedNews();
+  return news.map((entry) => {
+    const { year, month, day } = datePath(entry.data.world_pub_date);
+    return {
+      params: { year, month, day, slug: newsEntrySlug(entry) },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+const dict = await publishedDict();
+const news = await publishedNews();
+const index = dictIndexMap(dict);
+const html = renderMarkdown(entry.body, index);
+const slug = newsEntrySlug(entry);
+const here = news.findIndex((item) => newsEntrySlug(item) === slug);
+const newer = here > 0 ? news[here - 1] : undefined;
+const older = here >= 0 ? news[here + 1] : undefined;
+const related = (entry.data.related_dict ?? [])
+  .map((rel) => dict.find((d) => dictEntrySlug(d) === rel))
+  .filter((item) => item != null);
+const topics = news.filter((item) => newsEntrySlug(item) !== slug).slice(0, 7);
+---
+<BaseLayout
+  title={entry.data.title}
+  kind="news"
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { href: "/news/", label: "ニュース" },
+    { label: entry.data.title },
+  ]}
+>
+  <div class="main news-article">
+    <div class="news-wrap">
+      <div class="news-side">
+        <div class="topics">
+          <div class="topics-h">トピックス</div>
+          <ul>
+            {topics.map((item) => (
+              <li><a href={newsUrl(item)}>{item.data.title}</a></li>
+            ))}
+          </ul>
+          <p class="topics-more"><a href={withBase("/news/")}>一覧</a></p>
+        </div>
+      </div>
+      <div class="news-main">
+        <article data-pagefind-body data-pagefind-filter="kind:news">
+          <div class="news-catbar">
+            <b>{entry.data.news_category}ニュース</b>
+            <small> - {formatNewsBarDate(entry.data.world_pub_date)}</small>
+          </div>
+          <h1 class="news-hed" data-pagefind-meta="title">{entry.data.title}</h1>
+          {entry.data.image && (
+            <p class="news-photo">
+              <img src={withBase(entry.data.image)} alt={entry.data.image_caption ?? entry.data.title} />
+              {entry.data.image_caption && <span class="news-cap">{entry.data.image_caption}</span>}
+            </p>
+          )}
+          <div class="article-body" set:html={html} />
+          <div class="news-src">（天通） - {formatMdDate(entry.data.world_pub_date)}更新　{entry.data.dateline}発</div>
+          {related.length > 0 && (
+            <div class="box news-related">
+              <div class="box-h">関連項目</div>
+              <ul>
+                {related.map((item) => (
+                  <li><a href={dictUrl(item)}>{item.data.title}</a></li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <div class="article-nav">
+            <div>前後の記事</div>
+            {newer && (
+              <div>
+                ・<a href={newsUrl(newer)}>{newer.data.title}</a>
+                （天通）- {formatNewsBarDate(newer.data.world_pub_date)}
+              </div>
+            )}
+            {older && (
+              <div>
+                ・<a href={newsUrl(older)}>{older.data.title}</a>
+                （天通）- {formatNewsBarDate(older.data.world_pub_date)}
+              </div>
+            )}
+            <div><a href={withBase("/news/")}>ニュース一覧へ</a></div>
+          </div>
+          <p class="pagetop"><a href="#top">このページの先頭へ</a></p>
+        </article>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

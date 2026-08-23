@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { NEWS_PER_PAGE, newsUrl, publishedNews } from "../../lib/collections";
+import { formatMdDate, formatNewsBarDate } from "../../lib/dates";
+import { withBase } from "../../lib/paths";
+
+const news = await publishedNews();
+const cats = [...new Set(news.map((item) => item.data.news_category))];
+const items = news.slice(0, NEWS_PER_PAGE);
+const hasNext = news.length > NEWS_PER_PAGE;
+---
+<BaseLayout
+  title="ニュース"
+  kind="news"
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { label: "ニュース" },
+  ]}
+>
+  <div class="main">
+    <div class="news-catbar">
+      <b>ニュース</b>
+      <small> - {news[0] ? formatNewsBarDate(news[0].data.world_pub_date) : ""}</small>
+    </div>
+    {cats.length > 0 && (
+      <p class="subnav">
+        {cats.map((cat, i) => (
+          <>
+            {i > 0 && " ／ "}
+            {cat} {news.filter((item) => item.data.news_category === cat).length}件
+          </>
+        ))}
+      </p>
+    )}
+    {news.length === 0 ? (
+      <p>現在、表示できる記事はありません。</p>
+    ) : (
+      <ul class="news-ul news-archive">
+        {items.map((item) => (
+          <li>
+            ・<a href={newsUrl(item)}>{item.data.title}</a>
+            （{item.data.dateline}）
+            <span class="t"> - {formatMdDate(item.data.world_pub_date)}</span>
+            <span class="c"> [{item.data.news_category}]</span>
+          </li>
+        ))}
+      </ul>
+    )}
+    {hasNext && (
+      <div class="pager">
+        <a href={withBase("/news/2/")}>次の20件</a>
+      </div>
+    )}
+  </div>
+</BaseLayout>

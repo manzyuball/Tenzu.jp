@@ -1,0 +1,39 @@
+---
+import DictLayout from "../../../../layouts/DictLayout.astro";
+import { dictEntrySlug, dictUrl, publishedDict } from "../../../../lib/collections";
+import { CATEGORY_LABEL } from "../../../../lib/labels";
+import { withBase } from "../../../../lib/paths";
+
+export async function getStaticPaths() {
+  const dict = await publishedDict();
+  return dict.map((entry) => ({
+    params: { category: entry.data.category, slug: dictEntrySlug(entry) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const href = dictUrl(entry);
+const catLabel = CATEGORY_LABEL[entry.data.category];
+---
+<DictLayout
+  title={`${entry.data.title}への情報提供`}
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { href: "/dict/", label: "天通辞典" },
+    { href: `/dict/${entry.data.category}/`, label: catLabel },
+    { href, label: entry.data.title },
+    { label: "情報提供" },
+  ]}
+  articleHref={href}
+  historyHref={`${href}history/`}
+  contactHref={`${href}contact/`}
+  tab="contact"
+>
+  <h1>{entry.data.title}</h1>
+  <p>
+    天通辞典は天通編集部が執筆・管理しています。この項目に関する情報提供は、編集部メール窓口までお寄せください。採用の可否は編集部が判断し、原則として個別の回答は行いません。
+  </p>
+  <p><a href={withBase("/corp/toiawase/")}>お問い合わせ</a></p>
+  <p class="pagetop"><a href="#top">このページの先頭へ</a></p>
+</DictLayout>

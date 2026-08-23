@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="300" viewBox="0 0 520 300" font-family="Yu Gothic, Meiryo, MS PGothic, sans-serif">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="12" y="20" font-size="14" font-weight="bold" fill="#111">先の総選挙　開票映像の表示（23時45分現在）</text>
+<text x="12" y="36" font-size="10" fill="#555">速報。確定表ではない。天通映像より</text>
+<text x="62" y="62.849999999999994" font-size="11" text-anchor="end" fill="#222">守矢</text>
+<rect x="70" y="49.8" width="380.0" height="17.4" fill="#9b1c1c"/>
+<text x="456.0" y="62.849999999999994" font-size="11" fill="#222">231</text>
+<text x="62" y="91.85" font-size="11" text-anchor="end" fill="#222">共和</text>
+<rect x="70" y="78.8" width="241.8" height="17.4" fill="#1f4e79"/>
+<text x="317.8181818181818" y="91.85" font-size="11" fill="#222">147</text>
+<text x="62" y="120.85" font-size="11" text-anchor="end" fill="#222">まもる</text>
+<rect x="70" y="107.8" width="42.8" height="17.4" fill="#5b6b7a"/>
+<text x="118.77056277056278" y="120.85" font-size="11" fill="#222">26</text>
+<text x="62" y="149.85000000000002" font-size="11" text-anchor="end" fill="#222">労働</text>
+<rect x="70" y="136.8" width="39.5" height="17.4" fill="#5b6b7a"/>
+<text x="115.48051948051949" y="149.85000000000002" font-size="11" fill="#222">24</text>
+<text x="62" y="178.85000000000002" font-size="11" text-anchor="end" fill="#222">護国</text>
+<rect x="70" y="165.8" width="23.0" height="17.4" fill="#5b6b7a"/>
+<text x="99.03030303030303" y="178.85000000000002" font-size="11" fill="#222">14</text>
+<text x="62" y="207.85000000000002" font-size="11" text-anchor="end" fill="#222">四国</text>
+<rect x="70" y="194.8" width="16.5" height="17.4" fill="#5b6b7a"/>
+<text x="92.45021645021646" y="207.85000000000002" font-size="11" fill="#222">10</text>
+<text x="62" y="236.85000000000002" font-size="11" text-anchor="end" fill="#222">その他</text>
+<rect x="70" y="223.8" width="13.2" height="17.4" fill="#5b6b7a"/>
+<text x="89.16017316017316" y="236.85000000000002" font-size="11" fill="#222">8</text>
+<text x="62" y="265.85" font-size="11" text-anchor="end" fill="#222">残り</text>
+<rect x="70" y="252.8" width="32.9" height="17.4" fill="#888"/>
+<text x="108.9004329004329" y="265.85" font-size="11" fill="#222">20</text>
+</svg>

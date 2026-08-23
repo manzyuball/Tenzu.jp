@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { corpEntrySlug, corpUrl, publishedCorp } from "../../lib/collections";
+import { dictIndexMap, publishedDict } from "../../lib/collections";
+import { CORP_NAV } from "../../lib/labels";
+import { renderMarkdown } from "../../lib/markdown";
+import { withBase } from "../../lib/paths";
+
+export async function getStaticPaths() {
+  const pages = await publishedCorp();
+  return pages.map((entry) => ({
+    params: { slug: corpEntrySlug(entry) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const slug = corpEntrySlug(entry);
+const pages = await publishedCorp();
+const bySlug = new Set(pages.map((p) => corpEntrySlug(p)));
+const nav = CORP_NAV.filter((item) => bySlug.has(item.slug));
+const dict = await publishedDict();
+const html = renderMarkdown(entry.body, dictIndexMap(dict));
+---
+<BaseLayout
+  title={entry.data.title}
+  kind="corp"
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { href: "/corp/", label: "会社案内" },
+    { label: entry.data.title },
+  ]}
+>
+  <div class="main corp-wrap">
+    <div class="corp-nav">
+      <div class="box">
+        <div class="box-h">案内</div>
+        <ul>
+          {nav.map((item) => (
+            <li class={item.slug === slug ? "is-here" : undefined}>
+              {item.slug === slug ? (
+                item.title
+              ) : (
+                <a href={corpUrl(item.slug)}>{item.title}</a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="corp-body">
+      <article data-pagefind-body data-pagefind-filter="kind:corp">
+        <h1>{entry.data.title}</h1>
+        {entry.data.image && (
+          <p class="news-photo">
+            <img src={withBase(entry.data.image)} alt={entry.data.image_caption ?? entry.data.title} />
+            {entry.data.image_caption && <span class="news-cap">{entry.data.image_caption}</span>}
+          </p>
+        )}
+        <div class="article-body" set:html={html} />
+        <p class="pagetop"><a href="#top">このページの先頭へ</a></p>
+      </article>
+    </div>
+  </div>
+</BaseLayout>

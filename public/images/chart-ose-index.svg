@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="340" viewBox="0 0 640 340" font-family="Yu Gothic, Meiryo, MS PGothic, sans-serif">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="12" y="20" font-size="14" font-weight="bold" fill="#111">大証株価指数（1968年1月4日＝100）</text>
+<text x="12" y="36" font-size="10" fill="#555">2004年〜2005年12月3日　点線は大阪陥落以降の店頭観測</text>
+<rect x="52" y="46" width="570" height="254" fill="#f7f7f4" stroke="#bbb"/>
+<line x1="52" y1="276.9" x2="622" y2="276.9" stroke="#ddd"/>
+<text x="46" y="279.9" font-size="9" text-anchor="end" fill="#555">1000</text>
+<line x1="52" y1="230.7" x2="622" y2="230.7" stroke="#ddd"/>
+<text x="46" y="233.7" font-size="9" text-anchor="end" fill="#555">1200</text>
+<line x1="52" y1="184.5" x2="622" y2="184.5" stroke="#ddd"/>
+<text x="46" y="187.5" font-size="9" text-anchor="end" fill="#555">1400</text>
+<line x1="52" y1="138.4" x2="622" y2="138.4" stroke="#ddd"/>
+<text x="46" y="141.4" font-size="9" text-anchor="end" fill="#555">1600</text>
+<line x1="52" y1="92.2" x2="622" y2="92.2" stroke="#ddd"/>
+<text x="46" y="95.2" font-size="9" text-anchor="end" fill="#555">1800</text>
+<line x1="52" y1="46.0" x2="622" y2="46.0" stroke="#ddd"/>
+<text x="46" y="49.0" font-size="9" text-anchor="end" fill="#555">2000</text>
+<polyline fill="none" stroke="#9b1c1c" stroke-width="2" points="52.0,109.7 123.2,90.7 194.5,76.4 265.8,73.5 337.0,129.1 408.2,226.4 479.5,274.0"/>
+<polyline fill="none" stroke="#9b1c1c" stroke-width="2" stroke-dasharray="5 4" points="479.5,274.0 550.8,255.2 622.0,234.0"/>
+<circle cx="52.0" cy="109.7" r="2.4" fill="#9b1c1c"/>
+<text x="52.0" y="326" font-size="9" text-anchor="middle" fill="#333">04.01.05</text>
+<circle cx="123.2" cy="90.7" r="2.4" fill="#9b1c1c"/>
+<circle cx="194.5" cy="76.4" r="2.4" fill="#9b1c1c"/>
+<circle cx="265.8" cy="73.5" r="2.4" fill="#9b1c1c"/>
+<text x="265.8" y="326" font-size="9" text-anchor="middle" fill="#333">05.01.14</text>
+<circle cx="337.0" cy="129.1" r="2.4" fill="#9b1c1c"/>
+<circle cx="408.2" cy="226.4" r="2.4" fill="#9b1c1c"/>
+<circle cx="479.5" cy="274.0" r="2.4" fill="#9b1c1c"/>
+<text x="479.5" y="326" font-size="9" text-anchor="middle" fill="#333">05.07.18</text>
+<circle cx="550.8" cy="255.2" r="2.4" fill="#9b1c1c"/>
+<circle cx="622.0" cy="234.0" r="2.4" fill="#9b1c1c"/>
+<text x="622.0" y="326" font-size="9" text-anchor="middle" fill="#333">05.12.03</text>
+<text x="12" y="336" font-size="9" fill="#777">1/14終値 1881.05　12/3観測 1186</text>
+</svg>

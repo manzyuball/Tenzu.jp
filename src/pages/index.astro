@@ -1,0 +1,169 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { CURRENT_WORLD_DATE, SITE_NAME } from "../site.config";
+import {
+  dictUrl,
+  newsUrl,
+  publishedDict,
+  publishedNews,
+} from "../lib/collections";
+import { compareIsoDesc, formatMdDate, formatNewsBarDate } from "../lib/dates";
+import { CATEGORY_LABEL } from "../lib/labels";
+import { plainExcerpt } from "../lib/markdown";
+import { withBase } from "../lib/paths";
+import keizai from "../data/keizai.json";
+
+const oseLast = keizai.ose_index.points[keizai.ose_index.points.length - 1];
+const oseJan = keizai.ose_index.points.find((p) => p.date === "2005-01-14");
+
+const news = await publishedNews();
+const dict = await publishedDict();
+const lead = news[0];
+const restMain = news.slice(1, 8);
+const topics = news.slice(0, 7);
+const todays = [...dict].sort((a, b) =>
+  compareIsoDesc(a.data.world_update_date, b.data.world_update_date),
+)[0];
+const newDict = [...dict]
+  .sort((a, b) => compareIsoDesc(a.data.world_pub_date, b.data.world_pub_date))
+  .slice(0, 5);
+const catOrder = ["政治", "社会", "経済", "国際", "地域", "文化"] as const;
+const byCat = catOrder
+  .map((cat) => ({
+    cat,
+    items: news.filter((item) => item.data.news_category === cat).slice(0, 5),
+  }))
+  .filter((group) => group.items.length > 0);
+---
+<BaseLayout title={SITE_NAME} kind="portal">
+  <div class="main">
+    <div class="columns">
+      <div class="col-main">
+        <div class="news-clock">天通ニュース - {formatNewsBarDate(CURRENT_WORLD_DATE)}</div>
+        {lead ? (
+          <div class="lead">
+            <div class="kicker">{lead.data.news_category}</div>
+            <h1 class="lead-title"><a href={newsUrl(lead)}>{lead.data.title}</a></h1>
+            {lead.data.image && (
+              <p class="lead-photo">
+                <img src={withBase(lead.data.image)} alt={lead.data.image_caption ?? lead.data.title} />
+                {lead.data.image_caption && <span class="news-cap">{lead.data.image_caption}</span>}
+              </p>
+            )}
+            <p class="lead-ex">{plainExcerpt(lead.body, 120)}</p>
+            <p class="more"><a href={newsUrl(lead)}>[記事全文]</a></p>
+          </div>
+        ) : (
+          <p>現在、表示できるニュースはありません。</p>
+        )}
+        <div class="box">
+          <div class="box-h">主要ニュース <a class="box-more" href={withBase("/news/")}>一覧</a></div>
+          <div class="box-b">
+            {restMain.length === 0 && !lead ? (
+              <p>記事はありません。</p>
+            ) : (
+              <ul class="news-ul">
+                {restMain.map((item) => (
+                  <li>
+                    ・<a href={newsUrl(item)}>{item.data.title}</a>
+                    <span class="t"> - {formatMdDate(item.data.world_pub_date)}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+        {byCat.map((group) => (
+          <div class="box cat-block">
+            <div class="box-h">{group.cat} <a class="box-more" href={withBase("/news/")}>一覧</a></div>
+            <div class="box-b">
+              <ul class="news-ul">
+                {group.items.map((item) => (
+                  <li>
+                    ・<a href={newsUrl(item)}>{item.data.title}</a>
+                    <span class="t"> - {formatMdDate(item.data.world_pub_date)}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="col-side">
+        <div class="topics">
+          <div class="topics-h">トピックス</div>
+          <ul>
+            {topics.map((item) => (
+              <li><a href={newsUrl(item)}>{item.data.title}</a></li>
+            ))}
+          </ul>
+          <p class="topics-more"><a href={withBase("/news/")}>一覧</a></p>
+        </div>
+        <div class="box market-box">
+          <div class="box-h">市況 <a class="box-more" href={withBase("/dict/org/ose-shisu/")}>指数</a></div>
+          <div class="box-b">
+            <p class="market-idx">
+              大証株価指数
+              <b>{oseLast.value.toLocaleString("ja-JP")}</b>
+              <span class="meta">（12月3日・店頭観測）</span>
+            </p>
+            <p class="market-note">通常立会は再開前。公式の比較は1月14日終値 {oseJan?.value}。</p>
+            <table class="market-tbl">
+              <thead>
+                <tr><th>銘柄</th><th>コード</th><th>1/14終値</th></tr>
+              </thead>
+              <tbody>
+                {keizai.stocks_2005_01_14.map((row) => (
+                  <tr>
+                    <td>{row.name}</td>
+                    <td>{row.code}</td>
+                    <td class="num">{row.close}円</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p class="more"><a href={withBase("/dict/misc/kokunai-soseisan/")}>世界GDP</a>　<a href={withBase("/corp/saiyo/")}>採用</a></p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="box-h">天通辞典・本日の項目</div>
+          <div class="box-b">
+            {todays ? (
+              <p>
+                <a href={dictUrl(todays)}>{todays.data.title}</a>
+                <span class="meta">（{CATEGORY_LABEL[todays.data.category]}）</span>
+              </p>
+            ) : (
+              <p>項目はありません。</p>
+            )}
+            <p class="more"><a href={withBase("/dict/")}>天通辞典へ</a></p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="box-h">辞典 新着項目</div>
+          <div class="box-b">
+            {newDict.length === 0 ? (
+              <p>項目はありません。</p>
+            ) : (
+              <ul class="headline-list">
+                {newDict.map((item) => (
+                  <li><a href={dictUrl(item)}>{item.data.title}</a></li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+        <div class="box">
+          <div class="box-h">会社案内</div>
+          <div class="box-b">
+            <ul class="plain">
+              <li><a href={withBase("/corp/")}>会社案内トップ</a></li>
+              <li><a href={withBase("/corp/saiyo/")}>採用情報</a></li>
+              <li><a href={withBase("/corp/teisei/")}>訂正一覧</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

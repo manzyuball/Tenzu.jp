@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { corpUrl, publishedCorp } from "../../lib/collections";
+import { corpEntrySlug } from "../../lib/collections";
+import { CORP_NAV } from "../../lib/labels";
+import { withBase } from "../../lib/paths";
+
+const pages = await publishedCorp();
+const bySlug = new Map(pages.map((p) => [corpEntrySlug(p), p]));
+const nav = CORP_NAV.filter((item) => bySlug.has(item.slug));
+---
+<BaseLayout
+  title="会社案内"
+  kind="corp"
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { label: "会社案内" },
+  ]}
+>
+  <div class="main corp-wrap">
+    <div class="corp-nav">
+      <div class="box">
+        <div class="box-h">案内</div>
+        <ul>
+          {nav.map((item) => (
+            <li><a href={corpUrl(item.slug)}>{item.title}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div class="corp-body">
+      <h1>会社案内</h1>
+      <p class="news-photo">
+        <img src={withBase("/images/org-tenzu-hq.jpg")} alt="天通の事業所" />
+        <span class="news-cap">天通の事業所（天通資料写真）</span>
+      </p>
+      <p>天通は報道、通信、情報サービスを行う株式会社です。大証1部（9408）。詳細は各項目をご覧ください。</p>
+      <table class="corp-index">
+        {nav.map((item) => (
+          <tr>
+            <th><a href={corpUrl(item.slug)}>{item.title}</a></th>
+          </tr>
+        ))}
+      </table>
+    </div>
+  </div>
+</BaseLayout>

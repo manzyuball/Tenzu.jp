@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { NEWS_PER_PAGE, newsUrl, publishedNews } from "../../lib/collections";
+import { formatMdDate, formatNewsBarDate } from "../../lib/dates";
+import { withBase } from "../../lib/paths";
+
+export async function getStaticPaths() {
+  const news = await publishedNews();
+  const pages = Math.ceil(news.length / NEWS_PER_PAGE);
+  const extra = [];
+  for (let p = 2; p <= pages; p += 1) extra.push({ params: { page: String(p) } });
+  return extra;
+}
+
+const page = Number(Astro.params.page);
+const news = await publishedNews();
+const total = news.length;
+const from = (page - 1) * NEWS_PER_PAGE;
+const items = news.slice(from, from + NEWS_PER_PAGE);
+const hasPrev = page > 1;
+const hasNext = from + NEWS_PER_PAGE < total;
+---
+<BaseLayout
+  title={`ニュース（${page}）`}
+  kind="news"
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { href: "/news/", label: "ニュース" },
+    { label: `${page}` },
+  ]}
+>
+  <div class="main">
+    <div class="news-catbar">
+      <b>ニュース</b>
+      <small> - {items[0] ? formatNewsBarDate(items[0].data.world_pub_date) : ""}</small>
+    </div>
+    <ul class="news-ul news-archive">
+      {items.map((item) => (
+        <li>
+          ・<a href={newsUrl(item)}>{item.data.title}</a>
+          （{item.data.dateline}）
+          <span class="t"> - {formatMdDate(item.data.world_pub_date)}</span>
+          <span class="c"> [{item.data.news_category}]</span>
+        </li>
+      ))}
+    </ul>
+    <div class="pager">
+      {hasPrev && <a href={withBase(page === 2 ? "/news/" : `/news/${page - 1}/`)}>前の20件</a>}
+      {hasNext && <a href={withBase(`/news/${page + 1}/`)}>次の20件</a>}
+    </div>
+  </div>
+</BaseLayout>

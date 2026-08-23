@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {
+  corpEntrySlug,
+  corpUrl,
+  dictUrl,
+  newsUrl,
+  publishedCorp,
+  publishedDict,
+  publishedNews,
+} from "../lib/collections";
+import { CATEGORY_LABEL, CATEGORY_ORDER } from "../lib/labels";
+import { withBase } from "../lib/paths";
+
+const news = await publishedNews();
+const dict = await publishedDict();
+const corp = await publishedCorp();
+const byCat = CATEGORY_ORDER.map((cat) => ({
+  cat,
+  label: CATEGORY_LABEL[cat],
+  items: dict.filter((item) => item.data.category === cat),
+})).filter((group) => group.items.length > 0);
+---
+<BaseLayout
+  title="サイトマップ"
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { label: "サイトマップ" },
+  ]}
+>
+  <div class="main">
+    <h1>サイトマップ</h1>
+    <h2>案内</h2>
+    <ul>
+      <li><a href={withBase("/")}>トップ</a></li>
+      <li><a href={withBase("/news/")}>ニュース</a></li>
+      <li><a href={withBase("/dict/")}>天通辞典</a></li>
+      <li><a href={withBase("/corp/")}>会社案内</a></li>
+      <li><a href={withBase("/search/")}>検索</a></li>
+    </ul>
+    <h2>ニュース</h2>
+    <ul>
+      {news.map((item) => (
+        <li><a href={newsUrl(item)}>{item.data.title}</a></li>
+      ))}
+    </ul>
+    <h2>天通辞典</h2>
+    {byCat.map((group) => (
+      <>
+        <h3><a href={withBase(`/dict/${group.cat}/`)}>{group.label}</a></h3>
+        <ul>
+          {group.items.map((item) => (
+            <li><a href={dictUrl(item)}>{item.data.title}</a></li>
+          ))}
+        </ul>
+      </>
+    ))}
+    <h2>会社案内</h2>
+    <ul>
+      {corp.map((item) => (
+        <li><a href={corpUrl(corpEntrySlug(item))}>{item.data.title}</a></li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

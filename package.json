@@ -1,0 +1,30 @@
+{
+  "name": "tenzu-jp",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "cross-env TENZU_BUILD_MODE=development astro dev",
+    "check": "node scripts/check-content.mjs",
+    "check:selftest": "node scripts/check-content.mjs --selftest",
+    "check:html": "node scripts/check-content.mjs --html",
+    "build": "node scripts/check-content.mjs && node scripts/astro-build.mjs production",
+    "build:dev": "node scripts/check-content.mjs && node scripts/astro-build.mjs development && npm run index",
+    "extract:public": "node scripts/extract-public-content.mjs",
+    "index": "pagefind --site dist --output-subdir pagefind",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.14.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "pagefind": "^1.3.0",
+    "typescript": "^5.9.0"
+  }
+}

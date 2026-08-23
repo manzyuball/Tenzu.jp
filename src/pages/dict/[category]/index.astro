@@ -1,0 +1,66 @@
+---
+import DictLayout from "../../../layouts/DictLayout.astro";
+import { dictUrl, publishedDict } from "../../../lib/collections";
+import { formatWorldDate } from "../../../lib/dates";
+import { CATEGORY_LABEL, CATEGORY_ORDER } from "../../../lib/labels";
+import { withBase } from "../../../lib/paths";
+
+export async function getStaticPaths() {
+  const dict = await publishedDict();
+  const present = new Set(dict.map((item) => item.data.category));
+  return CATEGORY_ORDER.filter((cat) => present.has(cat)).map((category) => ({
+    params: { category },
+  }));
+}
+
+const category = Astro.params.category as typeof CATEGORY_ORDER[number];
+const label = CATEGORY_LABEL[category];
+const dict = await publishedDict();
+const items = dict.filter((item) => item.data.category === category);
+const others = CATEGORY_ORDER
+  .filter((cat) => cat !== category)
+  .map((cat) => ({ cat, label: CATEGORY_LABEL[cat], count: dict.filter((item) => item.data.category === cat).length }))
+  .filter((group) => group.count > 0);
+---
+<DictLayout
+  title={label}
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { href: "/dict/", label: "天通辞典" },
+    { label },
+  ]}
+  tab="none"
+>
+  <h1>カテゴリ：{label}</h1>
+  <p>{items.length}件</p>
+  <table class="news-table">
+    <thead>
+      <tr>
+        <th>項目</th>
+        <th>読み</th>
+        <th>最終更新</th>
+      </tr>
+    </thead>
+    <tbody>
+      {items.map((item) => (
+        <tr>
+          <td><a href={dictUrl(item)}>{item.data.title}</a></td>
+          <td>{item.data.reading}</td>
+          <td class="d">{formatWorldDate(item.data.world_update_date)}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  {others.length > 0 && (
+    <p class="subnav">
+      他のカテゴリ：
+      {others.map((group, i) => (
+        <>
+          {i > 0 && " ／ "}
+          <a href={withBase(`/dict/${group.cat}/`)}>{group.label}</a>（{group.count}）
+        </>
+      ))}
+    </p>
+  )}
+  <p><a href={withBase("/dict/")}>天通辞典メインページへ</a></p>
+</DictLayout>

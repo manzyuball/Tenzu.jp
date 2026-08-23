@@ -1,0 +1,76 @@
+---
+import DictLayout from "../../layouts/DictLayout.astro";
+import {
+  dictUrl,
+  publishedCorp,
+  publishedDict,
+} from "../../lib/collections";
+import { compareIsoDesc, formatWorldDate } from "../../lib/dates";
+import { CATEGORY_LABEL, CATEGORY_ORDER } from "../../lib/labels";
+import { withBase } from "../../lib/paths";
+
+const dict = await publishedDict();
+const corp = await publishedCorp();
+const hasHyoki = corp.some((p) => p.id.endsWith("hyoki-ni-tsuite") || p.id.split("/").pop() === "hyoki-ni-tsuite");
+const byCat = CATEGORY_ORDER.map((cat) => ({
+  cat,
+  label: CATEGORY_LABEL[cat],
+  items: dict.filter((d) => d.data.category === cat),
+})).filter((group) => group.items.length > 0);
+const newest = [...dict].sort((a, b) =>
+  compareIsoDesc(a.data.world_pub_date, b.data.world_pub_date),
+).slice(0, 8);
+const recent = [...dict].sort((a, b) =>
+  compareIsoDesc(a.data.world_update_date, b.data.world_update_date),
+).slice(0, 8);
+---
+<DictLayout
+  title="天通辞典"
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { label: "天通辞典" },
+  ]}
+  tab="none"
+>
+  <h1>天通辞典</h1>
+  <p>天通辞典は、天通編集部が執筆・管理する公開の百科です。項目の追加・修正は編集部が行います。</p>
+  {hasHyoki && (
+    <p><a href={withBase("/corp/hyoki-ni-tsuite/")}>編集方針（天通標準表記について）</a></p>
+  )}
+  <p><a href={withBase("/corp/toiawase/")}>情報提供のお願い</a></p>
+
+  <h2 id="categories">カテゴリ一覧</h2>
+  <table class="cat-table">
+    {byCat.map((group) => (
+      <tr>
+        <th><a href={withBase(`/dict/${group.cat}/`)}>{group.label}</a></th>
+        <td>
+          {group.items.map((item, i) => (
+            <>
+              {i > 0 && "　"}
+              <a href={dictUrl(item)}>{item.data.title}</a>
+            </>
+          ))}
+        </td>
+      </tr>
+    ))}
+  </table>
+
+  <h2 id="new">新着項目</h2>
+  <ul>
+    {newest.map((item) => (
+      <li>
+        {formatWorldDate(item.data.world_pub_date)}　<a href={dictUrl(item)}>{item.data.title}</a>
+      </li>
+    ))}
+  </ul>
+
+  <h2 id="recent">最近の更新</h2>
+  <ul>
+    {recent.map((item) => (
+      <li>
+        {formatWorldDate(item.data.world_update_date)}　<a href={dictUrl(item)}>{item.data.title}</a>
+      </li>
+    ))}
+  </ul>
+</DictLayout>

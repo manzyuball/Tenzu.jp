@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/paths";
+
+const q = Astro.url.searchParams.get("q") ?? "";
+const scope = Astro.url.searchParams.get("scope") ?? "";
+const pagefindUrl = withBase("/pagefind/pagefind.js");
+---
+<BaseLayout
+  title="検索"
+  kind="search"
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { label: "検索" },
+  ]}
+>
+  <div class="main">
+    <h1>検索</h1>
+    <div class="box search-panel">
+      <div class="box-h">サイト内検索</div>
+      <div class="box-b">
+        <form action={withBase("/search/")} method="get">
+          <table class="search-form-table">
+            <tr>
+              <th>語句</th>
+              <td>
+                <input type="text" name="q" value={q} maxlength="80" size="40" aria-label="検索語" />
+                {scope === "dict" && <input type="hidden" name="scope" value="dict" />}
+                <button type="submit">検索</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+        {scope === "dict" && <p>対象：天通辞典</p>}
+      </div>
+    </div>
+    <p id="count" class="search-count"></p>
+    <ol id="results" class="search-results"></ol>
+    <noscript><p>検索にはJavaScriptが必要です。</p></noscript>
+  </div>
+  <script is:inline define:vars={{ q, scope, pagefindUrl }}>
+    (async function () {
+      var countEl = document.getElementById("count");
+      var listEl = document.getElementById("results");
+      if (!q) {
+        countEl.textContent = "キーワードを入力してください。";
+        return;
+      }
+      try {
+        var mod = await import(pagefindUrl);
+        var pf = mod.default || mod;
+        await pf.init();
+        var options = {};
+        if (scope === "dict") options.filters = { kind: ["dict"] };
+        var result = await pf.search(q, options);
+        var data = [];
+        for (var i = 0; i < result.results.length; i += 1) {
+          data.push(await result.results[i].data());
+        }
+        var total = data.length;
+        var shown = data.slice(0, 10);
+        countEl.textContent = total === 0 ? "該当する記事はありません。" : (total + "件中 1〜" + shown.length + "件を表示");
+        shown.forEach(function (item) {
+          var li = document.createElement("li");
+          var kind = "";
+          if (item.url.indexOf("/dict/") === 0) kind = "辞典";
+          else if (item.url.indexOf("/news/") === 0) kind = "ニュース";
+          else if (item.url.indexOf("/corp/") === 0) kind = "会社案内";
+          var kindHtml = kind ? '<span class="kind">' + kind + "</span>" : "";
+          var excerpt = item.excerpt || "";
+          li.innerHTML = kindHtml + '<a href="' + item.url + '">' + (item.meta && item.meta.title ? item.meta.title : item.url) + '</a><div class="ex">' + excerpt + "</div>";
+          listEl.appendChild(li);
+        });
+      } catch (err) {
+        countEl.textContent = "現在、検索索引を利用できません。";
+      }
+    })();
+  </script>
+</BaseLayout>

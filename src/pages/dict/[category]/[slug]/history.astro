@@ -1,0 +1,57 @@
+---
+import DictLayout from "../../../../layouts/DictLayout.astro";
+import { dictEntrySlug, dictUrl, publishedDict } from "../../../../lib/collections";
+import { formatWorldDate } from "../../../../lib/dates";
+import { CATEGORY_LABEL } from "../../../../lib/labels";
+
+export async function getStaticPaths() {
+  const dict = await publishedDict();
+  return dict.map((entry) => ({
+    params: { category: entry.data.category, slug: dictEntrySlug(entry) },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const href = dictUrl(entry);
+const history = entry.data.history ?? [];
+const catLabel = CATEGORY_LABEL[entry.data.category];
+---
+<DictLayout
+  title={`${entry.data.title}の更新履歴`}
+  breadcrumb={[
+    { href: "/", label: "天通.jp" },
+    { href: "/dict/", label: "天通辞典" },
+    { href: `/dict/${entry.data.category}/`, label: catLabel },
+    { href, label: entry.data.title },
+    { label: "更新履歴" },
+  ]}
+  articleHref={href}
+  historyHref={`${href}history/`}
+  contactHref={`${href}contact/`}
+  tab="history"
+>
+  <h1>{entry.data.title}</h1>
+  <p class="reading">{entry.data.reading}</p>
+  {history.length === 0 ? (
+    <p>初版（{formatWorldDate(entry.data.world_pub_date)}）以降、大きな更新はありません。</p>
+  ) : (
+    <table class="hist-table">
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        {history.map((row) => (
+          <tr>
+            <td class="d">{formatWorldDate(row.date)}</td>
+            <td>{row.note}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+  <p class="pagetop"><a href="#top">このページの先頭へ</a></p>
+</DictLayout>

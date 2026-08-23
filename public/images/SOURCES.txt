@@ -1,0 +1,6 @@
+社屋・街・施設の写真は既存の資料写真だけを置く。人物の肖像は置かない。
+サイト本文のキャプションは2005年の紙面用（天通写真部）であり、ライセンス表記はここに置く。
+グラフ・国旗・開票画面は現地生成。
+
+org-ose.jpg	File:Osaka-Securities-Exchange-01.jpg	CC BY-SA 3.0	Taken on 21 May 2006
+org-ose-night.jpg	File:Osaka-Securities-Exchange-02.jpg	CC BY-SA 3.0	2008-04-29

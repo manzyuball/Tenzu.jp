@@ -1,0 +1,74 @@
+{
+  "as_of": "2005-12-04",
+  "attribution": "天通経済部『世界経済年報』2005年版および大証の公開値。戦時の指数は店頭観測。",
+  "fx_yen_per_usd_2004": 108,
+  "population_man": {
+    "nishi": 7820,
+    "higashi": 4510
+  },
+  "gdp_2004": {
+    "rows": [
+      { "name": "西日本", "usd_oku": 134200, "yen_cho": 1449, "rank": 1 },
+      { "name": "アメリカ合衆国", "usd_oku": 130000, "yen_cho": 1404, "rank": 2 },
+      { "name": "ソビエト連邦", "usd_oku": 45000, "yen_cho": 486, "rank": 3 },
+      { "name": "ドイツ連邦共和国", "usd_oku": 27600, "yen_cho": 298, "rank": 4 },
+      { "name": "東日本", "usd_oku": 25200, "yen_cho": 272, "rank": 5 },
+      { "name": "イギリス", "usd_oku": 21100, "yen_cho": 228, "rank": 6 },
+      { "name": "フランス", "usd_oku": 20500, "yen_cho": 221, "rank": 7 },
+      { "name": "中華人民共和国", "usd_oku": 18300, "yen_cho": 198, "rank": 8 }
+    ]
+  },
+  "gnp_nishi_2004_cho": 1486,
+  "ose_index": {
+    "name": "大証株価指数",
+    "base": "1968年1月4日＝100",
+    "points": [
+      { "date": "2004-01-05", "value": 1724.1, "note": "公式" },
+      { "date": "2004-06-30", "value": 1806.4, "note": "公式" },
+      { "date": "2004-12-30", "value": 1868.42, "note": "公式" },
+      { "date": "2005-01-14", "value": 1881.05, "note": "公式" },
+      { "date": "2005-05-02", "value": 1640.2, "note": "公式" },
+      { "date": "2005-07-15", "value": 1218.7, "note": "公式断片" },
+      { "date": "2005-07-18", "value": 1012.6, "note": "公式断片" },
+      { "date": "2005-10-03", "value": 1094.0, "note": "店頭観測" },
+      { "date": "2005-12-03", "value": 1186.0, "note": "店頭観測" }
+    ]
+  },
+  "stocks_2005_01_14": [
+    { "name": "守矢", "code": "8011", "close": 2145, "diff": 18 },
+    { "name": "河城工業", "code": "6120", "close": 3870, "diff": 45 },
+    { "name": "天通", "code": "9408", "close": 1620, "diff": -8 }
+  ],
+  "kaihyo": [
+    { "name": "守矢", "seats": 231 },
+    { "name": "共和", "seats": 147 },
+    { "name": "まもる", "seats": 26 },
+    { "name": "労働", "seats": 24 },
+    { "name": "護国", "seats": 14 },
+    { "name": "四国", "seats": 10 },
+    { "name": "その他", "seats": 8 },
+    { "name": "残り", "seats": 20 }
+  ],
+  "tenzu": {
+    "founded": "1964年4月1日",
+    "capital_oku": 428,
+    "employees": 12400,
+    "sales_oku": 9860,
+    "hq": "京都",
+    "offices": "大阪、福岡、東京支局",
+    "listed": "大証1部 9408"
+  },
+  "saiyo": {
+    "shinotsu_label": "2006年4月入社（新卒）",
+    "roles": [
+      { "name": "総合職（報道）", "n": "15名程度" },
+      { "name": "総合職（辞典編集）", "n": "8名程度" },
+      { "name": "技術職（通信）", "n": "12名程度" },
+      { "name": "総合職（営業）", "n": "6名程度" }
+    ],
+    "shoninkyu": 215000,
+    "bonus_months": 5.2,
+    "hours": "9:00–17:30（報道職はシフト）",
+    "chuto_deadline": "2005年12月20日必着"
+  }
+}
